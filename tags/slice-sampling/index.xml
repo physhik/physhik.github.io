@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>slice sampling on Physics to Data Science</title>
-    <link>https://physhik.github.io/tags/slice-sampling/</link>
+    <link>//physhik.com/tags/slice-sampling/</link>
     <description>Recent content in slice sampling on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 05 Sep 2017 17:30:00 -0700</lastBuildDate>
     
-	<atom:link href="https://physhik.github.io/tags/slice-sampling/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//physhik.com/tags/slice-sampling/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>MCMC (7) : Slice Sampling</title>
-      <link>https://physhik.github.io/2017/09/mcmc-7-slice-sampling/</link>
+      <link>//physhik.com/2017/09/mcmc-7-slice-sampling/</link>
       <pubDate>Tue, 05 Sep 2017 17:30:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/09/mcmc-7-slice-sampling/</guid>
+      <guid>//physhik.com/2017/09/mcmc-7-slice-sampling/</guid>
       <description>Slice sampling algorithm 
 A single transition $(x,u) \rightarrow (x&amp;rsquo;,u&amp;rsquo;)$ of a one-dimensional slice sampling algorithm has the following steps.
 

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>regularization on Physics to Data Science</title>
-    <link>https://physhik.github.io/tags/regularization/</link>
+    <link>//physhik.com/tags/regularization/</link>
     <description>Recent content in regularization on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 31 Aug 2017 13:40:00 -0700</lastBuildDate>
     
-	<atom:link href="https://physhik.github.io/tags/regularization/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//physhik.com/tags/regularization/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Clustering (2) : Soft K-mean</title>
-      <link>https://physhik.github.io/2017/08/clustering-2-soft-k-mean/</link>
+      <link>//physhik.com/2017/08/clustering-2-soft-k-mean/</link>
       <pubDate>Thu, 31 Aug 2017 13:40:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/08/clustering-2-soft-k-mean/</guid>
+      <guid>//physhik.com/2017/08/clustering-2-soft-k-mean/</guid>
       <description>Hard K-means and responsibilities 
 If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the hard K-means algorithm in the previous post.
 

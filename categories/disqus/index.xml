@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>disqus on Physics to Data Science</title>
-    <link>https://physhik.github.io/categories/disqus/</link>
+    <link>//physhik.com/categories/disqus/</link>
     <description>Recent content in disqus on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 14 Aug 2017 23:50:00 -0700</lastBuildDate>
     
-	<atom:link href="https://physhik.github.io/categories/disqus/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//physhik.com/categories/disqus/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Adding Disqus to a Jekyll Blog</title>
-      <link>https://physhik.github.io/2017/08/adding-disqus-to-a-jekyll-blog/</link>
+      <link>//physhik.com/2017/08/adding-disqus-to-a-jekyll-blog/</link>
       <pubDate>Mon, 14 Aug 2017 23:50:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/08/adding-disqus-to-a-jekyll-blog/</guid>
+      <guid>//physhik.com/2017/08/adding-disqus-to-a-jekyll-blog/</guid>
       <description>Github is a fantastic space for someone like me to try to learn something new.
 
 This time I have built a blog powered by jekyll and Github. This posting is targetting a novice who especially used a theme, and who is trying to add a disqus in the blog. Hope it helps them not to experience the trials and errors I had.

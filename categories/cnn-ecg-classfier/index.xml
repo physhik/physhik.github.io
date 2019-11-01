@@ -2,31 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CNN, ECG classfier on Physics to Data Science</title>
-    <link>https://physhik.github.io/categories/cnn-ecg-classfier/</link>
+    <link>//physhik.com/categories/cnn-ecg-classfier/</link>
     <description>Recent content in CNN, ECG classfier on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Mar 2019 01:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 31 Oct 2019 01:00:00 -0700</lastBuildDate>
     
-	<atom:link href="https://physhik.github.io/categories/cnn-ecg-classfier/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//physhik.com/categories/cnn-ecg-classfier/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Introduction to sabermetrics</title>
+      <link>//physhik.com/2019/10/introduction-to-sabermetrics/</link>
+      <pubDate>Thu, 31 Oct 2019 01:00:00 -0700</pubDate>
+      
+      <guid>//physhik.com/2019/10/introduction-to-sabermetrics/</guid>
+      <description>Some baseball fans regard sabermetricians as freaks crazy about numbers instead of the real baseball. However, I do not agree with that in two ways.
+ It is not just about a number. &amp;quot;S&amp;quot; in sabermetric means It is simply trial to understand the baseball game.  </description>
+    </item>
+    
+    <item>
       <title>Machine Learns from Cardiologist (3)</title>
-      <link>https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/</link>
+      <link>//physhik.com/2019/03/machine-learns-from-cardiologist-3/</link>
       <pubDate>Fri, 29 Mar 2019 01:00:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/</guid>
+      <guid>//physhik.com/2019/03/machine-learns-from-cardiologist-3/</guid>
       <description>Open source 
 The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</description>
     </item>
     
     <item>
       <title>Machine Learns from Cardiologist (2)</title>
-      <link>https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/</link>
+      <link>//physhik.com/2019/03/machine-learns-from-cardiologist-2/</link>
       <pubDate>Wed, 20 Mar 2019 19:00:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/</guid>
+      <guid>//physhik.com/2019/03/machine-learns-from-cardiologist-2/</guid>
       <description>Understand literatures and the result-analysis 
 Deep learning and classifications. 
 The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
@@ -36,10 +46,10 @@ What matters is if we have enough data, and how we can preprocess the data prope
     
     <item>
       <title>Macnine Learns from Cardiologist (1)</title>
-      <link>https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/</link>
+      <link>//physhik.com/2019/03/macnine-learns-from-cardiologist-1/</link>
       <pubDate>Sun, 17 Mar 2019 20:00:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/</guid>
+      <guid>//physhik.com/2019/03/macnine-learns-from-cardiologist-1/</guid>
       <description>Prologue 
 Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 

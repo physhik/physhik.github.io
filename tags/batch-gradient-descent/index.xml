@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>batch gradient descent on Physics to Data Science</title>
-    <link>https://physhik.github.io/tags/batch-gradient-descent/</link>
+    <link>//physhik.com/tags/batch-gradient-descent/</link>
     <description>Recent content in batch gradient descent on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 06 Sep 2017 16:30:00 -0700</lastBuildDate>
     
-	<atom:link href="https://physhik.github.io/tags/batch-gradient-descent/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//physhik.com/tags/batch-gradient-descent/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Neural Network (2) : Inference Using Perceptron and MCMC</title>
-      <link>https://physhik.github.io/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</link>
+      <link>//physhik.com/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</link>
       <pubDate>Wed, 06 Sep 2017 16:30:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</guid>
+      <guid>//physhik.com/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</guid>
       <description>Single neuron still has a lot to say 
 In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
 
@@ -25,10 +25,10 @@ In the post of the first neural network tutorial, I said I would leave you to fi
     
     <item>
       <title>MCMC (6): Gibbs Sampling and Overrelaxation</title>
-      <link>https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/</link>
+      <link>//physhik.com/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/</link>
       <pubDate>Fri, 01 Sep 2017 22:30:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/</guid>
+      <guid>//physhik.com/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/</guid>
       <description>Efficient Monte Carlo sampling 
 This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
 
@@ -38,10 +38,10 @@ In advance of studying over relaxation, we study Gibbs sampling. In the general 
     
     <item>
       <title>Neural Network (1): Perceptron and Stochastic Gradient Descent</title>
-      <link>https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</link>
+      <link>//physhik.com/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</link>
       <pubDate>Wed, 30 Aug 2017 19:30:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</guid>
+      <guid>//physhik.com/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</guid>
       <description>Single neuron is amazing 
 One of the lessons I had during physics program is that we should start to understand small thing deeply however complicated the system which you want to know is. Not just it is easier but also it helps a lot to understand the more complex ones.
 

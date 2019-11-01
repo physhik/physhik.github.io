@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ising model on Physics to Data Science</title>
-    <link>https://physhik.github.io/categories/ising-model/</link>
+    <link>//physhik.com/categories/ising-model/</link>
     <description>Recent content in Ising model on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 09 Sep 2017 23:30:00 -0700</lastBuildDate>
     
-	<atom:link href="https://physhik.github.io/categories/ising-model/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//physhik.com/categories/ising-model/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ising Model</title>
-      <link>https://physhik.github.io/2017/09/ising-model/</link>
+      <link>//physhik.com/2017/09/ising-model/</link>
       <pubDate>Sat, 09 Sep 2017 23:30:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/09/ising-model/</guid>
+      <guid>//physhik.com/2017/09/ising-model/</guid>
       <description>Why Ising model : 3 reasons for relevance 
  Studying Ising model can be useful to understand phase transition of various systems.  
  Hopfield network or Boltzmann machine to the neural network is just a generalized form of Ising model.  

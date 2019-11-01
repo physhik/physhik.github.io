@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>maximum likelihood on Physics to Data Science</title>
-    <link>https://physhik.github.io/categories/maximum-likelihood/</link>
+    <link>//physhik.com/categories/maximum-likelihood/</link>
     <description>Recent content in maximum likelihood on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 29 Aug 2017 10:30:00 -0700</lastBuildDate>
     
-	<atom:link href="https://physhik.github.io/categories/maximum-likelihood/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//physhik.com/categories/maximum-likelihood/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Independent Component Analysis and Covariant Learning</title>
-      <link>https://physhik.github.io/2017/08/independent-component-analysis-and-covariant-learning/</link>
+      <link>//physhik.com/2017/08/independent-component-analysis-and-covariant-learning/</link>
       <pubDate>Tue, 29 Aug 2017 10:30:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/08/independent-component-analysis-and-covariant-learning/</guid>
+      <guid>//physhik.com/2017/08/independent-component-analysis-and-covariant-learning/</guid>
       <description>Generative model 
 Generative model is a model for generating all variables including outputs. I will give a very simple example with strong assumptions.
 

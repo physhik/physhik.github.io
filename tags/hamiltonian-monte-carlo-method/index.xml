@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hamiltonian Monte Carlo method on Physics to Data Science</title>
-    <link>https://physhik.github.io/tags/hamiltonian-monte-carlo-method/</link>
+    <link>//physhik.com/tags/hamiltonian-monte-carlo-method/</link>
     <description>Recent content in Hamiltonian Monte Carlo method on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 06 Sep 2017 16:30:00 -0700</lastBuildDate>
     
-	<atom:link href="https://physhik.github.io/tags/hamiltonian-monte-carlo-method/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//physhik.com/tags/hamiltonian-monte-carlo-method/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Neural Network (2) : Inference Using Perceptron and MCMC</title>
-      <link>https://physhik.github.io/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</link>
+      <link>//physhik.com/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</link>
       <pubDate>Wed, 06 Sep 2017 16:30:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</guid>
+      <guid>//physhik.com/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</guid>
       <description>Single neuron still has a lot to say 
 In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
 
@@ -25,10 +25,10 @@ In the post of the first neural network tutorial, I said I would leave you to fi
     
     <item>
       <title>MCMC (5) : Hamiltonian Monte Carlo Method</title>
-      <link>https://physhik.github.io/2017/08/mcmc-5-hamiltonian-monte-carlo-method/</link>
+      <link>//physhik.com/2017/08/mcmc-5-hamiltonian-monte-carlo-method/</link>
       <pubDate>Fri, 25 Aug 2017 19:10:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/08/mcmc-5-hamiltonian-monte-carlo-method/</guid>
+      <guid>//physhik.com/2017/08/mcmc-5-hamiltonian-monte-carlo-method/</guid>
       <description>Yay! Finally something more directly from physics to data science. We will also have a chance to see how Metropolis-Hastings algorithm works!
 
 The Hamiltonian Monte Carlo method is a kind of Metropolis-Hastings method. One of the weak points of Monte Carlo sampling comes up with random walks. Hamiltonian Monte Carlo method (HMC) is an approach to reducing the randomizing in algorithm of the sampling.

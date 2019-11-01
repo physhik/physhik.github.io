@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Exact Monte Carlo method on Physics to Data Science</title>
-    <link>https://physhik.github.io/tags/exact-monte-carlo-method/</link>
+    <link>//physhik.com/tags/exact-monte-carlo-method/</link>
     <description>Recent content in Exact Monte Carlo method on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 21 Aug 2017 02:10:00 -0700</lastBuildDate>
     
-	<atom:link href="https://physhik.github.io/tags/exact-monte-carlo-method/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//physhik.com/tags/exact-monte-carlo-method/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>MCMC (2) : Exact Monte Carlo Method</title>
-      <link>https://physhik.github.io/2017/08/mcmc-2-exact-monte-carlo-method/</link>
+      <link>//physhik.com/2017/08/mcmc-2-exact-monte-carlo-method/</link>
       <pubDate>Mon, 21 Aug 2017 02:10:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/08/mcmc-2-exact-monte-carlo-method/</guid>
+      <guid>//physhik.com/2017/08/mcmc-2-exact-monte-carlo-method/</guid>
       <description>Exact Markov chain Monte Carlo sampling 
 I don&amp;rsquo;t like the naming. The word exact could mislead us to understand the concept. Anyway I used the word in the title because it was the title of the chapter of the book &amp;ldquo;Information Theory, Inference, and Learning Algorithms&amp;rdquo; by David Mackay, which I studied to learn the theory.
 The different names of it are perfect simulation and coupling from the past.</description>

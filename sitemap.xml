@@ -3,707 +3,797 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://physhik.github.io/categories/blog/</loc>
+    <loc>//physhik.com/categories/</loc>
+    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/categories/cnn-ecg-classfier/</loc>
+    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/categories/deep-learning/</loc>
+    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/2019/10/introduction-to-sabermetrics/</loc>
+    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/</loc>
+    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/post/</loc>
+    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/tags/regression/</loc>
+    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/tags/sabermetics/</loc>
+    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/tags/</loc>
+    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/categories/blog/</loc>
     <lastmod>2019-10-29T14:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/</loc>
+    <loc>//physhik.com/categories/hugo/</loc>
     <lastmod>2019-10-29T14:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/hugo/</loc>
+    <loc>//physhik.com/tags/hugo/</loc>
     <lastmod>2019-10-29T14:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/hugo/</loc>
+    <loc>//physhik.com/2019/10/new-blog-theme/</loc>
     <lastmod>2019-10-29T14:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2019/10/new-blog-theme/</loc>
-    <lastmod>2019-10-29T14:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://physhik.github.io/</loc>
-    <lastmod>2019-10-29T14:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://physhik.github.io/post/</loc>
-    <lastmod>2019-10-29T14:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://physhik.github.io/tags/</loc>
-    <lastmod>2019-10-29T14:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://physhik.github.io/tags/cnn/</loc>
+    <loc>//physhik.com/tags/cnn/</loc>
     <lastmod>2019-03-29T01:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/cnn-ecg-classfier/</loc>
+    <loc>//physhik.com/tags/ecg/</loc>
     <lastmod>2019-03-29T01:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/deep-learning/</loc>
+    <loc>//physhik.com/2019/03/machine-learns-from-cardiologist-3/</loc>
     <lastmod>2019-03-29T01:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/ecg/</loc>
-    <lastmod>2019-03-29T01:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/</loc>
-    <lastmod>2019-03-29T01:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/</loc>
+    <loc>//physhik.com/2019/03/machine-learns-from-cardiologist-2/</loc>
     <lastmod>2019-03-20T19:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/</loc>
+    <loc>//physhik.com/2019/03/macnine-learns-from-cardiologist-1/</loc>
     <lastmod>2019-03-17T20:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/api/</loc>
+    <loc>//physhik.com/tags/api/</loc>
     <lastmod>2019-02-27T02:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/cloud/</loc>
+    <loc>//physhik.com/tags/cloud/</loc>
     <lastmod>2019-02-27T02:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/cloud/</loc>
+    <loc>//physhik.com/categories/cloud/</loc>
     <lastmod>2019-02-27T02:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/youtube-api/</loc>
+    <loc>//physhik.com/categories/youtube-api/</loc>
     <lastmod>2019-02-27T02:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2019/02/youtube-data-api-on-gcp/</loc>
+    <loc>//physhik.com/2019/02/youtube-data-api-on-gcp/</loc>
     <lastmod>2019-02-27T02:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/clean-code/</loc>
+    <loc>//physhik.com/tags/clean-code/</loc>
     <lastmod>2019-02-25T16:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2019/02/clean-coding-and-short-run-time/</loc>
+    <loc>//physhik.com/2019/02/clean-coding-and-short-run-time/</loc>
     <lastmod>2019-02-25T16:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/faster-python/</loc>
+    <loc>//physhik.com/categories/faster-python/</loc>
     <lastmod>2019-02-25T16:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/pypy/</loc>
+    <loc>//physhik.com/categories/pypy/</loc>
     <lastmod>2019-02-25T16:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/python/</loc>
+    <loc>//physhik.com/tags/python/</loc>
     <lastmod>2019-02-25T16:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/about/</loc>
+    <loc>//physhik.com/about/</loc>
     <lastmod>2018-04-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2018/02/revisited-variational-inference/</loc>
+    <loc>//physhik.com/2018/02/revisited-variational-inference/</loc>
     <lastmod>2018-02-24T23:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/separable-eqauation/</loc>
+    <loc>//physhik.com/categories/separable-eqauation/</loc>
     <lastmod>2018-02-24T23:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/variational-method/</loc>
+    <loc>//physhik.com/tags/variational-method/</loc>
     <lastmod>2018-02-24T23:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/variational-method/</loc>
+    <loc>//physhik.com/categories/variational-method/</loc>
     <lastmod>2018-02-24T23:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/digital-signal-process/</loc>
+    <loc>//physhik.com/tags/digital-signal-process/</loc>
     <lastmod>2018-02-23T23:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/gan/</loc>
+    <loc>//physhik.com/tags/gan/</loc>
     <lastmod>2018-02-23T23:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/gan/</loc>
+    <loc>//physhik.com/categories/gan/</loc>
     <lastmod>2018-02-23T23:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2018/02/rough-review-of-wavegan/</loc>
+    <loc>//physhik.com/2018/02/rough-review-of-wavegan/</loc>
     <lastmod>2018-02-23T23:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/began/</loc>
+    <loc>//physhik.com/tags/began/</loc>
     <lastmod>2017-12-06T14:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/dcgan/</loc>
+    <loc>//physhik.com/tags/dcgan/</loc>
     <lastmod>2017-12-06T14:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/12/introduction-to-gan/</loc>
+    <loc>//physhik.com/2017/12/introduction-to-gan/</loc>
     <lastmod>2017-12-06T14:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/progressive-growing-of-gan/</loc>
+    <loc>//physhik.com/tags/progressive-growing-of-gan/</loc>
     <lastmod>2017-12-06T14:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/12/how-to-test-progressive-growing-of-gan-from-the-github-source/</loc>
+    <loc>//physhik.com/2017/12/how-to-test-progressive-growing-of-gan-from-the-github-source/</loc>
     <lastmod>2017-12-02T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/09/learning-to-learn-by-gradient-descent-by-gradient-descent/</loc>
+    <loc>//physhik.com/2017/09/learning-to-learn-by-gradient-descent-by-gradient-descent/</loc>
     <lastmod>2017-09-28T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/long-short-term-memory/</loc>
+    <loc>//physhik.com/tags/long-short-term-memory/</loc>
     <lastmod>2017-09-28T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/lstm/</loc>
+    <loc>//physhik.com/categories/lstm/</loc>
     <lastmod>2017-09-28T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/tensorboard/</loc>
+    <loc>//physhik.com/tags/tensorboard/</loc>
     <lastmod>2017-09-28T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/tensorflow/</loc>
+    <loc>//physhik.com/tags/tensorflow/</loc>
     <lastmod>2017-09-28T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/autoencoder/</loc>
+    <loc>//physhik.com/categories/autoencoder/</loc>
     <lastmod>2017-09-20T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/autoencoder/</loc>
+    <loc>//physhik.com/tags/autoencoder/</loc>
     <lastmod>2017-09-20T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/generative-model/</loc>
+    <loc>//physhik.com/tags/generative-model/</loc>
     <lastmod>2017-09-20T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/keras/</loc>
+    <loc>//physhik.com/tags/keras/</loc>
     <lastmod>2017-09-20T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/09/variational-autoencoder/</loc>
+    <loc>//physhik.com/2017/09/variational-autoencoder/</loc>
     <lastmod>2017-09-20T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/variational-inference/</loc>
+    <loc>//physhik.com/tags/variational-inference/</loc>
     <lastmod>2017-09-20T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/boltzmann-machine/</loc>
+    <loc>//physhik.com/categories/boltzmann-machine/</loc>
     <lastmod>2017-09-18T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/boltzmann-machine/</loc>
+    <loc>//physhik.com/tags/boltzmann-machine/</loc>
     <lastmod>2017-09-18T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/hopfield-net/</loc>
+    <loc>//physhik.com/tags/hopfield-net/</loc>
     <lastmod>2017-09-18T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/09/neural-network-5-very-simple-boltzmann-machine/</loc>
+    <loc>//physhik.com/2017/09/neural-network-5-very-simple-boltzmann-machine/</loc>
     <lastmod>2017-09-18T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/simulated-annealing/</loc>
+    <loc>//physhik.com/tags/simulated-annealing/</loc>
     <lastmod>2017-09-18T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/graph/</loc>
+    <loc>//physhik.com/categories/graph/</loc>
     <lastmod>2017-09-15T16:20:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/09/graphviz/</loc>
+    <loc>//physhik.com/2017/09/graphviz/</loc>
     <lastmod>2017-09-15T16:20:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/graphviz/</loc>
+    <loc>//physhik.com/tags/graphviz/</loc>
     <lastmod>2017-09-15T16:20:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/graphviz/</loc>
+    <loc>//physhik.com/categories/graphviz/</loc>
     <lastmod>2017-09-15T16:20:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/deep-reinforcement-learning/</loc>
+    <loc>//physhik.com/tags/deep-reinforcement-learning/</loc>
     <lastmod>2017-09-14T23:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/dynamic-programming/</loc>
+    <loc>//physhik.com/tags/dynamic-programming/</loc>
     <lastmod>2017-09-14T23:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</loc>
+    <loc>//physhik.com/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</loc>
     <lastmod>2017-09-14T23:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/reinforcement-learning/</loc>
+    <loc>//physhik.com/categories/reinforcement-learning/</loc>
     <lastmod>2017-09-14T23:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/associative-memories/</loc>
+    <loc>//physhik.com/tags/associative-memories/</loc>
     <lastmod>2017-09-10T13:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/hebbian-learning/</loc>
+    <loc>//physhik.com/tags/hebbian-learning/</loc>
     <lastmod>2017-09-10T13:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/ising-model/</loc>
+    <loc>//physhik.com/tags/ising-model/</loc>
     <lastmod>2017-09-10T13:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/networkx/</loc>
+    <loc>//physhik.com/tags/networkx/</loc>
     <lastmod>2017-09-10T13:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/09/neural-network-3-hopfield-net/</loc>
+    <loc>//physhik.com/2017/09/neural-network-3-hopfield-net/</loc>
     <lastmod>2017-09-10T13:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/regression/</loc>
+    <loc>//physhik.com/categories/regression/</loc>
     <lastmod>2017-09-10T13:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/regression/</loc>
+    <loc>//physhik.com/tags/u-net/</loc>
     <lastmod>2017-09-10T13:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/u-net/</loc>
-    <lastmod>2017-09-10T13:30:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://physhik.github.io/tags/gibbs-sampling/</loc>
+    <loc>//physhik.com/tags/gibbs-sampling/</loc>
     <lastmod>2017-09-09T23:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/09/ising-model/</loc>
+    <loc>//physhik.com/2017/09/ising-model/</loc>
     <lastmod>2017-09-09T23:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/ising-model/</loc>
+    <loc>//physhik.com/categories/ising-model/</loc>
     <lastmod>2017-09-09T23:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/markov-chain-monte-carlo-method/</loc>
+    <loc>//physhik.com/categories/markov-chain-monte-carlo-method/</loc>
     <lastmod>2017-09-09T23:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/metropolis-hastings-sampling/</loc>
+    <loc>//physhik.com/tags/metropolis-hastings-sampling/</loc>
     <lastmod>2017-09-09T23:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/monte-carlo-method/</loc>
+    <loc>//physhik.com/tags/monte-carlo-method/</loc>
     <lastmod>2017-09-09T23:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/batch-gradient-descent/</loc>
+    <loc>//physhik.com/_draft/</loc>
+    <lastmod>2017-09-09T16:50:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/_draft/2017-09-09-jekyll-atom-git/</loc>
+    <lastmod>2017-09-09T16:50:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/tags/atom/</loc>
+    <lastmod>2017-09-09T16:50:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/categories/atom-git/</loc>
+    <lastmod>2017-09-09T16:50:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/tags/git/</loc>
+    <lastmod>2017-09-09T16:50:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/tags/github/</loc>
+    <lastmod>2017-09-09T16:50:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/tags/google-analytics/</loc>
+    <lastmod>2017-09-09T16:50:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/tags/jekyll/</loc>
+    <lastmod>2017-09-09T16:50:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/categories/miscellaneous/</loc>
+    <lastmod>2017-09-09T16:50:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/tags/batch-gradient-descent/</loc>
     <lastmod>2017-09-06T16:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/bayesian-inference/</loc>
+    <loc>//physhik.com/tags/bayesian-inference/</loc>
     <lastmod>2017-09-06T16:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/hamiltonian-monte-carlo-method/</loc>
+    <loc>//physhik.com/tags/hamiltonian-monte-carlo-method/</loc>
     <lastmod>2017-09-06T16:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/langevin-algorithm/</loc>
+    <loc>//physhik.com/tags/langevin-algorithm/</loc>
     <lastmod>2017-09-06T16:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/leapfrog-algorithm/</loc>
+    <loc>//physhik.com/tags/leapfrog-algorithm/</loc>
     <lastmod>2017-09-06T16:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</loc>
+    <loc>//physhik.com/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</loc>
     <lastmod>2017-09-06T16:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/optimization/</loc>
+    <loc>//physhik.com/tags/optimization/</loc>
     <lastmod>2017-09-06T16:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/perceptron/</loc>
+    <loc>//physhik.com/tags/perceptron/</loc>
     <lastmod>2017-09-06T16:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/markov-chain-monte-carlo-method/</loc>
+    <loc>//physhik.com/tags/markov-chain-monte-carlo-method/</loc>
     <lastmod>2017-09-05T17:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/09/mcmc-7-slice-sampling/</loc>
+    <loc>//physhik.com/2017/09/mcmc-7-slice-sampling/</loc>
     <lastmod>2017-09-05T17:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/slice-sampling/</loc>
+    <loc>//physhik.com/tags/slice-sampling/</loc>
     <lastmod>2017-09-05T17:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/slice-sampling/</loc>
+    <loc>//physhik.com/categories/slice-sampling/</loc>
     <lastmod>2017-09-05T17:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/bayesian-inference/</loc>
+    <loc>//physhik.com/categories/bayesian-inference/</loc>
     <lastmod>2017-09-03T12:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/09/bayesian-inference-examples/</loc>
+    <loc>//physhik.com/2017/09/bayesian-inference-examples/</loc>
     <lastmod>2017-09-03T12:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/example/</loc>
+    <loc>//physhik.com/categories/example/</loc>
     <lastmod>2017-09-03T12:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/mathematica/</loc>
+    <loc>//physhik.com/tags/mathematica/</loc>
     <lastmod>2017-09-03T12:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/maximum-likelihood/</loc>
+    <loc>//physhik.com/tags/maximum-likelihood/</loc>
     <lastmod>2017-09-03T12:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/efficient-monte-carlo-sampling/</loc>
+    <loc>//physhik.com/tags/efficient-monte-carlo-sampling/</loc>
     <lastmod>2017-09-01T22:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/gibbs-sampling/</loc>
+    <loc>//physhik.com/categories/gibbs-sampling/</loc>
     <lastmod>2017-09-01T22:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/</loc>
+    <loc>//physhik.com/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/</loc>
     <lastmod>2017-09-01T22:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/on-line-learning/</loc>
+    <loc>//physhik.com/tags/on-line-learning/</loc>
     <lastmod>2017-09-01T22:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/over-relaxation/</loc>
+    <loc>//physhik.com/tags/over-relaxation/</loc>
     <lastmod>2017-09-01T22:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/stochastic-gradient-descent/</loc>
+    <loc>//physhik.com/tags/stochastic-gradient-descent/</loc>
     <lastmod>2017-09-01T22:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/clustering/</loc>
+    <loc>//physhik.com/categories/clustering/</loc>
     <lastmod>2017-08-31T13:40:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/clustering/</loc>
+    <loc>//physhik.com/tags/clustering/</loc>
     <lastmod>2017-08-31T13:40:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/08/clustering-2-soft-k-mean/</loc>
+    <loc>//physhik.com/2017/08/clustering-2-soft-k-mean/</loc>
     <lastmod>2017-08-31T13:40:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/hard-k-means/</loc>
+    <loc>//physhik.com/tags/hard-k-means/</loc>
     <lastmod>2017-08-31T13:40:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/mixture-of-gaussian/</loc>
+    <loc>//physhik.com/tags/mixture-of-gaussian/</loc>
     <lastmod>2017-08-31T13:40:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/regularization/</loc>
+    <loc>//physhik.com/tags/regularization/</loc>
     <lastmod>2017-08-31T13:40:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/soft-k-means/</loc>
+    <loc>//physhik.com/tags/soft-k-means/</loc>
     <lastmod>2017-08-31T13:40:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/unsupervised-machine-learning/</loc>
+    <loc>//physhik.com/categories/unsupervised-machine-learning/</loc>
     <lastmod>2017-08-31T13:40:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</loc>
+    <loc>//physhik.com/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</loc>
     <lastmod>2017-08-30T19:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/covariant-equation/</loc>
+    <loc>//physhik.com/tags/covariant-equation/</loc>
     <lastmod>2017-08-29T10:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/independent-component-analysis/</loc>
+    <loc>//physhik.com/tags/independent-component-analysis/</loc>
     <lastmod>2017-08-29T10:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/08/independent-component-analysis-and-covariant-learning/</loc>
+    <loc>//physhik.com/2017/08/independent-component-analysis-and-covariant-learning/</loc>
     <lastmod>2017-08-29T10:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/independent-component-anlysis/</loc>
+    <loc>//physhik.com/categories/independent-component-anlysis/</loc>
     <lastmod>2017-08-29T10:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/maximum-likelihood/</loc>
+    <loc>//physhik.com/categories/maximum-likelihood/</loc>
     <lastmod>2017-08-29T10:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/optimization/</loc>
+    <loc>//physhik.com/categories/optimization/</loc>
     <lastmod>2017-08-28T01:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/08/variational-method-for-optimization/</loc>
+    <loc>//physhik.com/2017/08/variational-method-for-optimization/</loc>
     <lastmod>2017-08-28T01:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/hamiltonian-monte-carlo-method/</loc>
+    <loc>//physhik.com/categories/hamiltonian-monte-carlo-method/</loc>
     <lastmod>2017-08-25T19:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/hybrid-monte-carlo-method/</loc>
+    <loc>//physhik.com/tags/hybrid-monte-carlo-method/</loc>
     <lastmod>2017-08-25T19:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/08/mcmc-5-hamiltonian-monte-carlo-method/</loc>
+    <loc>//physhik.com/2017/08/mcmc-5-hamiltonian-monte-carlo-method/</loc>
     <lastmod>2017-08-25T19:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/08/mcmc-4-rejection-sampling/</loc>
+    <loc>//physhik.com/2017/08/mcmc-4-rejection-sampling/</loc>
     <lastmod>2017-08-24T02:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/rejection-sampling/</loc>
+    <loc>//physhik.com/tags/rejection-sampling/</loc>
     <lastmod>2017-08-24T02:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/rejection-sampling/</loc>
+    <loc>//physhik.com/categories/rejection-sampling/</loc>
     <lastmod>2017-08-24T02:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/exact-monte-carlo-sampling/</loc>
+    <loc>//physhik.com/tags/exact-monte-carlo-sampling/</loc>
     <lastmod>2017-08-22T02:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/importance-sampling/</loc>
+    <loc>//physhik.com/tags/importance-sampling/</loc>
     <lastmod>2017-08-22T02:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/importance-sampling/</loc>
+    <loc>//physhik.com/categories/importance-sampling/</loc>
     <lastmod>2017-08-22T02:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/08/mcmc-3-importance-sampling/</loc>
+    <loc>//physhik.com/2017/08/mcmc-3-importance-sampling/</loc>
     <lastmod>2017-08-22T02:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/exact-monte-carlo-method/</loc>
+    <loc>//physhik.com/tags/exact-monte-carlo-method/</loc>
     <lastmod>2017-08-21T02:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/08/mcmc-2-exact-monte-carlo-method/</loc>
+    <loc>//physhik.com/2017/08/mcmc-2-exact-monte-carlo-method/</loc>
     <lastmod>2017-08-21T02:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/metropolis-hastings-sampling/</loc>
+    <loc>//physhik.com/categories/metropolis-hastings-sampling/</loc>
     <lastmod>2017-08-21T02:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/08/mcmc-1-monte-carlo-method-and-metropolis-hastings-sampling/</loc>
+    <loc>//physhik.com/2017/08/mcmc-1-monte-carlo-method-and-metropolis-hastings-sampling/</loc>
     <lastmod>2017-08-20T14:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/08/add-mathjax-to-jekyll-blog/</loc>
+    <loc>//physhik.com/2017/08/add-mathjax-to-jekyll-blog/</loc>
     <lastmod>2017-08-19T12:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/jekyll/</loc>
+    <loc>//physhik.com/categories/mathjax/</loc>
     <lastmod>2017-08-19T12:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/mathjax/</loc>
+    <loc>//physhik.com/tags/mathjax/</loc>
     <lastmod>2017-08-19T12:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/mathjax/</loc>
-    <lastmod>2017-08-19T12:10:00-07:00</lastmod>
+    <loc>//physhik.com/tags/algorithm/</loc>
+    <lastmod>2017-08-18T11:25:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/08/clustering-1-hard-k-means-and-its-failure/</loc>
+    <loc>//physhik.com/_draft/2017-08-18-dynamicprogramming/</loc>
+    <lastmod>2017-08-18T11:25:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/tags/recursion/</loc>
+    <lastmod>2017-08-18T11:25:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/tags/graph/</loc>
+    <lastmod>2017-08-17T21:25:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/_draft/2017-08-17-networkx_practice3/</loc>
+    <lastmod>2017-08-17T21:25:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/_draft/2017-08-16-networkx_practice2/</loc>
+    <lastmod>2017-08-16T22:50:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/_draft/2017-08-16-networkx_practice/</loc>
+    <lastmod>2017-08-16T16:50:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/2017/08/clustering-1-hard-k-means-and-its-failure/</loc>
     <lastmod>2017-08-15T03:40:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/ipython-notebook/</loc>
+    <loc>//physhik.com/tags/ipython-notebook/</loc>
     <lastmod>2017-08-15T03:40:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/08/adding-disqus-to-a-jekyll-blog/</loc>
+    <loc>//physhik.com/2017/08/adding-disqus-to-a-jekyll-blog/</loc>
     <lastmod>2017-08-14T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/tags/disqus/</loc>
+    <loc>//physhik.com/tags/disqus/</loc>
     <lastmod>2017-08-14T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/categories/disqus/</loc>
+    <loc>//physhik.com/categories/disqus/</loc>
     <lastmod>2017-08-14T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/2017/08/welcome-to-jekyll/</loc>
+    <loc>//physhik.com/_draft/2017-08-14-jekyll/</loc>
+    <lastmod>2017-08-14T22:50:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/2017/08/welcome-to-jekyll/</loc>
     <lastmod>2017-08-13T18:40:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://physhik.github.io/archives/</loc>
+    <loc>//physhik.com/archives/</loc>
   </url>
   
 </urlset>

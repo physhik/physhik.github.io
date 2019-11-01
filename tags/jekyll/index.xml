@@ -2,21 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jekyll on Physics to Data Science</title>
-    <link>https://physhik.github.io/tags/jekyll/</link>
+    <link>//physhik.com/tags/jekyll/</link>
     <description>Recent content in Jekyll on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Aug 2017 12:10:00 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 09 Sep 2017 16:50:00 -0700</lastBuildDate>
     
-	<atom:link href="https://physhik.github.io/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//physhik.com/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Atom</title>
+      <link>//physhik.com/_draft/2017-09-09-jekyll-atom-git/</link>
+      <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
+      
+      <guid>//physhik.com/_draft/2017-09-09-jekyll-atom-git/</guid>
+      <description>Atom 
+Git and Github have become one of the essential part of programmers. I just mechanically commit just after I finish a code or change some setting, and it saved me so many times. It also provides great environment for teamwork and management of the projects. This Jekyll blog is also built upon the Github service.
+
+Atom is the text editor developed by Github. And this is great.</description>
+    </item>
+    
+    <item>
       <title>Add Mathjax to Jekyll blog</title>
-      <link>https://physhik.github.io/2017/08/add-mathjax-to-jekyll-blog/</link>
+      <link>//physhik.com/2017/08/add-mathjax-to-jekyll-blog/</link>
       <pubDate>Sat, 19 Aug 2017 12:10:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/08/add-mathjax-to-jekyll-blog/</guid>
+      <guid>//physhik.com/2017/08/add-mathjax-to-jekyll-blog/</guid>
       <description>Add mathjax 
 The another good thing of Jekyll blog1 is that we can finally use math formula in it.
 $$ \nabla \times \vec{B} = 0 $$
@@ -31,10 +43,10 @@ Need to fix 3 kinds of files in total.
     
     <item>
       <title>Adding Disqus to a Jekyll Blog</title>
-      <link>https://physhik.github.io/2017/08/adding-disqus-to-a-jekyll-blog/</link>
+      <link>//physhik.com/2017/08/adding-disqus-to-a-jekyll-blog/</link>
       <pubDate>Mon, 14 Aug 2017 23:50:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/08/adding-disqus-to-a-jekyll-blog/</guid>
+      <guid>//physhik.com/2017/08/adding-disqus-to-a-jekyll-blog/</guid>
       <description>Github is a fantastic space for someone like me to try to learn something new.
 
 This time I have built a blog powered by jekyll and Github. This posting is targetting a novice who especially used a theme, and who is trying to add a disqus in the blog. Hope it helps them not to experience the trials and errors I had.
@@ -43,11 +55,25 @@ I found jekyll homepage and Sechter&amp;rsquo;s blog good.</description>
     </item>
     
     <item>
+      <title>jekyll과 주어진 테마를 이용해서 만든 Github 블로그에 Disqus 추가하기</title>
+      <link>//physhik.com/_draft/2017-08-14-jekyll/</link>
+      <pubDate>Mon, 14 Aug 2017 22:50:00 -0700</pubDate>
+      
+      <guid>//physhik.com/_draft/2017-08-14-jekyll/</guid>
+      <description>Github은 저같은 풋내기 프로그래머들에게는 환상적인 공간입니다.
+이번엔 블로그를 만들어 봤는데요. 적절한 한국어로 된 설명이 드물거나 찾기 힘든 것 같아서 포스팅 해봅니다.
+특히 jekyll 언어를 충분히 공부하지 않은 상태에서 특정 테마를 다운받아서 사용할 경우에 경험할 수 있는 시행착오를 범하지 않도록 하는 방향입니다.
+영어로 된 게시물들은 구글링으로 쉽게 얻을 수 있습니다.
+
+이 포스팅 또한 jekyll 홈페이지와 Sechter의 블로그의 내용의 번역이 주가 될 예정이니 더 자세한 내용을 원하시면 해당 링크로 들어가서 확인하시기 바랍니다.</description>
+    </item>
+    
+    <item>
       <title>Welcome to Jekyll!</title>
-      <link>https://physhik.github.io/2017/08/welcome-to-jekyll/</link>
+      <link>//physhik.com/2017/08/welcome-to-jekyll/</link>
       <pubDate>Sun, 13 Aug 2017 18:40:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/08/welcome-to-jekyll/</guid>
+      <guid>//physhik.com/2017/08/welcome-to-jekyll/</guid>
       <description>You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.
 To add new posts, simply add a file in the _posts directory that follows the convention YYYY-MM-DD-name-of-post.</description>
     </item>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>reinforcement learning on Physics to Data Science</title>
-    <link>https://physhik.github.io/categories/reinforcement-learning/</link>
+    <link>//physhik.com/categories/reinforcement-learning/</link>
     <description>Recent content in reinforcement learning on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 14 Sep 2017 23:30:00 -0700</lastBuildDate>
     
-	<atom:link href="https://physhik.github.io/categories/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//physhik.com/categories/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Neural Network (4) : Deep Reinforcement Learning, Q-learning</title>
-      <link>https://physhik.github.io/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</link>
+      <link>//physhik.com/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</link>
       <pubDate>Thu, 14 Sep 2017 23:30:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</guid>
+      <guid>//physhik.com/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</guid>
       <description>Judgement Day 
 It is the first time I did not post for 4 days. I was too busy to prepare for the meetup this week. The day before yesterday meetup topic was the reinforcement learning as I mentioned at previous post. It is not a long research paper, but includes 143 references. Ah, not my favorite. This A Brief Survey of Deep Reinforcement Learning did not explain the detail of what I am interested in.</description>
     </item>

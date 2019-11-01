@@ -19,8 +19,8 @@ I felt there&rsquo;s no good Python tutorial for spectral clustering (at least f
 <meta property="og:type" content="article">
 <meta property="og:title" content="Clustering (1), Hard K-means and its Failure">
 <meta name="twitter:title" content="Clustering (1), Hard K-means and its Failure">
-<meta property="og:url" content="https://physhik.github.io/2017/08/clustering-1-hard-k-means-and-its-failure/">
-<meta property="twitter:url" content="https://physhik.github.io/2017/08/clustering-1-hard-k-means-and-its-failure/">
+<meta property="og:url" content="//physhik.com/2017/08/clustering-1-hard-k-means-and-its-failure/">
+<meta property="twitter:url" content="//physhik.com/2017/08/clustering-1-hard-k-means-and-its-failure/">
 <meta property="og:site_name" content="Physics to Data Science">
 <meta property="og:description" content="As I mentioned at the previous posting, one of the purposes of this blog is to supplement the Github of my data science study. I will gradually post and present all the iPython notebooks or Mathematica notebooks.
 
@@ -61,8 +61,8 @@ I felt there&rsquo;s no good Python tutorial for spectral clustering (at least f
 
 
 
-  <meta property="og:image" content="https://physhik.github.io/images/postimages/Clustering_files/Clustering_6_9.png/">
-  <meta property="twitter:image" content="https://physhik.github.io/images/postimages/Clustering_files/Clustering_6_9.png/">
+  <meta property="og:image" content="//physhik.com/images/postimages/Clustering_files/Clustering_6_9.png/">
+  <meta property="twitter:image" content="//physhik.com/images/postimages/Clustering_files/Clustering_6_9.png/">
 
 
 
@@ -74,12 +74,12 @@ I felt there&rsquo;s no good Python tutorial for spectral clustering (at least f
 
     <title>Clustering (1), Hard K-means and its Failure</title>
 
-    <link rel="icon" href="https://physhik.github.io/favicon.ico">
+    <link rel="icon" href="//physhik.com/favicon.ico">
     
 
     
 
-    <link rel="canonical" href="https://physhik.github.io/2017/08/clustering-1-hard-k-means-and-its-failure/">
+    <link rel="canonical" href="//physhik.com/2017/08/clustering-1-hard-k-means-and-its-failure/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -87,7 +87,7 @@ I felt there&rsquo;s no good Python tutorial for spectral clustering (at least f
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://physhik.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    <link rel="stylesheet" href="//physhik.com/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
 
@@ -115,17 +115,17 @@ if (!doNotTrack) {
       <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://physhik.github.io/">Physics to Data Science</a>
+    <a class="header-title-link" href="//physhik.com/">Physics to Data Science</a>
   </div>
   
     
       <a class="header-right-picture "
-         href="https://physhik.github.io/#about">
+         href="//physhik.com/#about">
     
     
     
       
-        <img class="header-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+        <img class="header-picture" src="//physhik.com/images/avatar.jpg" alt="Author&#39;s picture" />
       
     
     </a>
@@ -164,8 +164,8 @@ if (!doNotTrack) {
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <a href="https://physhik.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+        <a href="//physhik.com/#about">
+          <img class="sidebar-profile-picture" src="//physhik.com/images/avatar.jpg" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Namshik Kim</h4>
         
@@ -177,7 +177,7 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://physhik.github.io/">
+      <a class="sidebar-button-link " href="//physhik.com/">
     
       <i class="sidebar-button-icon fa fa-lg fa-home"></i>
       
@@ -187,7 +187,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://physhik.github.io/categories">
+      <a class="sidebar-button-link " href="//physhik.com/categories">
     
       <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
       
@@ -197,7 +197,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://physhik.github.io/tags">
+      <a class="sidebar-button-link " href="//physhik.com/tags">
     
       <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
       
@@ -207,7 +207,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://physhik.github.io/archives">
+      <a class="sidebar-button-link " href="//physhik.com/archives">
     
       <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
       
@@ -217,7 +217,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://physhik.github.io/about/index.html">
+      <a class="sidebar-button-link " href="//physhik.com/about/index.html">
     
       <i class="sidebar-button-icon fa fa-lg fa-question"></i>
       
@@ -297,9 +297,9 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://physhik.github.io/categories/unsupervised-machine-learning">unsupervised machine learning</a>, 
+      <a class="category-link" href="//physhik.com/categories/unsupervised-machine-learning">unsupervised machine learning</a>, 
     
-      <a class="category-link" href="https://physhik.github.io/categories/clustering">clustering</a>
+      <a class="category-link" href="//physhik.com/categories/clustering">clustering</a>
     
   
 
@@ -321,7 +321,7 @@ if (!doNotTrack) {
 
 <p><br></p>
 
-<p>The theory for clustering and soft k-means can be found in the <a href="http://www.inference.phy.cam.ac.uk/mackay/itila/book.html">book</a> <em>Information Theory, Inference, and Learning Algorithms</em> of <em>David Mackay</em>. In particular, I have read chapter 20 ~ 22 and used the algorithms to make Python codes in various clusterings.</p>
+<p>The theory for clustering and soft k-means can be found in the <a href="//www.inference.phy.cam.ac.uk/mackay/itila/book.html">book</a> <em>Information Theory, Inference, and Learning Algorithms</em> of <em>David Mackay</em>. In particular, I have read chapter 20 ~ 22 and used the algorithms to make Python codes in various clusterings.</p>
 
 <p><br></p>
 
@@ -518,7 +518,7 @@ def Kmeans(X,centroids):
 displaydata()
 </code></pre>
 
-<p><img src="https://physhik.github.io/images/postimages/Clustering_files/Clustering_3_0.png" alt="png" /></p>
+<p><img src="//physhik.com/images/postimages/Clustering_files/Clustering_3_0.png" alt="png" /></p>
 
 <p>Choose the K-means for K = 4. The proper K should be 2 for the data points. However, what happens if K = 4? From the below plots, the program is not working well.</p>
 
@@ -543,25 +543,25 @@ findcentroids(X,centroids)
 <pre><code class="language-python">Kmeans(X,centroids)
 </code></pre>
 
-<p><img src="https://physhik.github.io/images/postimages/Clustering_files/Clustering_6_0.png" alt="png" /></p>
+<p><img src="//physhik.com/images/postimages/Clustering_files/Clustering_6_0.png" alt="png" /></p>
 
-<p><img src="https://physhik.github.io/images/postimages/Clustering_files/Clustering_6_1.png" alt="png" /></p>
+<p><img src="//physhik.com/images/postimages/Clustering_files/Clustering_6_1.png" alt="png" /></p>
 
-<p><img src="https://physhik.github.io/images/postimages/Clustering_files/Clustering_6_2.png" alt="png" /></p>
+<p><img src="//physhik.com/images/postimages/Clustering_files/Clustering_6_2.png" alt="png" /></p>
 
-<p><img src="https://physhik.github.io/images/postimages/Clustering_files/Clustering_6_3.png" alt="png" /></p>
+<p><img src="//physhik.com/images/postimages/Clustering_files/Clustering_6_3.png" alt="png" /></p>
 
-<p><img src="https://physhik.github.io/images/postimages/Clustering_files/Clustering_6_4.png" alt="png" /></p>
+<p><img src="//physhik.com/images/postimages/Clustering_files/Clustering_6_4.png" alt="png" /></p>
 
-<p><img src="https://physhik.github.io/images/postimages/Clustering_files/Clustering_6_5.png" alt="png" /></p>
+<p><img src="//physhik.com/images/postimages/Clustering_files/Clustering_6_5.png" alt="png" /></p>
 
-<p><img src="https://physhik.github.io/images/postimages/Clustering_files/Clustering_6_6.png" alt="png" /></p>
+<p><img src="//physhik.com/images/postimages/Clustering_files/Clustering_6_6.png" alt="png" /></p>
 
-<p><img src="https://physhik.github.io/images/postimages/Clustering_files/Clustering_6_7.png" alt="png" /></p>
+<p><img src="//physhik.com/images/postimages/Clustering_files/Clustering_6_7.png" alt="png" /></p>
 
-<p><img src="https://physhik.github.io/images/postimages/Clustering_files/Clustering_6_8.png" alt="png" /></p>
+<p><img src="//physhik.com/images/postimages/Clustering_files/Clustering_6_8.png" alt="png" /></p>
 
-<p><img src="https://physhik.github.io/images/postimages/Clustering_files/Clustering_6_9.png" alt="png" /></p>
+<p><img src="//physhik.com/images/postimages/Clustering_files/Clustering_6_9.png" alt="png" /></p>
 
 <p><br></p>
 
@@ -594,9 +594,9 @@ findcentroids(X,centroids)
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/clustering/">clustering</a>
+  <a class="tag tag--primary tag--small" href="//physhik.com/tags/clustering/">clustering</a>
 
-  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/ipython-notebook/">ipython notebook</a>
+  <a class="tag tag--primary tag--small" href="//physhik.com/tags/ipython-notebook/">ipython notebook</a>
 
                   </div>
                 
@@ -609,7 +609,7 @@ findcentroids(X,centroids)
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/add-mathjax-to-jekyll-blog/" data-tooltip="Add Mathjax to Jekyll blog">
+                <a class="post-action-btn btn btn--default tooltip--top" href="//physhik.com/2017/08/add-mathjax-to-jekyll-blog/" data-tooltip="Add Mathjax to Jekyll blog">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -617,7 +617,7 @@ findcentroids(X,centroids)
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/adding-disqus-to-a-jekyll-blog/" data-tooltip="Adding Disqus to a Jekyll Blog">
+                <a class="post-action-btn btn btn--default tooltip--top" href="//physhik.com/2017/08/adding-disqus-to-a-jekyll-blog/" data-tooltip="Adding Disqus to a Jekyll Blog">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -677,7 +677,7 @@ findcentroids(X,centroids)
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/add-mathjax-to-jekyll-blog/" data-tooltip="Add Mathjax to Jekyll blog">
+                <a class="post-action-btn btn btn--default tooltip--top" href="//physhik.com/2017/08/add-mathjax-to-jekyll-blog/" data-tooltip="Add Mathjax to Jekyll blog">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -685,7 +685,7 @@ findcentroids(X,centroids)
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/adding-disqus-to-a-jekyll-blog/" data-tooltip="Adding Disqus to a Jekyll Blog">
+                <a class="post-action-btn btn btn--default tooltip--top" href="//physhik.com/2017/08/adding-disqus-to-a-jekyll-blog/" data-tooltip="Adding Disqus to a Jekyll Blog">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -737,7 +737,7 @@ findcentroids(X,centroids)
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="//physhik.com/images/avatar.jpg" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Namshik Kim</h4>
     
@@ -782,7 +782,25 @@ findcentroids(X,centroids)
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://physhik.github.io/2019/10/new-blog-theme/">
+              <a class="link-unstyled" href="//physhik.com/2019/10/introduction-to-sabermetrics/">
+                <h3 class="media-heading">Introduction to sabermetrics</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Some baseball fans regard sabermetricians as freaks crazy about numbers instead of the real baseball. However, I do not agree with that in two ways.
+ It is not just about a number. &quot;S&quot; in sabermetric means It is simply trial to understand the baseball game.  </div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="//physhik.com/2019/10/new-blog-theme/">
                 <h3 class="media-heading">New Blog Theme</h3>
               </a>
               <span class="media-meta">
@@ -799,7 +817,7 @@ findcentroids(X,centroids)
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/">
+              <a class="link-unstyled" href="//physhik.com/2019/03/machine-learns-from-cardiologist-3/">
                 <h3 class="media-heading">Machine Learns from Cardiologist (3)</h3>
               </a>
               <span class="media-meta">
@@ -817,7 +835,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/">
+              <a class="link-unstyled" href="//physhik.com/2019/03/machine-learns-from-cardiologist-2/">
                 <h3 class="media-heading">Machine Learns from Cardiologist (2)</h3>
               </a>
               <span class="media-meta">
@@ -838,7 +856,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/">
+              <a class="link-unstyled" href="//physhik.com/2019/03/macnine-learns-from-cardiologist-1/">
                 <h3 class="media-heading">Macnine Learns from Cardiologist (1)</h3>
               </a>
               <span class="media-meta">
@@ -858,7 +876,7 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://physhik.github.io/2019/02/youtube-data-api-on-gcp/">
+              <a class="link-unstyled" href="//physhik.com/2019/02/youtube-data-api-on-gcp/">
                 <h3 class="media-heading">Youtube Data API on GCP</h3>
               </a>
               <span class="media-meta">
@@ -877,7 +895,7 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://physhik.github.io/2019/02/clean-coding-and-short-run-time/">
+              <a class="link-unstyled" href="//physhik.com/2019/02/clean-coding-and-short-run-time/">
                 <h3 class="media-heading">Clean Coding and Short Run Time</h3>
               </a>
               <span class="media-meta">
@@ -894,7 +912,7 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://physhik.github.io/2018/02/revisited-variational-inference/">
+              <a class="link-unstyled" href="//physhik.com/2018/02/revisited-variational-inference/">
                 <h3 class="media-heading">Revisited Variational Inference</h3>
               </a>
               <span class="media-meta">
@@ -913,7 +931,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://physhik.github.io/2018/02/rough-review-of-wavegan/">
+              <a class="link-unstyled" href="//physhik.com/2018/02/rough-review-of-wavegan/">
                 <h3 class="media-heading">Rough Review of WaveGAN</h3>
               </a>
               <span class="media-meta">
@@ -930,7 +948,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://physhik.github.io/2017/12/introduction-to-gan/">
+              <a class="link-unstyled" href="//physhik.com/2017/12/introduction-to-gan/">
                 <h3 class="media-heading">Introduction to GAN </h3>
               </a>
               <span class="media-meta">
@@ -947,25 +965,6 @@ As we have seen at the post of VAE, generative model can be useful in machine le
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://physhik.github.io/2017/12/how-to-test-progressive-growing-of-gan-from-the-github-source/">
-                <h3 class="media-heading">How to Test Progressive Growing of GAN from the Github Source</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Dec 12, 2017
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">NVIDIA research team published a paper, Progressive Growing of GANs for Improved Quality, Stability, and Variation, and the source code on Github a month ago.
-
-I went through some trials and errors to run the codes properly, so I want to make it easier to you. Why I think this post will be helpful is the Github page is not supporting to post issues to ask and answer for inquiries.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -973,7 +972,7 @@ I went through some trials and errors to run the codes properly, so I want to ma
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         34 posts found
+         35 posts found
       </p>
     </div>
   </div>
@@ -981,7 +980,7 @@ I went through some trials and errors to run the codes properly, so I want to ma
     
   
     
-    <div id="cover" style="background-image:url('https://physhik.github.io/images/cover.jpg');"></div>
+    <div id="cover" style="background-image:url('//physhik.com/images/cover.jpg');"></div>
   
 
 
@@ -993,7 +992,7 @@ I went through some trials and errors to run the codes properly, so I want to ma
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="https://physhik.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+<script src="//physhik.com/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
 <script lang="javascript">
@@ -1028,7 +1027,7 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/physhik.github.io\/2017\/08\/clustering-1-hard-k-means-and-its-failure\/';
+          this.page.url = '\/\/physhik.com\/2017\/08\/clustering-1-hard-k-means-and-its-failure\/';
           
             this.page.identifier = '\/2017\/08\/clustering-1-hard-k-means-and-its-failure\/'
           

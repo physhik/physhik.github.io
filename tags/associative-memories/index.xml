@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>associative memories on Physics to Data Science</title>
-    <link>https://physhik.github.io/tags/associative-memories/</link>
+    <link>//physhik.com/tags/associative-memories/</link>
     <description>Recent content in associative memories on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 10 Sep 2017 13:30:00 -0700</lastBuildDate>
     
-	<atom:link href="https://physhik.github.io/tags/associative-memories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//physhik.com/tags/associative-memories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Neural Network (3) : Hopfield Net</title>
-      <link>https://physhik.github.io/2017/09/neural-network-3-hopfield-net/</link>
+      <link>//physhik.com/2017/09/neural-network-3-hopfield-net/</link>
       <pubDate>Sun, 10 Sep 2017 13:30:00 -0700</pubDate>
       
-      <guid>https://physhik.github.io/2017/09/neural-network-3-hopfield-net/</guid>
+      <guid>//physhik.com/2017/09/neural-network-3-hopfield-net/</guid>
       <description>Binary Hopfield net using Hebbian learning 
 We want to study Hopfield net from the simple case. Hopfield net is a fully connected feedback network. A feedback network is a network that is not a feedforward network, and in a feedforward network, all the connections are directed. All the connections in our example will be bi-directed. This symmetric property of the weight is important property of the Hopfield net.</description>
     </item>
