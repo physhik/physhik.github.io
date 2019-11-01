@@ -280,7 +280,7 @@ if (!doNotTrack) {
         class="
                hasCoverMetaIn
                ">
-        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+        <article class="post" itemscope itemType="//schema.org/BlogPosting">
           
           
             <div class="post-header main-content-wrap text-left">
@@ -339,7 +339,7 @@ if (!doNotTrack) {
 
 <p><br></p>
 
-<p>Thus, I assume that you know the variational principle or Feynman-Bogolubov inequality. The trial function in the next example is the disposal probability distribution in order to find the target probability density. We will use the target density appeared in the chapter 24, <em>Exact marginalization</em>, of <a href="//www.inference.phy.cam.ac.uk/mackay/itila/book.html">the book</a>. The exercises 24.3 of the chapter is very good at understanding Bayesian theory and maximum likelihood. I will handle the problem if I have a chance next time. Exact marginalization means that we calculate the probability by integrating over continuous variables (or summation over discrete variables). That is processed by assuming prior distribution.</p>
+<p>Thus, I assume that you know the variational principle or Feynman-Bogolubov inequality. The trial function in the next example is the disposal probability distribution in order to find the target probability density. We will use the target density appeared in the chapter 24, <em>Exact marginalization</em>, of <a href="https://inference.phy.cam.ac.uk/mackay/itila/book.html">the book</a>. The exercises 24.3 of the chapter is very good at understanding Bayesian theory and maximum likelihood. I will handle the problem if I have a chance next time. Exact marginalization means that we calculate the probability by integrating over continuous variables (or summation over discrete variables). That is processed by assuming prior distribution.</p>
 
 <p><br></p>
 
@@ -579,7 +579,7 @@ print f(x) * g(x)
 <ol>
 <li id="fn:1">Feynman is one of my favorite physicists, with Einstein, Dirac. He was a great teacher as well. He had very broad range of interest on the world, so was influential even to data science. Apparently, he was one of the first scientists conceived the possibility of the quantum computer.
  <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-<li id="fn:2">I won&rsquo;t prove the inequality. That is equivalent to the proof of the Gibbs&rsquo; inequality in <a href="//www.inference.org.uk/mackay/itila/book.html">the book</a> even though it looks totally different. See <a href="//www-f1.ijs.si/~ramsak/bi.pdf">the proof</a> using  Baker-Cambell-Hausdorff theorem and convexity of exponential function. Free energy in statistical mechanics is an exponential function.)
+<li id="fn:2">I won&rsquo;t prove the inequality. That is equivalent to the proof of the Gibbs&rsquo; inequality in <a href="https://inference.org.uk/mackay/itila/book.html">the book</a> even though it looks totally different. See <a href="www-f1.ijs.si/~ramsak/bi.pdf">the proof</a> using  Baker-Cambell-Hausdorff theorem and convexity of exponential function. Free energy in statistical mechanics is an exponential function.)
  <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
 <li id="fn:3">Rather than using the statistical probability library, I defined the distributions. It is much clear to understand how the approximation by variational method works. However, I made a trivial typo mistake in parameter of the $\Gamma(x,b,c)$ function, and it took many hours to find my mistake. At first, I thought the above equation (5) was mistaken, and re-calculated the equations of variations over and over. Definitely the error was in $Q_{\sigma}(\sigma)$, so I compared the numerical values of the distribution with what I obtained by using Mathematica. The gap was big, but I doubted if Python numerics work properly. Very stupid, ain&rsquo;t I? That kind of numerical mistakes never present the error message, so very fatal.
  <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
@@ -787,6 +787,24 @@ print f(x) * g(x)
           <div class="media">
             
             <div class="media-body">
+              <a class="link-unstyled" href="//physhik.com/2019/10/introduction-to-sabermetrics/">
+                <h3 class="media-heading">Introduction to sabermetrics</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Some baseball fans regard sabermetricians as freaks crazy about numbers instead of the real baseball. However, I do not agree with that in two ways.
+ It is not just about a number. &quot;S&quot; in sabermetric means It is simply trial to understand the baseball game.  </div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
               <a class="link-unstyled" href="//physhik.com/2019/10/new-blog-theme/">
                 <h3 class="media-heading">New Blog Theme</h3>
               </a>
@@ -952,25 +970,6 @@ As we have seen at the post of VAE, generative model can be useful in machine le
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2017/12/how-to-test-progressive-growing-of-gan-from-the-github-source/">
-                <h3 class="media-heading">How to Test Progressive Growing of GAN from the Github Source</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Dec 12, 2017
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">NVIDIA research team published a paper, Progressive Growing of GANs for Improved Quality, Stability, and Variation, and the source code on Github a month ago.
-
-I went through some trials and errors to run the codes properly, so I want to make it easier to you. Why I think this post will be helpful is the Github page is not supporting to post issues to ask and answer for inquiries.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -978,7 +977,7 @@ I went through some trials and errors to run the codes properly, so I want to ma
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         34 posts found
+         35 posts found
       </p>
     </div>
   </div>

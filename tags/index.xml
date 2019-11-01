@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Oct 2019 14:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 31 Oct 2019 01:00:00 -0700</lastBuildDate>
     
 	<atom:link href="//physhik.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>regression</title>
+      <link>//physhik.com/tags/regression/</link>
+      <pubDate>Thu, 31 Oct 2019 01:00:00 -0700</pubDate>
+      
+      <guid>//physhik.com/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sabermetics</title>
+      <link>//physhik.com/tags/sabermetics/</link>
+      <pubDate>Thu, 31 Oct 2019 01:00:00 -0700</pubDate>
+      
+      <guid>//physhik.com/tags/sabermetics/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Hugo</title>
@@ -278,15 +296,6 @@
       <pubDate>Sun, 10 Sep 2017 13:30:00 -0700</pubDate>
       
       <guid>//physhik.com/tags/networkx/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>regression</title>
-      <link>//physhik.com/tags/regression/</link>
-      <pubDate>Sun, 10 Sep 2017 13:30:00 -0700</pubDate>
-      
-      <guid>//physhik.com/tags/regression/</guid>
       <description></description>
     </item>
     
