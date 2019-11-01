@@ -21,18 +21,5 @@
 It is the first time I did not post for 4 days. I was too busy to prepare for the meetup this week. The day before yesterday meetup topic was the reinforcement learning as I mentioned at previous post. It is not a long research paper, but includes 143 references. Ah, not my favorite. This A Brief Survey of Deep Reinforcement Learning did not explain the detail of what I am interested in.</description>
     </item>
     
-    <item>
-      <title>Algorithm Study (1) : Dynamic Programming</title>
-      <link>//physhik.com/_draft/2017-08-18-dynamicprogramming/</link>
-      <pubDate>Fri, 18 Aug 2017 11:25:00 -0700</pubDate>
-      
-      <guid>//physhik.com/_draft/2017-08-18-dynamicprogramming/</guid>
-      <description>Algorithm
-
-This is mainly a Python-implementation of the book, Cracking the coding interview, which includes examples and chosen exercises. Since I have studied algorithm of programming with Python and the Problem Solving with Algorithms and Data Structures using Python, I would review about them, too.
-
-Actually, I started to solve the exercises of the chapter 8 (dynamic programming) because I thought I have a hole that Problem Solving with Algorithms and Data Structures using Python does not contain it.</description>
-    </item>
-    
   </channel>
 </rss>

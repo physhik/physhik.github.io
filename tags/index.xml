@@ -327,51 +327,6 @@
     </item>
     
     <item>
-      <title>atom</title>
-      <link>//physhik.com/tags/atom/</link>
-      <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
-      
-      <guid>//physhik.com/tags/atom/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>//physhik.com/tags/git/</link>
-      <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
-      
-      <guid>//physhik.com/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Github</title>
-      <link>//physhik.com/tags/github/</link>
-      <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
-      
-      <guid>//physhik.com/tags/github/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Google analytics</title>
-      <link>//physhik.com/tags/google-analytics/</link>
-      <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
-      
-      <guid>//physhik.com/tags/google-analytics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jekyll</title>
-      <link>//physhik.com/tags/jekyll/</link>
-      <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
-      
-      <guid>//physhik.com/tags/jekyll/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>batch gradient descent</title>
       <link>//physhik.com/tags/batch-gradient-descent/</link>
       <pubDate>Wed, 06 Sep 2017 16:30:00 -0700</pubDate>
@@ -615,38 +570,20 @@
     </item>
     
     <item>
+      <title>Jekyll</title>
+      <link>//physhik.com/tags/jekyll/</link>
+      <pubDate>Sat, 19 Aug 2017 12:10:00 -0700</pubDate>
+      
+      <guid>//physhik.com/tags/jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>mathjax</title>
       <link>//physhik.com/tags/mathjax/</link>
       <pubDate>Sat, 19 Aug 2017 12:10:00 -0700</pubDate>
       
       <guid>//physhik.com/tags/mathjax/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>algorithm</title>
-      <link>//physhik.com/tags/algorithm/</link>
-      <pubDate>Fri, 18 Aug 2017 11:25:00 -0700</pubDate>
-      
-      <guid>//physhik.com/tags/algorithm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>recursion</title>
-      <link>//physhik.com/tags/recursion/</link>
-      <pubDate>Fri, 18 Aug 2017 11:25:00 -0700</pubDate>
-      
-      <guid>//physhik.com/tags/recursion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>graph</title>
-      <link>//physhik.com/tags/graph/</link>
-      <pubDate>Thu, 17 Aug 2017 21:25:00 -0700</pubDate>
-      
-      <guid>//physhik.com/tags/graph/</guid>
       <description></description>
     </item>
     
