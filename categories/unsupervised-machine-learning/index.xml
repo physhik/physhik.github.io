@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>unsupervised machine learning on Physics to Data Science</title>
+    <link>https://physhik.github.io/categories/unsupervised-machine-learning/</link>
+    <description>Recent content in unsupervised machine learning on Physics to Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 31 Aug 2017 13:40:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://physhik.github.io/categories/unsupervised-machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Clustering (2) : Soft K-mean</title>
+      <link>https://physhik.github.io/2017/08/clustering-2-soft-k-mean/</link>
+      <pubDate>Thu, 31 Aug 2017 13:40:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/08/clustering-2-soft-k-mean/</guid>
+      <description>Hard K-means and responsibilities 
+If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the hard K-means algorithm in the previous post.
+
+In the previous post, we defined assignment. The equivalent representation of this assignment of points to clusters is given by responsibilities, $r^{(n)}_k$. In the assignment step, we set $r^{(n)}_k$ to one if mean k is the closest mean to datapoint $ {\textbf x}^{(n)}$; otherwise, $r^{(n)}_k$ is zero.</description>
+    </item>
+    
+    <item>
+      <title>Clustering (1), Hard K-means and its Failure</title>
+      <link>https://physhik.github.io/2017/08/clustering-1-hard-k-means-and-its-failure/</link>
+      <pubDate>Tue, 15 Aug 2017 03:40:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/08/clustering-1-hard-k-means-and-its-failure/</guid>
+      <description>As I mentioned at the previous posting, one of the purposes of this blog is to supplement the Github of my data science study. I will gradually post and present all the iPython notebooks or Mathematica notebooks.
+
+I felt there&amp;rsquo;s no good Python tutorial for spectral clustering (at least from my search). Who can&amp;rsquo;t use scikit-learn among who is serious about machine learning. It was not difficult to find the theory of spectral clustering as well.</description>
+    </item>
+    
+  </channel>
+</rss>

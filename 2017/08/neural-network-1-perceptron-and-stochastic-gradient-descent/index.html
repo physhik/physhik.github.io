@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.59.0 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Namshik Kim">
+<meta name="keywords" content=", data science, machine learning, neural network">
+<meta name="description" content="Single neuron is amazing 
+One of the lessons I had during physics program is that we should start to understand small thing deeply however complicated the system which you want to know is. Not just it is easier but also it helps a lot to understand the more complex ones.
+
+Neural network is often compared to black magic. We do not understand why and how exactly so effective it is, but it makes great estimations in some specific matters.">
+
+
+<meta property="og:description" content="Single neuron is amazing 
+One of the lessons I had during physics program is that we should start to understand small thing deeply however complicated the system which you want to know is. Not just it is easier but also it helps a lot to understand the more complex ones.
+
+Neural network is often compared to black magic. We do not understand why and how exactly so effective it is, but it makes great estimations in some specific matters.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Neural Network (1): Perceptron and Stochastic Gradient Descent">
+<meta name="twitter:title" content="Neural Network (1): Perceptron and Stochastic Gradient Descent">
+<meta property="og:url" content="https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/">
+<meta property="twitter:url" content="https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/">
+<meta property="og:site_name" content="Physics to Data Science">
+<meta property="og:description" content="Single neuron is amazing 
+One of the lessons I had during physics program is that we should start to understand small thing deeply however complicated the system which you want to know is. Not just it is easier but also it helps a lot to understand the more complex ones.
+
+Neural network is often compared to black magic. We do not understand why and how exactly so effective it is, but it makes great estimations in some specific matters.">
+<meta name="twitter:description" content="Single neuron is amazing 
+One of the lessons I had during physics program is that we should start to understand small thing deeply however complicated the system which you want to know is. Not just it is easier but also it helps a lot to understand the more complex ones.
+
+Neural network is often compared to black magic. We do not understand why and how exactly so effective it is, but it makes great estimations in some specific matters.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2017-08-30T19:30:00">
+  
+  
+    <meta property="article:modified_time" content="2017-08-30T19:30:00">
+  
+  
+  
+    
+      <meta property="article:section" content="deep learning">
+    
+      <meta property="article:section" content="regression">
+    
+  
+  
+    
+      <meta property="article:tag" content="optimization">
+    
+      <meta property="article:tag" content="perceptron">
+    
+      <meta property="article:tag" content="stochastic gradient descent">
+    
+      <meta property="article:tag" content="batch gradient descent">
+    
+      <meta property="article:tag" content="on-line learning">
+    
+      <meta property="article:tag" content="regression">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://physhik.github.io/images/postimages/SGDperceptron_files/SGDperceptron_10_1.png">
+  <meta property="twitter:image" content="https://physhik.github.io/images/postimages/SGDperceptron_files/SGDperceptron_10_1.png">
+
+
+
+
+
+  <meta property="og:image" content="/images/avatar.jpg">
+  <meta property="twitter:image" content="/images/avatar.jpg">
+
+
+    <title>Neural Network (1): Perceptron and Stochastic Gradient Descent</title>
+
+    <link rel="icon" href="https://physhik.github.io/favicon.ico">
+    
+
+    
+
+    <link rel="canonical" href="https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://physhik.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-83159020-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://physhik.github.io/">Physics to Data Science</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://physhik.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://physhik.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Namshik Kim</h4>
+        
+          <h5 class="sidebar-profile-bio">physicist, data scientist</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/about/index.html">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/physhik" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/namshikkim/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.researchgate.net/profile/Namshik_Kim" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-research-gate"></i>
+      
+      <span class="sidebar-button-desc">ResearchGate</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Neural Network (1): Perceptron and Stochastic Gradient Descent
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-08-30T19:30:00-07:00">
+        
+  August 30, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://physhik.github.io/categories/deep-learning">deep learning</a>, 
+    
+      <a class="category-link" href="https://physhik.github.io/categories/regression">regression</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p><br></p>
+
+<h2 id="single-neuron-is-amazing">Single neuron is amazing</h2>
+
+<p><br></p>
+
+<p>One of the lessons I had during physics program is that we should start to understand small thing deeply however complicated the system which you want to know is. Not just it is easier but also it helps a lot to understand the more complex ones.</p>
+
+<p><br></p>
+
+<p>Neural network is often compared to black magic. We do not understand why and how exactly so effective it is, but it makes great estimations in some specific matters. To resolve that kind of mystery, and to begin tutorials of deep learning, I want to start from a single neuron, a perceptron. This perceptron study will be very helpful for understanding more complex Hopfield network and Boltzmann machine.</p>
+
+<p><br></p>
+
+<p>Even this simple, single perceptron is a very good supervised learning machine. We would solve a simple supervised model in 2 dimensional space.</p>
+
+<p><br></p>
+
+<h2 id="stochastic-algorithm-and-advanced-reading-group">Stochastic algorithm and advanced reading group</h2>
+
+<p><br></p>
+
+<p>Besides, we will study stochastic gradient descent compared with batch gradient descent, and will see the power of the randomness.</p>
+
+<p><br></p>
+
+<p>Yesterday afternoon, I found out there is <em>the advanced reading group on machine learning</em> at downtown. The topic was surprisingly <em>a review of the variational inference</em>. Did not I post <a href="https://physhik.github.io/2017/08/variational-method-for-optimization//">a review of the subject?</a> I quickly scanned <a href="https://arxiv.org/abs/1601.00670">the review research paper</a> and joined the meetup.</p>
+
+<p><br></p>
+
+<p>That meeting was very great. It is my first real discussion with Data scientists based on statistics and computer science, not from physics. To see their different perspective on this topic was also interesting<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>. I also did my best to introduce physicists&rsquo; point of view on the topic.</p>
+
+<p><br></p>
+
+<p>Anyway, one of the big sections in the review paper was stochastic variational inference. As we discussed in <a href="https://physhik.github.io/2017/08/variational-method-for-optimization//">the previous post</a>, we should solve differential equations of the free energy, or the objective functional, and the solutions are often the sum of complicated multiplied matrices. When the size of the sample increases, it becomes extremely expensive. To avoid this trouble, data scientists use randomness and it is even magical. Random makes it inaccurate, but help to find what you want faster!</p>
+
+<p><br></p>
+
+<h2 id="perceptron">Perceptron</h2>
+
+<p><br></p>
+
+<h3 id="batch-gradient-descent">Batch gradient descent</h3>
+
+<p><br></p>
+
+<p>We have 100 random 2d position vectors in the $10 \times 10$ box. The vectors have features, 0 or 1. We want to find the best straight line to split the samples. I intentionally set features 0 if the points are below the linear line, y = <sup>1</sup>&frasl;<sub>2</sub> x + 6, and else feature 1.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">import random
+import numpy as np
+
+import scipy.stats as st
+import matplotlib.pyplot as plt
+import scipy.special as sp
+import scipy.integrate as integrate
+%precision 6
+from __future__ import division
+
+%matplotlib inline
+plt.style.use('ggplot')
+</code></pre>
+
+<pre><code class="language-python">def sigmoid(a):
+    return 1/(1+np.exp(-a))
+
+</code></pre>
+
+<pre><code class="language-python"># initial x(2d vector) and target pair in 10*10 box
+
+def initial_values(N): # N x 4 matrix
+    return np.array([(1, np.random.uniform(0,10), np.random.uniform(0,10),np.random.binomial(1, 0.5) ) for i in range(N)])
+
+def weight():
+    return np.array([np.random.uniform(-1,1), np.random.uniform(-1,1), np.random.uniform(-1,1)])
+
+</code></pre>
+
+<pre><code class="language-python">def linreg(x):
+    return -w[0]/w[2]-x*w[1]/w[2]
+</code></pre>
+
+<pre><code class="language-python">N = 100
+w = weight()
+I = initial_values(N)
+
+x = I[:,:3]
+t = I[:,3]
+
+for i in range(N):
+    if x[:,2][i]&gt;-0.5*x[:,1][i] + 6:
+        t[i]=1
+    else:
+        t[i]=0
+
+eta = 0.01
+alpha = 0.01
+turn = 1
+turns = 1000
+wlist=[w]
+while turn &lt; turns:
+    a = np.dot(x, w)
+    y = sigmoid(a)
+    e = t - y
+    g = -np.dot(np.transpose(x), e) # sum , batch
+
+    w = w - eta * ( g + alpha * w )
+    wlist += [w]
+    turn += 1
+uplist = []
+downlist = []
+for i in range(N):
+    if t[i]==1:
+        uplist = uplist +[x[i]]
+
+    else:
+        downlist = downlist +[x[i]]
+uplist = np.array(uplist)
+downlist = np.array(downlist)
+
+plt.plot(uplist[:,1], uplist[:,2],'x')
+plt.plot(downlist[:,1], downlist[:,2],'o')
+X = np.linspace(0.01, 10, 100)
+Y = linreg(X)
+plt.plot(X,Y)
+plt.axis([0,10,0,10])
+</code></pre>
+
+<p><img src="https://physhik.github.io/images/postimages/SGDperceptron_files/SGDperceptron_10_1.png" alt="png" /></p>
+
+<p><br></p>
+
+<p>Looks good supervised learning enough? I skip the detail explanation about perceptron (<strong>NN</strong>). This is very famous, and broadly-known. I want to focus only on two lines.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">g = -np.dot(np.transpose(x), e)
+w = w - eta * ( g + alpha * w )
+</code></pre>
+
+<p><br></p>
+
+<p>The first line is the gradient descent. The defined x is a $100 \times 3$ matrix, and e is a 100 dimensional vector. The complexity of the matrix product is $\mathcal{O}(100 \times 3 \times 100)$. With a large number of data is it too expensive.</p>
+
+<p><br></p>
+
+<h3 id="regularization">Regularization</h3>
+
+<p><br></p>
+
+<p>The change of the weight to minimize the objective function<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> is usually a multiplication of a learning rate and the gradient descent. However, here, The extra 2nd term, alpha * w is introduced as a <em>weight decay regularizer</em>.</p>
+
+<p><br></p>
+
+<p>One of the most important topics in quantum field theory is the regularization. The detail is mathematically complicated and apart from the machine learning, but the intuition and role of it is very similar to the <em>weight decay regularizer</em>.</p>
+
+<p><br></p>
+
+<p>In physics, it is very consequential to compute the total energy of the system. Most of researches in physics start from obtaining the energy of the concerned systems. For an example, consider a charged particle. It has the radial electric field and the magnitude of it is inverse to the distance. Then, the total energy in the spacetime by the field is proportional to $\int 1/r dr$. This is definitely infinite even in the finite volume including the particle because $log ~r$ diverges as $r \rightarrow 0$. It is a bad news to physicists.</p>
+
+<p><br></p>
+
+<p>Roughly, the idea is considering a cutoff radius $\Lambda$, which is very tiny but not zero, and split the integral. Then one finite part and the other one, but with some mathematical trick, the other part becomes finite. I know it sounds terrible, but it is true. Well, I would say it is the very illusion that it looks infinite. I think it is related to the question, <em>what on the earth is the vacuum energy</em>.</p>
+
+<p><br></p>
+
+<p>Without <em>weight decay regulaizer</em>, the points very near to the line gradually contributes more, and diverges at last. This is an example of overfitting, and <em>weight decay regulaizer</em> saves you from the evil infinity.</p>
+
+<p><br></p>
+
+<pre><code class="language-python"># the graph of y-intrsection vs slope of the linear graph
+wlist = np.array(wlist)
+plt.plot(-wlist[:,0]/wlist[:,2], wlist[:,1]/wlist[:,2])
+plt.plot(-wlist[:,0][-1]/wlist[:,2][-1], wlist[:,1][-1]/wlist[:,2][-1], 'o')
+print -wlist[:,0][-1]/wlist[:,2][-1], wlist[:,1][-1]/wlist[:,2][-1]
+plt.axis([-10,10,-10,10])
+</code></pre>
+
+<p><img src="https://physhik.github.io/images/postimages/SGDperceptron_files/SGDperceptron_11_2.png" alt="png" /></p>
+
+<p><br></p>
+
+<p>The above plot is the graph of y-intersection vs slope of the linear plot during the iterations. Blue point is the last point of iterations. I did not draw the contour plot of the objective function. I will leave it for you. I did not write down the objective function in the post, so you might need to look at the textbook. When you contour plot it, you will find the ellipse around the blue point and the blue point should be about the minimum of the objective function. Note that the there is a clear pattern of approaches.</p>
+
+<p><br></p>
+
+<h2 id="stochastic-gradient-descent-and-on-line-learning">Stochastic gradient descent and on-line learning</h2>
+
+<p><br></p>
+
+<p>To dodge the cost problem of large numbered gradient descent, we use the stochastic gradient descent.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">N = 100
+w = weight()
+I = initial_values(N)
+
+
+a= np.zeros(N)
+y = np.zeros(N)
+e = np.zeros(N)
+turns = 1000
+wlist =[w]
+turn = 1
+while turn &lt; turns:
+    for i in range(N):
+        a[i] = np.dot(w, x[i])
+        y[i] = sigmoid(a[i])
+        e[i] = t[i] - y[i]
+
+        eta = 0.1/N**(0.4)
+        w =  w + eta * e[i] * x[i]
+        wlist += [w]
+        turn = turn +1
+</code></pre>
+
+<pre><code class="language-python">uplist = []
+downlist = []
+for i in range(N):
+    if t[i]==1:
+        uplist = uplist +[x[i]]
+
+    else:
+        downlist = downlist +[x[i]]
+uplist = np.array(uplist)
+downlist = np.array(downlist)
+
+plt.plot(uplist[:,1], uplist[:,2],'x')
+plt.plot(downlist[:,1], downlist[:,2],'o')
+X = np.linspace(0.01, 10, 100)
+Y = linreg(X)
+plt.plot(X,Y)
+plt.axis([0,10,0,10])
+</code></pre>
+
+<p><img src="https://physhik.github.io/images/postimages/SGDperceptron_files/SGDperceptron_5_1.png" alt="png" /></p>
+
+<p><br></p>
+
+<p>What happened? Worse than before! I tried to tune this up to make the better approximation, but could not. Before answer the question, see how the algorithm works.</p>
+
+<p><br></p>
+
+<p>The crucial part is the while loop. Can you notice what the gradient is? I did not clearly express it in the code.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">g[i] = e[i] * x[i] # The gradient vector is N-dimensional.
+</code></pre>
+
+<p><br></p>
+
+<p>There is no sum or matrix-multiplications. That saves a lot of cost. Of course, that gradient value is not correct gradient vector, but it is enough for rough trial and errors. Besides, the learning rate, $\eta$, is updated for every turn, and also is getting smaller. During the first a few iterations, it quickly and roughly pursues the approximate solution, and gradually tries better fine tuning.</p>
+
+<p><br></p>
+
+<p>Here, the example is unfair to the on-line learning, but if the sample is large-numbered, it will be powerful or even magical to reach convergent point faster.<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup> Besides, the linear plot is very sensitive at the value of slope. Sigmoid function is very sensitive around the slope, too.</p>
+
+<p><br></p>
+
+<pre><code class="language-python"># the graph of y-intrsection vs slope of the linear graph
+wlist = np.array(wlist)
+plt.plot(-wlist[:,0]/wlist[:,2], wlist[:,1]/wlist[:,2])
+plt.plot(-wlist[:,0][-1]/wlist[:,2][-1], wlist[:,1][-1]/wlist[:,2][-1], 'o')
+plt.axis([-10,10,-10,10])
+</code></pre>
+
+<p><br></p>
+
+<p><img src="https://physhik.github.io/images/postimages/SGDperceptron_files/SGDperceptron_6_1.png" alt="png" /></p>
+
+<p><br></p>
+
+<p>The first few steps looks very random and the size of the step is decreasing. There is no correct or at least no good convergent point of the learning here.</p>
+
+<p><br></p>
+
+<p>Thus, to choose the stochastic gradient descent for the example was not right. However, it is very good for our understanding as an easy example. Then, how will you use the on-line learning? Even for this simple example, if my computer was horribly poor working like 60&rsquo;s, then I would run the on-line learning first, but not too many iterations, and then when I feel it gives not too bad approximation, I will continue to process with the batch gradient descent to obtain fine-tuned approximation. The on-line learning would help us to choose better learning rate as well.</p>
+
+<p><br></p>
+
+<p><br></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">The only bad thing was that they use too many abbreviations I am not familiar to. Furthermore, I feel that using abbreviations is just trendy all over the world now. It makes me hard to understand internet threads even in my mother tongue languages. I do not like abbreviations.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">I did not write the objective function. Gradient descent is obtained from the gradient of the objective.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3">Nevertheless, in on-line learning, it is not so clear if it converges. At least, it does not at my example.
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/optimization/">optimization</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/perceptron/">perceptron</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/stochastic-gradient-descent/">stochastic gradient descent</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/batch-gradient-descent/">batch gradient descent</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/on-line-learning/">on-line learning</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/regression/">regression</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/clustering-2-soft-k-mean/" data-tooltip="Clustering (2) : Soft K-mean">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/independent-component-analysis-and-covariant-learning/" data-tooltip="Independent Component Analysis and Covariant Learning">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 Namshik Kim. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/clustering-2-soft-k-mean/" data-tooltip="Clustering (2) : Soft K-mean">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/independent-component-analysis-and-covariant-learning/" data-tooltip="Independent Component Analysis and Covariant Learning">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Namshik Kim</h4>
+    
+      <div id="about-card-bio">physicist, data scientist</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Vancouver, BC, Canada.
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/10/introduction-to-sabermetrics/">
+                <h3 class="media-heading">Introduction to sabermetrics</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Some baseball fans regard sabermetricians as freaks crazy about numbers instead of the real baseball. However, I do not agree with that in two ways.
+ It is not just about a number. &quot;S&quot; in sabermetric means It is simply trial to understand the baseball game.  </div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/10/new-blog-theme/">
+                <h3 class="media-heading">New Blog Theme</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I decided to use my own domain instead of renting the /github.io/, and also to insert Google adsense in my blog if possible. Even if I updated my blog only 10 times since Oct, 2017, the number of visitors and their sessions were steady by Google analytics. Recently I started updating my blog again, and want to see the more industrial analytic result. At least I am sure the profit from the adsense will cover the cost for the domain.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/">
+                <h3 class="media-heading">Machine Learns from Cardiologist (3)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Open source 
+The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/">
+                <h3 class="media-heading">Machine Learns from Cardiologist (2)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
+Deep learning and classifications. 
+The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
+
+What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/">
+                <h3 class="media-heading">Macnine Learns from Cardiologist (1)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Prologue 
+Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
+
+When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/02/youtube-data-api-on-gcp/">
+                <h3 class="media-heading">Youtube Data API on GCP</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
+
+AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/02/clean-coding-and-short-run-time/">
+                <h3 class="media-heading">Clean Coding and Short Run Time</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Today I want to discuss purely about coding itself. I wish this post is helpful for someone want to transit his career from a pure researcher to a programmer. I have been a researcher rather than a programmer. I would just want to execute something to see the result I wanted to see. If the run time is too long or my computer has no enough memory to run the code, it was a sign of new purchase to me.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2018/02/revisited-variational-inference/">
+                <h3 class="media-heading">Revisited Variational Inference</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
+
+Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2018/02/rough-review-of-wavegan/">
+                <h3 class="media-heading">Rough Review of WaveGAN</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Around a week ago, on ArXiv, an interesting research paper appeared, which is about the music style transfer using GAN, which is also my main topic for recent few months. Around a week ago, on arXiv, an interesting research paper appeared, which can be applied to the music style transfer using GAN, which is also my main topic for recent few months. There are already many researches on the style transfer of the images, and one of my main projects now is making the style transfer in music.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2017/12/introduction-to-gan/">
+                <h3 class="media-heading">Introduction to GAN </h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
+
+Revolution in deep learning 
+As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         35 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://physhik.github.io/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://physhik.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/physhik.github.io\/2017\/08\/neural-network-1-perceptron-and-stochastic-gradient-descent\/';
+          
+            this.page.identifier = '\/2017\/08\/neural-network-1-perceptron-and-stochastic-gradient-descent\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'physhiks-data-science';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      CommonHTML: { linebreaks: { automatic: true } },
+      tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+      messageStyle: 'none'
+    });
+  </script>
+
+
+
+    
+  </body>
+</html>
+

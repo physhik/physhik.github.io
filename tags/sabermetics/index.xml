@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sabermetics on Physics to Data Science</title>
+    <link>https://physhik.github.io/tags/sabermetics/</link>
+    <description>Recent content in sabermetics on Physics to Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 31 Oct 2019 01:00:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://physhik.github.io/tags/sabermetics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introduction to sabermetrics</title>
+      <link>https://physhik.github.io/2019/10/introduction-to-sabermetrics/</link>
+      <pubDate>Thu, 31 Oct 2019 01:00:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2019/10/introduction-to-sabermetrics/</guid>
+      <description>Some baseball fans regard sabermetricians as freaks crazy about numbers instead of the real baseball. However, I do not agree with that in two ways.
+ It is not just about a number. &amp;quot;S&amp;quot; in sabermetric means It is simply trial to understand the baseball game.  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>separable eqauation on Physics to Data Science</title>
+    <link>https://physhik.github.io/categories/separable-eqauation/</link>
+    <description>Recent content in separable eqauation on Physics to Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Feb 2018 23:00:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://physhik.github.io/categories/separable-eqauation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Revisited Variational Inference</title>
+      <link>https://physhik.github.io/2018/02/revisited-variational-inference/</link>
+      <pubDate>Sat, 24 Feb 2018 23:00:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2018/02/revisited-variational-inference/</guid>
+      <description>A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
+
+Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</description>
+    </item>
+    
+  </channel>
+</rss>

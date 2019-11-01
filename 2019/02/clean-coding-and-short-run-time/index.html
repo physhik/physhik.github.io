@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.59.0 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Namshik Kim">
+<meta name="keywords" content=", data science, machine learning, neural network">
+<meta name="description" content="Today I want to discuss purely about coding itself. I wish this post is helpful for someone want to transit his career from a pure researcher to a programmer. I have been a researcher rather than a programmer. I would just want to execute something to see the result I wanted to see. If the run time is too long or my computer has no enough memory to run the code, it was a sign of new purchase to me.">
+
+
+<meta property="og:description" content="Today I want to discuss purely about coding itself. I wish this post is helpful for someone want to transit his career from a pure researcher to a programmer. I have been a researcher rather than a programmer. I would just want to execute something to see the result I wanted to see. If the run time is too long or my computer has no enough memory to run the code, it was a sign of new purchase to me.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clean Coding and Short Run Time">
+<meta name="twitter:title" content="Clean Coding and Short Run Time">
+<meta property="og:url" content="https://physhik.github.io/2019/02/clean-coding-and-short-run-time/">
+<meta property="twitter:url" content="https://physhik.github.io/2019/02/clean-coding-and-short-run-time/">
+<meta property="og:site_name" content="Physics to Data Science">
+<meta property="og:description" content="Today I want to discuss purely about coding itself. I wish this post is helpful for someone want to transit his career from a pure researcher to a programmer. I have been a researcher rather than a programmer. I would just want to execute something to see the result I wanted to see. If the run time is too long or my computer has no enough memory to run the code, it was a sign of new purchase to me.">
+<meta name="twitter:description" content="Today I want to discuss purely about coding itself. I wish this post is helpful for someone want to transit his career from a pure researcher to a programmer. I have been a researcher rather than a programmer. I would just want to execute something to see the result I wanted to see. If the run time is too long or my computer has no enough memory to run the code, it was a sign of new purchase to me.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2019-02-25T16:00:00">
+  
+  
+    <meta property="article:modified_time" content="2019-02-25T16:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="faster Python">
+    
+      <meta property="article:section" content="PyPy">
+    
+  
+  
+    
+      <meta property="article:tag" content="Python">
+    
+      <meta property="article:tag" content="clean code">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://physhik.github.io/images/postimages/pypy.png">
+  <meta property="twitter:image" content="https://physhik.github.io/images/postimages/pypy.png">
+
+
+
+
+
+  <meta property="og:image" content="/images/avatar.jpg">
+  <meta property="twitter:image" content="/images/avatar.jpg">
+
+
+    <title>Clean Coding and Short Run Time</title>
+
+    <link rel="icon" href="https://physhik.github.io/favicon.ico">
+    
+
+    
+
+    <link rel="canonical" href="https://physhik.github.io/2019/02/clean-coding-and-short-run-time/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://physhik.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-83159020-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://physhik.github.io/">Physics to Data Science</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://physhik.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://physhik.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Namshik Kim</h4>
+        
+          <h5 class="sidebar-profile-bio">physicist, data scientist</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/about/index.html">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/physhik" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/namshikkim/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.researchgate.net/profile/Namshik_Kim" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-research-gate"></i>
+      
+      <span class="sidebar-button-desc">ResearchGate</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Clean Coding and Short Run Time
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2019-02-25T16:00:00-07:00">
+        
+  February 25, 2019
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://physhik.github.io/categories/faster-python">faster Python</a>, 
+    
+      <a class="category-link" href="https://physhik.github.io/categories/pypy">PyPy</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p><br></p>
+
+<p>Today I want to discuss purely about coding itself. I wish this post is helpful for someone want to transit his career from a pure researcher to a programmer. I have been a researcher rather than a programmer. I would just want to execute something to see the result I wanted to see. If the run time is too long or my computer has no enough memory to run the code, it was a sign of new purchase to me. From industrial experience, I become to regard the better way of coding as important.</p>
+
+<p><br></p>
+
+<h2 id="clean-code">Clean Code</h2>
+
+<p><br></p>
+
+<p>The book, <strong>Clean Code</strong>, by Robert C. Martin, was good and you can find its summaries by chapters on many online blogs if you do not have time to read the whole book.</p>
+
+<p><br></p>
+
+<p>There are many useful advices in the book, and statement inpired me most was that codes should be easily readable. I used to overlook this and thought if other coworker get confused then I can explain the detail in person.</p>
+
+<p><br></p>
+
+<p>The 2nd important statement is, also not to make a mistake caused by the first lesson, that you should remove unnecesary lines to explain the detail. Those contents should be understood as possible by smart namings and the coding itself.</p>
+
+<p><br></p>
+
+<p>The by-product from keeping the cleanly coding rules is that you will be able to find what the good codes are. In the era of open sources,  to find the good resources for your new projects become a principal key to learn fast and effective. Do not waste your time to understand bad codes (when there are many other replacement codes out there).</p>
+
+<p><br></p>
+
+<h2 id="python-and-low-level-programming-ideas">Python and low-level programming ideas</h2>
+
+<p><br></p>
+
+<p>Python is a popular programming language in machine learning and many machine learning scientists who do not have a base in computer science major, easily overlook the importance of the computer memory management. If you want to expand your view in machine learning and to give you more chances to challenge other interesting possibilities in IT industry,  spare your time on understanding why C/C++, such old programming languages are still popular and people who are good at those gains respect. Such ideas can be applied to higher-level programming languages and data structures/management, and reduces memory usages.</p>
+
+<p><br></p>
+
+<h2 id="make-it-faster">Make it faster</h2>
+
+<p><br></p>
+
+<p>Python is a great language and easy to learn for novice, but also known to be slow processing. Actually it is not always true any more. If you are a intermediate Python programmer, concern to use PyPy, Cython or else. They reduces the processing time of Python dramatically to the level of C/C++ by imitating them.</p>
+
+<p><br></p>
+
+<p>Trust only half of what I&rsquo;d talk from now on. I can be wrong since I never be deeply into it. However, don&rsquo;t be scared to use PyPy/Cython. Using it is much easier.</p>
+
+<p><br></p>
+
+<p>Before talking about Cython and PyPy, let us scan the difference between a compiler and an interpreter. The compiled language such as C/C++ run the program after compiling. Then, after compiling, can run just an excecution file, which is made to be easily read by CPU. Interpreted languages such as Python/Ruby do not have the step between run and compile. Interpreter also has a step to transfer the codes to bytecode line by line during runtime. Then running time is increasing. However, interpreted language takes an advantange of interactive scripting.</p>
+
+<p><br></p>
+
+<p>Cython&rsquo;s main idea is compiling Python script and taking the benefit of compiled executable machine codes. For PyPy, it is a bit more complicated. Above all, read the <a href="https://bitbucket.org/brownan/pypy-tutorial/src/cbd43582d96947c4150109a21c7b2e828a92b64f/tutorial.rst?at=default&amp;fileviewer=file-view-default">document</a>.</p>
+
+<p><br></p>
+
+<h3 id="pypy-s-process">PyPy&rsquo;s process</h3>
+
+<p><br></p>
+
+<ol>
+<li>Making interpreter with Python(more exactly RPython, subprogramming language of Python) itself</li>
+<li>Translating the Python code into RPython code.</li>
+<li>Compiling the traslated RPython with prepared chaintool (eg. C)</li>
+<li>Checking the performance of the process</li>
+<li>Optimize the process by repeat</li>
+</ol>
+
+<p>4, 5 are confusing. You can find more detail from the above document link. The interpreter made of RPython has a loop inside, and it checks the lentgh of the program and ends the loop if the length and turns of the loop are balanced.</p>
+
+<p><br></p>
+
+<h3 id="jit-interpreter">JIT interpreter</h3>
+
+<p><br></p>
+
+<p>JIT detects which part of the codes should be interpreted first, and then reduce the time by intepreting the detected part. Thus, it is proper to use in intepreted languages.</p>
+
+<p><br></p>
+
+<h3 id="running-pypy">Running PyPy</h3>
+
+<p><br></p>
+
+<p>If you are a Mac user, you can install it on command line using brew.</p>
+
+<pre><code>$ brew install pypy
+</code></pre>
+
+<p>and then can run the PyPy by</p>
+
+<pre><code>$ pypy YOUR_PYTHON_SCRIPT_FILE.py
+</code></pre>
+
+<p>Then it interprets and executes it line by line without making compiled file. Then when you repeat the executions, it is slower than separating compiling and executing. (You can find how to do it from the above link, and you should make a proper loop targeting in the RPython code.)</p>
+
+<p><br></p>
+
+<h3 id="restrictions">Restrictions</h3>
+
+<p><br></p>
+
+<p>PyPy and Cython are not an ultimate tool for all the kinds of Python script. Some Python libraries are not supported by PyPy interpreting. Check out the <a href="http://packages.pypy.org">link</a></p>
+
+<p><br></p>
+
+<h3 id="running-cython">Running Cython</h3>
+
+<p><br></p>
+
+<p>This case is more straighforward then PyPy&rsquo;s. Let us think a simple code including a defined function.</p>
+
+<pre><code class="language-python"># target.pyx
+def f():
+    for loop 
+        for loop
+</code></pre>
+
+<p>And then, make a setup.py file</p>
+
+<pre><code class="language-python">#setup.py
+
+from distutils.core import setup
+from Cython.Build import cythonize
+
+setup(
+  name = 'target app', # target.so will be produced by building
+  ext_modules = cythonize(&quot;target.pyx&quot;), the target file to be compiled
+)
+</code></pre>
+
+<p>Now</p>
+
+<pre><code>$ python setup.py build_ext --inplace
+</code></pre>
+
+<p>You will see target.so file in the directory. This is a shared object and can it is dynamically linked at run time. The shared objects are not included into the executable component but are tied to the execution.</p>
+
+<p><br></p>
+
+<p>Now import the target.so file to excute the function f insde target.pyx.</p>
+
+<pre><code class="language-python"># ctest.py
+import target 
+if __main__== '__main__':
+    target.f
+</code></pre>
+
+<p>and run this in the command line. Try this while remove target.pyx file. ctest.py file uses so file, so it should run.</p>
+
+<pre><code>$ rm -f target.pyx
+
+$ python ctest.py
+</code></pre>
+
+<p>Cython and PyPy will show the decades to hundreds times shorter run time than Python. PyPy is faster than C in some area.</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/python/">Python</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/clean-code/">clean code</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2019/02/youtube-data-api-on-gcp/" data-tooltip="Youtube Data API on GCP">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2018/02/revisited-variational-inference/" data-tooltip="Revisited Variational Inference">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 Namshik Kim. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2019/02/youtube-data-api-on-gcp/" data-tooltip="Youtube Data API on GCP">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2018/02/revisited-variational-inference/" data-tooltip="Revisited Variational Inference">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Namshik Kim</h4>
+    
+      <div id="about-card-bio">physicist, data scientist</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Vancouver, BC, Canada.
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/10/introduction-to-sabermetrics/">
+                <h3 class="media-heading">Introduction to sabermetrics</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Some baseball fans regard sabermetricians as freaks crazy about numbers instead of the real baseball. However, I do not agree with that in two ways.
+ It is not just about a number. &quot;S&quot; in sabermetric means It is simply trial to understand the baseball game.  </div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/10/new-blog-theme/">
+                <h3 class="media-heading">New Blog Theme</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I decided to use my own domain instead of renting the /github.io/, and also to insert Google adsense in my blog if possible. Even if I updated my blog only 10 times since Oct, 2017, the number of visitors and their sessions were steady by Google analytics. Recently I started updating my blog again, and want to see the more industrial analytic result. At least I am sure the profit from the adsense will cover the cost for the domain.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/">
+                <h3 class="media-heading">Machine Learns from Cardiologist (3)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Open source 
+The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/">
+                <h3 class="media-heading">Machine Learns from Cardiologist (2)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
+Deep learning and classifications. 
+The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
+
+What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/">
+                <h3 class="media-heading">Macnine Learns from Cardiologist (1)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Prologue 
+Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
+
+When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/02/youtube-data-api-on-gcp/">
+                <h3 class="media-heading">Youtube Data API on GCP</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
+
+AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/02/clean-coding-and-short-run-time/">
+                <h3 class="media-heading">Clean Coding and Short Run Time</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Today I want to discuss purely about coding itself. I wish this post is helpful for someone want to transit his career from a pure researcher to a programmer. I have been a researcher rather than a programmer. I would just want to execute something to see the result I wanted to see. If the run time is too long or my computer has no enough memory to run the code, it was a sign of new purchase to me.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2018/02/revisited-variational-inference/">
+                <h3 class="media-heading">Revisited Variational Inference</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
+
+Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2018/02/rough-review-of-wavegan/">
+                <h3 class="media-heading">Rough Review of WaveGAN</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Around a week ago, on ArXiv, an interesting research paper appeared, which is about the music style transfer using GAN, which is also my main topic for recent few months. Around a week ago, on arXiv, an interesting research paper appeared, which can be applied to the music style transfer using GAN, which is also my main topic for recent few months. There are already many researches on the style transfer of the images, and one of my main projects now is making the style transfer in music.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2017/12/introduction-to-gan/">
+                <h3 class="media-heading">Introduction to GAN </h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
+
+Revolution in deep learning 
+As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         35 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://physhik.github.io/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://physhik.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/physhik.github.io\/2019\/02\/clean-coding-and-short-run-time\/';
+          
+            this.page.identifier = '\/2019\/02\/clean-coding-and-short-run-time\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'physhiks-data-science';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      CommonHTML: { linebreaks: { automatic: true } },
+      tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+      messageStyle: 'none'
+    });
+  </script>
+
+
+
+    
+  </body>
+</html>
+

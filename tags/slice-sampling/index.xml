@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>slice sampling on Physics to Data Science</title>
+    <link>https://physhik.github.io/tags/slice-sampling/</link>
+    <description>Recent content in slice sampling on Physics to Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Sep 2017 17:30:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://physhik.github.io/tags/slice-sampling/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MCMC (7) : Slice Sampling</title>
+      <link>https://physhik.github.io/2017/09/mcmc-7-slice-sampling/</link>
+      <pubDate>Tue, 05 Sep 2017 17:30:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/09/mcmc-7-slice-sampling/</guid>
+      <description>Slice sampling algorithm 
+A single transition $(x,u) \rightarrow (x&amp;rsquo;,u&amp;rsquo;)$ of a one-dimensional slice sampling algorithm has the following steps.
+
+(1). evaluate $P^* (x)$
+(2). draw a vertical coordinate $u&amp;rsquo; \sim$ Uniform$(0,P^* (x))$
+(3). create a horizontal interval $(x_l, x_r)$ enclosing $x$
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3a. draw $r \sim$ Uniform$(0,1)$
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3b. $x_l := x-rw$
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3c. $x_r := x+(1-r)w$
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3d. while $(P^* (x_l) &amp;gt; u&amp;rsquo;)$ ${x_l := x-rw}$</description>
+    </item>
+    
+  </channel>
+</rss>

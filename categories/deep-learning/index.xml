@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>deep learning on Physics to Data Science</title>
+    <link>https://physhik.github.io/categories/deep-learning/</link>
+    <description>Recent content in deep learning on Physics to Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 31 Oct 2019 01:00:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://physhik.github.io/categories/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introduction to sabermetrics</title>
+      <link>https://physhik.github.io/2019/10/introduction-to-sabermetrics/</link>
+      <pubDate>Thu, 31 Oct 2019 01:00:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2019/10/introduction-to-sabermetrics/</guid>
+      <description>Some baseball fans regard sabermetricians as freaks crazy about numbers instead of the real baseball. However, I do not agree with that in two ways.
+ It is not just about a number. &amp;quot;S&amp;quot; in sabermetric means It is simply trial to understand the baseball game.  </description>
+    </item>
+    
+    <item>
+      <title>Machine Learns from Cardiologist (3)</title>
+      <link>https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/</link>
+      <pubDate>Fri, 29 Mar 2019 01:00:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/</guid>
+      <description>Open source 
+The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</description>
+    </item>
+    
+    <item>
+      <title>Machine Learns from Cardiologist (2)</title>
+      <link>https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/</link>
+      <pubDate>Wed, 20 Mar 2019 19:00:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/</guid>
+      <description>Understand literatures and the result-analysis 
+Deep learning and classifications. 
+The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
+
+What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</description>
+    </item>
+    
+    <item>
+      <title>Macnine Learns from Cardiologist (1)</title>
+      <link>https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/</link>
+      <pubDate>Sun, 17 Mar 2019 20:00:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/</guid>
+      <description>Prologue 
+Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
+
+When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</description>
+    </item>
+    
+    <item>
+      <title>Rough Review of WaveGAN</title>
+      <link>https://physhik.github.io/2018/02/rough-review-of-wavegan/</link>
+      <pubDate>Fri, 23 Feb 2018 23:00:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2018/02/rough-review-of-wavegan/</guid>
+      <description>Around a week ago, on ArXiv, an interesting research paper appeared, which is about the music style transfer using GAN, which is also my main topic for recent few months. Around a week ago, on arXiv, an interesting research paper appeared, which can be applied to the music style transfer using GAN, which is also my main topic for recent few months. There are already many researches on the style transfer of the images, and one of my main projects now is making the style transfer in music.</description>
+    </item>
+    
+    <item>
+      <title>Introduction to GAN </title>
+      <link>https://physhik.github.io/2017/12/introduction-to-gan/</link>
+      <pubDate>Wed, 06 Dec 2017 14:00:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/12/introduction-to-gan/</guid>
+      <description>I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
+
+Revolution in deep learning 
+As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</description>
+    </item>
+    
+    <item>
+      <title>How to Test Progressive Growing of GAN from the Github Source</title>
+      <link>https://physhik.github.io/2017/12/how-to-test-progressive-growing-of-gan-from-the-github-source/</link>
+      <pubDate>Sat, 02 Dec 2017 23:50:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/12/how-to-test-progressive-growing-of-gan-from-the-github-source/</guid>
+      <description>NVIDIA research team published a paper, Progressive Growing of GANs for Improved Quality, Stability, and Variation, and the source code on Github a month ago.
+
+I went through some trials and errors to run the codes properly, so I want to make it easier to you. Why I think this post will be helpful is the Github page is not supporting to post issues to ask and answer for inquiries.</description>
+    </item>
+    
+    <item>
+      <title>Learning to Learn by Gradient Descent by Gradient Descent</title>
+      <link>https://physhik.github.io/2017/09/learning-to-learn-by-gradient-descent-by-gradient-descent/</link>
+      <pubDate>Thu, 28 Sep 2017 23:50:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/09/learning-to-learn-by-gradient-descent-by-gradient-descent/</guid>
+      <description>I had a trip to Quebec city for 4 days. Behind the lingering from the travel, I prepared for the meetup this week. I could not join it because of birthday dinner with my girlfriend. However, I studied the original paper seriously, and the topic involves some interesting ideas, so I want to introduce about it.
+
+Long short term memory (LSTM) 
+To understand the paper, precedently, need to understand LSTM.</description>
+    </item>
+    
+    <item>
+      <title>Neural Network (5) : Very Simple Boltzmann Machine</title>
+      <link>https://physhik.github.io/2017/09/neural-network-5-very-simple-boltzmann-machine/</link>
+      <pubDate>Mon, 18 Sep 2017 23:50:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/09/neural-network-5-very-simple-boltzmann-machine/</guid>
+      <description>Stochastic Hopfield net 
+Boltzmann machine is nothing but stochastic Hopfield net1. If you did not yet read the post of the Hopfield net in the blog, just go read it. I assume the readers are familiar to it, and directly use many results we had in the post. The magic of deep learning which we have discussed a couple of times works here, too. Such as $\epsilon$-greedy off-policy algorithm2, the stochastic character of the binary units allows the machine occasionally increase its energy to escape from poor local minima.</description>
+    </item>
+    
+    <item>
+      <title>Neural Network (4) : Deep Reinforcement Learning, Q-learning</title>
+      <link>https://physhik.github.io/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</link>
+      <pubDate>Thu, 14 Sep 2017 23:30:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</guid>
+      <description>Judgement Day 
+It is the first time I did not post for 4 days. I was too busy to prepare for the meetup this week. The day before yesterday meetup topic was the reinforcement learning as I mentioned at previous post. It is not a long research paper, but includes 143 references. Ah, not my favorite. This A Brief Survey of Deep Reinforcement Learning did not explain the detail of what I am interested in.</description>
+    </item>
+    
+    <item>
+      <title>Neural Network (3) : Hopfield Net</title>
+      <link>https://physhik.github.io/2017/09/neural-network-3-hopfield-net/</link>
+      <pubDate>Sun, 10 Sep 2017 13:30:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/09/neural-network-3-hopfield-net/</guid>
+      <description>Binary Hopfield net using Hebbian learning 
+We want to study Hopfield net from the simple case. Hopfield net is a fully connected feedback network. A feedback network is a network that is not a feedforward network, and in a feedforward network, all the connections are directed. All the connections in our example will be bi-directed. This symmetric property of the weight is important property of the Hopfield net.</description>
+    </item>
+    
+    <item>
+      <title>Neural Network (2) : Inference Using Perceptron and MCMC</title>
+      <link>https://physhik.github.io/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</link>
+      <pubDate>Wed, 06 Sep 2017 16:30:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</guid>
+      <description>Single neuron still has a lot to say 
+In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
+
+In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.</description>
+    </item>
+    
+    <item>
+      <title>Neural Network (1): Perceptron and Stochastic Gradient Descent</title>
+      <link>https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</link>
+      <pubDate>Wed, 30 Aug 2017 19:30:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</guid>
+      <description>Single neuron is amazing 
+One of the lessons I had during physics program is that we should start to understand small thing deeply however complicated the system which you want to know is. Not just it is easier but also it helps a lot to understand the more complex ones.
+
+Neural network is often compared to black magic. We do not understand why and how exactly so effective it is, but it makes great estimations in some specific matters.</description>
+    </item>
+    
+  </channel>
+</rss>

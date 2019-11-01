@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.59.0 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Namshik Kim">
+<meta name="keywords" content=", data science, machine learning, neural network">
+<meta name="description" content="Judgement Day 
+It is the first time I did not post for 4 days. I was too busy to prepare for the meetup this week. The day before yesterday meetup topic was the reinforcement learning as I mentioned at previous post. It is not a long research paper, but includes 143 references. Ah, not my favorite. This A Brief Survey of Deep Reinforcement Learning did not explain the detail of what I am interested in.">
+
+
+<meta property="og:description" content="Judgement Day 
+It is the first time I did not post for 4 days. I was too busy to prepare for the meetup this week. The day before yesterday meetup topic was the reinforcement learning as I mentioned at previous post. It is not a long research paper, but includes 143 references. Ah, not my favorite. This A Brief Survey of Deep Reinforcement Learning did not explain the detail of what I am interested in.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Neural Network (4) : Deep Reinforcement Learning, Q-learning">
+<meta name="twitter:title" content="Neural Network (4) : Deep Reinforcement Learning, Q-learning">
+<meta property="og:url" content="https://physhik.github.io/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/">
+<meta property="twitter:url" content="https://physhik.github.io/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/">
+<meta property="og:site_name" content="Physics to Data Science">
+<meta property="og:description" content="Judgement Day 
+It is the first time I did not post for 4 days. I was too busy to prepare for the meetup this week. The day before yesterday meetup topic was the reinforcement learning as I mentioned at previous post. It is not a long research paper, but includes 143 references. Ah, not my favorite. This A Brief Survey of Deep Reinforcement Learning did not explain the detail of what I am interested in.">
+<meta name="twitter:description" content="Judgement Day 
+It is the first time I did not post for 4 days. I was too busy to prepare for the meetup this week. The day before yesterday meetup topic was the reinforcement learning as I mentioned at previous post. It is not a long research paper, but includes 143 references. Ah, not my favorite. This A Brief Survey of Deep Reinforcement Learning did not explain the detail of what I am interested in.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2017-09-14T23:30:00">
+  
+  
+    <meta property="article:modified_time" content="2017-09-14T23:30:00">
+  
+  
+  
+    
+      <meta property="article:section" content="deep learning">
+    
+      <meta property="article:section" content="reinforcement learning">
+    
+  
+  
+    
+      <meta property="article:tag" content="deep reinforcement learning">
+    
+      <meta property="article:tag" content="dynamic programming">
+    
+      <meta property="article:tag" content="simulated annealing">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://physhik.github.io/images/postimages/human.png">
+  <meta property="twitter:image" content="https://physhik.github.io/images/postimages/human.png">
+
+
+
+
+
+  <meta property="og:image" content="/images/avatar.jpg">
+  <meta property="twitter:image" content="/images/avatar.jpg">
+
+
+    <title>Neural Network (4) : Deep Reinforcement Learning, Q-learning</title>
+
+    <link rel="icon" href="https://physhik.github.io/favicon.ico">
+    
+
+    
+
+    <link rel="canonical" href="https://physhik.github.io/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://physhik.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-83159020-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://physhik.github.io/">Physics to Data Science</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://physhik.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://physhik.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Namshik Kim</h4>
+        
+          <h5 class="sidebar-profile-bio">physicist, data scientist</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/about/index.html">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/physhik" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/namshikkim/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.researchgate.net/profile/Namshik_Kim" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-research-gate"></i>
+      
+      <span class="sidebar-button-desc">ResearchGate</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Neural Network (4) : Deep Reinforcement Learning, Q-learning
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-09-14T23:30:00-07:00">
+        
+  September 14, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://physhik.github.io/categories/deep-learning">deep learning</a>, 
+    
+      <a class="category-link" href="https://physhik.github.io/categories/reinforcement-learning">reinforcement learning</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p><br></p>
+
+<h2 id="judgement-day">Judgement Day</h2>
+
+<p><br></p>
+
+<p>It is the first time I did not post for 4 days. I was too busy to prepare for the meetup this week. The day before yesterday meetup topic was the reinforcement learning as I mentioned at previous post. It is not a long research paper, but includes 143 references. Ah, not my favorite. This <a href="https://arxiv.org/abs/1708.05866"><em>A Brief Survey of Deep Reinforcement Learning</em></a> did not explain the detail of what I am interested in.</p>
+
+<p><br></p>
+
+<p>One of the skills I learned during graduate study is how to find the key references in the most recent research papers. It took a lot of time to learn it but it turns out very helpful when I start the new things.</p>
+
+<p><br></p>
+
+<p>Anyway, it includes a lot of topics and it would take huge amount of time. I stopped everything except for studying deep reinforcement learning and spent so much time on it. This post is only part of the deep reinforcement learning<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>, but is going to be so long, too. It also took more than a day to write this post.</p>
+
+<p><br></p>
+
+<p>Even when I did not yet dive into machine learning, I watched the games of AlphaGo. And I was so shocked about the result. At the day AlphaGo won, a lot of people talked about the day machines will rule out human being. Recently I showed the famous <em>ATARI Breakout</em> video clip to my girlfriend and her reaction was also usual. <strong>Scary.</strong> Recently robotics using deep reinforcement learning had so much progress and we might see the daily use of neural-networked machine in the real life soon. Yeah, scary.</p>
+
+<p><br></p>
+
+<p>However, I clearly remember the one win of the human and his smile after his victory<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>. YES, I am always at human&rsquo;s side.</p>
+
+<p><br></p>
+
+<p><img src="https://physhik.github.io/images/postimages/human.png" alt="png" /></p>
+
+<p><br></p>
+
+<p>At that time, I have heard the reinforcement learning is the key of the AlphaGo. And finally I studied it and introduce to you how cool it is. We will make a DQN Python machine learning using openAI gym, and Keras deep learning library.</p>
+
+<p><br></p>
+
+<h2 id="gym-ai-and-environment">GYM AI and Environment</h2>
+
+<p><br></p>
+
+<p>Easiest targets among ATARI are classical_controls. Among them, cart pole is very clear problem implemented by <em>Rich Sutton</em><sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup>.</p>
+
+<p><br></p>
+
+<p>The environment <a href="https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py">Python code</a> is given. Look into it. Two methods seems crucial.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">def __init__(self):
+    self.gravity = 9.8
+    self.masscart = 1.0
+    self.masspole = 0.1
+    self.total_mass = (self.masspole + self.masscart)
+    self.length = 0.5 # actually half the pole's length
+    self.polemass_length = (self.masspole * self.length)
+    self.force_mag = 10.0
+    self.tau = 0.02  # seconds between state updates
+
+    # Angle at which to fail the episode
+    self.theta_threshold_radians = 12 * 2 * math.pi / 360
+    self.x_threshold = 2.4
+
+    # Angle limit set to 2 * theta_threshold_radians so failing observation is still within bounds
+    high = np.array([
+        self.x_threshold * 2,
+        np.finfo(np.float32).max,
+        self.theta_threshold_radians * 2,
+        np.finfo(np.float32).max])
+
+    self.action_space = spaces.Discrete(2)
+    self.observation_space = spaces.Box(-high, high)
+
+    self._seed()
+    self.viewer = None
+    self.state = None
+
+    self.steps_beyond_done = None
+</code></pre>
+
+<p><br></p>
+
+<p><strong>Above all, this <strong>init</strong> code came from the gym AI. Not included in our Python code.</strong> Our system is a 2-dimensional world with 1 dimensional gravity.</p>
+
+<p><br></p>
+
+<p>Masses of cart, pole are given. Length of the pole is given. Updating time is set. Some driven force is set. Threshold angle and position is set. I guess the angle is calculated theoretically, but threshold of position seems just setting. We do not need that kind of threshold at more realistic problem. In other words, the threshold of position is just boundary of the space of our system.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">def _step(self, action):
+    assert self.action_space.contains(action), &quot;%r (%s) invalid&quot;%(action, type(action))
+    state = self.state
+    x, x_dot, theta, theta_dot = state
+    force = self.force_mag if action==1 else -self.force_mag
+    costheta = math.cos(theta)
+    sintheta = math.sin(theta)
+    temp = (force + self.polemass_length * theta_dot * theta_dot * sintheta) / self.total_mass
+    thetaacc = (self.gravity * sintheta - costheta* temp) / (self.length * (4.0/3.0 - self.masspole * costheta * costheta / self.total_mass))
+    xacc  = temp - self.polemass_length * thetaacc * costheta / self.total_mass
+    x  = x + self.tau * x_dot
+    x_dot = x_dot + self.tau * xacc
+    theta = theta + self.tau * theta_dot
+    theta_dot = theta_dot + self.tau * thetaacc
+    self.state = (x,x_dot,theta,theta_dot)
+    done =  x &lt; -self.x_threshold \
+            or x &gt; self.x_threshold \
+            or theta &lt; -self.theta_threshold_radians \
+            or theta &gt; self.theta_threshold_radians
+    done = bool(done)
+
+    if not done:
+        reward = 1.0
+    elif self.steps_beyond_done is None:
+        # Pole just fell!
+        self.steps_beyond_done = 0
+        reward = 1.0
+    else:
+        if self.steps_beyond_done == 0:
+            logger.warning(&quot;You are calling 'step()' even though this environment has already returned done = True. You should always call 'reset()' once you receive 'done = True' -- any further steps are undefined behavior.&quot;)
+        self.steps_beyond_done += 1
+        reward = 0.0
+
+    return np.array(self.state), reward, done, {}
+</code></pre>
+
+<p><br></p>
+
+<p><strong>Above all, this step code came from the gym AI. Not included in our Python code.</strong></p>
+
+<p>step() method of the gym returns (np.array(self.state), reward, done, {}) after physical mechanics during 0.2 seconds. The third, <em>done</em> is a control factor.  And the forth, {} is unknown blank for something?</p>
+
+<p><br></p>
+
+<p>This code is a rule of steps. From it, we can know the dimensions of the state and the action. Respectively, 4 and 2. It is enough to solve the problem, but I will present more about the system.  The cart is moving 1-dimensional perpendicular to the gravity. One end of the pole is fixed on the cart and the other of the pole is free in the air. Then we have 4 parameters to determine the motions. Position and velocity of the cart, and angle and angular velocity of the pole. The steps every 0.2 seconds are determined by the equations of motions in the system. Some constant force will be acted on the left or right side of the cart in order to keep the pole stands on.</p>
+
+<p><br></p>
+
+<h2 id="deep-q-learning">Deep Q-learning</h2>
+
+<p><br></p>
+
+<p>Google DeepMind team&rsquo;s research paper, <a href="https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf"><em>Playing ATARI with Deep Reinforcement Learning</em></a> is the perfect tutorial for this problem, deep Q-learning reinforcement learning. Just read this 9 page-research paper. This is very clear research paper and does not require much background knowledge. Just go read it. If I explain, it is almost the copy of the half of the paper. And I will just go directly to solve our model using the algorithm they suggested.</p>
+
+<p><br></p>
+
+<p><img src="http://physhik.github.io/images/dqn.png" alt="png" /></p>
+
+<p><br></p>
+
+<p>This is the algorithm of deep Q-learning.</p>
+
+<p><br></p>
+
+<p>We want to find sequence of states, s, 4 numbers in the cart pole problem, and actions, a,  1 or 0 in the problem, which means left or right. The goal of the agent is to interact with the emulator by selecting actions in a way that maximizes future rewards. In this game, the reward is turns to survive.</p>
+
+<p><br></p>
+
+<h2 id="algorithm-and-python-code">Algorithm and Python Code</h2>
+
+<p><br></p>
+
+<p>Let us attack the algorithm line by line.</p>
+
+<p><br></p>
+
+<h3 id="first-line">First line</h3>
+
+<p><br></p>
+
+<p>We will add the states, previous states, rewards, and actions and
+also draw the samples from memory. Think it as short term memory.
+When you drive and turn, you still remember more detail how you turn, but will forget about the detail soon since it is not needed.</p>
+
+<p><br></p>
+
+<p>Thus, we set the limited capacity of the memory and throw out from the memory when it is full. For this cart-pole problem, if how many memory of the states are needed? Guess. We will see later.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">class memory:  
+    samples = []
+
+    def __init__(self, capacity):
+        self.capacity = capacity
+
+    def add(self, sample):
+        self.samples.append(sample)        
+
+        if len(self.samples) &gt; self.capacity:
+            self.samples.pop(0)
+
+    def sample(self, n):
+        n = min(n, len(self.samples))
+        return random.sample(self.samples, n)
+
+N =  1000   # capacity
+D = memory(N)
+
+</code></pre>
+
+<p><br></p>
+
+<h3 id="2nd-line">2nd line</h3>
+
+<p><br></p>
+
+<p>OK, the simple part is done. We need to store the initial sample in the empty memory with random things in some range. Q-functions are obtained from the states, so we will instead initialize the states and then we will give the weights from neural networks.</p>
+
+<p><br></p>
+
+<h3 id="the-first-line-of-the-m-loop">The first line of the M-loop</h3>
+
+<p><br></p>
+
+<p>Now the main dish! <em>for double-loop</em>. The both loops are on by simple iterations. I will call them M-loop and T-loop. We call the environment and reset the environment to initialize the state. You can find the various AI environment <a href="https://github.com/openai/gym/blob/master/gym/envs/__init__.py">here</a>, and I choose &lsquo;Cartpole-v1&rsquo;. It has max_episode_steps=500, and reward_threshold=475.0.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">import gym
+env = gym.make('CartPole-v1')
+</code></pre>
+
+<p><br></p>
+
+<pre><code class="language-python">def _reset(self):
+    self.state = self.np_random.uniform(low=-0.05, high=0.05, size=(4,))
+    self.steps_beyond_done = None
+    return np.array(self.state)
+</code></pre>
+
+<p><br></p>
+
+<p><strong>Above all, this reset code came from the gym AI. Not included in our Python code.</strong>
+The reset method of <em>class</em> CartPoleEnv will give us the initial state. In this code, state is the same as the observation at the algorithm and the ATARI paper. Think it as your first trial. It would not be precise, but approximate using your intuition. Of course our machine is not that smart, so we real human give the range.</p>
+
+<p><br></p>
+
+<p>Apparently, you can just initialize the state as we have done so far in this blog. However, anyway I do not want to make all the graphics codings irrelevant to machine learning core, and so at last we will use the environment code. Furthermore, it is a good time for beginners to learn <em>class</em>.</p>
+
+<p><br></p>
+
+<p>In the algorithm, the preprocessing is acted on image frame. Sometimes, we also do it to normalized the states, but our states are already restricted by the threshold and we do not need to preprocess the sequences at all.</p>
+
+<p><br></p>
+
+<p>The best way to study the objective oriented programming I guarantee is <strong>THIS</strong>. Study some packages consist of many classes, and practice to write the code by yourself without using the class. In other words, expand the code. And then, close the original object-oriented code, and rewrite the objective oriented code by yourself.</p>
+
+<p><br></p>
+
+<h2 id="the-t-loop-includes-two-different-algorithms">The T-loop includes two different algorithms</h2>
+
+<p><br></p>
+
+<h3 id="q-learning-epsilon-greedy-policy-dynamic-programming-for-q-value-function">Q-learning : $\epsilon$-greedy policy dynamic programming for Q-value function.</h3>
+
+<p><br></p>
+
+<p>Policy is just mapping from the sequences to actions. We use the dynamic programming to find the Q-value function. We use the recursive way to calculate the total reward as a function of an action and a state.</p>
+
+<p><br></p>
+
+<p>The recursive Q is convergent with the coefficient $\gamma &lt; 1$, but if it unstable for non-linear Q-function, and could take so much time for the learning. Do you want the machine to drive your car if it makes a decision so late? The impromptu reaction is crucial in robotics.</p>
+
+<p><br></p>
+
+<h4 id="the-lesson-from-the-machine-do-not-be-greedy-too-much">The lesson from the machine : Do not be greedy too much!</h4>
+
+<p><br></p>
+
+<p>I want to emphasize on the power of the mercy. Greed makes you look only your foot. It makes you see the tree and deprive a chance to see the forest. This $\epsilon$-possibility random mercy makes you explore and find the amazing answer. I have seen it from the move of AlphaGo, too. We will not see it from our example because it does not have many degree of freedom. However, if the machine handles with very high dimensional problems, that less greedy algorithm will extend perspective of human being.</p>
+
+<p><br></p>
+
+<p><strong>Simulated annealing</strong></p>
+
+<p><br></p>
+
+<p>We also use simulated annealing for the $epsilon$. When we use stochastic property to explore, the simulated annealing is useful to remove the randomness after using it. Without the annealing, it explores over and over even after it finds the best optimized state, and it slows down the performance.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">def epsilon(n, Max):
+  if n &lt; M/2:
+    return 0.01+ 2*(1 - 0.01)/Max * (n - Max/2)
+  else :
+    return 0.01
+</code></pre>
+
+<p><br></p>
+
+<h3 id="neural-network-optimization-for-q">Neural network optimization for Q</h3>
+
+<p><br></p>
+
+<p>Thus, we use neural networks to optimize the Q-function. As we have seen from perceptron, neural network is great optimizer, and also working well for non-linear function.</p>
+
+<p><br></p>
+
+<p>$Q(s, a; \theta_i) \sim Q^* (s, a)$.  $Q(s, a; \theta_i)$ is the approximate Q-function by the network. $\theta_i$ are weight for i-th T-iteration. $Q^* (s, a)$ is the optimal Q-value function.</p>
+
+<p><br></p>
+
+<p>By the way, to reduce the time more, we use minibatch gradient descent on the loss function. Loss function is nothing but the square of the $Q(s, a; \theta_i) - Q^* (s, a)$. Do not forget the $\epsilon$-greedy policy should be considered.</p>
+
+<p><br></p>
+
+<p>Minibatch gradient descent was already discussed in the blog. It is a small sampled stochastic gradient descent. For every iteration of T-loop, we need to run a learning by neural network. It is not different from linear regression we had with perceptron. I will do this procedure using <em>Keras</em>. It would take too much time to explain how it works, so I will just show you the Python code.</p>
+
+<p><br></p>
+
+<h2 id="neural-network-and-keras">Neural network and <em>Keras</em></h2>
+
+<p><br></p>
+
+<p>Before the loop code, we need to set the neural network model.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">from keras.models import Sequential
+from keras.layers import *
+from keras.optimizers import *
+import numpy as np
+
+
+model = Sequential()
+model.add(Dense(units=100, activation='relu', input_dim= 4))
+model.add(Dense(units= 2, activation='linear'))
+model.compile(metrics=['accuracy'], loss='mse', optimizer=Adagrad(lr=0.00025))
+</code></pre>
+
+<p><br></p>
+
+<p>Finally, a new library. Just go to <a href="https://keras.io">Keras website</a> and study for few hours. You need to understand how neural network works and the meanings of the detail set up. For example, Sequential is a well-known model of a linear stack of layers. Dense is Just your regular densely-connected neural network layer. units are the number of batches, input_dim is here the dimension of states. Activation is the function you use in neuron. Sigmoid function is the most famous activation function. relu is the rectified linear unit.
+The last layer should have 2 units because our <em>action</em> is 2-dimensional. Adagrad is one of the gradient descent model. The weak point of Adagrad is that it already shirinks the learning rate. This did not make any problem for this example. I chose it because I thought it would be consistent with our minibatch stochastic approach, and also it is based on gradient descent the algorithm used. mse will give the meas squared error for our minibatch model. It is the same as the loss function suggested by the algorithm.</p>
+
+<p><br></p>
+
+<h2 id="double-loop">Double loop</h2>
+
+<p><br></p>
+
+<pre><code class="language-python">size_of_batch = 100
+R = 0
+M= 10000
+T = 10
+gamma = 0.5
+
+for episode in range(M):
+
+    state = env.reset()
+
+    for turn in range(T):
+
+        env.render() # graphical loop is on.
+
+        if random.random() &lt;  epsilon(episode, M):
+            action = random.randint(0, 1)
+        else:
+            action = np.argmax(model.predict(state.reshape(1, 4)).flatten)
+
+        next_state, reward, done, EMPTY = env.step(action) # caution for done
+
+
+        D.add( (state, action, reward, next_state) )
+
+        minibatch = D.sample(size_of_batch)
+        real_size_of_batch = len(minibatch)
+
+        no_state = np.zeros(4)
+
+        observe_state = np.array([ e[0] for e in minibatch ]) #draw he state from minibatch
+        observe_next_state = np.array([ (no_state if e[3] is done else e[3]) for o in minibatch ])
+
+        Q = model.predict(observe_state)
+        next_Q = model.predict(observe_next_state)
+
+
+        batch_state = np.zeros((real_size_of_batch, 4))
+        batch_action = np.zeros((real_size_of_batch, 2))
+
+        for i in range(real_size_of_batch):
+            e = minibatch[i]
+            state = e[0]; action = e[1]; reward = e[2]; next_state = e[3]
+
+            yj = Q[i] # from the network. Q(theta)
+            if next_state is None:
+                yj[action] = reward  # off-policy
+            else:
+                yj[action] = reward + gamma * np.amax(next_Q[i])
+
+            batch_state[i] = state
+            batch_action[i] = yj
+
+        model.model.fit(batch_state ,batch_action, batch_size=100, epochs=1, verbose=0)
+
+        R +=reward
+
+        state = next_state
+
+        if done: # if the pole or cart go over the threshold
+            break
+</code></pre>
+
+<p><img src="http://physhik.github.io/images/cartpole.gif" alt="png" /></p>
+
+<p><br></p>
+
+<p>I do not explain the detail of the code. I have used the almost the same symbols for the parameters and functions. Will be straightforward for you to understand. If the theory is not clear, then, I say again, go read the original paper.</p>
+
+<p><br></p>
+
+<p>I myself experimented a lot of things. However, I leave you the fun part. The M-iteration number I chose above is enough big to make very good learning. If you use smaller episodes, you could see it fails in short period. Make a running function dependent on the iteration number, and can test how it is going, too. You can try to record the total reward and change the memory, and so on, in order to see if your intuition is correct. For example, what do you expect the plot of the total reward as a function of the M-iteration?  There are ton of tests you can do, have fun!</p>
+
+<p><br></p>
+
+<h2 id="pool">Pool</h2>
+
+<p><br></p>
+
+<p>In this simple game, we did not have the image input and as the result, we do not have convolution neural network. However, we decrease the size from the emptying memory. Here, the size of the batch is 100. And capacity of the memory in the above example is only 1000! I started from 100000 and decrease the capacity. It means there is the black magic of deep learning emerged again. For example, imagine you are doing the game on your hand by yourself. You need to focus on your action right now rather than remembering what you did 1 minute ago. If the game becomes complicated, you need to remember more, but still you are free to forget the informations you will not use.</p>
+
+<p><br></p>
+
+<p><br></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">There are many other interesting deep reinforcement learning. In particular, the model-free policy search is super interesting. Hope I have a chance to post about it soon.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">Of course, I agree with Google DeepMind team that it was not a win of machine but win of human technology.<br />
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3">He is one of the authors of the famous reinforcement learning introduction textbook.
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/deep-reinforcement-learning/">deep reinforcement learning</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/dynamic-programming/">dynamic programming</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/simulated-annealing/">simulated annealing</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/09/graphviz/" data-tooltip="Graphviz">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/09/neural-network-3-hopfield-net/" data-tooltip="Neural Network (3) : Hopfield Net">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 Namshik Kim. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/09/graphviz/" data-tooltip="Graphviz">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/09/neural-network-3-hopfield-net/" data-tooltip="Neural Network (3) : Hopfield Net">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Namshik Kim</h4>
+    
+      <div id="about-card-bio">physicist, data scientist</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Vancouver, BC, Canada.
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/10/introduction-to-sabermetrics/">
+                <h3 class="media-heading">Introduction to sabermetrics</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Some baseball fans regard sabermetricians as freaks crazy about numbers instead of the real baseball. However, I do not agree with that in two ways.
+ It is not just about a number. &quot;S&quot; in sabermetric means It is simply trial to understand the baseball game.  </div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/10/new-blog-theme/">
+                <h3 class="media-heading">New Blog Theme</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I decided to use my own domain instead of renting the /github.io/, and also to insert Google adsense in my blog if possible. Even if I updated my blog only 10 times since Oct, 2017, the number of visitors and their sessions were steady by Google analytics. Recently I started updating my blog again, and want to see the more industrial analytic result. At least I am sure the profit from the adsense will cover the cost for the domain.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/">
+                <h3 class="media-heading">Machine Learns from Cardiologist (3)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Open source 
+The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/">
+                <h3 class="media-heading">Machine Learns from Cardiologist (2)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
+Deep learning and classifications. 
+The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
+
+What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/">
+                <h3 class="media-heading">Macnine Learns from Cardiologist (1)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Prologue 
+Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
+
+When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/02/youtube-data-api-on-gcp/">
+                <h3 class="media-heading">Youtube Data API on GCP</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
+
+AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/02/clean-coding-and-short-run-time/">
+                <h3 class="media-heading">Clean Coding and Short Run Time</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Today I want to discuss purely about coding itself. I wish this post is helpful for someone want to transit his career from a pure researcher to a programmer. I have been a researcher rather than a programmer. I would just want to execute something to see the result I wanted to see. If the run time is too long or my computer has no enough memory to run the code, it was a sign of new purchase to me.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2018/02/revisited-variational-inference/">
+                <h3 class="media-heading">Revisited Variational Inference</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
+
+Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2018/02/rough-review-of-wavegan/">
+                <h3 class="media-heading">Rough Review of WaveGAN</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Around a week ago, on ArXiv, an interesting research paper appeared, which is about the music style transfer using GAN, which is also my main topic for recent few months. Around a week ago, on arXiv, an interesting research paper appeared, which can be applied to the music style transfer using GAN, which is also my main topic for recent few months. There are already many researches on the style transfer of the images, and one of my main projects now is making the style transfer in music.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2017/12/introduction-to-gan/">
+                <h3 class="media-heading">Introduction to GAN </h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
+
+Revolution in deep learning 
+As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         35 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://physhik.github.io/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://physhik.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/physhik.github.io\/2017\/09\/neural-network-4-deep-reinforcement-learning-q-learning\/';
+          
+            this.page.identifier = '\/2017\/09\/neural-network-4-deep-reinforcement-learning-q-learning\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'physhiks-data-science';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      CommonHTML: { linebreaks: { automatic: true } },
+      tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+      messageStyle: 'none'
+    });
+  </script>
+
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.59.0 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Namshik Kim">
+<meta name="keywords" content=", data science, machine learning, neural network">
+<meta name="description" content="Efficient Monte Carlo sampling 
+This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
+
+Gibbs sampling 
+In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.">
+
+
+<meta property="og:description" content="Efficient Monte Carlo sampling 
+This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
+
+Gibbs sampling 
+In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MCMC (6): Gibbs Sampling and Overrelaxation">
+<meta name="twitter:title" content="MCMC (6): Gibbs Sampling and Overrelaxation">
+<meta property="og:url" content="https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/">
+<meta property="twitter:url" content="https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/">
+<meta property="og:site_name" content="Physics to Data Science">
+<meta property="og:description" content="Efficient Monte Carlo sampling 
+This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
+
+Gibbs sampling 
+In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.">
+<meta name="twitter:description" content="Efficient Monte Carlo sampling 
+This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
+
+Gibbs sampling 
+In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2017-09-01T22:30:00">
+  
+  
+    <meta property="article:modified_time" content="2017-09-01T22:30:00">
+  
+  
+  
+    
+      <meta property="article:section" content="Markov chain Monte Carlo method">
+    
+      <meta property="article:section" content="Gibbs sampling">
+    
+  
+  
+    
+      <meta property="article:tag" content="optimization">
+    
+      <meta property="article:tag" content="Markov chain Monte Carlo method">
+    
+      <meta property="article:tag" content="efficient Monte Carlo sampling">
+    
+      <meta property="article:tag" content="Gibbs sampling">
+    
+      <meta property="article:tag" content="over relaxation">
+    
+      <meta property="article:tag" content="stochastic gradient descent">
+    
+      <meta property="article:tag" content="batch gradient descent">
+    
+      <meta property="article:tag" content="on-line learning">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://physhik.github.io/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_2_0.png">
+  <meta property="twitter:image" content="https://physhik.github.io/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_2_0.png">
+
+
+
+
+
+  <meta property="og:image" content="/images/avatar.jpg">
+  <meta property="twitter:image" content="/images/avatar.jpg">
+
+
+    <title>MCMC (6): Gibbs Sampling and Overrelaxation</title>
+
+    <link rel="icon" href="https://physhik.github.io/favicon.ico">
+    
+
+    
+
+    <link rel="canonical" href="https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://physhik.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-83159020-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://physhik.github.io/">Physics to Data Science</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://physhik.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://physhik.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Namshik Kim</h4>
+        
+          <h5 class="sidebar-profile-bio">physicist, data scientist</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/about/index.html">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/physhik" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/namshikkim/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.researchgate.net/profile/Namshik_Kim" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-research-gate"></i>
+      
+      <span class="sidebar-button-desc">ResearchGate</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      MCMC (6): Gibbs Sampling and Overrelaxation
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-09-01T22:30:00-07:00">
+        
+  September 1, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://physhik.github.io/categories/markov-chain-monte-carlo-method">Markov chain Monte Carlo method</a>, 
+    
+      <a class="category-link" href="https://physhik.github.io/categories/gibbs-sampling">Gibbs sampling</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p><br></p>
+
+<h2 id="efficient-monte-carlo-sampling">Efficient Monte Carlo sampling</h2>
+
+<p><br></p>
+
+<p>This post is on the extension of <a href="https://physhik.github.io/2017/08/mcmc-5-hamiltonian-monte-carlo-method/">the post about Hamiltonian Monte Carlo method</a>. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.</p>
+
+<p><br></p>
+
+<h3 id="gibbs-sampling">Gibbs sampling</h3>
+
+<p><br></p>
+
+<p>In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.</p>
+
+<p>$$
+x^{(t+1)}_1 \sim P(x_1|x^{(t)}_2,x^{(t)}_3,x^{(t)}_4,&hellip;,x^{(t)}_K),
+$$</p>
+
+<p>$$
+x^{(t+1)}_2 \sim P(x_2|x^{(t)}_1,x^{(t)}_3,x^{(t)}_4,&hellip;,x^{(t)}_K),
+$$</p>
+
+<p>$$
+\cdots
+$$</p>
+
+<p><br></p>
+
+<p>Gibbs sampling suffers from the same defect as simple Metropolis algorithms - the state space is explored by a slow random walk. It slowly progresses made by Gibbs sampling when $ L \gg \epsilon$. However Gibbs sampling involves no adjustable parameters, so it is an attractive strategy when one wants to get a model running quickly.</p>
+
+<p><br></p>
+
+<p>We consider a simple 2 dimensional Gaussian distribution.</p>
+
+<p><br></p>
+
+<p>$$
+P(x, y| \mu_x, \mu_y, \sigma_x, \sigma_y) = {1 \over Z} e^{a~x^2+b~ x~ y + c~y^2\over 2\sigma^2}
+$$</p>
+
+<p>$(\mu_i,~ \sigma_i^2)$ is the mean and the variation as $x_j$ are constants for all $j \ne i$. Let us see the Python code and the plot.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">import numpy as np
+import random
+import matplotlib.pyplot as plt
+
+%matplotlib inline
+plt.style.use('ggplot')
+
+</code></pre>
+
+<pre><code class="language-python">def generalGibbsDensity(X1,X2):
+    return np.exp(-(1.25*X1*X1+1.25*X2*X2))
+
+
+#initial point
+x0 = np.array([-1.3,-1.3])
+x1 = x0
+
+# standard dev from the density function
+sigma = 0.6324555320336759
+
+# mu is also obtained from the density
+
+N = 20
+Listx = np.zeros(2*N+1)
+Listy = np.zeros(2*N+1)
+Listx[0], Listy[0] = x0
+
+
+for i in range(N):
+    #conditional gaussian for x
+    x1[0] = np.random.normal(0, sigma)
+    Listx[2*i+1] = x1[0]
+    Listy[2*i+1] = x0[1]
+    #conditional gaussian for y
+    x1[1] = np.random.normal(0, sigma)
+    Listx[2*i+2] = x1[0]
+    Listy[2*i+2] = x1[1]
+    x0 = x1
+</code></pre>
+
+<pre><code class="language-python">plt.figure()
+x1 = np.arange(-2.0, 2.0, 0.01)
+x2 = np.arange(-2.0, 2.0, 0.01)
+X1, X2 = np.meshgrid(x1, x2)
+plt.contour(X1,X2,np.exp(-(1.25*X1*X1+1.25*X2*X2)))
+
+plt.plot(Listx, Listy,'o-')
+plt.axis([-1.5,1.5,-1.5,1.5])
+pass
+</code></pre>
+
+<p><img src="https://physhik.github.io/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_2_0.png" alt="png" /></p>
+
+<p><br></p>
+
+<p>For this simple example, the given target density is $e^{-1.25(x^2+y^2)}$. Therefore, when $y$ is constant, obtained $\mu_x = 0$ and $\sigma_y = \sqrt{2/(1.25)}$.</p>
+
+<p>By x-y exchange symmetry, $\mu_y = \mu_x$ and $\sigma_y = \sigma_x$.</p>
+
+<p><br></p>
+
+<p>In Gibbs sampling, the even numbered sample is drawn from 1-dimensional Gaussian
+$P(y|x= constant, \mu_y, \sigma_y)$<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> and the odd numbered sample is drawn from 1-d Gaussian $P(x|y= constant, \mu_x, \sigma_x)$. For generalized target density in n-dimensions, we run another loop for this procedure. In other words, this algorithm is fundamentally a double-loop algorithm.</p>
+
+<p><br></p>
+
+<h3 id="for-narrow-target-distribution">For narrow target distribution.</h3>
+
+<p><br></p>
+
+<p>Now, we will consider the same density function which we used in Hamiltonian Monte Carlo sampling.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">def density(X1,X2):
+    return np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2))
+</code></pre>
+
+<pre><code class="language-python">#initial point
+x0 = np.array([-1.3,-1.3])
+x1 = x0
+
+# standard dev from the density function
+sigma = 0.04469901562676742
+
+# mu is also obtained from the density
+
+N = 200
+Listx = np.zeros(2*N+1)
+Listy = np.zeros(2*N+1)
+Listx[0], Listy[0] = x0
+
+
+for i in range(N):
+    #conditional gaussian for x
+    x1[0] = np.random.normal(0.998*x0[1], sigma)
+    Listx[2*i+1] = x1[0]
+    Listy[2*i+1] = x0[1]
+    #conditional gaussian for y
+    x1[1] = np.random.normal(0.998*x1[0], sigma)
+    Listx[2*i+2] = x1[0]
+    Listy[2*i+2] = x1[1]
+    x0 = x1
+</code></pre>
+
+<pre><code class="language-python">plt.figure()
+x1 = np.arange(-2.0, 1.0, 0.01)
+x2 = np.arange(-2.0, 1.0, 0.01)
+X1, X2 = np.meshgrid(x1, x2)
+plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)))
+
+plt.plot(Listx, Listy)
+plt.axis([-1.5,0.5,-1.5,0.5])
+pass
+</code></pre>
+
+<p><img src="https://physhik.github.io/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_5_0.png" alt="png" /></p>
+
+<pre><code class="language-python">plt.figure()
+x1 = np.arange(-2.0, 1.0, 0.01)
+x2 = np.arange(-2.0, 1.0, 0.01)
+X1, X2 = np.meshgrid(x1, x2)
+plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)))
+
+#sns.kdeplot(orbit)
+plt.plot(Listx[:50], Listy[:50])
+plt.axis([-1.5,0,-1.5,0])
+pass
+</code></pre>
+
+<p><img src="https://physhik.github.io/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_6_0.png" alt="png" /></p>
+
+<p><br></p>
+
+<p>See that the samples are stuck around the starting point. The Hamiltonian Monte Carlo sampling also had a similar problem. The samples in Hamiltonian Monte Carlo sampling tend to move where the gradient descent is big. In other words, they tend to move along semi-minor axis of the ellipse. The remained randomness makes it move along semi-major axis, but slowly. Even though the accept rate is high, it takes long time to make a convergent Markov chain.</p>
+
+<p><br></p>
+
+<p>Also Note that the mean values for the conditional probability depends on the position because of the coupled term, $-2 \times 249.75 \times x~ y$ in the joint probability density.</p>
+
+<p><br></p>
+
+<h3 id="simultaneous-update">Simultaneous update</h3>
+
+<p><br></p>
+
+<p>We can update x and y at the same time.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">
+# if you update x, y at the same time.
+
+x0 = np.array([-1.3,-1.3])
+x1 = x0
+
+# standard dev from the density function
+sigma = 0.04469901562676742
+
+# mu is also obtained from the density
+
+N = 100
+Listx = np.zeros(N+1)
+Listy = np.zeros(N+1)
+Listx[0], Listy[0] = x0
+
+
+for i in range(N):
+    #conditional gaussian for x
+    x1[0] = np.random.normal(0.998*x0[1], sigma)
+    x1[1] = np.random.normal(0.998*x0[0], sigma)
+    Listx[i+1] = x1[0]
+    Listy[i+1] = x1[1]
+    x0 = x1
+</code></pre>
+
+<pre><code class="language-python">plt.figure()
+x1 = np.arange(-2.0, 1.0, 0.01)
+x2 = np.arange(-2.0, 1.0, 0.01)
+X1, X2 = np.meshgrid(x1, x2)
+plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)))
+
+#sns.kdeplot(orbit)
+plt.plot(Listx[:50], Listy[:50])
+plt.axis([-1.5,0,-1.5,0])
+pass
+</code></pre>
+
+<p><img src="https://physhik.github.io/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_8_0.png" alt="png" /></p>
+
+<p><br></p>
+
+<h2 id="overrelaxation">Overrelaxation</h2>
+
+<p><br></p>
+
+<pre><code class="language-python">def density(X1,X2):
+    return np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2))
+
+#initial point
+x0 = np.array([-1.3,-1.3])
+x1 = x0
+
+# standard dev from the density function
+sigma = 0.04469901562676742
+
+# mu is also obtained from the density
+
+N = 200
+Listx = np.zeros(2*N+1)
+Listy = np.zeros(2*N+1)
+Listx[0], Listy[0] = x0
+
+
+for i in range(N):
+    #conditional gaussian for x
+    x1[0] = np.random.normal(0.998*x0[1], sigma)
+    Listx[2*i+1] = x1[0]
+    Listy[2*i+1] = x0[1]
+    #conditional gaussian for y
+    x1[1] = np.random.normal(0.998*x1[0], sigma)
+    Listx[2*i+2] = x1[0]
+    Listy[2*i+2] = x1[1]
+    x0 = x1
+
+plt.figure(figsize=(10,10))
+
+
+plt.subplot(2,2,1)
+x1 = np.arange(-2.0, 1.0, 0.01)
+x2 = np.arange(-2.0, 1.0, 0.01)
+X1, X2 = np.meshgrid(x1, x2)
+plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)))
+
+#sns.kdeplot(orbit)
+plt.plot(Listx, Listy)
+plt.axis([-1.5,0.5,-1.5,0.5])
+
+
+
+
+plt.subplot(2,2,3)
+x1 = np.arange(-2.0, 1.0, 0.01)
+x2 = np.arange(-2.0, 1.0, 0.01)
+X1, X2 = np.meshgrid(x1, x2)
+plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)))
+
+#sns.kdeplot(orbit)
+plt.plot(Listx[:50], Listy[:50])
+plt.axis([-1.5,0,-1.5,0])
+
+
+# if you update x, y at the same time.
+
+x0 = np.array([-1.3,-1.3])
+x1 = x0
+
+# standard dev from the density function
+sigma = 0.04469901562676742
+
+# mu is also obtained from the density
+
+N = 100
+Listx = np.zeros(N+1)
+Listy = np.zeros(N+1)
+Listx[0], Listy[0] = x0
+
+# over-relaxation constant alpha between -1 and 0
+a = -0.98
+
+
+for i in range(N):
+    #conditional gaussian for x
+    x1[0] = 0.998*x0[1]+a*(x0[0]-0.998*x0[1])+(1-a*a)**(0.5)*sigma*np.random.normal(0,1)
+    x1[1] = 0.998*x0[0]+a*(x0[1]-0.998*x0[0])+(1-a*a)**(0.5)*sigma*np.random.normal(0,1)
+    Listx[i+1] = x1[0]
+    Listy[i+1] = x1[1]
+    x0 = x1
+
+
+plt.subplot(2,2,2)
+
+x1 = np.arange(-2.0, 1.0, 0.01)
+x2 = np.arange(-2.0, 1.0, 0.01)
+X1, X2 = np.meshgrid(x1, x2)
+plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)), alpha=0.3)
+
+plt.plot(Listx[:50], Listy[:50])
+plt.axis([-1.5,1,-1.5,1])
+
+plt.subplot(2,2,4)
+plt.plot(Listx[:50], Listy[:50])
+plt.axis([-1.5,3,-1.5,3])
+
+</code></pre>
+
+<p><img src="https://physhik.github.io/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_13_1.png" alt="png" /></p>
+
+<p><br></p>
+
+<p>There are 200 samples in the left top plot, and only 50 samples in the right top plot. As we know from intuition about the plot, this overrelaxation also reduces the random property and gain the purpose.</p>
+
+<p><br></p>
+
+<p>We still update x and y Simultaneously. The only change in this algorithm is the for loop. When we consider the conditional probability is Gaussian, $\mathcal{N}(\mu, \sigma^2)$. For the n-th sample $x_i^{(n)}$, the next n+1 th sample is chosen as follows.</p>
+
+<p><br></p>
+
+<p>$$
+x_i^{(n+1)} = \mu +\alpha (x_i^{(n)} - \mu) + (1 - \alpha^2)^{<sup>1</sup>&frasl;<sub>2</sub>} \sigma \nu
+$$</p>
+
+<p><br></p>
+
+<p>$\alpha$ is the parameter to control the extent of the overrelaxation. It is between -1 and 1. When $\alpha \sim -1$, the sample move to about the opposite point of the previous sample. If it is positive, it is an underrelaxation.   The conditional probability distribution is invariant under the transformation. $\nu$ is remained randomness. Here, we chose $\nu = \mathcal{N}(0, ~1)$. We are allow to make the other random distribution as the distribution as the transformation does not break the invariance.</p>
+
+<p><br></p>
+
+<h2 id="other-efficient-monte-carlo-method">Other efficient Monte Carlo method</h2>
+
+<p><br></p>
+
+<p>Simulated annealing is also one of the way to find the convergent Markov chain faster. Probability distribution in statistical mechanics is</p>
+
+<p>$$
+P(x) = {e^{-E(x)}\over Z}
+$$</p>
+
+<p>Mathematically, simulated annealing is introducing a parameter to control a perturbative Energy term.<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> You split the energy term to a good one and a bad one, $E_g(x)+E_b(x)/T$,  and you control the parameter coefficient of the bad term, $1/T$. Note that other efficient Monte Carlo methods have parameters. Hamiltonian Monte Carlo has a leaping parameter, and Gibbs overrelaxation has a overrelaxation parameter. All of the parameters is used to relax the random walk in the Monte Carlo sampling. Well, what I am really interested in is a quantum annealing. Hope I would have a chance to discuss about it in detail.</p>
+
+<p><br></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Each 1-d probability is a conditional probability density of the joint probability $P(x,y)$.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">If I posted about Ising model, this annealing would very easy to understand for you. I have an IPython code about it already. I just want to save the post until I also post Hopfield net together.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/optimization/">optimization</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/markov-chain-monte-carlo-method/">Markov chain Monte Carlo method</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/efficient-monte-carlo-sampling/">efficient Monte Carlo sampling</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/gibbs-sampling/">Gibbs sampling</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/over-relaxation/">over relaxation</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/stochastic-gradient-descent/">stochastic gradient descent</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/batch-gradient-descent/">batch gradient descent</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/on-line-learning/">on-line learning</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/09/bayesian-inference-examples/" data-tooltip="Bayesian Inference Examples">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/clustering-2-soft-k-mean/" data-tooltip="Clustering (2) : Soft K-mean">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 Namshik Kim. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/09/bayesian-inference-examples/" data-tooltip="Bayesian Inference Examples">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/clustering-2-soft-k-mean/" data-tooltip="Clustering (2) : Soft K-mean">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Namshik Kim</h4>
+    
+      <div id="about-card-bio">physicist, data scientist</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Vancouver, BC, Canada.
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/10/introduction-to-sabermetrics/">
+                <h3 class="media-heading">Introduction to sabermetrics</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Some baseball fans regard sabermetricians as freaks crazy about numbers instead of the real baseball. However, I do not agree with that in two ways.
+ It is not just about a number. &quot;S&quot; in sabermetric means It is simply trial to understand the baseball game.  </div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/10/new-blog-theme/">
+                <h3 class="media-heading">New Blog Theme</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I decided to use my own domain instead of renting the /github.io/, and also to insert Google adsense in my blog if possible. Even if I updated my blog only 10 times since Oct, 2017, the number of visitors and their sessions were steady by Google analytics. Recently I started updating my blog again, and want to see the more industrial analytic result. At least I am sure the profit from the adsense will cover the cost for the domain.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/">
+                <h3 class="media-heading">Machine Learns from Cardiologist (3)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Open source 
+The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/">
+                <h3 class="media-heading">Machine Learns from Cardiologist (2)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
+Deep learning and classifications. 
+The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
+
+What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/">
+                <h3 class="media-heading">Macnine Learns from Cardiologist (1)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Prologue 
+Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
+
+When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/02/youtube-data-api-on-gcp/">
+                <h3 class="media-heading">Youtube Data API on GCP</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
+
+AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/02/clean-coding-and-short-run-time/">
+                <h3 class="media-heading">Clean Coding and Short Run Time</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Today I want to discuss purely about coding itself. I wish this post is helpful for someone want to transit his career from a pure researcher to a programmer. I have been a researcher rather than a programmer. I would just want to execute something to see the result I wanted to see. If the run time is too long or my computer has no enough memory to run the code, it was a sign of new purchase to me.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2018/02/revisited-variational-inference/">
+                <h3 class="media-heading">Revisited Variational Inference</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
+
+Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2018/02/rough-review-of-wavegan/">
+                <h3 class="media-heading">Rough Review of WaveGAN</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Around a week ago, on ArXiv, an interesting research paper appeared, which is about the music style transfer using GAN, which is also my main topic for recent few months. Around a week ago, on arXiv, an interesting research paper appeared, which can be applied to the music style transfer using GAN, which is also my main topic for recent few months. There are already many researches on the style transfer of the images, and one of my main projects now is making the style transfer in music.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2017/12/introduction-to-gan/">
+                <h3 class="media-heading">Introduction to GAN </h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
+
+Revolution in deep learning 
+As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         35 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://physhik.github.io/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://physhik.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/physhik.github.io\/2017\/09\/mcmc-6-gibbs-sampling-and-overrelaxation\/';
+          
+            this.page.identifier = '\/2017\/09\/mcmc-6-gibbs-sampling-and-overrelaxation\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'physhiks-data-science';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      CommonHTML: { linebreaks: { automatic: true } },
+      tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+      messageStyle: 'none'
+    });
+  </script>
+
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bayesian inference on Physics to Data Science</title>
+    <link>https://physhik.github.io/tags/bayesian-inference/</link>
+    <description>Recent content in Bayesian inference on Physics to Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Sep 2017 16:30:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://physhik.github.io/tags/bayesian-inference/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Neural Network (2) : Inference Using Perceptron and MCMC</title>
+      <link>https://physhik.github.io/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</link>
+      <pubDate>Wed, 06 Sep 2017 16:30:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</guid>
+      <description>Single neuron still has a lot to say 
+In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
+
+In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.</description>
+    </item>
+    
+    <item>
+      <title>Bayesian Inference Examples</title>
+      <link>https://physhik.github.io/2017/09/bayesian-inference-examples/</link>
+      <pubDate>Sun, 03 Sep 2017 12:30:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/09/bayesian-inference-examples/</guid>
+      <description>I assume that the readers know the Bayes&amp;rsquo; rule already. If you are not familiar to it, read any kind of textbook about probability, data science, and machine learning. I recommend the book, which I learned Bayes&amp;rsquo; rule. Bayesians say that you cannot do inference without making assumptions. Thus, Bayesians also use probabilities to describe inferences. The author in the chapter 2 introduces some rules of probability theory and introduces more about assumptions in inference in the chapter 3.</description>
+    </item>
+    
+  </channel>
+</rss>

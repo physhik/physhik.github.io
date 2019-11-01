@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ising model on Physics to Data Science</title>
+    <link>https://physhik.github.io/tags/ising-model/</link>
+    <description>Recent content in Ising model on Physics to Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Sep 2017 13:30:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://physhik.github.io/tags/ising-model/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Neural Network (3) : Hopfield Net</title>
+      <link>https://physhik.github.io/2017/09/neural-network-3-hopfield-net/</link>
+      <pubDate>Sun, 10 Sep 2017 13:30:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/09/neural-network-3-hopfield-net/</guid>
+      <description>Binary Hopfield net using Hebbian learning 
+We want to study Hopfield net from the simple case. Hopfield net is a fully connected feedback network. A feedback network is a network that is not a feedforward network, and in a feedforward network, all the connections are directed. All the connections in our example will be bi-directed. This symmetric property of the weight is important property of the Hopfield net.</description>
+    </item>
+    
+    <item>
+      <title>Ising Model</title>
+      <link>https://physhik.github.io/2017/09/ising-model/</link>
+      <pubDate>Sat, 09 Sep 2017 23:30:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/09/ising-model/</guid>
+      <description>Why Ising model : 3 reasons for relevance 
+ Studying Ising model can be useful to understand phase transition of various systems.  
+ Hopfield network or Boltzmann machine to the neural network is just a generalized form of Ising model.  
+ Ising model is also useful as a statistical model in its own right.  
+Ising model $\boldsymbol{x}$ is the state of an Ising model with $N$ spins be a vector in which each component $\boldsymbol x_n$ takes values $-1$ or $+1$.</description>
+    </item>
+    
+  </channel>
+</rss>

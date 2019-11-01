@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ipython notebook on Physics to Data Science</title>
+    <link>https://physhik.github.io/tags/ipython-notebook/</link>
+    <description>Recent content in ipython notebook on Physics to Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 15 Aug 2017 03:40:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://physhik.github.io/tags/ipython-notebook/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Clustering (1), Hard K-means and its Failure</title>
+      <link>https://physhik.github.io/2017/08/clustering-1-hard-k-means-and-its-failure/</link>
+      <pubDate>Tue, 15 Aug 2017 03:40:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/08/clustering-1-hard-k-means-and-its-failure/</guid>
+      <description>As I mentioned at the previous posting, one of the purposes of this blog is to supplement the Github of my data science study. I will gradually post and present all the iPython notebooks or Mathematica notebooks.
+
+I felt there&amp;rsquo;s no good Python tutorial for spectral clustering (at least from my search). Who can&amp;rsquo;t use scikit-learn among who is serious about machine learning. It was not difficult to find the theory of spectral clustering as well.</description>
+    </item>
+    
+  </channel>
+</rss>

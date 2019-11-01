@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.59.0 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Namshik Kim">
+<meta name="keywords" content=", data science, machine learning, neural network">
+<meta name="description" content="Hard K-means and responsibilities 
+If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the hard K-means algorithm in the previous post.
+
+In the previous post, we defined assignment. The equivalent representation of this assignment of points to clusters is given by responsibilities, $r^{(n)}_k$. In the assignment step, we set $r^{(n)}_k$ to one if mean k is the closest mean to datapoint $ {\textbf x}^{(n)}$; otherwise, $r^{(n)}_k$ is zero.">
+
+
+<meta property="og:description" content="Hard K-means and responsibilities 
+If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the hard K-means algorithm in the previous post.
+
+In the previous post, we defined assignment. The equivalent representation of this assignment of points to clusters is given by responsibilities, $r^{(n)}_k$. In the assignment step, we set $r^{(n)}_k$ to one if mean k is the closest mean to datapoint $ {\textbf x}^{(n)}$; otherwise, $r^{(n)}_k$ is zero.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clustering (2) : Soft K-mean">
+<meta name="twitter:title" content="Clustering (2) : Soft K-mean">
+<meta property="og:url" content="https://physhik.github.io/2017/08/clustering-2-soft-k-mean/">
+<meta property="twitter:url" content="https://physhik.github.io/2017/08/clustering-2-soft-k-mean/">
+<meta property="og:site_name" content="Physics to Data Science">
+<meta property="og:description" content="Hard K-means and responsibilities 
+If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the hard K-means algorithm in the previous post.
+
+In the previous post, we defined assignment. The equivalent representation of this assignment of points to clusters is given by responsibilities, $r^{(n)}_k$. In the assignment step, we set $r^{(n)}_k$ to one if mean k is the closest mean to datapoint $ {\textbf x}^{(n)}$; otherwise, $r^{(n)}_k$ is zero.">
+<meta name="twitter:description" content="Hard K-means and responsibilities 
+If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the hard K-means algorithm in the previous post.
+
+In the previous post, we defined assignment. The equivalent representation of this assignment of points to clusters is given by responsibilities, $r^{(n)}_k$. In the assignment step, we set $r^{(n)}_k$ to one if mean k is the closest mean to datapoint $ {\textbf x}^{(n)}$; otherwise, $r^{(n)}_k$ is zero.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2017-08-31T13:40:00">
+  
+  
+    <meta property="article:modified_time" content="2017-08-31T13:40:00">
+  
+  
+  
+    
+      <meta property="article:section" content="unsupervised machine learning">
+    
+      <meta property="article:section" content="clustering">
+    
+  
+  
+    
+      <meta property="article:tag" content="clustering">
+    
+      <meta property="article:tag" content="maximum likelihood">
+    
+      <meta property="article:tag" content="mixture of Gaussian">
+    
+      <meta property="article:tag" content="simulated annealing">
+    
+      <meta property="article:tag" content="hard K-means">
+    
+      <meta property="article:tag" content="soft K-means">
+    
+      <meta property="article:tag" content="regularization">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://physhik.github.io/images/postimages/enhancedSoftKmean_files/enhancedSoftKmean_0_2.png">
+  <meta property="twitter:image" content="https://physhik.github.io/images/postimages/enhancedSoftKmean_files/enhancedSoftKmean_0_2.png">
+
+
+
+
+
+  <meta property="og:image" content="/images/avatar.jpg">
+  <meta property="twitter:image" content="/images/avatar.jpg">
+
+
+    <title>Clustering (2) : Soft K-mean</title>
+
+    <link rel="icon" href="https://physhik.github.io/favicon.ico">
+    
+
+    
+
+    <link rel="canonical" href="https://physhik.github.io/2017/08/clustering-2-soft-k-mean/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://physhik.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-83159020-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://physhik.github.io/">Physics to Data Science</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://physhik.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://physhik.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Namshik Kim</h4>
+        
+          <h5 class="sidebar-profile-bio">physicist, data scientist</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://physhik.github.io/about/index.html">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/physhik" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/namshikkim/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.researchgate.net/profile/Namshik_Kim" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-research-gate"></i>
+      
+      <span class="sidebar-button-desc">ResearchGate</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Clustering (2) : Soft K-mean
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-08-31T13:40:00-07:00">
+        
+  August 31, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://physhik.github.io/categories/unsupervised-machine-learning">unsupervised machine learning</a>, 
+    
+      <a class="category-link" href="https://physhik.github.io/categories/clustering">clustering</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p><br></p>
+
+<h2 id="hard-k-means-and-responsibilities">Hard K-means and responsibilities</h2>
+
+<p><br></p>
+
+<p>If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the <em>hard K-means algorithm</em> in <a href="https://physhik.github.io/2017/08/clustering-1-hard-k-means-and-its-failure/">the previous post</a>.</p>
+
+<p><br></p>
+
+<p>In the previous post, we defined assignment. The equivalent representation of this assignment of points to clusters is given by responsibilities, $r^{(n)}_k$. In the assignment step, we set $r^{(n)}_k$ to one if mean k is the closest mean to datapoint $ {\textbf x}^{(n)}$; otherwise, $r^{(n)}_k$ is zero.</p>
+
+<p><br></p>
+
+<p>$$
+r^{(n)}_k = \{
+\begin{array}{cc}
+1 ~~~~~~if ~\hat {k} ~^ {(n)}=k\\<br />
+0 ~~~~~~if ~\hat {k} ~^ {(n)}\ne k<br />
+\end{array}
+$$</p>
+
+<p><br></p>
+
+<p>In the update step, the means are adjusted to
+match the sample means of the data points that they are responsible for. The update step is very similar to how to find <em>the center of the mass</em> in physics.</p>
+
+<p><br></p>
+
+<p>$$
+{\textbf m}^{(k)}= {\sum_n ~ r^{(n)}_k {\textbf x}^{(n)} \over R^{(k)}}
+$$</p>
+
+<p><br></p>
+
+<p>where $R^{(k)}$ is the total responsibility of mean $k$</p>
+
+<p><br></p>
+
+<p>$$
+R^{(k)}=\sum_n~r^{(n)}_k
+$$</p>
+
+<p><br></p>
+
+<h2 id="soft-k-means">Soft K-means</h2>
+
+<p><br></p>
+
+<p>In soft K-means, the K responsibility is</p>
+
+<p><br></p>
+
+<p>$$
+r^{(n)}_k = {exp(-\beta ~ d(\boldsymbol{m}^{(k)},\boldsymbol{x}^{(n)} )) \over \sum_{k&rsquo;}~exp(-\beta ~ d(\boldsymbol{m}^{(k&rsquo;)},\boldsymbol{x}^{(n)} ))}
+$$</p>
+
+<p><br></p>
+
+<p>and</p>
+
+<p><br></p>
+
+<p>$$
+\boldsymbol{m}^{(k)} = { \sum_n r^{(n)}_k \boldsymbol{x}^{(n)}\over \sum_n r^{(n)}_k}
+$$</p>
+
+<p><br></p>
+
+<p>$\beta$ is a <em>stiffness parameter</em>. From trials and errors, I set the parameter by hand.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">import random
+import numpy as np
+from numpy import linalg as LA
+import matplotlib.pyplot as plt
+import math
+
+data1=[]
+for i in range(100):
+	data1=data1+[[0.5+0.5*random.random(),0.5+0.5*random.random()]]
+
+data2=[]
+for i in range(100):
+	data2=data2+[[0.5*random.random(),0.5*random.random()]]
+
+#data3 =[]
+#for i in range(30):
+#	data3=data3+[[0.8,random.random()]]
+
+data=data1+data2#+data3
+
+
+
+datax=[]
+for i in range(len(data)):
+	datax=datax+[data[i][0]]
+
+datay=[]
+for i in range(len(data)):
+	datay=datay+[data[i][1]]
+
+plt.scatter(datax,datay)
+plt.show()
+
+
+
+assign = []
+for j in range(4):
+	assign=assign+[[random.random(),random.random()]]
+
+
+
+
+sum=[]
+for i in range(len(data)):
+	sum=sum+[[]]
+r=[]
+for i in range(4):
+	r=r+[[]]
+	for j in range(len(data)):
+		r[i]=r[i]+[[]]
+update_assign=[]
+for k in range(4):
+	update_assign=update_assign+[[]]
+a=0
+
+b=1/(7*np.var(data1))
+while a&lt;10:
+	a=a+1
+	sum=[]
+	for i in range(len(data)):
+		sum=sum+[[]]
+	for n in range(len(data)):
+		s=0
+		for k in range(4):
+			s=s+np.exp(-b*(LA.norm(np.array(assign[k])-np.array(data[n]))))
+			sum[n]=s
+		for j in range(4):
+			r[j][n]=np.exp(-b*(LA.norm(np.array(assign[j])-np.array(data[n]))))/s
+			#print a,j,n,r[j][n]
+	rsum=[]
+	for i in range(4):
+		rsum=rsum+[[]]
+	for k in range(4):
+		rs=0
+		for n in range(len(data)):
+			rs=rs+r[k][n]
+			rsum[k]=rs
+		ua=[0,0]
+		for n in range(len(data)):
+			ua[0]=ua[0]+r[k][n]*data[n][0]/float(rs)
+			ua[1]=ua[0]+r[k][n]*data[n][1]/float(rs)
+			update_assign[k]=ua
+
+	assign= update_assign
+
+c=[[],[],[],[]]
+for n in range(len(data)):
+	a=[]
+	for k in range(4):
+		a=a+[r[k][n]]
+	i=a.index(max(a))
+	c[i]=c[i]+[data[n]]
+
+
+circle0= plt.Circle(assign[0],1/math.sqrt(b),color='r',fill=False)
+circle1= plt.Circle(assign[1],1/math.sqrt(b),color='g',fill=False)
+circle2= plt.Circle(assign[2],1/math.sqrt(b),color='y',fill=False)
+circle3= plt.Circle(assign[3],1/math.sqrt(b),color='b',fill=False)
+
+fig, ax=plt.subplots()
+plt.xlim([-0.3,1.3])
+plt.ylim([-0.3,1.3])
+ax.add_artist(circle0)
+ax.add_artist(circle1)
+ax.add_artist(circle2)
+ax.add_artist(circle3)
+
+ax.scatter([x for x,y in c[0]],[y for x,y in c[0]],color='r')
+ax.scatter([x for x,y in c[1]],[y for x,y in c[1]],color='g')
+ax.scatter([x for x,y in c[2]],[y for x,y in c[2]],color='y')
+ax.scatter([x for x,y in c[3]],[y for x,y in c[3]],color='b')
+
+
+plt.show()
+
+</code></pre>
+
+<p><img src="https://physhik.github.io/images/postimages/softKmeans_files/softKmeans_0_0.png" alt="png" /></p>
+
+<p><img src="https://physhik.github.io/images/postimages/softKmeans_files/softKmeans_0_2.png" alt="png" /></p>
+
+<p><br></p>
+
+<p>The radius of the circle equals to $\beta$. When the size of the circle is similar to the size of the cluster, the figure looks good. Note that the 4 circles are split to two group. Two circles for each group are almost overlapped. The colors determined by assignments are not looking good, but the circles show the this machine knows $K = 2$, not 4.</p>
+
+<p><br></p>
+
+<h3 id="maximum-likelihood-for-a-mixture-of-gaussian-and-soft-k-means-clustering">Maximum likelihood for a mixture of Gaussian and soft K-means clustering</h3>
+
+<p><br></p>
+
+<p>In 2d space, let us assume the probability distribution is <em>a mixture of two Gaussians</em>.</p>
+
+<p><br></p>
+
+<p>$$
+P(x|\mu_1, \mu_2, \sigma) = \sum^2_k ~ p_k \frac{1}{\sqrt{2\pi}\sigma}{exp(-(x-\mu_k)^2\over 2\sigma^2}
+$$</p>
+
+<p><br></p>
+
+<p>Assume</p>
+
+<ul>
+<li><p>A data set consists of N points $x_n$ which are assumed to be independent samples from this distribution.</p></li>
+
+<li><p>The prior probability of the class label k is $p_1$ = $p_2$ = <sup>1</sup>&frasl;<sub>2</sub>.</p></li>
+
+<li><p>Both set has the same standard deviation.</p></li>
+
+<li><p>$\mu_i$, $\sigma$ are known.</p></li>
+</ul>
+
+<p><br></p>
+
+<p>By <em>Bayes&rsquo; theorem</em>,</p>
+
+<p>$$
+P(k_n = 1|x_n, \boldsymbol{\theta})= {P(x_n|k_n=1,\boldsymbol{\theta})P(k_n=1,\boldsymbol{\theta}) \over P(x_n,\boldsymbol{\theta})}
+$$</p>
+
+<p>$$
+= {P(x_n|k_n=1,\boldsymbol{\theta})P(k_n=1,\boldsymbol{\theta}) \over \sum_{k_n}  P(x_n|k_n=1,\boldsymbol{\theta})P(k_n=1,\boldsymbol{\theta}) +P(x_n|k_n=2,\boldsymbol{\theta})P(k_n=2,\boldsymbol{\theta}) }
+$$</p>
+
+<p>where $\boldsymbol{\theta}=(\mu_k, ~\sigma_k)$.</p>
+
+<p>$$
+P(k_n=1,\boldsymbol{\theta}) \equiv p_1,~~P(k_n=2,\boldsymbol{\theta}) \equiv p_2
+$$</p>
+
+<p>Then,</p>
+
+<p>$$
+P(k_n=1|x_n,\boldsymbol{\theta})= {p_1 \over p_1+p_2 \exp[-(w_1x_n+w0)]}
+$$</p>
+
+<p>$$
+P(k_n=2|x_n,\boldsymbol{\theta})= {p_2 \over p_2+p_1 \exp[-(w_1x_n+w0)]}
+$$</p>
+
+<p>where $w_1=2(\mu_1-\mu_2)$, $w_0=-(\mu_1-\mu_2)(\mu_1+\mu_2)$.</p>
+
+<p><br></p>
+
+<p>$$
+P(k_n=k|x_n,\boldsymbol{\theta}) \equiv p_{k|n}
+$$</p>
+
+<p>By assumption, the prior probability $p_1$=$p_2$=<sup>1</sup>&frasl;<sub>2</sub> then,</p>
+
+<p>$$
+P(k_n=1|x_n,\boldsymbol{\theta})= {1 \over 1+  \exp[-(w_1x_n+w0)]}
+$$</p>
+
+<p>$$
+P(k_n=2|x_n,\boldsymbol{\theta})= {1 \over 1 + \exp[-(w_1x_n+w0)]}
+$$</p>
+
+<p>$$
+L\equiv \log \Pi_n P(x_n|{\mu_k},~\sigma)
+$$</p>
+
+<p>then trivially,</p>
+
+<p>$$
+{\partial \over \partial{\mu_k}}L = \sum_n  {p_{k|n} (x_n-\mu_k)\over \sigma^2}
+$$</p>
+
+<p>$$
+{\partial^2 \over \partial{\mu_k}^2}L = -\sum_n  {p_{k|n}  \over \sigma^2}
+$$</p>
+
+<p>The new updated $\boldsymbol \mu&rsquo;$ should maximize the likelihood. Then,</p>
+
+<p><br></p>
+
+<p>$$
+{\partial \over \partial{\mu_k&rsquo;}}L = \sum_n  {p_{k|n} (x_n-\mu_k&rsquo;)\over \sigma^2}=0
+$$</p>
+
+<p>$$
+\sum_n p_{k|n} ~x_n - \sum_n p_{k|n} ~\mu&rsquo;_k=\sum_n p_{k|n} ~x_n -  \mu&rsquo;_k\sum_n p_{k|n}=0
+$$</p>
+
+<p>Therefore,</p>
+
+<p>$$
+\mu&rsquo;_k={\sum_n p_{k|n} ~x_n \over \sum_n p_{k|n} }
+$$</p>
+
+<p>Note that this equation is exactly the same as the updated means from the responsibilities and data points in soft K-means clustering.
+$p_{k|n}$ is the responsibility $r^{(k)}_n$.</p>
+
+<p>$$
+{\partial \over \partial{\mu_k}}L ~/ { \partial^2 \over \partial{\mu_k}^2}L  = {\sum_n p_{k|n} ~x_n -  \mu_k\sum_n p_{k|n} \over -\sum_n p_{k|n}}= -\mu&rsquo;_k+\mu_k
+$$</p>
+
+<p>Thus,</p>
+
+<p>$$
+\mu&rsquo;_k=\mu_k- {\partial \over \partial{\mu_k}}L ~/ {\partial^2 \over \partial{\mu_k}^2}L<br />
+$$</p>
+
+<p><br></p>
+
+<p>The algorithm we have derived for maximizing the likelihood
+is identical to the soft K-means algorithm.</p>
+
+<p><br></p>
+
+<h2 id="enhanced-soft-k-means-algorithm">Enhanced soft K-means algorithm</h2>
+
+<p><br></p>
+
+<p><em>Enhanced soft K-means</em> algorithm is nothing but a generalization of the soft K-means. We are also able to obtain the algorithm by <em>maximizing likelihood</em> and <em>Bayes&rsquo; theorem</em>.</p>
+
+<p><br></p>
+
+<p>As I mentioned above, I chose the stiffness parameter by myself. Also mentioned that as the size of the circle is similar to the size of the cluster, the figure looks good. Note that the 4 circles are split to two group. Apparently, $\beta = 1/\sigma^2$. Let the machine to find the stiffness parameter based on the variance of the K-cluster.</p>
+
+<p><br></p>
+
+<p>$$
+r^{(n)}_k = {\pi_k {1 \over \prod^I_i\sqrt{2\pi}\sigma^{(k)}_i}\exp(-d(\boldsymbol{m}^{(k)},\boldsymbol{x}^{(n)} )/\sigma_k^2) \over \sum_{k&rsquo;}~\pi_k {1 \over \prod^I_i\sqrt{2\pi}\sigma^{(k&rsquo;)}_i}\exp(-d(\boldsymbol{m}^{(k)},\boldsymbol{x}^{(n)} )/\sigma_{k&rsquo;}^2)}
+$$</p>
+
+<p>$$
+\boldsymbol{m}^{(k)} = { \sum_n r^{(n)}_k \boldsymbol{x}^{(n)}\over R^{(k)}}
+$$</p>
+
+<p>$$
+R^{(k)} = \sum_n r^{(n)}_k
+$$</p>
+
+<p>$$
+\sigma_k^2 = {\sum_n r_k^{(n)}(\boldsymbol{x}^{(n)}-\boldsymbol{m}^{(k)})^2 \over I~R^{(k)}}
+$$</p>
+
+<p>$$
+\pi_k = {R^{(k)}\over \sum_k R^{(k)}}
+$$</p>
+
+<p>$I$ is the dimension of $\boldsymbol{x}$. For our example, $I = 2$.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">
+cutoff = 0.00000001
+
+assign = []
+for j in range(4):
+	assign=assign+[[random.random(),random.random()]]
+
+
+
+
+sum=[]
+for i in range(len(data)):
+	sum=sum+[[]]
+r=[]
+for i in range(4):
+	r=r+[[]]
+	for j in range(len(data)):
+		r[i]=r[i]+[[]]
+update_assign=[]
+for k in range(4):
+	update_assign=update_assign+[[]]
+
+I = 2 # dimension
+
+v=[] # variance or 1/beta
+for k in range(4):
+	v=v+[np.var(data)]
+
+p=[]
+for k in range(4):
+	p=p+[1]
+rsum=[[],[],[],[]]
+
+shrink = False
+while not shrink:
+	sum=[]
+	for n in range(len(data)):
+		sum=sum+[[]]
+	for n in range(len(data)):
+		s=0
+		for k in range(4):
+			s=s+p[k]/(np.sqrt(2*np.pi*v[k]))**I*np.exp(-1/v[k]*(LA.norm(np.array(assign[k])-np.array(data[n]))))
+			sum[n]=s
+		for k in range(4):
+			r[k][n]=p[k]/(np.sqrt(2*np.pi*v[k]))**I*np.exp(-1/v[k]*(LA.norm(np.array(assign[k])-np.array(data[n]))))/s
+			#print a,j,n,r[j][n]
+
+	for k in range(4):
+		rs=0
+		for n in range(len(data)):
+			rs=rs+r[k][n]
+			rsum[k]=rs
+
+
+		ua=[0,0]
+		for n in range(len(data)):
+			ua[0]=ua[0]+r[k][n]*data[n][0]/float(rsum[k])
+			ua[1]=ua[1]+r[k][n]*data[n][1]/float(rsum[k])
+			update_assign[k]=ua
+
+	assign= update_assign
+	v=[0,0,0,0]
+	for k in range(4):
+		for n in range(len(data)):
+			v[k]=v[k]+r[k][n]*LA.norm(np.array(data[n])-np.array(assign[k]))**2/float(I*rsum[k])
+
+		if v[k] &lt; cutoff:
+			shrink = True
+
+	rsumsum=0
+	for k in range(4):
+		rsumsum=rsumsum+rsum[k]
+
+	p[k]=rsum[k]/float(rsumsum)
+
+
+c=[[],[],[],[]]
+for n in range(len(data)):
+	a=[]
+	for k in range(4):
+		a=a+[r[k][n]]
+	i=a.index(max(a))
+	c[i]=c[i]+[data[n]]
+&quot;&quot;
+
+circle0= plt.Circle(assign[0],np.sqrt(v[0]),color='r',fill=False)
+circle1= plt.Circle(assign[1],np.sqrt(v[1]),color='g',fill=False)
+circle2= plt.Circle(assign[2],np.sqrt(v[2]),color='y',fill=False)
+circle3= plt.Circle(assign[3],np.sqrt(v[3]),color='b',fill=False)
+
+fig, ax=plt.subplots()
+plt.xlim([-0.3,1.3])
+plt.ylim([-0.3,1.3])
+ax.add_artist(circle0)
+ax.add_artist(circle1)
+ax.add_artist(circle2)
+ax.add_artist(circle3)
+
+ax.scatter([x for x,y in c[0]],[y for x,y in c[0]],color='r')
+ax.scatter([x for x,y in c[1]],[y for x,y in c[1]],color='g')
+ax.scatter([x for x,y in c[2]],[y for x,y in c[2]],color='y')
+ax.scatter([x for x,y in c[3]],[y for x,y in c[3]],color='b')
+
+
+plt.show()
+
+
+</code></pre>
+
+<p><img src="https://physhik.github.io/images/postimages/enhancedSoftKmean_files/enhancedSoftKmean_0_2.png" alt="png" /></p>
+
+<p><br></p>
+
+<p>See the number of colors and circles. Still you can see one yellow point. If you print the size of the 4 circles, you will get two very small radii.</p>
+
+<p><br></p>
+
+<h3 id="cutoff-and-regularization">Cutoff and regularization</h3>
+
+<p><br></p>
+
+<p>Another important thing is that <em>while loop</em> checks if the any of $\sigma$ is too tiny, smaller than cutoff. Without it, the algorithm ends up with overfitting. This is a good example of the <em>regularization</em> which we studied at <a href="https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/">the perceptron post</a>.</p>
+
+<p><br></p>
+
+<h3 id="more-enhanced-soft-k-means-algorithm-spectral-clustering">More enhanced soft K-means algorithm (spectral clustering)</h3>
+
+<p><br></p>
+
+<p>If the sample looks long in one direction, the circular clustering would not work any more. We can easily generalize the above algorithm. Change only two relations as follows.</p>
+
+<p><br></p>
+
+<p>$$
+r^{(n)}_k = \frac{\pi_k {1 \over \prod^I_i\sqrt{2\pi}\sigma^{(k)}_i}\exp(-\sum^I_i(m^{(k)}_i -x^{(n)}_i))^2/ 2(\sigma^{(k)}_i)^2)}{\sum_{k&rsquo;}~\pi_k {1 \over \prod^I_i\sqrt{2\pi}\sigma^{(k&rsquo;)}_i}\exp(-\sum^I_i(m^{(k&rsquo;)}_i -x^{(n)}_i))^2 /2(\sigma^{(k&rsquo;)}_i)^2)}
+$$</p>
+
+<p>$$
+\sigma^{2(k)}_i = {\sum_n r_k^{(n)}(x_i^{(n)}-m_i^{(k)})^2 \over R^{(k)}}
+$$</p>
+
+<p><br></p>
+
+<p>Also replace few parts from the above Python code.</p>
+
+<p><br></p>
+
+<pre><code class="language-python">turns = 0
+while turns &lt; 100 :
+	T = 0.04
+	if turns &gt; 500:
+		T = 1
+	sum=[]
+	for n in range(len(data)):
+		sum=sum+[[]]
+	for n in range(len(data)):
+		s=0
+		for k in range(4):
+			s=s+p[k]/(2*np.pi*np.sqrt(vx[k]*vy[k]))*np.exp(-(assignx[k]-datax[n])**2/(2*T*vx[k])-(assigny[k]-datay[n])**2/(2*T*vy[k]))
+			sum[n]=s
+		for k in range(4):
+			r[k][n]=p[k]/(2*np.pi*np.sqrt(vx[k]*vy[k]))*np.exp(-(assignx[k]-datax[n])**2/(2*T*vx[k])-(assigny[k]-datay[n])**2/(2*T*vy[k]))/s
+	for k in range(4):
+		rs=0
+		for n in range(len(data)):
+			rs=rs+r[k][n]
+		rsum[k]=rs
+
+		ua=[0,0]
+
+		for n in range(len(data)):
+			ua[0]=ua[0]+r[k][n]*datax[n]/float(rsum[k])
+			ua[1]=ua[1]+r[k][n]*datay[n]/float(rsum[k])
+		update_assignx[k]=ua[0]
+		update_assigny[k]=ua[1]
+
+
+	assignx= update_assignx
+	assigny= update_assigny
+	for k in range(4):
+ 		 for n in range(len(data)):
+			vx[k]=vx[k]+r[k][n]*(datax[n]-assignx[k])**2/float(rsum[k])
+			vy[k]=vy[k]+r[k][n]*(datay[n]-assigny[k])**2/float(rsum[k])
+
+
+	rsumsum=0
+	for k in range(4):
+		rsumsum=rsumsum+rsum[k]
+
+	p[k]=rsum[k]/float(rsumsum)
+	turns += 1
+
+c=[[],[],[],[]]
+
+for n in range(len(data)):
+	a=[]
+	for k in range(4):
+		a=a+[r[k][n]]
+	i=a.index(max(a))
+	c[i]=c[i]+[data[n]]
+ell =[]
+
+colors = ['r','g','b','y']
+
+for i in range(4):
+	if c[i] != []:
+		ell.append(Ellipse(xy=[assignx[i],assigny[i]],width=np.sqrt(vx[i]/4),height=np.sqrt(vy[i]/4),color=colors[i],fill=False))
+
+
+fig=plt.figure(0)
+ax=fig.add_subplot(111, aspect='equal')
+plt.xlim([-0.3,1.3])
+plt.ylim([-0.3,1.3])
+for i in range(len(ell)):
+	ax.add_artist(ell[i])
+
+for i in range(4):
+	ax.scatter([x for x,y in c[i]],[y for x,y in c[i]],color=colors[i])
+
+plt.show()
+</code></pre>
+
+<p><br></p>
+
+<p><img src="https://physhik.github.io/images/postimages/enhancedSoftKmean_files/enhancedSoftKmean_0_4.png" alt="png" /></p>
+
+<p><br></p>
+
+<h2 id="simulated-annealing">Simulated annealing</h2>
+
+<p><br></p>
+
+<p>In the post about efficient Monte Carlo method, I briefly introduce <em>simulated annealing</em> (SA). At that time, the SA was to make a convergent Markov chain faster. The temperature parameter in exponent of probability density distribution can be used to slow down the process. In this long data points example, the algorithm miss to distinguish the group and just make one big cluster quickly. In other words, the objective function finds the local minimum and get stuck around it instead of finding the global minimum. Thus, I used very low temperature to slow down the process, and after finding the long cluster, speed up the process. This SA is useful to avoid overfitting. The other awesome method to find the global minimum among many local minima is a quantum annealing. Using the tunneling quantum effect and transverse field, we jump from minimum to minimum.</p>
+
+<p><br></p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/clustering/">clustering</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/maximum-likelihood/">maximum likelihood</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/mixture-of-gaussian/">mixture of Gaussian</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/simulated-annealing/">simulated annealing</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/hard-k-means/">hard K-means</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/soft-k-means/">soft K-means</a>
+
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/regularization/">regularization</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/" data-tooltip="MCMC (6): Gibbs Sampling and Overrelaxation">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/" data-tooltip="Neural Network (1): Perceptron and Stochastic Gradient Descent">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 Namshik Kim. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/" data-tooltip="MCMC (6): Gibbs Sampling and Overrelaxation">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/" data-tooltip="Neural Network (1): Perceptron and Stochastic Gradient Descent">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Namshik Kim</h4>
+    
+      <div id="about-card-bio">physicist, data scientist</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Vancouver, BC, Canada.
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/10/introduction-to-sabermetrics/">
+                <h3 class="media-heading">Introduction to sabermetrics</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Some baseball fans regard sabermetricians as freaks crazy about numbers instead of the real baseball. However, I do not agree with that in two ways.
+ It is not just about a number. &quot;S&quot; in sabermetric means It is simply trial to understand the baseball game.  </div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/10/new-blog-theme/">
+                <h3 class="media-heading">New Blog Theme</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I decided to use my own domain instead of renting the /github.io/, and also to insert Google adsense in my blog if possible. Even if I updated my blog only 10 times since Oct, 2017, the number of visitors and their sessions were steady by Google analytics. Recently I started updating my blog again, and want to see the more industrial analytic result. At least I am sure the profit from the adsense will cover the cost for the domain.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/">
+                <h3 class="media-heading">Machine Learns from Cardiologist (3)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Open source 
+The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/">
+                <h3 class="media-heading">Machine Learns from Cardiologist (2)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
+Deep learning and classifications. 
+The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
+
+What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/">
+                <h3 class="media-heading">Macnine Learns from Cardiologist (1)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Prologue 
+Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
+
+When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/02/youtube-data-api-on-gcp/">
+                <h3 class="media-heading">Youtube Data API on GCP</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
+
+AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/02/clean-coding-and-short-run-time/">
+                <h3 class="media-heading">Clean Coding and Short Run Time</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Today I want to discuss purely about coding itself. I wish this post is helpful for someone want to transit his career from a pure researcher to a programmer. I have been a researcher rather than a programmer. I would just want to execute something to see the result I wanted to see. If the run time is too long or my computer has no enough memory to run the code, it was a sign of new purchase to me.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2018/02/revisited-variational-inference/">
+                <h3 class="media-heading">Revisited Variational Inference</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
+
+Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2018/02/rough-review-of-wavegan/">
+                <h3 class="media-heading">Rough Review of WaveGAN</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Around a week ago, on ArXiv, an interesting research paper appeared, which is about the music style transfer using GAN, which is also my main topic for recent few months. Around a week ago, on arXiv, an interesting research paper appeared, which can be applied to the music style transfer using GAN, which is also my main topic for recent few months. There are already many researches on the style transfer of the images, and one of my main projects now is making the style transfer in music.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://physhik.github.io/2017/12/introduction-to-gan/">
+                <h3 class="media-heading">Introduction to GAN </h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
+
+Revolution in deep learning 
+As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         35 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://physhik.github.io/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://physhik.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/physhik.github.io\/2017\/08\/clustering-2-soft-k-mean\/';
+          
+            this.page.identifier = '\/2017\/08\/clustering-2-soft-k-mean\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'physhiks-data-science';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      CommonHTML: { linebreaks: { automatic: true } },
+      tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+      messageStyle: 'none'
+    });
+  </script>
+
+
+
+    
+  </body>
+</html>
+

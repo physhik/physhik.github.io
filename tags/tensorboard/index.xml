@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TensorBoard on Physics to Data Science</title>
+    <link>https://physhik.github.io/tags/tensorboard/</link>
+    <description>Recent content in TensorBoard on Physics to Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Sep 2017 23:50:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://physhik.github.io/tags/tensorboard/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Learning to Learn by Gradient Descent by Gradient Descent</title>
+      <link>https://physhik.github.io/2017/09/learning-to-learn-by-gradient-descent-by-gradient-descent/</link>
+      <pubDate>Thu, 28 Sep 2017 23:50:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/09/learning-to-learn-by-gradient-descent-by-gradient-descent/</guid>
+      <description>I had a trip to Quebec city for 4 days. Behind the lingering from the travel, I prepared for the meetup this week. I could not join it because of birthday dinner with my girlfriend. However, I studied the original paper seriously, and the topic involves some interesting ideas, so I want to introduce about it.
+
+Long short term memory (LSTM) 
+To understand the paper, precedently, need to understand LSTM.</description>
+    </item>
+    
+  </channel>
+</rss>

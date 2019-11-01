@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>progressive growing of GAN on Physics to Data Science</title>
+    <link>https://physhik.github.io/tags/progressive-growing-of-gan/</link>
+    <description>Recent content in progressive growing of GAN on Physics to Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Dec 2017 14:00:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://physhik.github.io/tags/progressive-growing-of-gan/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introduction to GAN </title>
+      <link>https://physhik.github.io/2017/12/introduction-to-gan/</link>
+      <pubDate>Wed, 06 Dec 2017 14:00:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/12/introduction-to-gan/</guid>
+      <description>I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
+
+Revolution in deep learning 
+As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</description>
+    </item>
+    
+    <item>
+      <title>How to Test Progressive Growing of GAN from the Github Source</title>
+      <link>https://physhik.github.io/2017/12/how-to-test-progressive-growing-of-gan-from-the-github-source/</link>
+      <pubDate>Sat, 02 Dec 2017 23:50:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/2017/12/how-to-test-progressive-growing-of-gan-from-the-github-source/</guid>
+      <description>NVIDIA research team published a paper, Progressive Growing of GANs for Improved Quality, Stability, and Variation, and the source code on Github a month ago.
+
+I went through some trials and errors to run the codes properly, so I want to make it easier to you. Why I think this post will be helpful is the Github page is not supporting to post issues to ask and answer for inquiries.</description>
+    </item>
+    
+  </channel>
+</rss>
