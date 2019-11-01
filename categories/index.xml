@@ -6,28 +6,10 @@
     <description>Recent content in Categories on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Oct 2019 01:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 29 Oct 2019 14:00:00 -0700</lastBuildDate>
     
 	<atom:link href="//physhik.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>CNN, ECG classfier</title>
-      <link>//physhik.com/categories/cnn-ecg-classfier/</link>
-      <pubDate>Thu, 31 Oct 2019 01:00:00 -0700</pubDate>
-      
-      <guid>//physhik.com/categories/cnn-ecg-classfier/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>deep learning</title>
-      <link>//physhik.com/categories/deep-learning/</link>
-      <pubDate>Thu, 31 Oct 2019 01:00:00 -0700</pubDate>
-      
-      <guid>//physhik.com/categories/deep-learning/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>blog</title>
@@ -44,6 +26,24 @@
       <pubDate>Tue, 29 Oct 2019 14:00:00 -0700</pubDate>
       
       <guid>//physhik.com/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CNN, ECG classfier</title>
+      <link>//physhik.com/categories/cnn-ecg-classfier/</link>
+      <pubDate>Fri, 29 Mar 2019 01:00:00 -0700</pubDate>
+      
+      <guid>//physhik.com/categories/cnn-ecg-classfier/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>deep learning</title>
+      <link>//physhik.com/categories/deep-learning/</link>
+      <pubDate>Fri, 29 Mar 2019 01:00:00 -0700</pubDate>
+      
+      <guid>//physhik.com/categories/deep-learning/</guid>
       <description></description>
     </item>
     

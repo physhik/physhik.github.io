@@ -3,57 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>//physhik.com/categories/</loc>
-    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//physhik.com/categories/cnn-ecg-classfier/</loc>
-    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//physhik.com/categories/deep-learning/</loc>
-    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//physhik.com/2019/10/introduction-to-sabermetrics/</loc>
-    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//physhik.com/</loc>
-    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//physhik.com/post/</loc>
-    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//physhik.com/tags/regression/</loc>
-    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//physhik.com/tags/sabermetics/</loc>
-    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//physhik.com/tags/</loc>
-    <lastmod>2019-10-31T01:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>//physhik.com/categories/blog/</loc>
     <lastmod>2019-10-29T14:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>//physhik.com/categories/hugo/</loc>
+    <loc>//physhik.com/categories/</loc>
     <lastmod>2019-10-29T14:00:00-07:00</lastmod>
   </url>
   
@@ -63,12 +18,42 @@
   </url>
   
   <url>
+    <loc>//physhik.com/categories/hugo/</loc>
+    <lastmod>2019-10-29T14:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>//physhik.com/2019/10/new-blog-theme/</loc>
     <lastmod>2019-10-29T14:00:00-07:00</lastmod>
   </url>
   
   <url>
+    <loc>//physhik.com/</loc>
+    <lastmod>2019-10-29T14:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/post/</loc>
+    <lastmod>2019-10-29T14:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/tags/</loc>
+    <lastmod>2019-10-29T14:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>//physhik.com/tags/cnn/</loc>
+    <lastmod>2019-03-29T01:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/categories/cnn-ecg-classfier/</loc>
+    <lastmod>2019-03-29T01:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/categories/deep-learning/</loc>
     <lastmod>2019-03-29T01:00:00-07:00</lastmod>
   </url>
   
@@ -238,12 +223,12 @@
   </url>
   
   <url>
-    <loc>//physhik.com/categories/autoencoder/</loc>
+    <loc>//physhik.com/tags/autoencoder/</loc>
     <lastmod>2017-09-20T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>//physhik.com/tags/autoencoder/</loc>
+    <loc>//physhik.com/categories/autoencoder/</loc>
     <lastmod>2017-09-20T23:50:00-07:00</lastmod>
   </url>
   
@@ -268,12 +253,12 @@
   </url>
   
   <url>
-    <loc>//physhik.com/categories/boltzmann-machine/</loc>
+    <loc>//physhik.com/tags/boltzmann-machine/</loc>
     <lastmod>2017-09-18T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>//physhik.com/tags/boltzmann-machine/</loc>
+    <loc>//physhik.com/categories/boltzmann-machine/</loc>
     <lastmod>2017-09-18T23:50:00-07:00</lastmod>
   </url>
   
@@ -303,12 +288,12 @@
   </url>
   
   <url>
-    <loc>//physhik.com/tags/graphviz/</loc>
+    <loc>//physhik.com/categories/graphviz/</loc>
     <lastmod>2017-09-15T16:20:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>//physhik.com/categories/graphviz/</loc>
+    <loc>//physhik.com/tags/graphviz/</loc>
     <lastmod>2017-09-15T16:20:00-07:00</lastmod>
   </url>
   
@@ -354,6 +339,11 @@
   
   <url>
     <loc>//physhik.com/2017/09/neural-network-3-hopfield-net/</loc>
+    <lastmod>2017-09-10T13:30:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//physhik.com/tags/regression/</loc>
     <lastmod>2017-09-10T13:30:00-07:00</lastmod>
   </url>
   
@@ -493,12 +483,12 @@
   </url>
   
   <url>
-    <loc>//physhik.com/tags/slice-sampling/</loc>
+    <loc>//physhik.com/categories/slice-sampling/</loc>
     <lastmod>2017-09-05T17:30:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>//physhik.com/categories/slice-sampling/</loc>
+    <loc>//physhik.com/tags/slice-sampling/</loc>
     <lastmod>2017-09-05T17:30:00-07:00</lastmod>
   </url>
   
@@ -558,12 +548,12 @@
   </url>
   
   <url>
-    <loc>//physhik.com/categories/clustering/</loc>
+    <loc>//physhik.com/tags/clustering/</loc>
     <lastmod>2017-08-31T13:40:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>//physhik.com/tags/clustering/</loc>
+    <loc>//physhik.com/categories/clustering/</loc>
     <lastmod>2017-08-31T13:40:00-07:00</lastmod>
   </url>
   
