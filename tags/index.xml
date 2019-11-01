@@ -336,51 +336,6 @@
     </item>
     
     <item>
-      <title>atom</title>
-      <link>https://physhik.github.io/tags/atom/</link>
-      <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
-      
-      <guid>https://physhik.github.io/tags/atom/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>https://physhik.github.io/tags/git/</link>
-      <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
-      
-      <guid>https://physhik.github.io/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Github</title>
-      <link>https://physhik.github.io/tags/github/</link>
-      <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
-      
-      <guid>https://physhik.github.io/tags/github/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Google analytics</title>
-      <link>https://physhik.github.io/tags/google-analytics/</link>
-      <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
-      
-      <guid>https://physhik.github.io/tags/google-analytics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jekyll</title>
-      <link>https://physhik.github.io/tags/jekyll/</link>
-      <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
-      
-      <guid>https://physhik.github.io/tags/jekyll/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>batch gradient descent</title>
       <link>https://physhik.github.io/tags/batch-gradient-descent/</link>
       <pubDate>Wed, 06 Sep 2017 16:30:00 -0700</pubDate>
@@ -624,38 +579,20 @@
     </item>
     
     <item>
+      <title>Jekyll</title>
+      <link>https://physhik.github.io/tags/jekyll/</link>
+      <pubDate>Sat, 19 Aug 2017 12:10:00 -0700</pubDate>
+      
+      <guid>https://physhik.github.io/tags/jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>mathjax</title>
       <link>https://physhik.github.io/tags/mathjax/</link>
       <pubDate>Sat, 19 Aug 2017 12:10:00 -0700</pubDate>
       
       <guid>https://physhik.github.io/tags/mathjax/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>algorithm</title>
-      <link>https://physhik.github.io/tags/algorithm/</link>
-      <pubDate>Fri, 18 Aug 2017 11:25:00 -0700</pubDate>
-      
-      <guid>https://physhik.github.io/tags/algorithm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>recursion</title>
-      <link>https://physhik.github.io/tags/recursion/</link>
-      <pubDate>Fri, 18 Aug 2017 11:25:00 -0700</pubDate>
-      
-      <guid>https://physhik.github.io/tags/recursion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>graph</title>
-      <link>https://physhik.github.io/tags/graph/</link>
-      <pubDate>Thu, 17 Aug 2017 21:25:00 -0700</pubDate>
-      
-      <guid>https://physhik.github.io/tags/graph/</guid>
       <description></description>
     </item>
     

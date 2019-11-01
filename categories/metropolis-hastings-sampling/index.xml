@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Metropolis-Hastings Sampling on Physics to Data Science</title>
+    <title>Metropolis-Hastings sampling on Physics to Data Science</title>
     <link>https://physhik.github.io/categories/metropolis-hastings-sampling/</link>
-    <description>Recent content in Metropolis-Hastings Sampling on Physics to Data Science</description>
+    <description>Recent content in Metropolis-Hastings sampling on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 21 Aug 2017 02:10:00 -0700</lastBuildDate>
