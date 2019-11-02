@@ -13,12 +13,12 @@
   </url>
   
   <url>
-    <loc>//physhik.com/categories/hugo/</loc>
+    <loc>//physhik.com/tags/hugo/</loc>
     <lastmod>2019-10-29T14:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>//physhik.com/tags/hugo/</loc>
+    <loc>//physhik.com/categories/hugo/</loc>
     <lastmod>2019-10-29T14:00:00-07:00</lastmod>
   </url>
   
@@ -158,12 +158,12 @@
   </url>
   
   <url>
-    <loc>//physhik.com/categories/gan/</loc>
+    <loc>//physhik.com/tags/gan/</loc>
     <lastmod>2018-02-23T23:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>//physhik.com/tags/gan/</loc>
+    <loc>//physhik.com/categories/gan/</loc>
     <lastmod>2018-02-23T23:00:00-07:00</lastmod>
   </url>
   
@@ -253,12 +253,12 @@
   </url>
   
   <url>
-    <loc>//physhik.com/categories/boltzmann-machine/</loc>
+    <loc>//physhik.com/tags/boltzmann-machine/</loc>
     <lastmod>2017-09-18T23:50:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>//physhik.com/tags/boltzmann-machine/</loc>
+    <loc>//physhik.com/categories/boltzmann-machine/</loc>
     <lastmod>2017-09-18T23:50:00-07:00</lastmod>
   </url>
   
@@ -288,12 +288,12 @@
   </url>
   
   <url>
-    <loc>//physhik.com/categories/graphviz/</loc>
+    <loc>//physhik.com/tags/graphviz/</loc>
     <lastmod>2017-09-15T16:20:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>//physhik.com/tags/graphviz/</loc>
+    <loc>//physhik.com/categories/graphviz/</loc>
     <lastmod>2017-09-15T16:20:00-07:00</lastmod>
   </url>
   
@@ -603,12 +603,12 @@
   </url>
   
   <url>
-    <loc>//physhik.com/tags/rejection-sampling/</loc>
+    <loc>//physhik.com/categories/rejection-sampling/</loc>
     <lastmod>2017-08-24T02:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>//physhik.com/categories/rejection-sampling/</loc>
+    <loc>//physhik.com/tags/rejection-sampling/</loc>
     <lastmod>2017-08-24T02:10:00-07:00</lastmod>
   </url>
   
@@ -618,12 +618,12 @@
   </url>
   
   <url>
-    <loc>//physhik.com/tags/importance-sampling/</loc>
+    <loc>//physhik.com/categories/importance-sampling/</loc>
     <lastmod>2017-08-22T02:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>//physhik.com/categories/importance-sampling/</loc>
+    <loc>//physhik.com/tags/importance-sampling/</loc>
     <lastmod>2017-08-22T02:10:00-07:00</lastmod>
   </url>
   
@@ -663,12 +663,12 @@
   </url>
   
   <url>
-    <loc>//physhik.com/tags/mathjax/</loc>
+    <loc>//physhik.com/categories/mathjax/</loc>
     <lastmod>2017-08-19T12:10:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>//physhik.com/categories/mathjax/</loc>
+    <loc>//physhik.com/tags/mathjax/</loc>
     <lastmod>2017-08-19T12:10:00-07:00</lastmod>
   </url>
   

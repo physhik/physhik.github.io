@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /_draft/
+Disallow: /images/
+Allow: /
+
+Sitemap: https://physhik.github.io/sitemap.xml
+
+# This file was generated on Sat, 2 Nov 2019
