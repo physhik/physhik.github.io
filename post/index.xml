@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Oct 2019 14:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 06 Nov 2019 01:00:00 -0700</lastBuildDate>
     
 	<atom:link href="//physhik.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Machine Learns from Cardiologist (4)</title>
+      <link>//physhik.com/2019/11/machine-learns-from-cardiologist-4/</link>
+      <pubDate>Wed, 06 Nov 2019 01:00:00 -0700</pubDate>
+      
+      <guid>//physhik.com/2019/11/machine-learns-from-cardiologist-4/</guid>
+      <description>Update 
+I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries.</description>
+    </item>
     
     <item>
       <title>New Blog Theme</title>
@@ -17,7 +28,7 @@
       <pubDate>Tue, 29 Oct 2019 14:00:00 -0700</pubDate>
       
       <guid>//physhik.com/2019/10/new-blog-theme/</guid>
-      <description>I decided to use my own domain instead of renting the /github.io/, and also to insert Google adsense in my blog if possible. Even if I updated my blog only 10 times since Oct, 2017, the number of visitors and their sessions were steady by Google analytics. Recently I started updating my blog again, and want to see the more industrial analytic result. At least I am sure the profit from the adsense will cover the cost for the domain.</description>
+      <description>I decided to use my own domain instead of renting the /github.io/, and also to insert Google adsense in my blog if possible. Even if I updated my blog only 10 times since Oct, 2017, the number of visitors and their sessions were steady by Google analysis. I appreicate the interest on my posts. Recently I started updating my blog again, and want to see the more industrial analytic result. At least I am sure the profit from the adsense will cover the cost for the domain.</description>
     </item>
     
     <item>
@@ -195,6 +206,18 @@ We want to study Hopfield net from the simple case. Hopfield net is a fully conn
  Hopfield network or Boltzmann machine to the neural network is just a generalized form of Ising model.  
  Ising model is also useful as a statistical model in its own right.  
 Ising model $\boldsymbol{x}$ is the state of an Ising model with $N$ spins be a vector in which each component $\boldsymbol x_n$ takes values $-1$ or $+1$.</description>
+    </item>
+    
+    <item>
+      <title>Atom</title>
+      <link>//physhik.com/2017/09/atom/</link>
+      <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
+      
+      <guid>//physhik.com/2017/09/atom/</guid>
+      <description>Atom 
+Git and Github have become one of the essential part of programmers. I just mechanically commit just after I finish a code or change some setting, and it saved me so many times. It also provides great environment for teamwork and management of the projects. This Jekyll blog is also built upon the Github service.
+
+Atom is the text editor developed by Github. And this is great.</description>
     </item>
     
     <item>

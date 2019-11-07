@@ -6,33 +6,15 @@
     <description>Recent content in Categories on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Oct 2019 14:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 06 Nov 2019 01:00:00 -0700</lastBuildDate>
     
 	<atom:link href="//physhik.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>blog</title>
-      <link>//physhik.com/categories/blog/</link>
-      <pubDate>Tue, 29 Oct 2019 14:00:00 -0700</pubDate>
-      
-      <guid>//physhik.com/categories/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>//physhik.com/categories/hugo/</link>
-      <pubDate>Tue, 29 Oct 2019 14:00:00 -0700</pubDate>
-      
-      <guid>//physhik.com/categories/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>CNN, ECG classfier</title>
       <link>//physhik.com/categories/cnn-ecg-classfier/</link>
-      <pubDate>Fri, 29 Mar 2019 01:00:00 -0700</pubDate>
+      <pubDate>Wed, 06 Nov 2019 01:00:00 -0700</pubDate>
       
       <guid>//physhik.com/categories/cnn-ecg-classfier/</guid>
       <description></description>
@@ -41,9 +23,27 @@
     <item>
       <title>deep learning</title>
       <link>//physhik.com/categories/deep-learning/</link>
-      <pubDate>Fri, 29 Mar 2019 01:00:00 -0700</pubDate>
+      <pubDate>Wed, 06 Nov 2019 01:00:00 -0700</pubDate>
       
       <guid>//physhik.com/categories/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ML</title>
+      <link>//physhik.com/categories/ml/</link>
+      <pubDate>Wed, 06 Nov 2019 01:00:00 -0700</pubDate>
+      
+      <guid>//physhik.com/categories/ml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>//physhik.com/categories/blog/</link>
+      <pubDate>Tue, 29 Oct 2019 14:00:00 -0700</pubDate>
+      
+      <guid>//physhik.com/categories/blog/</guid>
       <description></description>
     </item>
     
@@ -66,20 +66,20 @@
     </item>
     
     <item>
-      <title>faster Python</title>
-      <link>//physhik.com/categories/faster-python/</link>
-      <pubDate>Mon, 25 Feb 2019 16:00:00 -0700</pubDate>
-      
-      <guid>//physhik.com/categories/faster-python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>PyPy</title>
       <link>//physhik.com/categories/pypy/</link>
       <pubDate>Mon, 25 Feb 2019 16:00:00 -0700</pubDate>
       
       <guid>//physhik.com/categories/pypy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>toys</title>
+      <link>//physhik.com/categories/toys/</link>
+      <pubDate>Mon, 25 Feb 2019 16:00:00 -0700</pubDate>
+      
+      <guid>//physhik.com/categories/toys/</guid>
       <description></description>
     </item>
     
@@ -138,15 +138,6 @@
     </item>
     
     <item>
-      <title>graph</title>
-      <link>//physhik.com/categories/graph/</link>
-      <pubDate>Fri, 15 Sep 2017 16:20:00 -0700</pubDate>
-      
-      <guid>//physhik.com/categories/graph/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>graphviz</title>
       <link>//physhik.com/categories/graphviz/</link>
       <pubDate>Fri, 15 Sep 2017 16:20:00 -0700</pubDate>
@@ -188,6 +179,15 @@
       <pubDate>Sat, 09 Sep 2017 23:30:00 -0700</pubDate>
       
       <guid>//physhik.com/categories/markov-chain-monte-carlo-method/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>atom, git</title>
+      <link>//physhik.com/categories/atom-git/</link>
+      <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
+      
+      <guid>//physhik.com/categories/atom-git/</guid>
       <description></description>
     </item>
     
@@ -305,24 +305,6 @@
       <pubDate>Mon, 21 Aug 2017 02:10:00 -0700</pubDate>
       
       <guid>//physhik.com/categories/metropolis-hastings-sampling/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mathjax</title>
-      <link>//physhik.com/categories/mathjax/</link>
-      <pubDate>Sat, 19 Aug 2017 12:10:00 -0700</pubDate>
-      
-      <guid>//physhik.com/categories/mathjax/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>disqus</title>
-      <link>//physhik.com/categories/disqus/</link>
-      <pubDate>Mon, 14 Aug 2017 23:50:00 -0700</pubDate>
-      
-      <guid>//physhik.com/categories/disqus/</guid>
       <description></description>
     </item>
     
