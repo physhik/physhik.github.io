@@ -6,11 +6,7 @@
     <description>Recent content in variational method on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Feb 2018 23:00:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/categories/variational-method/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 24 Feb 2018 23:00:00 -0700</lastBuildDate><atom:link href="//physhik.com/categories/variational-method/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Revisited Variational Inference</title>
       <link>//physhik.com/2018/02/revisited-variational-inference/</link>
@@ -18,7 +14,6 @@
       
       <guid>//physhik.com/2018/02/revisited-variational-inference/</guid>
       <description>A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
-
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</description>
     </item>
     
@@ -29,9 +24,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
       
       <guid>//physhik.com/2017/09/variational-autoencoder/</guid>
       <description>Mark who I met in machine learning study meetup had recommended me to study a research paper about discrete variational autoencoder. I have read today. As so does variational inference, it includes many mathematical equations, but what the author wants to tell was very straightforward. Two previous posts, Variational Method, Independent Component Analysis, are relevant to the following discussion.
-
-Autoencoder 
-To understand the paper, above all, we need to know what the autoencoder is and what variational autoencoder is.</description>
+Autoencoder To understand the paper, above all, we need to know what the autoencoder is and what variational autoencoder is.</description>
     </item>
     
     <item>
@@ -40,10 +33,8 @@ To understand the paper, above all, we need to know what the autoencoder is and 
       <pubDate>Mon, 28 Aug 2017 01:10:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/08/variational-method-for-optimization/</guid>
-      <description>I announce over and over that the chronicle ordering of the post are irrelevant for beginners&amp;rsquo; favor. There are many blanks I skipped. I would fill the holes later.
-
-Variational method 
-During my physics coursework and researches, I used this method countlessly. I even had a book of the name. It is quite simple, but also as big topic as being a book. Simply put, it is a technique to find equations and solutions (sometimes approximate solutions) by extremizing functionals which is mainly just integrals of fields, and treat the functions in the integral, as parameters.</description>
+      <description>I announce over and over that the chronicle ordering of the post are irrelevant for beginners&#39; favor. There are many blanks I skipped. I would fill the holes later.
+Variational method During my physics coursework and researches, I used this method countlessly. I even had a book of the name. It is quite simple, but also as big topic as being a book. Simply put, it is a technique to find equations and solutions (sometimes approximate solutions) by extremizing functionals which is mainly just integrals of fields, and treat the functions in the integral, as parameters.</description>
     </item>
     
   </channel>

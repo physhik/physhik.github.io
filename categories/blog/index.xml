@@ -6,11 +6,7 @@
     <description>Recent content in blog on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Oct 2019 14:00:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/categories/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 29 Oct 2019 14:00:00 -0700</lastBuildDate><atom:link href="//physhik.com/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>New Blog Theme</title>
       <link>//physhik.com/2019/10/new-blog-theme/</link>
@@ -26,16 +22,12 @@
       <pubDate>Sat, 19 Aug 2017 12:10:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/08/add-mathjax-to-jekyll-blog/</guid>
-      <description>Add mathjax 
-The another good thing of Jekyll blog1 is that we can finally use math formula in it.
+      <description>Add mathjax The another good thing of Jekyll blog1 is that we can finally use math formula in it.
 $$ \nabla \times \vec{B} = 0 $$
 There was troubles when I tried to include some formula in Github README.md file.
-
 Haixing Hu&amp;rsquo;s blog was helpful to do it.
-
 Need to fix 3 kinds of files in total.
-
-1. make a new mathjax_support.html file in _include folder</description>
+1. make a new mathjax_support.html file in _include folder _include folder saves html formats to use in your layout files.</description>
     </item>
     
     <item>
@@ -45,10 +37,8 @@ Need to fix 3 kinds of files in total.
       
       <guid>//physhik.com/2017/08/adding-disqus-to-a-jekyll-blog/</guid>
       <description>Github is a fantastic space for someone like me to try to learn something new.
-
 This time I have built a blog powered by jekyll and Github. This posting is targetting a novice who especially used a theme, and who is trying to add a disqus in the blog. Hope it helps them not to experience the trials and errors I had.
-
-I found jekyll homepage and Sechter&amp;rsquo;s blog good.</description>
+I found jekyll homepage and Sechter&amp;rsquo;s blog good. I guess you would barely need to look into my posting after going thorough these two websites.</description>
     </item>
     
     <item>

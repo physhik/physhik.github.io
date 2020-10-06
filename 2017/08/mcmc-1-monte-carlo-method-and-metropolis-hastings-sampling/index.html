@@ -5,41 +5,29 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
-<meta name="description" content="Monte Carlo method 
-Monte Carlo method is useful in Bayesian data modeling because maximizing posterior probability is often very difficult and fitting a Gaussian becomes hard.
-
+<meta name="description" content="Monte Carlo method Monte Carlo method is useful in Bayesian data modeling because maximizing posterior probability is often very difficult and fitting a Gaussian becomes hard.
 Monte Carlo method becomes valuable in that we want to generate samples in some situation, and also want to estimate some expectation values of various functions.
+What we deal with in this post is only small part of Monte Carlo method. It is going to be good if I have a chance to introduce about all sooner in this blog, but if not, see one of the repositories from my Github">
 
-What we deal with in this post is only small part of Monte Carlo method.">
 
-
-<meta property="og:description" content="Monte Carlo method 
-Monte Carlo method is useful in Bayesian data modeling because maximizing posterior probability is often very difficult and fitting a Gaussian becomes hard.
-
+<meta property="og:description" content="Monte Carlo method Monte Carlo method is useful in Bayesian data modeling because maximizing posterior probability is often very difficult and fitting a Gaussian becomes hard.
 Monte Carlo method becomes valuable in that we want to generate samples in some situation, and also want to estimate some expectation values of various functions.
-
-What we deal with in this post is only small part of Monte Carlo method.">
+What we deal with in this post is only small part of Monte Carlo method. It is going to be good if I have a chance to introduce about all sooner in this blog, but if not, see one of the repositories from my Github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MCMC (1) : Monte Carlo Method and Metropolis-Hastings Sampling">
 <meta name="twitter:title" content="MCMC (1) : Monte Carlo Method and Metropolis-Hastings Sampling">
 <meta property="og:url" content="//physhik.com/2017/08/mcmc-1-monte-carlo-method-and-metropolis-hastings-sampling/">
 <meta property="twitter:url" content="//physhik.com/2017/08/mcmc-1-monte-carlo-method-and-metropolis-hastings-sampling/">
 <meta property="og:site_name" content="Physics to Data Science">
-<meta property="og:description" content="Monte Carlo method 
-Monte Carlo method is useful in Bayesian data modeling because maximizing posterior probability is often very difficult and fitting a Gaussian becomes hard.
-
+<meta property="og:description" content="Monte Carlo method Monte Carlo method is useful in Bayesian data modeling because maximizing posterior probability is often very difficult and fitting a Gaussian becomes hard.
 Monte Carlo method becomes valuable in that we want to generate samples in some situation, and also want to estimate some expectation values of various functions.
-
-What we deal with in this post is only small part of Monte Carlo method.">
-<meta name="twitter:description" content="Monte Carlo method 
-Monte Carlo method is useful in Bayesian data modeling because maximizing posterior probability is often very difficult and fitting a Gaussian becomes hard.
-
+What we deal with in this post is only small part of Monte Carlo method. It is going to be good if I have a chance to introduce about all sooner in this blog, but if not, see one of the repositories from my Github">
+<meta name="twitter:description" content="Monte Carlo method Monte Carlo method is useful in Bayesian data modeling because maximizing posterior probability is often very difficult and fitting a Gaussian becomes hard.
 Monte Carlo method becomes valuable in that we want to generate samples in some situation, and also want to estimate some expectation values of various functions.
-
-What we deal with in this post is only small part of Monte Carlo method.">
+What we deal with in this post is only small part of Monte Carlo method. It is going to be good if I have a chance to introduce about all sooner in this blog, but if not, see one of the repositories from my Github">
 <meta property="og:locale" content="en-us">
 
   
@@ -325,253 +313,176 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><br></p>
-
+              <!-- raw HTML omitted -->
 <h2 id="monte-carlo-method">Monte Carlo method</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Monte Carlo method is useful in Bayesian data modeling because maximizing posterior probability is often very difficult and fitting a Gaussian becomes hard.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Monte Carlo method becomes valuable in that we want to generate samples in some situation, and also want to estimate some expectation values of various functions.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>What we deal with in this post is only small part of Monte Carlo method. It is going to be good if I have a chance to introduce about all sooner in this blog, but if not, see <a href="https://github.com/physhik/Study-of-David-Mackay-s-book-">one of the repositories from my Github</a></p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>In data science, we used to face the problem to evaluate the probability distribution, $ P(\boldsymbol{x}) $, and</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>$$
 P(\boldsymbol{x}) = P^* (\boldsymbol{x}) / Z
 $$</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>I might claim that most of meaningful questions in data science is finding the normal constant, Z. Relative probability up to constant is not too difficult. Thus, we will assume we know $P^* (\boldsymbol{x})$.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>To generate samples, we use a proposal density distribution, $Q (\boldsymbol{x}, &hellip;)$.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="metropolis-hastings-sampling">Metropolis-Hastings sampling</h2>
-
-<p><br></p>
-
-<p>In Metropolis-Hastings sampling, we use a proposal density $Q (\boldsymbol{x}, \boldsymbol{x&rsquo;})$, which is a probability to transit from $\boldsymbol{x}$ to $\boldsymbol{x&rsquo;}$. $\boldsymbol{x&rsquo;}$ is the probable next position.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p>In Metropolis-Hastings sampling, we use a proposal density $Q (\boldsymbol{x}, \boldsymbol{x'})$, which is a probability to transit from $\boldsymbol{x}$ to $\boldsymbol{x'}$. $\boldsymbol{x'}$ is the probable next position.</p>
+<!-- raw HTML omitted -->
 <p>If the proposal distribution is symmetric under the switch of position vectors, the proposal distribution becomes irrelevant at the procedures. What matters is relative proportion of $P^* (\boldsymbol{x})$.</p>
-
-<p><br></p>
-
-<p>If $P^* (\boldsymbol{x&rsquo;}) / P^* (\boldsymbol{x})$ is bigger than 1, just draw the $\boldsymbol{x&rsquo;}$ to the sample. If $\boldsymbol{x} = x^{(n)}$, we set $\boldsymbol{x&rsquo;} = x^{(n+1)}$.</p>
-
-<p><br></p>
-
-<p>If $P^* (\boldsymbol{x&rsquo;}) / P^* (\boldsymbol{x})$ is smaller than 1, draw the $\boldsymbol{x&rsquo;}$ to the sample with the probability, $P^* (\boldsymbol{x&rsquo;}) / P^* (\boldsymbol{x})$.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p>If $P^* (\boldsymbol{x'}) / P^* (\boldsymbol{x})$ is bigger than 1, just draw the $\boldsymbol{x'}$ to the sample. If $\boldsymbol{x} = x^{(n)}$, we set $\boldsymbol{x'} = x^{(n+1)}$.</p>
+<!-- raw HTML omitted -->
+<p>If $P^* (\boldsymbol{x'}) / P^* (\boldsymbol{x})$ is smaller than 1, draw the $\boldsymbol{x'}$ to the sample with the probability, $P^* (\boldsymbol{x'}) / P^* (\boldsymbol{x})$.</p>
+<!-- raw HTML omitted -->
 <p>Intuitively, if we keep doing this procedure, we will obtain the sample of $P(\boldsymbol{x})$ up to some proportional constant.</p>
-
-<p><br></p>
-
-<p>Let us think of an example represented by figure 29.12 of <a href="https://inference.phy.cam.ac.uk/mackay/itila/book.html">the book</a> &ldquo;Information Theory, Inference, and Learning Algorithms&rdquo; by David Mackay.<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> I have already commented about the book in the previous post, and I would do it over and over, since I learned the theory of data science and machine learning from <a href="https://inference.phy.cam.ac.uk/mackay/itila/book.html">the book</a>, and I would implement the theory at the posts of this blog. Anytime if someone feels I did not explain enough about the theory, you can open <a href="https://inference.phy.cam.ac.uk/mackay/itila/book.html">the on-line book</a>.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p>Let us think of an example represented by figure 29.12 of <a href="https://inference.phy.cam.ac.uk/mackay/itila/book.html">the book</a> &ldquo;Information Theory, Inference, and Learning Algorithms&rdquo; by David Mackay.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> I have already commented about the book in the previous post, and I would do it over and over, since I learned the theory of data science and machine learning from <a href="https://inference.phy.cam.ac.uk/mackay/itila/book.html">the book</a>, and I would implement the theory at the posts of this blog. Anytime if someone feels I did not explain enough about the theory, you can open <a href="https://inference.phy.cam.ac.uk/mackay/itila/book.html">the on-line book</a>.</p>
+<!-- raw HTML omitted -->
 <p>Now let us look at Python scripts.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> random
 
-<p><br></p>
-
-<pre><code class="language-python">import matplotlib.pyplot as plt
-import numpy as np
-import random
-
-%matplotlib inline
-plt.style.use('ggplot')
-</code></pre>
-
-<p><br></p>
-
+<span style="color:#f92672">%</span>matplotlib inline
+plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#39;ggplot&#39;</span>)
+</code></pre></div><!-- raw HTML omitted -->
 <p>$$
 P(x)= \{
 \begin{array}{cc}
-\frac{1}{21} ~~~as ~~ 0\leq x&lt;21, ~for ~~integers \\<br />
-0  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ otherwise<br />
+\frac{1}{21} ~~~as ~~ 0\leq x&lt;21, ~for ~~integers \\\<br>
+0  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ otherwise\<br>
 \end{array}
 $$</p>
-
-<p><br></p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>and the proposal distribution is</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>$$
-Q (x&rsquo;; x)= \{
+Q (x'; x)= \{
 \begin{array}{cc}
-\frac{1}{2} ~~~~~~x&rsquo; = x \pm 1 \\<br />
-0  ~~~~~~ otherwise<br />
+\frac{1}{2} ~~~~~~x' = x \pm 1 \\\<br>
+0  ~~~~~~ otherwise\<br>
 \end{array}
 $$</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">niters<span style="color:#f92672">=</span> <span style="color:#ae81ff">400</span>
+x0<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>
+List <span style="color:#f92672">=</span> [x0]
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(niters):
+    <span style="color:#66d9ef">if</span> x0<span style="color:#f92672">==</span><span style="color:#ae81ff">20</span>:
+        next <span style="color:#f92672">=</span> x0<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
 
-<pre><code class="language-python">niters= 400
-x0=10
-List = [x0]
-for i in range(niters):
-    if x0==20:
-        next = x0-1
+    <span style="color:#66d9ef">elif</span> x0<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>:
+        next <span style="color:#f92672">=</span> x0<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
 
-    elif x0==0:
-        next = x0+1
+    <span style="color:#66d9ef">else</span>:
+        next <span style="color:#f92672">=</span> x0<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> <span style="color:#66d9ef">if</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>random()<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0.5</span> <span style="color:#66d9ef">else</span> x0<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+    List<span style="color:#f92672">.</span>append(next)
+    x0<span style="color:#f92672">=</span>next
 
-    else:
-        next = x0+1 if np.random.random()&gt;=0.5 else x0-1
-    List.append(next)
-    x0=next
-
-plt.plot(List,linewidth=0.3)
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/exactMCsampling_files/exactMCsampling_1_1.png" alt="png" /></p>
-
-<p>What is interesting in this example is, the Metropolis-Hastings algorithm does not do much here. Of course, the disposal distribution is symmetric, and the proportion, $P^* (\boldsymbol{x&rsquo;}) / P^* (\boldsymbol{x})$, is 1. Therefore, the sample is drawn every time the disposal progresses. The script for disposal and choosing is at <em>else loop</em>.</p>
-
-<p><br></p>
-
+plt<span style="color:#f92672">.</span>plot(List,linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>)
+</code></pre></div><p><img src="//physhik.com/images/postimages/exactMCsampling_files/exactMCsampling_1_1.png" alt="png"></p>
+<p>What is interesting in this example is, the Metropolis-Hastings algorithm does not do much here. Of course, the disposal distribution is symmetric, and the proportion, $P^* (\boldsymbol{x'}) / P^* (\boldsymbol{x})$, is 1. Therefore, the sample is drawn every time the disposal progresses. The script for disposal and choosing is at _else loop_.</p>
+<!-- raw HTML omitted -->
 <h3 id="histogram-of-occupancy-of-the-states">Histogram of occupancy of the states</h3>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>The following scripts are just histogram of occupancy from two kinds of samples. The former is Metropolis-Hastings and the latter is independent sampling. As the number of the samples increases, the histogram graph should approach flat graph as $P(x)$ does.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">hist0, bin_edges0 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>histogram(List, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, normed<span style="color:#f92672">=</span>False)
+factor <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
+bin_centers0 <span style="color:#f92672">=</span> (bin_edges0[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> bin_edges0[<span style="color:#ae81ff">1</span>:]) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.</span>
 
-<pre><code class="language-python">hist0, bin_edges0 = np.histogram(List, bins=20, normed=False)
-factor = 1.0
-bin_centers0 = (bin_edges0[:-1] + bin_edges0[1:]) / 2.
-
-bin_width0= bin_edges0[1]-bin_edges0[0]
-
-
-
-plt.step(bin_centers0, factor*hist0, linewidth=1)
-
-
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/exactMCsampling_files/exactMCsampling_2_1.png" alt="png" /></p>
-
-<pre><code class="language-python">plt.plot(bin_centers0, hist0, drawstyle='steps-mid', linestyle='-', alpha=1,)
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/exactMCsampling_files/exactMCsampling_3_1.png" alt="png" /></p>
-
-<pre><code class="language-python">List2=[np.random.randint(0,20) for i in range(niters)]
-hist2, bin_edges2 = np.histogram(List2, bins=20, normed=False)
-factor = 1.0
-bin_centers2 = (bin_edges2[:-1] + bin_edges2[1:]) / 2.
-
-bin_width2= bin_edges2[1]-bin_edges2[0]
-
-plt.step(bin_centers2, factor*hist2, linewidth=1)
-plt.axis([0,20,0,40])
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/exactMCsampling_files/exactMCsampling_4_1.png" alt="png" /></p>
-
-<pre><code class="language-python">def MHhistogram(ninters, initial):
-    x0=initial
-    List = [x0]
-    for i in range(niters):
-        if x0==20:
-            next = x0-1
-        elif x0==0:
-            next = x0+1
-        else:
-            next = x0+1 if np.random.random()&gt;=0.5 else x0-1
-        List.append(next)
-        x0=next
-
-    hist0, bin_edges0 = np.histogram(List, bins=20, normed=False)
-    bin_centers0 = (bin_edges0[:-1] + bin_edges0[1:]) / 2.
-
-    bin_width0= bin_edges0[1]-bin_edges0[0]
+bin_width0<span style="color:#f92672">=</span> bin_edges0[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">-</span>bin_edges0[<span style="color:#ae81ff">0</span>]
 
 
 
-    return bin_centers0, hist0
+plt<span style="color:#f92672">.</span>step(bin_centers0, factor<span style="color:#f92672">*</span>hist0, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 
 
-    return bin_centers0, hist0
+</code></pre></div><p><img src="//physhik.com/images/postimages/exactMCsampling_files/exactMCsampling_2_1.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>plot(bin_centers0, hist0, drawstyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;steps-mid&#39;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;-&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,)
+</code></pre></div><p><img src="//physhik.com/images/postimages/exactMCsampling_files/exactMCsampling_3_1.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">List2<span style="color:#f92672">=</span>[np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">20</span>) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(niters)]
+hist2, bin_edges2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>histogram(List2, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, normed<span style="color:#f92672">=</span>False)
+factor <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
+bin_centers2 <span style="color:#f92672">=</span> (bin_edges2[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> bin_edges2[<span style="color:#ae81ff">1</span>:]) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.</span>
+
+bin_width2<span style="color:#f92672">=</span> bin_edges2[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">-</span>bin_edges2[<span style="color:#ae81ff">0</span>]
+
+plt<span style="color:#f92672">.</span>step(bin_centers2, factor<span style="color:#f92672">*</span>hist2, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+plt<span style="color:#f92672">.</span>axis([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">40</span>])
+</code></pre></div><p><img src="//physhik.com/images/postimages/exactMCsampling_files/exactMCsampling_4_1.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">MHhistogram</span>(ninters, initial):
+    x0<span style="color:#f92672">=</span>initial
+    List <span style="color:#f92672">=</span> [x0]
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(niters):
+        <span style="color:#66d9ef">if</span> x0<span style="color:#f92672">==</span><span style="color:#ae81ff">20</span>:
+            next <span style="color:#f92672">=</span> x0<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">elif</span> x0<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>:
+            next <span style="color:#f92672">=</span> x0<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">else</span>:
+            next <span style="color:#f92672">=</span> x0<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> <span style="color:#66d9ef">if</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>random()<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0.5</span> <span style="color:#66d9ef">else</span> x0<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+        List<span style="color:#f92672">.</span>append(next)
+        x0<span style="color:#f92672">=</span>next
+
+    hist0, bin_edges0 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>histogram(List, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, normed<span style="color:#f92672">=</span>False)
+    bin_centers0 <span style="color:#f92672">=</span> (bin_edges0[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> bin_edges0[<span style="color:#ae81ff">1</span>:]) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.</span>
+
+    bin_width0<span style="color:#f92672">=</span> bin_edges0[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">-</span>bin_edges0[<span style="color:#ae81ff">0</span>]
 
 
 
-</code></pre>
+    <span style="color:#66d9ef">return</span> bin_centers0, hist0
 
-<pre><code class="language-python">MHhistogram(400, 10)
-</code></pre>
 
-<pre><code>(array([  0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,
+    <span style="color:#66d9ef">return</span> bin_centers0, hist0
+
+
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">MHhistogram(<span style="color:#ae81ff">400</span>, <span style="color:#ae81ff">10</span>)
+</code></pre></div><pre><code>(array([  0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,
           9.5,  10.5,  11.5,  12.5,  13.5,  14.5,  15.5,  16.5,  17.5,
          18.5,  19.5]),
  array([ 2,  4,  7,  9, 10, 10, 13, 24, 27, 24, 27, 25, 23, 22, 24, 24, 19,
         20, 25, 62]))
 </code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>plot(MHhistogram(<span style="color:#ae81ff">1400</span>, <span style="color:#ae81ff">10</span>)[<span style="color:#ae81ff">0</span>],MHhistogram(<span style="color:#ae81ff">1400</span>, <span style="color:#ae81ff">10</span>)[<span style="color:#ae81ff">1</span>],drawstyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;steps-mid&#39;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;-&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,)
+</code></pre></div><p><img src="//physhik.com/images/postimages/exactMCsampling_files/exactMCsampling_7_1.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">f, (ax1, ax2, ax3) <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">3</span>, sharex<span style="color:#f92672">=</span>True)
+ax1<span style="color:#f92672">.</span>plot(MHhistogram(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">10</span>)[<span style="color:#ae81ff">0</span>],MHhistogram(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">10</span>)[<span style="color:#ae81ff">1</span>], drawstyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;steps-mid&#39;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;-&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax1<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Metropolis&#39;</span>)
+plt<span style="color:#f92672">.</span>axis([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">60</span>])
+ax2<span style="color:#f92672">.</span>plot(MHhistogram(<span style="color:#ae81ff">400</span>, <span style="color:#ae81ff">10</span>)[<span style="color:#ae81ff">0</span>],MHhistogram(<span style="color:#ae81ff">400</span>, <span style="color:#ae81ff">10</span>)[<span style="color:#ae81ff">1</span>], drawstyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;steps-mid&#39;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;-&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax3<span style="color:#f92672">.</span>plot(MHhistogram(<span style="color:#ae81ff">1200</span>, <span style="color:#ae81ff">10</span>)[<span style="color:#ae81ff">0</span>],MHhistogram(<span style="color:#ae81ff">1200</span>, <span style="color:#ae81ff">10</span>)[<span style="color:#ae81ff">1</span>], drawstyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;steps-mid&#39;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;-&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</code></pre></div><p><img src="//physhik.com/images/postimages/exactMCsampling_files/exactMCsampling_8_1.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">randomhistogram</span>(niters):
+    List2<span style="color:#f92672">=</span>[np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">20</span>) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(niters)]
+    hist2, bin_edges2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>histogram(List2, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, normed<span style="color:#f92672">=</span>False)
+    bin_centers2 <span style="color:#f92672">=</span> (bin_edges2[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> bin_edges2[<span style="color:#ae81ff">1</span>:]) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.</span>
+    <span style="color:#66d9ef">return</span> bin_centers2, hist2
 
-<pre><code class="language-python">plt.plot(MHhistogram(1400, 10)[0],MHhistogram(1400, 10)[1],drawstyle='steps-mid', linestyle='-', alpha=1,)
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/exactMCsampling_files/exactMCsampling_7_1.png" alt="png" /></p>
-
-<pre><code class="language-python">f, (ax1, ax2, ax3) = plt.subplots(3, sharex=True)
-ax1.plot(MHhistogram(100, 10)[0],MHhistogram(100, 10)[1], drawstyle='steps-mid', linestyle='-', alpha=1)
-ax1.set_title('Metropolis')
-plt.axis([0,20,0,60])
-ax2.plot(MHhistogram(400, 10)[0],MHhistogram(400, 10)[1], drawstyle='steps-mid', linestyle='-', alpha=1)
-ax3.plot(MHhistogram(1200, 10)[0],MHhistogram(1200, 10)[1], drawstyle='steps-mid', linestyle='-', alpha=1)
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/exactMCsampling_files/exactMCsampling_8_1.png" alt="png" /></p>
-
-<pre><code class="language-python">def randomhistogram(niters):
-    List2=[np.random.randint(0,20) for i in range(niters)]
-    hist2, bin_edges2 = np.histogram(List2, bins=20, normed=False)
-    bin_centers2 = (bin_edges2[:-1] + bin_edges2[1:]) / 2.
-    return bin_centers2, hist2
-
-</code></pre>
-
-<pre><code class="language-python">f, (ax1, ax2, ax3) = plt.subplots(3, sharex=True)
-ax1.plot(randomhistogram(100)[0],randomhistogram(100)[1], drawstyle='steps-mid', linestyle='-', alpha=1)
-ax1.set_title('independent sampling')
-plt.axis([0,20,0,100])
-ax2.plot(randomhistogram(400)[0],randomhistogram(400)[1], drawstyle='steps-mid', linestyle='-', alpha=1)
-ax3.plot(randomhistogram(1200)[0],randomhistogram(1200)[1], drawstyle='steps-mid', linestyle='-', alpha=1)
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/exactMCsampling_files/exactMCsampling_10_1.png" alt="png" /></p>
-<div class="footnotes">
-
-<hr />
-
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">f, (ax1, ax2, ax3) <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">3</span>, sharex<span style="color:#f92672">=</span>True)
+ax1<span style="color:#f92672">.</span>plot(randomhistogram(<span style="color:#ae81ff">100</span>)[<span style="color:#ae81ff">0</span>],randomhistogram(<span style="color:#ae81ff">100</span>)[<span style="color:#ae81ff">1</span>], drawstyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;steps-mid&#39;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;-&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax1<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;independent sampling&#39;</span>)
+plt<span style="color:#f92672">.</span>axis([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">100</span>])
+ax2<span style="color:#f92672">.</span>plot(randomhistogram(<span style="color:#ae81ff">400</span>)[<span style="color:#ae81ff">0</span>],randomhistogram(<span style="color:#ae81ff">400</span>)[<span style="color:#ae81ff">1</span>], drawstyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;steps-mid&#39;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;-&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+ax3<span style="color:#f92672">.</span>plot(randomhistogram(<span style="color:#ae81ff">1200</span>)[<span style="color:#ae81ff">0</span>],randomhistogram(<span style="color:#ae81ff">1200</span>)[<span style="color:#ae81ff">1</span>], drawstyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;steps-mid&#39;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;-&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</code></pre></div><p><img src="//physhik.com/images/postimages/exactMCsampling_files/exactMCsampling_10_1.png" alt="png"></p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:1">Besides, <a href="https://inference.org.uk/mackay/itila/book.html">the book</a> is free on-line! I would even donate some money for him after I earn some money. Now I am too poor to donate to faculty member.<br />
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>Besides, <a href="https://inference.org.uk/mackay/itila/book.html">the book</a> is free on-line! I would even donate some money for him after I earn some money. Now I am too poor to donate to faculty member. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
-</div>
+</section>
 
               
             </div>
@@ -654,7 +565,7 @@ ax3.plot(randomhistogram(1200)[0],randomhistogram(1200)[1], drawstyle='steps-mid
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Namshik Kim. All Rights Reserved
+    &copy; 2020 Namshik Kim. All Rights Reserved
   </span>
 </footer>
 
@@ -780,8 +691,7 @@ ax3.plot(randomhistogram(1200)[0],randomhistogram(1200)[1], drawstyle='steps-mid
                   Nov 11, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Update 
-I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+              <div class="media-content hide-xs font-merryweather">Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&rsquo;t be posted).</div>
             </div>
             <div style="clear:both;"></div>
@@ -816,8 +726,7 @@ I myself found some errors due to the version change of Python libraries, so I u
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Open source 
-The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+              <div class="media-content hide-xs font-merryweather">Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -834,10 +743,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
-Deep learning and classifications. 
-The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
-
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
             </div>
             <div style="clear:both;"></div>
@@ -855,9 +761,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Prologue 
-Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
-
+              <div class="media-content hide-xs font-merryweather">Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
             </div>
             <div style="clear:both;"></div>
@@ -876,7 +780,6 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
-
 AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
             </div>
             <div style="clear:both;"></div>
@@ -912,7 +815,6 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
-
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
             </div>
             <div style="clear:both;"></div>
@@ -948,9 +850,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

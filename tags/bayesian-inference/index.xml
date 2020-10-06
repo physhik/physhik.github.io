@@ -6,21 +6,16 @@
     <description>Recent content in Bayesian inference on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Sep 2017 16:30:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/tags/bayesian-inference/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 06 Sep 2017 16:30:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/bayesian-inference/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Neural Network (2) : Inference Using Perceptron and MCMC</title>
       <link>//physhik.com/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</link>
       <pubDate>Wed, 06 Sep 2017 16:30:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</guid>
-      <description>Single neuron still has a lot to say 
-In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
-
-In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.</description>
+      <description>Single neuron still has a lot to say In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
+In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.
+Objective function and its contour plot.</description>
     </item>
     
     <item>
@@ -29,7 +24,7 @@ In the post of the first neural network tutorial, I said I would leave you to fi
       <pubDate>Sun, 03 Sep 2017 12:30:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/09/bayesian-inference-examples/</guid>
-      <description>I assume that the readers know the Bayes&amp;rsquo; rule already. If you are not familiar to it, read any kind of textbook about probability, data science, and machine learning. I recommend the book, which I learned Bayes&amp;rsquo; rule. Bayesians say that you cannot do inference without making assumptions. Thus, Bayesians also use probabilities to describe inferences. The author in the chapter 2 introduces some rules of probability theory and introduces more about assumptions in inference in the chapter 3.</description>
+      <description>I assume that the readers know the Bayes&#39; rule already. If you are not familiar to it, read any kind of textbook about probability, data science, and machine learning. I recommend the book, which I learned Bayes&#39; rule. Bayesians say that you cannot do inference without making assumptions. Thus, Bayesians also use probabilities to describe inferences. The author in the chapter 2 introduces some rules of probability theory and introduces more about assumptions in inference in the chapter 3.</description>
     </item>
     
   </channel>

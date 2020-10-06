@@ -6,19 +6,14 @@
     <description>Recent content in Hopfield net on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Sep 2017 23:50:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/tags/hopfield-net/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 18 Sep 2017 23:50:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/hopfield-net/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Neural Network (5) : Very Simple Boltzmann Machine</title>
       <link>//physhik.com/2017/09/neural-network-5-very-simple-boltzmann-machine/</link>
       <pubDate>Mon, 18 Sep 2017 23:50:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/09/neural-network-5-very-simple-boltzmann-machine/</guid>
-      <description>Stochastic Hopfield net 
-Boltzmann machine is nothing but stochastic Hopfield net1. If you did not yet read the post of the Hopfield net in the blog, just go read it. I assume the readers are familiar to it, and directly use many results we had in the post. The magic of deep learning which we have discussed a couple of times works here, too. Such as $\epsilon$-greedy off-policy algorithm2, the stochastic character of the binary units allows the machine occasionally increase its energy to escape from poor local minima.</description>
+      <description>Stochastic Hopfield net Boltzmann machine is nothing but stochastic Hopfield net1. If you did not yet read the post of the Hopfield net in the blog, just go read it. I assume the readers are familiar to it, and directly use many results we had in the post. The magic of deep learning which we have discussed a couple of times works here, too. Such as $\epsilon$-greedy off-policy algorithm2, the stochastic character of the binary units allows the machine occasionally increase its energy to escape from poor local minima.</description>
     </item>
     
     <item>
@@ -27,8 +22,8 @@ Boltzmann machine is nothing but stochastic Hopfield net1. If you did not yet re
       <pubDate>Sun, 10 Sep 2017 13:30:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/09/neural-network-3-hopfield-net/</guid>
-      <description>Binary Hopfield net using Hebbian learning 
-We want to study Hopfield net from the simple case. Hopfield net is a fully connected feedback network. A feedback network is a network that is not a feedforward network, and in a feedforward network, all the connections are directed. All the connections in our example will be bi-directed. This symmetric property of the weight is important property of the Hopfield net.</description>
+      <description>Binary Hopfield net using Hebbian learning We want to study Hopfield net from the simple case. Hopfield net is a fully connected feedback network. A feedback network is a network that is not a feedforward network, and in a feedforward network, all the connections are directed. All the connections in our example will be bi-directed. This symmetric property of the weight is important property of the Hopfield net.
+Hopfield net can act as associative memories, and they can be used to solve optimization problems.</description>
     </item>
     
   </channel>

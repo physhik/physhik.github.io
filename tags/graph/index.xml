@@ -6,11 +6,7 @@
     <description>Recent content in graph on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Aug 2017 21:25:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/tags/graph/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 17 Aug 2017 21:25:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/graph/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>networkx (3)</title>
       <link>//physhik.com/_draft/2017-08-17-networkx_practice3/</link>
@@ -28,10 +24,8 @@ Hashability makes an object usable as a dictionary key and a set member, because
       
       <guid>//physhik.com/_draft/2017-08-16-networkx_practice2/</guid>
       <description>Let us start from the same graph, G of the previous posting.
-
-import networkx as nx import matplotlib.pyplot as plt %matplotlib inline  
-** DiGraph
-I=nx.DiGraph(G)  I.nodes(data=True)  [(0, {}), (1, {}), (2, {}), (3, {}), (4, {}), (5, {}), (6, {}), (7, {}), (8, {}), (9, {}), (10, {}), (11, {}), (&#39;m&#39;, {}), (&#39;p&#39;, {}), (&#39;s&#39;, {}), (&#39;a&#39;, {}), (&#39;spam&#39;, {})]  G.nodes(data=True)  [(0, {}), (1, {}), (2, {}), (3, {}), (4, {}), (5, {}), (6, {}), (7, {}), (8, {}), (9, {}), (10, {}), (11, {}), (&#39;m&#39;, {}), (&#39;p&#39;, {}), (&#39;spam&#39;, {}), (&#39;s&#39;, {}), (&#39;a&#39;, {})]  G.</description>
+import networkx as nx import matplotlib.pyplot as plt %matplotlib inline ** DiGraph
+I=nx.DiGraph(G) I.nodes(data=True) [(0, {}), (1, {}), (2, {}), (3, {}), (4, {}), (5, {}), (6, {}), (7, {}), (8, {}), (9, {}), (10, {}), (11, {}), (&#39;m&#39;, {}), (&#39;p&#39;, {}), (&#39;s&#39;, {}), (&#39;a&#39;, {}), (&#39;spam&#39;, {})]  G.nodes(data=True) [(0, {}), (1, {}), (2, {}), (3, {}), (4, {}), (5, {}), (6, {}), (7, {}), (8, {}), (9, {}), (10, {}), (11, {}), (&#39;m&#39;, {}), (&#39;p&#39;, {}), (&#39;spam&#39;, {}), (&#39;s&#39;, {}), (&#39;a&#39;, {})]  G.</description>
     </item>
     
     <item>
@@ -41,12 +35,9 @@ I=nx.DiGraph(G)  I.nodes(data=True)  [(0, {}), (1, {}), (2, {}), (3, {}), (4, {}
       
       <guid>//physhik.com/_draft/2017-08-16-networkx_practice/</guid>
       <description>While studying deep learning, to understand graph and networks is necessary.
-
 I try to follow the tutorial and references from the Github of networkx. The homepage of networkx is designed to have better interface, but some codes are not updated. I also added up some comments for better understanding.
-
-import networkx as nx import matplotlib.pyplot as plt %matplotlib inline  
-Node 
-Initiate empty graph</description>
+import networkx as nx import matplotlib.pyplot as plt %matplotlib inline Node Initiate empty graph
+G = nx.Graph() Can see the nodes as following</description>
     </item>
     
   </channel>

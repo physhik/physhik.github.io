@@ -6,21 +6,15 @@
     <description>Recent content in Jekyll on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Sep 2017 16:50:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 09 Sep 2017 16:50:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Atom</title>
       <link>//physhik.com/2017/09/atom/</link>
       <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/09/atom/</guid>
-      <description>Atom 
-Git and Github have become one of the essential part of programmers. I just mechanically commit just after I finish a code or change some setting, and it saved me so many times. It also provides great environment for teamwork and management of the projects. This Jekyll blog is also built upon the Github service.
-
-Atom is the text editor developed by Github. And this is great.</description>
+      <description>Atom Git and Github have become one of the essential part of programmers. I just mechanically commit just after I finish a code or change some setting, and it saved me so many times. It also provides great environment for teamwork and management of the projects. This Jekyll blog is also built upon the Github service.
+Atom is the text editor developed by Github. And this is great. When I made up my mind to transit to data science.</description>
     </item>
     
     <item>
@@ -29,16 +23,12 @@ Atom is the text editor developed by Github. And this is great.</description>
       <pubDate>Sat, 19 Aug 2017 12:10:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/08/add-mathjax-to-jekyll-blog/</guid>
-      <description>Add mathjax 
-The another good thing of Jekyll blog1 is that we can finally use math formula in it.
+      <description>Add mathjax The another good thing of Jekyll blog1 is that we can finally use math formula in it.
 $$ \nabla \times \vec{B} = 0 $$
 There was troubles when I tried to include some formula in Github README.md file.
-
 Haixing Hu&amp;rsquo;s blog was helpful to do it.
-
 Need to fix 3 kinds of files in total.
-
-1. make a new mathjax_support.html file in _include folder</description>
+1. make a new mathjax_support.html file in _include folder _include folder saves html formats to use in your layout files.</description>
     </item>
     
     <item>
@@ -48,10 +38,8 @@ Need to fix 3 kinds of files in total.
       
       <guid>//physhik.com/2017/08/adding-disqus-to-a-jekyll-blog/</guid>
       <description>Github is a fantastic space for someone like me to try to learn something new.
-
 This time I have built a blog powered by jekyll and Github. This posting is targetting a novice who especially used a theme, and who is trying to add a disqus in the blog. Hope it helps them not to experience the trials and errors I had.
-
-I found jekyll homepage and Sechter&amp;rsquo;s blog good.</description>
+I found jekyll homepage and Sechter&amp;rsquo;s blog good. I guess you would barely need to look into my posting after going thorough these two websites.</description>
     </item>
     
     <item>
@@ -64,7 +52,6 @@ I found jekyll homepage and Sechter&amp;rsquo;s blog good.</description>
 이번엔 블로그를 만들어 봤는데요. 적절한 한국어로 된 설명이 드물거나 찾기 힘든 것 같아서 포스팅 해봅니다.
 특히 jekyll 언어를 충분히 공부하지 않은 상태에서 특정 테마를 다운받아서 사용할 경우에 경험할 수 있는 시행착오를 범하지 않도록 하는 방향입니다.
 영어로 된 게시물들은 구글링으로 쉽게 얻을 수 있습니다.
-
 이 포스팅 또한 jekyll 홈페이지와 Sechter의 블로그의 내용의 번역이 주가 될 예정이니 더 자세한 내용을 원하시면 해당 링크로 들어가서 확인하시기 바랍니다.</description>
     </item>
     

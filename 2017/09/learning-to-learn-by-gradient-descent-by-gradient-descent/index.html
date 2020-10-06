@@ -5,19 +5,15 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
 <meta name="description" content="I had a trip to Quebec city for 4 days. Behind the lingering from the travel, I prepared for the meetup this week. I could not join it because of birthday dinner with my girlfriend. However, I studied the original paper seriously, and the topic involves some interesting ideas, so I want to introduce about it.
-
-Long short term memory (LSTM) 
-To understand the paper, precedently, need to understand LSTM.">
+Long short term memory (LSTM) To understand the paper, precedently, need to understand LSTM. I recommend chapter 10 of the deeplearning book.">
 
 
 <meta property="og:description" content="I had a trip to Quebec city for 4 days. Behind the lingering from the travel, I prepared for the meetup this week. I could not join it because of birthday dinner with my girlfriend. However, I studied the original paper seriously, and the topic involves some interesting ideas, so I want to introduce about it.
-
-Long short term memory (LSTM) 
-To understand the paper, precedently, need to understand LSTM.">
+Long short term memory (LSTM) To understand the paper, precedently, need to understand LSTM. I recommend chapter 10 of the deeplearning book.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Learning to Learn by Gradient Descent by Gradient Descent">
 <meta name="twitter:title" content="Learning to Learn by Gradient Descent by Gradient Descent">
@@ -25,13 +21,9 @@ To understand the paper, precedently, need to understand LSTM.">
 <meta property="twitter:url" content="//physhik.com/2017/09/learning-to-learn-by-gradient-descent-by-gradient-descent/">
 <meta property="og:site_name" content="Physics to Data Science">
 <meta property="og:description" content="I had a trip to Quebec city for 4 days. Behind the lingering from the travel, I prepared for the meetup this week. I could not join it because of birthday dinner with my girlfriend. However, I studied the original paper seriously, and the topic involves some interesting ideas, so I want to introduce about it.
-
-Long short term memory (LSTM) 
-To understand the paper, precedently, need to understand LSTM.">
+Long short term memory (LSTM) To understand the paper, precedently, need to understand LSTM. I recommend chapter 10 of the deeplearning book.">
 <meta name="twitter:description" content="I had a trip to Quebec city for 4 days. Behind the lingering from the travel, I prepared for the meetup this week. I could not join it because of birthday dinner with my girlfriend. However, I studied the original paper seriously, and the topic involves some interesting ideas, so I want to introduce about it.
-
-Long short term memory (LSTM) 
-To understand the paper, precedently, need to understand LSTM.">
+Long short term memory (LSTM) To understand the paper, precedently, need to understand LSTM. I recommend chapter 10 of the deeplearning book.">
 <meta property="og:locale" content="en-us">
 
   
@@ -319,86 +311,55 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><br></p>
-
+              <!-- raw HTML omitted -->
 <p>I had a trip to Quebec city for 4 days. Behind the lingering from the travel, I prepared for the meetup this week. I could not join it because of  birthday dinner with my girlfriend. However, I studied <a href="https://arxiv.org/abs/1606.04474">the original paper</a> seriously, and the topic involves some interesting ideas, so I want to introduce about it.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="long-short-term-memory-lstm">Long short term memory (LSTM)</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>To understand the paper, precedently, need to understand LSTM. I recommend chapter 10 of <a href="//www.deeplearningbook.org/contents/rnn.html">the deeplearning book</a>.</p>
-
-<p><br></p>
-
-<p>We have partly discussed recurrent neural network (RNN) when studied <a href="//physhik.com/2017/09/neural-network-3-hopfield-net/">Hopfield net</a>. This feedback networks have interesting property to remember the informations. However, after many iterations, the activations of the network become flat due to the limit of the numerical precision. Many ideas were considered, and one of the suggested solutions was using gates to make the network forget. You can adjust the gauge of amnesia of the machine<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p>We have partly discussed recurrent neural network (RNN) when studied <a href="//physhik.com/2017/09/neural-network-3-hopfield-net/">Hopfield net</a>. This feedback networks have interesting property to remember the informations. However, after many iterations, the activations of the network become flat due to the limit of the numerical precision. Many ideas were considered, and one of the suggested solutions was using gates to make the network forget. You can adjust the gauge of amnesia of the machine<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<!-- raw HTML omitted -->
 <p>Thus, this LSTM has amazing applications in deep learning. Next time, I might also introduce other applications using this LSTM, such as sequence to sequence, generative adversarial nets and so on.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="learning-to-learn-by-gradient-descent-by-gradient-descent-l2l-and-tensorflow">Learning to learn by gradient descent by gradient descent (L2L) and TensorFlow</h2>
-
-<p><br></p>
-
-<p>The idea of the L2L is not so complicated. The original paper is also quite short. It is not automatic that we choose the proper optimizer for the model, and finely tune the parameter of the optimizer. Sometimes, I feel it is even chaotic that there is no definite standard of the optimizations. There are too many trials and errors in computer science. This L2L is a method to make an optimization for parameters such as learning rates and momentums<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>. LSTM is used to memorize the states in this optimization. Thus, we need the other optimizer to minimize the loss objective of the neural networks. In the paper, they use Adam optimizer to minimize the net. Therefore, there are two optimizers of the L2L. Adam and LSTM optimizer<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup>. After Adam optimization, the LSTM optimizer perform extremely better than others.</p>
-
-<p><br></p>
-
-<p><img src="//physhik.com/images/postimages/l2l.png" alt="png" /></p>
-
-<p><br></p>
-
-<p>This is the loss objective and the update rules for the algorithm to find the best optimizer<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup>. This objective is differentiable. The terminology, <em>differentiable</em>, is a bit different in machine learning. It means we can use back-propagation. The system is fully differentiable with the and allow us to optimize to seek better optimizer.</p>
-
-<p><br></p>
-
-<p><img src="//physhik.com/images/postimages/l2l2.png" alt="png" /></p>
-
-<p><br></p>
-
-<p>This is a computational graph used for computing the gradient of the optimizer<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup>. $m$ is the RNN. This tensor network update the gradient, $\nabla_t$, the state (paramters), $h_t$, and the optimizer, $g_t$. $f_t$ is the optimizee function with parameter, $\theta_t$. $\phi$ is a parameter of the $g_t$<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup>.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p>The idea of the L2L is not so complicated. The original paper is also quite short. It is not automatic that we choose the proper optimizer for the model, and finely tune the parameter of the optimizer. Sometimes, I feel it is even chaotic that there is no definite standard of the optimizations. There are too many trials and errors in computer science. This L2L is a method to make an optimization for parameters such as learning rates and momentums<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. LSTM is used to memorize the states in this optimization. Thus, we need the other optimizer to minimize the loss objective of the neural networks. In the paper, they use Adam optimizer to minimize the net. Therefore, there are two optimizers of the L2L. Adam and LSTM optimizer<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>. After Adam optimization, the LSTM optimizer perform extremely better than others.</p>
+<!-- raw HTML omitted -->
+<p><img src="//physhik.com/images/postimages/l2l.png" alt="png"></p>
+<!-- raw HTML omitted -->
+<p>This is the loss objective and the update rules for the algorithm to find the best optimizer<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. This objective is differentiable. The terminology, <em>differentiable</em>, is a bit different in machine learning. It means we can use back-propagation. The system is fully differentiable with the and allow us to optimize to seek better optimizer.</p>
+<!-- raw HTML omitted -->
+<p><img src="//physhik.com/images/postimages/l2l2.png" alt="png"></p>
+<!-- raw HTML omitted -->
+<p>This is a computational graph used for computing the gradient of the optimizer<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. $m$ is the RNN. This tensor network update the gradient, $\nabla_t$, the state (paramters), $h_t$, and the optimizer, $g_t$. $f_t$ is the optimizee function with parameter, $\theta_t$. $\phi$ is a parameter of the $g_t$<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>.</p>
+<!-- raw HTML omitted -->
 <p>Google deepmind opens <a href="https://github.com/deepmind/learning-to-learn">the source</a> for their research of L2L. For simple function optimizer example, it does not take too much time to train the model.</p>
-
-<p><br></p>
-
-<p><img src="//physhik.com/images/postimages/l2l_tb.png" alt="png" /></p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p><img src="//physhik.com/images/postimages/l2l_tb.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>I have used TensorBoard of TensorFlow to help us to understand how L2L works with the above figure from <a href="https://arxiv.org/abs/1606.04474">the paper</a>. You can look closer after opening the image in a new tab/window. Compared to <a href="https://arxiv.org/abs/1606.04474">the paper</a>, this shows where Adam optimizer works.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>To simplify the graph, I reduced the system in many ways. In the original paper, they use 2-layer LSTM, but I used 1-layer for the TensorBoard. The dimension of the target polynomial is 7. In other words, we want to find the 7 coefficients of the polynomial from the model. The size of the state is 19. The number of the training step is 5. The cell is LSTM. Note that I have run the Adam optimizer twice.</p>
-
-<p><br></p>
-
-<p><br></p>
-<div class="footnotes">
-
-<hr />
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:1">When I check Keras or Tensorflow LSTM class, they just fully open the forget gate, and do not have option for adjustment. If want to adjust, need to use the subclass of the LSTM class.<br />
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-<li id="fn:2">Some recent popular optimizers like RMSprop use momentum instead of using the gradient to change the position of the weight particle. See <a href="https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf">the tutorial</a> by Geoffrey Hinton, if you want some detail.
- <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
-<li id="fn:3">I am suspicious if the L2L optimizer is faster than other optimizers overall. The performance by iteration steps are amazing, but basically need to run two optimizers. I run TensorFlow using my mac, so the efficiency of the LSTM optimizer was bad, and could not test how effective it is. Besides, the performance of L2L optimization depends on the Adam, too. If you use the normal gradient descent to minimize the loss function of the network, LSTM optimizer performs worse than RMSprop.
- <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
-<li id="fn:4">The formula and the graph were captured from <a href="https://arxiv.org/abs/1606.04474">the paper</a>.
- <a class="footnote-return" href="#fnref:4"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>When I check Keras or Tensorflow LSTM class, they just fully open the forget gate, and do not have option for adjustment. If want to adjust, need to use the subclass of the LSTM class. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Some recent popular optimizers like RMSprop use momentum instead of using the gradient to change the position of the weight particle. See <a href="https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf">the tutorial</a> by Geoffrey Hinton, if you want some detail. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>I am suspicious if the L2L optimizer is faster than other optimizers overall. The performance by iteration steps are amazing, but basically need to run two optimizers. I run TensorFlow using my mac, so the efficiency of the LSTM optimizer was bad, and could not test how effective it is. Besides, the performance of L2L optimization depends on the Adam, too. If you use the normal gradient descent to minimize the loss function of the network, LSTM optimizer performs worse than RMSprop. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p>The formula and the graph were captured from <a href="https://arxiv.org/abs/1606.04474">the paper</a>. <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
-</div>
+</section>
 
               
             </div>
@@ -483,7 +444,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Namshik Kim. All Rights Reserved
+    &copy; 2020 Namshik Kim. All Rights Reserved
   </span>
 </footer>
 
@@ -609,8 +570,7 @@ if (!doNotTrack) {
                   Nov 11, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Update 
-I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+              <div class="media-content hide-xs font-merryweather">Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&rsquo;t be posted).</div>
             </div>
             <div style="clear:both;"></div>
@@ -645,8 +605,7 @@ I myself found some errors due to the version change of Python libraries, so I u
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Open source 
-The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+              <div class="media-content hide-xs font-merryweather">Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -663,10 +622,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
-Deep learning and classifications. 
-The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
-
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
             </div>
             <div style="clear:both;"></div>
@@ -684,9 +640,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Prologue 
-Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
-
+              <div class="media-content hide-xs font-merryweather">Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
             </div>
             <div style="clear:both;"></div>
@@ -705,7 +659,6 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
-
 AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
             </div>
             <div style="clear:both;"></div>
@@ -741,7 +694,6 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
-
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
             </div>
             <div style="clear:both;"></div>
@@ -777,9 +729,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

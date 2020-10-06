@@ -5,19 +5,15 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
 <meta name="description" content="I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.">
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.">
 
 
 <meta property="og:description" content="I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.">
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Introduction to GAN ">
 <meta name="twitter:title" content="Introduction to GAN ">
@@ -25,13 +21,9 @@ As we have seen at the post of VAE, generative model can be useful in machine le
 <meta property="twitter:url" content="//physhik.com/2017/12/introduction-to-gan/">
 <meta property="og:site_name" content="Physics to Data Science">
 <meta property="og:description" content="I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.">
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.">
 <meta name="twitter:description" content="I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.">
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.">
 <meta property="og:locale" content="en-us">
 
   
@@ -321,138 +313,84 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><br></p>
-
+              <!-- raw HTML omitted -->
 <p>I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="revolution-in-deep-learning">Revolution in deep learning</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have. For example, we might be able to make a piano music generator of Chopin by learning existing Chopin&rsquo;s pieces of piano music. How can we train it? The new data should be new but similar to previous data. VAE was limited because its generated data(e.g. digit images) was rather not clear enough.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>I recommend readers to understand about generative model before further discussion. The two sections, <a href="//physhik.com/2017/08/independent-component-analysis-and-covariant-learning/">Independent Component Analysis and Covariant Learning</a> and <a href="//physhik.com/2017/09/variational-autoencoder/">Variational Autoencoder</a> would be helpful.</p>
-
-<p><br></p>
-
-<p>How can we improve the quality of generations? Ian Goodfellow&rsquo;s brilliant paper about the generative adversarial networks (GAN) was suggested in 2014, only 3 years ago.<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> Goodfellow compared the GAN to the competition between a fake currency counterfeiter and a police. It is expressed as the following equation.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p>How can we improve the quality of generations? Ian Goodfellow&rsquo;s brilliant paper about the generative adversarial networks (GAN) was suggested in 2014, only 3 years ago.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> Goodfellow compared the GAN to the competition between a fake currency counterfeiter and a police. It is expressed as the following equation.</p>
+<!-- raw HTML omitted -->
 <p>$$
 min_G \sim Max_D
 $$</p>
-
 <p>$$
 \sim V(D, G) = \int dx~ p_{data}(x) \log D(x)+ \int dz~ p_z(z) \log(1-D(G(z))),
 $$</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>where x is the data, and z is the latent variable. $D(G(z))$ investigates how well $G(z)$ imitated the real data. $D$ trains to maximize $V$, and $G$ does to minimize it.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="instability-and-dcgan">Instability and DCGAN</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Goodfellow theoretically proved that GAN converges uniquely in his original paper, but technically the saddle point problem is very unstable. If you have tried any kind of GAN program with your customized data, you might have known that it is not so easy to stabilize your network. This, how to make the GAN stable, is still an on-going problem. <a href="https://arxiv.org/abs/1511.06434">DCGAN</a> using convolutional neural network (CNN) was very successful to stabilize the GAN.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Why CNN was effective to stabilize GAN? Imagine you want to copy other&rsquo;s painting. If you tried to start to draw the small detail part, you would ruin the balance at last unless you are very talented at painting. You need to sketch the whole landscape first, and make detail descriptions later.  In GAN, $D(G(z))$ is almost 0 at some point, in other words, if the cheat was perfect at some point, it could make some confusion how good the whole generation is. Pooling is similar to draw rough sketch by removing off the details. DCGAN found a good architecture of convolution network( and its activations) for images.</p>
-
-<p><br></p>
-
-<p><img src="//physhik.com/images/postimages/DCGAN.png" alt="png" /></p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p><img src="//physhik.com/images/postimages/DCGAN.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <h2 id="autoencoder-ebgan-began">Autoencoder, EBGAN, BEGAN</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>At the post of Variational method or VAE, we had some lessons that an autoencoder generates approximated data. If we use an autoencoder as a discriminator, we could avoid $D(G(z))$ becomes zero. <a href="https://arxiv.org/abs/1609.03126">EBGAN</a> was able to stabilize the network via the auto-encoder discriminator.</p>
-
-<p><br></p>
-
-<p><img src="//physhik.com/images/postimages/EBGAN.png" alt="png" /></p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p><img src="//physhik.com/images/postimages/EBGAN.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>The loss from the autoencoder, called reconstruction loss, is not same as the real loss, but the real loss can be understood as Wassertstein distance between the reconstruction losses of real and generated ones. The equation (2) of the <a href="https://arxiv.org/abs/1703.10717">BEGAN paper</a>, is from this idea.</p>
-
 <p>$$
 \mathcal{L}_D = \mathcal{L}(x ; \theta_D) - \mathcal{L}(G(z_D ; \theta_G); \theta_D) ~~~ for ~ \theta_D
 $$</p>
-
 <p>This simple form of BEGAN reduces the training time. BEGAN also improved the performance and diversity by considering a balance parameter, $\gamma \in [0,1]$.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>It is also notable that <strong>Wasserstein distance</strong> provides less keen but more stable (to be convergent) loss in GAN. It is defined in very simple form in GAN, and reduce the training time, too.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h1 id="pggan">PGGAN</h1>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>BEGAN is extraordinary. However, it still generates restrictively. For example, it is hard to generate more radical variations such as rotating faces along various directions. The paper of BEGAN considered a parameter of diversity, but it does not resolve the fundamental restriction of autoencoder. In that sense, PGGAN has a great fidelity and potential as a variational generator. It has more precise than DCGAN, and it converges very well. This GAN is also copying human&rsquo;s rough sketching not to lose its stability.</p>
-
-<p><br></p>
-
-<p><img src="//physhik.com/images/postimages/PGGAN.png" alt="png" /></p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p><img src="//physhik.com/images/postimages/PGGAN.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>By training data with lower resolution, it obtains guide-line, and the frame it never lose. The paper used only famous data set, but the PGGAN works for various different data amazingly well. The PGGAN paper also introduces a fast algorithm using RGB projection. When I see the source at Github, they used the RGB-technique only for mnist data. For celeb data, did not use it. Just upscale the network with the same weight and pixel-normalize it and take convolution and train it.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>I will cease this posting with comment on normalization. Normalization is essential for preprocess the data. Without it, the machine gets confused how important each data is. For example, when we say 10. We assume it is decimally 10. Without unifying, it is hard to know if binary 10 is bigger than decimal 1000. DCGAN used a batch normalization. Instead of the batch normalization, PGGAN used a pixel vector normalization, a variation of the local response normalization <a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf">introduced in 2012</a>.</p>
-
-<p><br></p>
-
-<h2 id="mode-collapse-3">Mode collapse<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup></h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<h2 id="mode-collapse3">Mode collapse<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></h2>
+<!-- raw HTML omitted -->
 <p>Mode collapse can occur at multimodal data. Let us consider the grayscale-image data of a digit, <strong>0</strong>, which is 64x64 pixels. The array shape is, then, (64, 64). If you see the plot of the 32nd row of the array. It would look like two peaks. In other words, the row has two modes. Trouble comes when a generator learns only part of the multi-modes.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>A GAN tries to converge the probability density by iterating learning of G and D satisfy the minimax game. In the case of the digit, 0, when a generator learns a peak, a discriminator tends to learn the other peak. Then at the next turn, the generator tries to learn the peak which the discriminator learned, and then it switches the modes, and does not converges.</p>
-
-<p><br></p>
-
-<p>There are, mainly, three approaches to removing this trouble as I have seen. First, to make the generator experience the multiple updates of the discriminator. Simply from the above <strong>0</strong>-example, if the generator knows the discriminator will learn the both peaks turn by turn, generator will try to learn the both peaks simultaneously. It is the main idea of the <strong>unrolled GAN</strong><sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup>. More technically, they consider the surrogate objective function to see the iterations and keep the process differentiable. Secondly, can use the multiple GAN to learn all the peaks. And the third way is the PGGAN we discussed above. PGGAN can&rsquo;t learn the partial modes, it learns the modes roughly at the early steps and gradually learn all the modes in detail, so can avoid the mode collapse.</p>
-
-<p><br></p>
-
-<p><br></p>
-<div class="footnotes">
-
-<hr />
-
+<!-- raw HTML omitted -->
+<p>There are, mainly, three approaches to removing this trouble as I have seen. First, to make the generator experience the multiple updates of the discriminator. Simply from the above <strong>0</strong>-example, if the generator knows the discriminator will learn the both peaks turn by turn, generator will try to learn the both peaks simultaneously. It is the main idea of the <strong>unrolled GAN</strong><sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. More technically, they consider the surrogate objective function to see the iterations and keep the process differentiable. Secondly, can use the multiple GAN to learn all the peaks. And the third way is the PGGAN we discussed above. PGGAN can&rsquo;t learn the partial modes, it learns the modes roughly at the early steps and gradually learn all the modes in detail, so can avoid the mode collapse.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:1">In string theory, there are a couple of big researches in the research, which brought up a magnificent amount of followed researches. String physicists used to call them <em>the 1st, 2nd revolution</em>. I also want to call the GAN research boom after Goodfellow&rsquo;s publish to be <em>the revolution</em>.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-<li id="fn:2">There are many reviews and video lectures online about GAN. I recommend you to study a bit before reading my post.
- <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
-<li id="fn:3">Updated in 2018-02-24
- <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
-<li id="fn:4">The original research paper of the unrolled GAN can be found <a href="https://github.com/poolio/unrolled_gan/blob/master/Unrolled%20GAN%20demo.ipynb"><strong>here</strong></a> and it is implemented in <a href="https://github.com/poolio/unrolled_gan/blob/master/Unrolled%20GAN%20demo.ipynb"><strong>here</strong></a> by the one of the authors.
- <a class="footnote-return" href="#fnref:4"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>In string theory, there are a couple of big researches in the research, which brought up a magnificent amount of followed researches. String physicists used to call them <em>the 1st, 2nd revolution</em>. I also want to call the GAN research boom after Goodfellow&rsquo;s publish to be <em>the revolution</em>. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>There are many reviews and video lectures online about GAN. I recommend you to study a bit before reading my post. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>Updated in 2018-02-24 <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p>The original research paper of the unrolled GAN can be found <a href="https://github.com/poolio/unrolled_gan/blob/master/Unrolled%20GAN%20demo.ipynb"><strong>here</strong></a> and it is implemented in <a href="https://github.com/poolio/unrolled_gan/blob/master/Unrolled%20GAN%20demo.ipynb"><strong>here</strong></a> by the one of the authors. <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
-</div>
+</section>
 
               
             </div>
@@ -539,7 +477,7 @@ $$</p>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Namshik Kim. All Rights Reserved
+    &copy; 2020 Namshik Kim. All Rights Reserved
   </span>
 </footer>
 
@@ -665,8 +603,7 @@ $$</p>
                   Nov 11, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Update 
-I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+              <div class="media-content hide-xs font-merryweather">Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&rsquo;t be posted).</div>
             </div>
             <div style="clear:both;"></div>
@@ -701,8 +638,7 @@ I myself found some errors due to the version change of Python libraries, so I u
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Open source 
-The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+              <div class="media-content hide-xs font-merryweather">Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -719,10 +655,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
-Deep learning and classifications. 
-The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
-
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
             </div>
             <div style="clear:both;"></div>
@@ -740,9 +673,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Prologue 
-Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
-
+              <div class="media-content hide-xs font-merryweather">Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
             </div>
             <div style="clear:both;"></div>
@@ -761,7 +692,6 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
-
 AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
             </div>
             <div style="clear:both;"></div>
@@ -797,7 +727,6 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
-
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
             </div>
             <div style="clear:both;"></div>
@@ -833,9 +762,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

@@ -6,19 +6,15 @@
     <description>Recent content in Hebbian learning on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Sep 2017 13:30:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/tags/hebbian-learning/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 10 Sep 2017 13:30:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/hebbian-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Neural Network (3) : Hopfield Net</title>
       <link>//physhik.com/2017/09/neural-network-3-hopfield-net/</link>
       <pubDate>Sun, 10 Sep 2017 13:30:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/09/neural-network-3-hopfield-net/</guid>
-      <description>Binary Hopfield net using Hebbian learning 
-We want to study Hopfield net from the simple case. Hopfield net is a fully connected feedback network. A feedback network is a network that is not a feedforward network, and in a feedforward network, all the connections are directed. All the connections in our example will be bi-directed. This symmetric property of the weight is important property of the Hopfield net.</description>
+      <description>Binary Hopfield net using Hebbian learning We want to study Hopfield net from the simple case. Hopfield net is a fully connected feedback network. A feedback network is a network that is not a feedforward network, and in a feedforward network, all the connections are directed. All the connections in our example will be bi-directed. This symmetric property of the weight is important property of the Hopfield net.
+Hopfield net can act as associative memories, and they can be used to solve optimization problems.</description>
     </item>
     
   </channel>

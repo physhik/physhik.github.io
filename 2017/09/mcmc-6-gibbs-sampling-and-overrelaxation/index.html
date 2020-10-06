@@ -5,37 +5,25 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
-<meta name="description" content="Efficient Monte Carlo sampling 
-This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
-
-Gibbs sampling 
-In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.">
+<meta name="description" content="Efficient Monte Carlo sampling This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
+Gibbs sampling In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.">
 
 
-<meta property="og:description" content="Efficient Monte Carlo sampling 
-This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
-
-Gibbs sampling 
-In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.">
+<meta property="og:description" content="Efficient Monte Carlo sampling This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
+Gibbs sampling In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MCMC (6): Gibbs Sampling and Overrelaxation">
 <meta name="twitter:title" content="MCMC (6): Gibbs Sampling and Overrelaxation">
 <meta property="og:url" content="//physhik.com/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/">
 <meta property="twitter:url" content="//physhik.com/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/">
 <meta property="og:site_name" content="Physics to Data Science">
-<meta property="og:description" content="Efficient Monte Carlo sampling 
-This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
-
-Gibbs sampling 
-In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.">
-<meta name="twitter:description" content="Efficient Monte Carlo sampling 
-This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
-
-Gibbs sampling 
-In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.">
+<meta property="og:description" content="Efficient Monte Carlo sampling This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
+Gibbs sampling In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.">
+<meta name="twitter:description" content="Efficient Monte Carlo sampling This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
+Gibbs sampling In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.">
 <meta property="og:locale" content="en-us">
 
   
@@ -333,396 +321,314 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><br></p>
-
+              <!-- raw HTML omitted -->
 <h2 id="efficient-monte-carlo-sampling">Efficient Monte Carlo sampling</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>This post is on the extension of <a href="//physhik.com/2017/08/mcmc-5-hamiltonian-monte-carlo-method/">the post about Hamiltonian Monte Carlo method</a>. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h3 id="gibbs-sampling">Gibbs sampling</h3>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.</p>
-
 <p>$$
 x^{(t+1)}_1 \sim P(x_1|x^{(t)}_2,x^{(t)}_3,x^{(t)}_4,&hellip;,x^{(t)}_K),
 $$</p>
-
 <p>$$
 x^{(t+1)}_2 \sim P(x_2|x^{(t)}_1,x^{(t)}_3,x^{(t)}_4,&hellip;,x^{(t)}_K),
 $$</p>
-
 <p>$$
 \cdots
 $$</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Gibbs sampling suffers from the same defect as simple Metropolis algorithms - the state space is explored by a slow random walk. It slowly progresses made by Gibbs sampling when $ L \gg \epsilon$. However Gibbs sampling involves no adjustable parameters, so it is an attractive strategy when one wants to get a model running quickly.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>We consider a simple 2 dimensional Gaussian distribution.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>$$
 P(x, y| \mu_x, \mu_y, \sigma_x, \sigma_y) = {1 \over Z} e^{a~x^2+b~ x~ y + c~y^2\over 2\sigma^2}
 $$</p>
-
 <p>$(\mu_i,~ \sigma_i^2)$ is the mean and the variation as $x_j$ are constants for all $j \ne i$. Let us see the Python code and the plot.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> random
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 
-<p><br></p>
+<span style="color:#f92672">%</span>matplotlib inline
+plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#39;ggplot&#39;</span>)
 
-<pre><code class="language-python">import numpy as np
-import random
-import matplotlib.pyplot as plt
-
-%matplotlib inline
-plt.style.use('ggplot')
-
-</code></pre>
-
-<pre><code class="language-python">def generalGibbsDensity(X1,X2):
-    return np.exp(-(1.25*X1*X1+1.25*X2*X2))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generalGibbsDensity</span>(X1,X2):
+    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>(<span style="color:#ae81ff">1.25</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X1<span style="color:#f92672">+</span><span style="color:#ae81ff">1.25</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">*</span>X2))
 
 
-#initial point
-x0 = np.array([-1.3,-1.3])
-x1 = x0
+<span style="color:#75715e">#initial point</span>
+x0 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.3</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.3</span>])
+x1 <span style="color:#f92672">=</span> x0
 
-# standard dev from the density function
-sigma = 0.6324555320336759
+<span style="color:#75715e"># standard dev from the density function</span>
+sigma <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.6324555320336759</span>
 
-# mu is also obtained from the density
+<span style="color:#75715e"># mu is also obtained from the density</span>
 
-N = 20
-Listx = np.zeros(2*N+1)
-Listy = np.zeros(2*N+1)
-Listx[0], Listy[0] = x0
+N <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
+Listx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+Listy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+Listx[<span style="color:#ae81ff">0</span>], Listy[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> x0
 
 
-for i in range(N):
-    #conditional gaussian for x
-    x1[0] = np.random.normal(0, sigma)
-    Listx[2*i+1] = x1[0]
-    Listy[2*i+1] = x0[1]
-    #conditional gaussian for y
-    x1[1] = np.random.normal(0, sigma)
-    Listx[2*i+2] = x1[0]
-    Listy[2*i+2] = x1[1]
-    x0 = x1
-</code></pre>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N):
+    <span style="color:#75715e">#conditional gaussian for x</span>
+    x1[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>, sigma)
+    Listx[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x1[<span style="color:#ae81ff">0</span>]
+    Listy[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x0[<span style="color:#ae81ff">1</span>]
+    <span style="color:#75715e">#conditional gaussian for y</span>
+    x1[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>, sigma)
+    Listx[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> x1[<span style="color:#ae81ff">0</span>]
+    Listy[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> x1[<span style="color:#ae81ff">1</span>]
+    x0 <span style="color:#f92672">=</span> x1
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure()
+x1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">0.01</span>)
+x2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">0.01</span>)
+X1, X2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x1, x2)
+plt<span style="color:#f92672">.</span>contour(X1,X2,np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>(<span style="color:#ae81ff">1.25</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X1<span style="color:#f92672">+</span><span style="color:#ae81ff">1.25</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">*</span>X2)))
 
-<pre><code class="language-python">plt.figure()
-x1 = np.arange(-2.0, 2.0, 0.01)
-x2 = np.arange(-2.0, 2.0, 0.01)
-X1, X2 = np.meshgrid(x1, x2)
-plt.contour(X1,X2,np.exp(-(1.25*X1*X1+1.25*X2*X2)))
-
-plt.plot(Listx, Listy,'o-')
-plt.axis([-1.5,1.5,-1.5,1.5])
-pass
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_2_0.png" alt="png" /></p>
-
-<p><br></p>
-
+plt<span style="color:#f92672">.</span>plot(Listx, Listy,<span style="color:#e6db74">&#39;o-&#39;</span>)
+plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">1.5</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">1.5</span>])
+<span style="color:#66d9ef">pass</span>
+</code></pre></div><p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_2_0.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>For this simple example, the given target density is $e^{-1.25(x^2+y^2)}$. Therefore, when $y$ is constant, obtained $\mu_x = 0$ and $\sigma_y = \sqrt{2/(1.25)}$.</p>
-
 <p>By x-y exchange symmetry, $\mu_y = \mu_x$ and $\sigma_y = \sigma_x$.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>In Gibbs sampling, the even numbered sample is drawn from 1-dimensional Gaussian
-$P(y|x= constant, \mu_y, \sigma_y)$<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> and the odd numbered sample is drawn from 1-d Gaussian $P(x|y= constant, \mu_x, \sigma_x)$. For generalized target density in n-dimensions, we run another loop for this procedure. In other words, this algorithm is fundamentally a double-loop algorithm.</p>
-
-<p><br></p>
-
+$P(y|x= constant, \mu_y, \sigma_y)$<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> and the odd numbered sample is drawn from 1-d Gaussian $P(x|y= constant, \mu_x, \sigma_x)$. For generalized target density in n-dimensions, we run another loop for this procedure. In other words, this algorithm is fundamentally a double-loop algorithm.</p>
+<!-- raw HTML omitted -->
 <h3 id="for-narrow-target-distribution">For narrow target distribution.</h3>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Now, we will consider the same density function which we used in Hamiltonian Monte Carlo sampling.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">density</span>(X1,X2):
+    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>(<span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X1<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">249.75</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X2<span style="color:#f92672">+</span><span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">*</span>X2))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#initial point</span>
+x0 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.3</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.3</span>])
+x1 <span style="color:#f92672">=</span> x0
 
-<p><br></p>
+<span style="color:#75715e"># standard dev from the density function</span>
+sigma <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.04469901562676742</span>
 
-<pre><code class="language-python">def density(X1,X2):
-    return np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2))
-</code></pre>
+<span style="color:#75715e"># mu is also obtained from the density</span>
 
-<pre><code class="language-python">#initial point
-x0 = np.array([-1.3,-1.3])
-x1 = x0
-
-# standard dev from the density function
-sigma = 0.04469901562676742
-
-# mu is also obtained from the density
-
-N = 200
-Listx = np.zeros(2*N+1)
-Listy = np.zeros(2*N+1)
-Listx[0], Listy[0] = x0
+N <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>
+Listx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+Listy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+Listx[<span style="color:#ae81ff">0</span>], Listy[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> x0
 
 
-for i in range(N):
-    #conditional gaussian for x
-    x1[0] = np.random.normal(0.998*x0[1], sigma)
-    Listx[2*i+1] = x1[0]
-    Listy[2*i+1] = x0[1]
-    #conditional gaussian for y
-    x1[1] = np.random.normal(0.998*x1[0], sigma)
-    Listx[2*i+2] = x1[0]
-    Listy[2*i+2] = x1[1]
-    x0 = x1
-</code></pre>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N):
+    <span style="color:#75715e">#conditional gaussian for x</span>
+    x1[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0.998</span><span style="color:#f92672">*</span>x0[<span style="color:#ae81ff">1</span>], sigma)
+    Listx[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x1[<span style="color:#ae81ff">0</span>]
+    Listy[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x0[<span style="color:#ae81ff">1</span>]
+    <span style="color:#75715e">#conditional gaussian for y</span>
+    x1[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0.998</span><span style="color:#f92672">*</span>x1[<span style="color:#ae81ff">0</span>], sigma)
+    Listx[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> x1[<span style="color:#ae81ff">0</span>]
+    Listy[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> x1[<span style="color:#ae81ff">1</span>]
+    x0 <span style="color:#f92672">=</span> x1
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure()
+x1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.01</span>)
+x2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.01</span>)
+X1, X2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x1, x2)
+plt<span style="color:#f92672">.</span>contour(X1,X2,np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>(<span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X1<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">249.75</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X2<span style="color:#f92672">+</span><span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">*</span>X2)))
 
-<pre><code class="language-python">plt.figure()
-x1 = np.arange(-2.0, 1.0, 0.01)
-x2 = np.arange(-2.0, 1.0, 0.01)
-X1, X2 = np.meshgrid(x1, x2)
-plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)))
+plt<span style="color:#f92672">.</span>plot(Listx, Listy)
+plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0.5</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0.5</span>])
+<span style="color:#66d9ef">pass</span>
+</code></pre></div><p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_5_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure()
+x1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.01</span>)
+x2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.01</span>)
+X1, X2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x1, x2)
+plt<span style="color:#f92672">.</span>contour(X1,X2,np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>(<span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X1<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">249.75</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X2<span style="color:#f92672">+</span><span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">*</span>X2)))
 
-plt.plot(Listx, Listy)
-plt.axis([-1.5,0.5,-1.5,0.5])
-pass
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_5_0.png" alt="png" /></p>
-
-<pre><code class="language-python">plt.figure()
-x1 = np.arange(-2.0, 1.0, 0.01)
-x2 = np.arange(-2.0, 1.0, 0.01)
-X1, X2 = np.meshgrid(x1, x2)
-plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)))
-
-#sns.kdeplot(orbit)
-plt.plot(Listx[:50], Listy[:50])
-plt.axis([-1.5,0,-1.5,0])
-pass
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_6_0.png" alt="png" /></p>
-
-<p><br></p>
-
+<span style="color:#75715e">#sns.kdeplot(orbit)</span>
+plt<span style="color:#f92672">.</span>plot(Listx[:<span style="color:#ae81ff">50</span>], Listy[:<span style="color:#ae81ff">50</span>])
+plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0</span>])
+<span style="color:#66d9ef">pass</span>
+</code></pre></div><p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_6_0.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>See that the samples are stuck around the starting point. The Hamiltonian Monte Carlo sampling also had a similar problem. The samples in Hamiltonian Monte Carlo sampling tend to move where the gradient descent is big. In other words, they tend to move along semi-minor axis of the ellipse. The remained randomness makes it move along semi-major axis, but slowly. Even though the accept rate is high, it takes long time to make a convergent Markov chain.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Also Note that the mean values for the conditional probability depends on the position because of the coupled term, $-2 \times 249.75 \times x~ y$ in the joint probability density.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h3 id="simultaneous-update">Simultaneous update</h3>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>We can update x and y at the same time.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#75715e"># if you update x, y at the same time.</span>
 
-<p><br></p>
+x0 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.3</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.3</span>])
+x1 <span style="color:#f92672">=</span> x0
 
-<pre><code class="language-python">
-# if you update x, y at the same time.
+<span style="color:#75715e"># standard dev from the density function</span>
+sigma <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.04469901562676742</span>
 
-x0 = np.array([-1.3,-1.3])
-x1 = x0
+<span style="color:#75715e"># mu is also obtained from the density</span>
 
-# standard dev from the density function
-sigma = 0.04469901562676742
-
-# mu is also obtained from the density
-
-N = 100
-Listx = np.zeros(N+1)
-Listy = np.zeros(N+1)
-Listx[0], Listy[0] = x0
+N <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+Listx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+Listy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+Listx[<span style="color:#ae81ff">0</span>], Listy[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> x0
 
 
-for i in range(N):
-    #conditional gaussian for x
-    x1[0] = np.random.normal(0.998*x0[1], sigma)
-    x1[1] = np.random.normal(0.998*x0[0], sigma)
-    Listx[i+1] = x1[0]
-    Listy[i+1] = x1[1]
-    x0 = x1
-</code></pre>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N):
+    <span style="color:#75715e">#conditional gaussian for x</span>
+    x1[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0.998</span><span style="color:#f92672">*</span>x0[<span style="color:#ae81ff">1</span>], sigma)
+    x1[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0.998</span><span style="color:#f92672">*</span>x0[<span style="color:#ae81ff">0</span>], sigma)
+    Listx[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x1[<span style="color:#ae81ff">0</span>]
+    Listy[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x1[<span style="color:#ae81ff">1</span>]
+    x0 <span style="color:#f92672">=</span> x1
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure()
+x1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.01</span>)
+x2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.01</span>)
+X1, X2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x1, x2)
+plt<span style="color:#f92672">.</span>contour(X1,X2,np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>(<span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X1<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">249.75</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X2<span style="color:#f92672">+</span><span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">*</span>X2)))
 
-<pre><code class="language-python">plt.figure()
-x1 = np.arange(-2.0, 1.0, 0.01)
-x2 = np.arange(-2.0, 1.0, 0.01)
-X1, X2 = np.meshgrid(x1, x2)
-plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)))
-
-#sns.kdeplot(orbit)
-plt.plot(Listx[:50], Listy[:50])
-plt.axis([-1.5,0,-1.5,0])
-pass
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_8_0.png" alt="png" /></p>
-
-<p><br></p>
-
+<span style="color:#75715e">#sns.kdeplot(orbit)</span>
+plt<span style="color:#f92672">.</span>plot(Listx[:<span style="color:#ae81ff">50</span>], Listy[:<span style="color:#ae81ff">50</span>])
+plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0</span>])
+<span style="color:#66d9ef">pass</span>
+</code></pre></div><p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_8_0.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <h2 id="overrelaxation">Overrelaxation</h2>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">density</span>(X1,X2):
+    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>(<span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X1<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">249.75</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X2<span style="color:#f92672">+</span><span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">*</span>X2))
 
-<p><br></p>
+<span style="color:#75715e">#initial point</span>
+x0 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.3</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.3</span>])
+x1 <span style="color:#f92672">=</span> x0
 
-<pre><code class="language-python">def density(X1,X2):
-    return np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2))
+<span style="color:#75715e"># standard dev from the density function</span>
+sigma <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.04469901562676742</span>
 
-#initial point
-x0 = np.array([-1.3,-1.3])
-x1 = x0
+<span style="color:#75715e"># mu is also obtained from the density</span>
 
-# standard dev from the density function
-sigma = 0.04469901562676742
-
-# mu is also obtained from the density
-
-N = 200
-Listx = np.zeros(2*N+1)
-Listy = np.zeros(2*N+1)
-Listx[0], Listy[0] = x0
+N <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>
+Listx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+Listy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+Listx[<span style="color:#ae81ff">0</span>], Listy[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> x0
 
 
-for i in range(N):
-    #conditional gaussian for x
-    x1[0] = np.random.normal(0.998*x0[1], sigma)
-    Listx[2*i+1] = x1[0]
-    Listy[2*i+1] = x0[1]
-    #conditional gaussian for y
-    x1[1] = np.random.normal(0.998*x1[0], sigma)
-    Listx[2*i+2] = x1[0]
-    Listy[2*i+2] = x1[1]
-    x0 = x1
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N):
+    <span style="color:#75715e">#conditional gaussian for x</span>
+    x1[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0.998</span><span style="color:#f92672">*</span>x0[<span style="color:#ae81ff">1</span>], sigma)
+    Listx[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x1[<span style="color:#ae81ff">0</span>]
+    Listy[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x0[<span style="color:#ae81ff">1</span>]
+    <span style="color:#75715e">#conditional gaussian for y</span>
+    x1[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0.998</span><span style="color:#f92672">*</span>x1[<span style="color:#ae81ff">0</span>], sigma)
+    Listx[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> x1[<span style="color:#ae81ff">0</span>]
+    Listy[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> x1[<span style="color:#ae81ff">1</span>]
+    x0 <span style="color:#f92672">=</span> x1
 
-plt.figure(figsize=(10,10))
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
 
 
-plt.subplot(2,2,1)
-x1 = np.arange(-2.0, 1.0, 0.01)
-x2 = np.arange(-2.0, 1.0, 0.01)
-X1, X2 = np.meshgrid(x1, x2)
-plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)))
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>)
+x1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.01</span>)
+x2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.01</span>)
+X1, X2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x1, x2)
+plt<span style="color:#f92672">.</span>contour(X1,X2,np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>(<span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X1<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">249.75</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X2<span style="color:#f92672">+</span><span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">*</span>X2)))
 
-#sns.kdeplot(orbit)
-plt.plot(Listx, Listy)
-plt.axis([-1.5,0.5,-1.5,0.5])
+<span style="color:#75715e">#sns.kdeplot(orbit)</span>
+plt<span style="color:#f92672">.</span>plot(Listx, Listy)
+plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0.5</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0.5</span>])
 
 
 
 
-plt.subplot(2,2,3)
-x1 = np.arange(-2.0, 1.0, 0.01)
-x2 = np.arange(-2.0, 1.0, 0.01)
-X1, X2 = np.meshgrid(x1, x2)
-plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)))
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>)
+x1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.01</span>)
+x2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.01</span>)
+X1, X2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x1, x2)
+plt<span style="color:#f92672">.</span>contour(X1,X2,np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>(<span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X1<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">249.75</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X2<span style="color:#f92672">+</span><span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">*</span>X2)))
 
-#sns.kdeplot(orbit)
-plt.plot(Listx[:50], Listy[:50])
-plt.axis([-1.5,0,-1.5,0])
-
-
-# if you update x, y at the same time.
-
-x0 = np.array([-1.3,-1.3])
-x1 = x0
-
-# standard dev from the density function
-sigma = 0.04469901562676742
-
-# mu is also obtained from the density
-
-N = 100
-Listx = np.zeros(N+1)
-Listy = np.zeros(N+1)
-Listx[0], Listy[0] = x0
-
-# over-relaxation constant alpha between -1 and 0
-a = -0.98
+<span style="color:#75715e">#sns.kdeplot(orbit)</span>
+plt<span style="color:#f92672">.</span>plot(Listx[:<span style="color:#ae81ff">50</span>], Listy[:<span style="color:#ae81ff">50</span>])
+plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0</span>])
 
 
-for i in range(N):
-    #conditional gaussian for x
-    x1[0] = 0.998*x0[1]+a*(x0[0]-0.998*x0[1])+(1-a*a)**(0.5)*sigma*np.random.normal(0,1)
-    x1[1] = 0.998*x0[0]+a*(x0[1]-0.998*x0[0])+(1-a*a)**(0.5)*sigma*np.random.normal(0,1)
-    Listx[i+1] = x1[0]
-    Listy[i+1] = x1[1]
-    x0 = x1
+<span style="color:#75715e"># if you update x, y at the same time.</span>
+
+x0 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.3</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.3</span>])
+x1 <span style="color:#f92672">=</span> x0
+
+<span style="color:#75715e"># standard dev from the density function</span>
+sigma <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.04469901562676742</span>
+
+<span style="color:#75715e"># mu is also obtained from the density</span>
+
+N <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+Listx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+Listy <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+Listx[<span style="color:#ae81ff">0</span>], Listy[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> x0
+
+<span style="color:#75715e"># over-relaxation constant alpha between -1 and 0</span>
+a <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">0.98</span>
 
 
-plt.subplot(2,2,2)
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N):
+    <span style="color:#75715e">#conditional gaussian for x</span>
+    x1[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.998</span><span style="color:#f92672">*</span>x0[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">+</span>a<span style="color:#f92672">*</span>(x0[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">-</span><span style="color:#ae81ff">0.998</span><span style="color:#f92672">*</span>x0[<span style="color:#ae81ff">1</span>])<span style="color:#f92672">+</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>a<span style="color:#f92672">*</span>a)<span style="color:#f92672">**</span>(<span style="color:#ae81ff">0.5</span>)<span style="color:#f92672">*</span>sigma<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>)
+    x1[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.998</span><span style="color:#f92672">*</span>x0[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">+</span>a<span style="color:#f92672">*</span>(x0[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">-</span><span style="color:#ae81ff">0.998</span><span style="color:#f92672">*</span>x0[<span style="color:#ae81ff">0</span>])<span style="color:#f92672">+</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>a<span style="color:#f92672">*</span>a)<span style="color:#f92672">**</span>(<span style="color:#ae81ff">0.5</span>)<span style="color:#f92672">*</span>sigma<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>)
+    Listx[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x1[<span style="color:#ae81ff">0</span>]
+    Listy[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> x1[<span style="color:#ae81ff">1</span>]
+    x0 <span style="color:#f92672">=</span> x1
 
-x1 = np.arange(-2.0, 1.0, 0.01)
-x2 = np.arange(-2.0, 1.0, 0.01)
-X1, X2 = np.meshgrid(x1, x2)
-plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)), alpha=0.3)
 
-plt.plot(Listx[:50], Listy[:50])
-plt.axis([-1.5,1,-1.5,1])
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>)
 
-plt.subplot(2,2,4)
-plt.plot(Listx[:50], Listy[:50])
-plt.axis([-1.5,3,-1.5,3])
+x1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.01</span>)
+x2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.01</span>)
+X1, X2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x1, x2)
+plt<span style="color:#f92672">.</span>contour(X1,X2,np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>(<span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X1<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">249.75</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X2<span style="color:#f92672">+</span><span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">*</span>X2)), alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>)
 
-</code></pre>
+plt<span style="color:#f92672">.</span>plot(Listx[:<span style="color:#ae81ff">50</span>], Listy[:<span style="color:#ae81ff">50</span>])
+plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">1</span>])
 
-<p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_13_1.png" alt="png" /></p>
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>)
+plt<span style="color:#f92672">.</span>plot(Listx[:<span style="color:#ae81ff">50</span>], Listy[:<span style="color:#ae81ff">50</span>])
+plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">3</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">3</span>])
 
-<p><br></p>
-
+</code></pre></div><p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_13_1.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>There are 200 samples in the left top plot, and only 50 samples in the right top plot. As we know from intuition about the plot, this overrelaxation also reduces the random property and gain the purpose.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>We still update x and y Simultaneously. The only change in this algorithm is the for loop. When we consider the conditional probability is Gaussian, $\mathcal{N}(\mu, \sigma^2)$. For the n-th sample $x_i^{(n)}$, the next n+1 th sample is chosen as follows.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>$$
-x_i^{(n+1)} = \mu +\alpha (x_i^{(n)} - \mu) + (1 - \alpha^2)^{<sup>1</sup>&frasl;<sub>2</sub>} \sigma \nu
+x_i^{(n+1)} = \mu +\alpha (x_i^{(n)} - \mu) + (1 - \alpha^2)^{1/2} \sigma \nu
 $$</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>$\alpha$ is the parameter to control the extent of the overrelaxation. It is between -1 and 1. When $\alpha \sim -1$, the sample move to about the opposite point of the previous sample. If it is positive, it is an underrelaxation.   The conditional probability distribution is invariant under the transformation. $\nu$ is remained randomness. Here, we chose $\nu = \mathcal{N}(0, ~1)$. We are allow to make the other random distribution as the distribution as the transformation does not break the invariance.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="other-efficient-monte-carlo-method">Other efficient Monte Carlo method</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Simulated annealing is also one of the way to find the convergent Markov chain faster. Probability distribution in statistical mechanics is</p>
-
 <p>$$
 P(x) = {e^{-E(x)}\over Z}
 $$</p>
-
-<p>Mathematically, simulated annealing is introducing a parameter to control a perturbative Energy term.<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> You split the energy term to a good one and a bad one, $E_g(x)+E_b(x)/T$,  and you control the parameter coefficient of the bad term, $1/T$. Note that other efficient Monte Carlo methods have parameters. Hamiltonian Monte Carlo has a leaping parameter, and Gibbs overrelaxation has a overrelaxation parameter. All of the parameters is used to relax the random walk in the Monte Carlo sampling. Well, what I am really interested in is a quantum annealing. Hope I would have a chance to discuss about it in detail.</p>
-
-<p><br></p>
-<div class="footnotes">
-
-<hr />
-
+<p>Mathematically, simulated annealing is introducing a parameter to control a perturbative Energy term.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> You split the energy term to a good one and a bad one, $E_g(x)+E_b(x)/T$,  and you control the parameter coefficient of the bad term, $1/T$. Note that other efficient Monte Carlo methods have parameters. Hamiltonian Monte Carlo has a leaping parameter, and Gibbs overrelaxation has a overrelaxation parameter. All of the parameters is used to relax the random walk in the Monte Carlo sampling. Well, what I am really interested in is a quantum annealing. Hope I would have a chance to discuss about it in detail.</p>
+<!-- raw HTML omitted -->
+<section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:1">Each 1-d probability is a conditional probability density of the joint probability $P(x,y)$.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-<li id="fn:2">If I posted about Ising model, this annealing would very easy to understand for you. I have an IPython code about it already. I just want to save the post until I also post Hopfield net together.
- <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>Each 1-d probability is a conditional probability density of the joint probability $P(x,y)$. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>If I posted about Ising model, this annealing would very easy to understand for you. I have an IPython code about it already. I just want to save the post until I also post Hopfield net together. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
-</div>
+</section>
 
               
             </div>
@@ -817,7 +723,7 @@ $$</p>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Namshik Kim. All Rights Reserved
+    &copy; 2020 Namshik Kim. All Rights Reserved
   </span>
 </footer>
 
@@ -943,8 +849,7 @@ $$</p>
                   Nov 11, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Update 
-I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+              <div class="media-content hide-xs font-merryweather">Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&rsquo;t be posted).</div>
             </div>
             <div style="clear:both;"></div>
@@ -979,8 +884,7 @@ I myself found some errors due to the version change of Python libraries, so I u
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Open source 
-The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+              <div class="media-content hide-xs font-merryweather">Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -997,10 +901,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
-Deep learning and classifications. 
-The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
-
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1018,9 +919,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Prologue 
-Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
-
+              <div class="media-content hide-xs font-merryweather">Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1039,7 +938,6 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
-
 AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1075,7 +973,6 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
-
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1111,9 +1008,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

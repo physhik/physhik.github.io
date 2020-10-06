@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
 <meta name="description" content="Around a week ago, on ArXiv, an interesting research paper appeared, which is about the music style transfer using GAN, which is also my main topic for recent few months. Around a week ago, on arXiv, an interesting research paper appeared, which can be applied to the music style transfer using GAN, which is also my main topic for recent few months. There are already many researches on the style transfer of the images, and one of my main projects now is making the style transfer in music.">
@@ -305,88 +305,50 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><br></p>
-
+              <!-- raw HTML omitted -->
 <p>Around a week ago, on ArXiv, an interesting research paper appeared, which is about the music style transfer using GAN, which is also my main topic for recent few months.   Around a week ago, on arXiv, <a href="https://arxiv.org/pdf/1802.04208.pdf"><strong>an interesting research paper</strong></a> appeared, which can be applied to the music style transfer using GAN, which is also my main topic for recent few months. There are already many researches on the style transfer of the images, and one of my main projects now is making the style transfer in music. If quality of this waveGAN is good enough, we will see the style transfer in music soon in industry.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>The authors also opened the audios they built at <a href="//wavegan-v1.s3-website-us-east-1.amazonaws.com"><strong>this link</strong></a>. I think it&rsquo;s guite good quality as a CNN based music generator.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>There are 3 authors of <a href="https://arxiv.org/pdf/1802.04208.pdf">the paper</a>, and impressively 2 of them are from department of music. I spent much time to figure out the property of the sound and music. To discuss and research the topic with the experts of the music is a good approach.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>The authors skipped much about the detail parameters, and open only the resultant spectrogram images and audio files. Thus, it is a bit limited to understand the full detail process of their model. Therefore, I want to discuss the paper with focusing on the differences of images and audio data in GAN. The paper introduced two kinds of GAN model, and <strong>WaveGAN</strong> seems more interesting to me, so I will proceed in terms of the WaveGAN.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="cnn">CNN</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>As we discussed in the previous post to <a href="//physhik.com/2017/12/introduction-to-gan/"><strong>Introduce to GAN</strong></a>, deep convolution network has enhanced the GAN numerically. The parameters of convolutional neural networks (CNN) determines the character and quality of the GAN model. The CNN structures for images have been already researched for years, but those for music are not well-known. The sound generators were researched using RNN or other tool such as a WaveNet.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="spectrogram">Spectrogram</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>There is another issue. Spectrogram is not invertible. Spectrogram is a visualization of sound. The following image consists of 8x2 spectrograms from different genres of music.</p>
-
-<p><br></p>
-
-<p><img src="//physhik.com/images/postimages/spectrogram.png" alt="png" /></p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p><img src="//physhik.com/images/postimages/spectrogram.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>So these look like 2D images with 1 colored channel (i.e. grayscale 2D images). Simply noting, spectrogram is made of the short-time Fourier transform (<a href="https://en.wikipedia.org/wiki/Short-time_Fourier_transform">STFT</a>) and some band filter. The STFT is a kind of Fourier transform and invertible. The filter used to play the role to compress the signal data. We human have the filter in the ear, too. We don&rsquo;t receive the whole data from the sound. It goes through the filter in the ear, and makes it audible more effectively. However, these band filters are not invertible operations. Thus, need to design the invertible filter operates on the STFTed signal.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="upsampling">Upsampling</h2>
-
 <p>In the images, small deviation of the image would not disturb the recognition of the images such as faces. In spectrogram, time-translational deviation should not be allowed. The small deviation on time axis cause quite big noise in the inverted sound signal. In <a href="https://arxiv.org/pdf/1802.04208.pdf">the paper</a>, this problem is resolved by upsampling and interpolation.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="checkerboard-artifact-and-phase-shuffle">Checkerboard artifact and phase shuffle</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>GAN model which upsampled by convolution are known to produce artifact in images. Roughly, 2D convolution makes checkerboard artifact because convolutional filter overlaps in the form of checkerboard. The easily explained detail including good figures can be found in the <a href="https://distill.pub/2016/deconv-checkerboard/">article written by A. Odena et al.</a> The following figure from the article shows the checkerboard artifacts in 4 images.</p>
-
-<p><br></p>
-
-<p><img src="//physhik.com/images/postimages/checkerboard.png" alt="png" /></p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p><img src="//physhik.com/images/postimages/checkerboard.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>Similarly, WaveGAN and its 1D convolution produce regular noise. As I explained above, this small noise must be removed. The author of the WaveGAN used phase shuffle.</p>
-
-<p><br></p>
-
-<p><img src="//physhik.com/images/postimages/phasesuffle.png" alt="png" /></p>
-
-<p><br></p>
-
-<p>At each layer of the WaveGAN discriminator, the phase shuffle operation randomizes the phase of each channel by [−n, n] samples, filling in the missing samples (dashed outlines) by reflection. This figure shows possible outcomes for 4 channels (n = 1).<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
-
-<p><br></p>
-<div class="footnotes">
-
-<hr />
-
+<!-- raw HTML omitted -->
+<p><img src="//physhik.com/images/postimages/phasesuffle.png" alt="png"></p>
+<!-- raw HTML omitted -->
+<p>At each layer of the WaveGAN discriminator, the phase shuffle operation randomizes the phase of each channel by [−n, n] samples, filling in the missing samples (dashed outlines) by reflection. This figure shows possible outcomes for 4 channels (n = 1).<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<!-- raw HTML omitted -->
+<section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:1">I copied figure 5 and the caption of the figure 5 from the WaveGAN paper.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>I copied figure 5 and the caption of the figure 5 from the WaveGAN paper. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
-</div>
+</section>
 
               
             </div>
@@ -469,7 +431,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Namshik Kim. All Rights Reserved
+    &copy; 2020 Namshik Kim. All Rights Reserved
   </span>
 </footer>
 
@@ -595,8 +557,7 @@ if (!doNotTrack) {
                   Nov 11, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Update 
-I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+              <div class="media-content hide-xs font-merryweather">Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&rsquo;t be posted).</div>
             </div>
             <div style="clear:both;"></div>
@@ -631,8 +592,7 @@ I myself found some errors due to the version change of Python libraries, so I u
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Open source 
-The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+              <div class="media-content hide-xs font-merryweather">Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -649,10 +609,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
-Deep learning and classifications. 
-The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
-
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
             </div>
             <div style="clear:both;"></div>
@@ -670,9 +627,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Prologue 
-Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
-
+              <div class="media-content hide-xs font-merryweather">Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
             </div>
             <div style="clear:both;"></div>
@@ -691,7 +646,6 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
-
 AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
             </div>
             <div style="clear:both;"></div>
@@ -727,7 +681,6 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
-
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
             </div>
             <div style="clear:both;"></div>
@@ -763,9 +716,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

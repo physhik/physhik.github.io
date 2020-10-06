@@ -6,11 +6,7 @@
     <description>Recent content in Categories on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Nov 2019 01:00:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 06 Nov 2019 01:00:00 -0700</lastBuildDate><atom:link href="//physhik.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CNN, ECG classfier</title>
       <link>//physhik.com/categories/cnn-ecg-classfier/</link>
@@ -300,7 +296,7 @@
     </item>
     
     <item>
-      <title>Metropolis-Hastings sampling</title>
+      <title>Metropolis-Hastings Sampling</title>
       <link>//physhik.com/categories/metropolis-hastings-sampling/</link>
       <pubDate>Mon, 21 Aug 2017 02:10:00 -0700</pubDate>
       

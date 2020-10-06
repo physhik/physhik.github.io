@@ -5,33 +5,25 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
-<meta name="description" content="I announce over and over that the chronicle ordering of the post are irrelevant for beginners&rsquo; favor. There are many blanks I skipped. I would fill the holes later.
-
-Variational method 
-During my physics coursework and researches, I used this method countlessly. I even had a book of the name. It is quite simple, but also as big topic as being a book. Simply put, it is a technique to find equations and solutions (sometimes approximate solutions) by extremizing functionals which is mainly just integrals of fields, and treat the functions in the integral, as parameters.">
+<meta name="description" content="I announce over and over that the chronicle ordering of the post are irrelevant for beginners&#39; favor. There are many blanks I skipped. I would fill the holes later.
+Variational method During my physics coursework and researches, I used this method countlessly. I even had a book of the name. It is quite simple, but also as big topic as being a book. Simply put, it is a technique to find equations and solutions (sometimes approximate solutions) by extremizing functionals which is mainly just integrals of fields, and treat the functions in the integral, as parameters.">
 
 
-<meta property="og:description" content="I announce over and over that the chronicle ordering of the post are irrelevant for beginners&rsquo; favor. There are many blanks I skipped. I would fill the holes later.
-
-Variational method 
-During my physics coursework and researches, I used this method countlessly. I even had a book of the name. It is quite simple, but also as big topic as being a book. Simply put, it is a technique to find equations and solutions (sometimes approximate solutions) by extremizing functionals which is mainly just integrals of fields, and treat the functions in the integral, as parameters.">
+<meta property="og:description" content="I announce over and over that the chronicle ordering of the post are irrelevant for beginners&#39; favor. There are many blanks I skipped. I would fill the holes later.
+Variational method During my physics coursework and researches, I used this method countlessly. I even had a book of the name. It is quite simple, but also as big topic as being a book. Simply put, it is a technique to find equations and solutions (sometimes approximate solutions) by extremizing functionals which is mainly just integrals of fields, and treat the functions in the integral, as parameters.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Variational Method for Optimization">
 <meta name="twitter:title" content="Variational Method for Optimization">
 <meta property="og:url" content="//physhik.com/2017/08/variational-method-for-optimization/">
 <meta property="twitter:url" content="//physhik.com/2017/08/variational-method-for-optimization/">
 <meta property="og:site_name" content="Physics to Data Science">
-<meta property="og:description" content="I announce over and over that the chronicle ordering of the post are irrelevant for beginners&rsquo; favor. There are many blanks I skipped. I would fill the holes later.
-
-Variational method 
-During my physics coursework and researches, I used this method countlessly. I even had a book of the name. It is quite simple, but also as big topic as being a book. Simply put, it is a technique to find equations and solutions (sometimes approximate solutions) by extremizing functionals which is mainly just integrals of fields, and treat the functions in the integral, as parameters.">
-<meta name="twitter:description" content="I announce over and over that the chronicle ordering of the post are irrelevant for beginners&rsquo; favor. There are many blanks I skipped. I would fill the holes later.
-
-Variational method 
-During my physics coursework and researches, I used this method countlessly. I even had a book of the name. It is quite simple, but also as big topic as being a book. Simply put, it is a technique to find equations and solutions (sometimes approximate solutions) by extremizing functionals which is mainly just integrals of fields, and treat the functions in the integral, as parameters.">
+<meta property="og:description" content="I announce over and over that the chronicle ordering of the post are irrelevant for beginners&#39; favor. There are many blanks I skipped. I would fill the holes later.
+Variational method During my physics coursework and researches, I used this method countlessly. I even had a book of the name. It is quite simple, but also as big topic as being a book. Simply put, it is a technique to find equations and solutions (sometimes approximate solutions) by extremizing functionals which is mainly just integrals of fields, and treat the functions in the integral, as parameters.">
+<meta name="twitter:description" content="I announce over and over that the chronicle ordering of the post are irrelevant for beginners&#39; favor. There are many blanks I skipped. I would fill the holes later.
+Variational method During my physics coursework and researches, I used this method countlessly. I even had a book of the name. It is quite simple, but also as big topic as being a book. Simply put, it is a technique to find equations and solutions (sometimes approximate solutions) by extremizing functionals which is mainly just integrals of fields, and treat the functions in the integral, as parameters.">
 <meta property="og:locale" content="en-us">
 
   
@@ -319,277 +311,188 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><br></p>
-
-<p>I announce over and over that the chronicle ordering of the post are irrelevant for beginners&rsquo; favor. There are many blanks I skipped. I would fill the holes later.</p>
-
-<p><br></p>
-
+              <!-- raw HTML omitted -->
+<p>I announce over and over that the chronicle ordering of the post are irrelevant for beginners' favor. There are many blanks I skipped. I would fill the holes later.</p>
+<!-- raw HTML omitted -->
 <h2 id="variational-method">Variational method</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>During my physics coursework and researches, I used this method countlessly. I even had a book of the name. It is quite simple, but also as big topic as being a book. Simply put, it is a technique to find equations and solutions (sometimes approximate solutions) by extremizing functionals which is mainly just integrals of fields, and treat the functions in the integral, as parameters.</p>
-
-<p><br></p>
-
-<p>Thus, it is such a broad subject, but here we will consider some specific technique to obtain the approximate probability density using Feynman-Bogolubov inequality<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> <sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>. The other good thing of the inequality is that it yields the bound. The low bound of the Helmholtz free energy(functional).</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p>Thus, it is such a broad subject, but here we will consider some specific technique to obtain the approximate probability density using Feynman-Bogolubov inequality[^1] [^2]. The other good thing of the inequality is that it yields the bound. The low bound of the Helmholtz free energy(functional).</p>
+<!-- raw HTML omitted -->
 <h2 id="the-disposal-density-as-an-approximation-of-the-target-density">The disposal density as an approximation of the target density</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Thus, I assume that you know the variational principle or Feynman-Bogolubov inequality. The trial function in the next example is the disposal probability distribution in order to find the target probability density. We will use the target density appeared in the chapter 24, <em>Exact marginalization</em>, of <a href="https://inference.phy.cam.ac.uk/mackay/itila/book.html">the book</a>. The exercises 24.3 of the chapter is very good at understanding Bayesian theory and maximum likelihood. I will handle the problem if I have a chance next time. Exact marginalization means that we calculate the probability by integrating over continuous variables (or summation over discrete variables). That is processed by assuming prior distribution.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>$$
 P(\mu, \sigma| Data) \sim \exp(-{ N(\mu-\bar{x})^2+S\over 2 \sigma^2})
 $$</p>
-
 <p>and the variational free energy (with Bayesian rule), the functional of trial function is</p>
-
 <p>$$
 \tilde{F}(Q) = \int d\mu~d\sigma ~Q(\mu, \sigma) \log {Q(\mu, \sigma) \over P(Data|\mu, \sigma)P(\mu,\sigma)}
 $$</p>
-
 <p>and additionally we assume $Q(\mu, \sigma)$ is separable.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>$$
 Q(\mu, \sigma) = Q_{\mu}(\mu)Q_{\sigma}(\sigma)
 $$</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>From extrema of the free energy, $\tilde F$ with respect to $Q_{\mu}(\mu)$</p>
-
 <p>and $Q_{\sigma}(\sigma)$, we obtain two conditions to optimize $Q_{\mu}(\mu)$ and $Q_{\sigma}(\sigma)$.</p>
-
 <p>$$
 Q_{\mu}(\mu) = \mathcal{N}(\mu; \bar{x}, \sigma_Q^2)
 $$</p>
-
 <p>and</p>
-
 <p>$$
 Q_{\sigma}(\sigma) = {2 \over \sigma^3} \Gamma({1\over\sigma^2}, b, c)
 $$</p>
-
 <p>where</p>
-
 <p>$$
 \sigma_Q^2 = 1/(N\bar{\beta})
 $$</p>
-
 <p>and</p>
-
 <p>$$
 \bar{\beta} = \int d\sigma Q_{\sigma}(\sigma) 1/\sigma^2
 $$</p>
-
 <p>and</p>
-
 <p>$$
 b = {2 \over N \sigma_Q^2 + S}, ~~~~~ c = N/2
 $$</p>
-
-<p>Data is given. $N$, $\bar x$, and $S$. Then by the algorithm, Python code is as follows.<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup></p>
-
-<p><br></p>
-
-<pre><code class="language-python">import numpy as np
-import scipy.stats as st
-import random
-import matplotlib.pyplot as plt
-import scipy.special as sp
-import scipy.integrate as integrate
-%precision 12
+<p>Data is given. $N$, $\bar x$, and $S$. Then by the algorithm, Python code is as follows.[^3]</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> scipy.stats <span style="color:#f92672">as</span> st
+<span style="color:#f92672">import</span> random
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> scipy.special <span style="color:#f92672">as</span> sp
+<span style="color:#f92672">import</span> scipy.integrate <span style="color:#f92672">as</span> integrate
+<span style="color:#f92672">%</span>precision <span style="color:#ae81ff">12</span>
 
 
-%matplotlib inline
-plt.style.use('ggplot')
-</code></pre>
+<span style="color:#f92672">%</span>matplotlib inline
+plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#39;ggplot&#39;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">P_mu</span>(x_bar, mu, sigma):
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span>sigma<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">**</span>(<span style="color:#ae81ff">2.0</span>)<span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>( (mu <span style="color:#f92672">-</span> x_bar)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>sigma<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))    
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Gamma</span>(x, s, c):
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(sp<span style="color:#f92672">.</span>gamma(c)<span style="color:#f92672">*</span>s) <span style="color:#f92672">*</span> (x<span style="color:#f92672">/</span>s)<span style="color:#f92672">**</span>(c<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>x<span style="color:#f92672">/</span>c)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">N <span style="color:#f92672">=</span> <span style="color:#ae81ff">5.0</span>
+S <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
 
-<pre><code class="language-python">def P_mu(x_bar, mu, sigma):
-    return 1/(2*np.pi*sigma**2)**(2.0)* np.exp(-( (mu - x_bar)**2)/(2*sigma**2))    
-</code></pre>
-
-<pre><code class="language-python">def Gamma(x, s, c):
-    return 1/(sp.gamma(c)*s) * (x/s)**(c-1) * np.exp(-x/c)
-</code></pre>
-
-<pre><code class="language-python">N = 5.0
-S = 1.0
-
-# random intial values
-sigma_Q = 0.5*random.random()
-b = 10* random.random()
-c = 10* random.random()
-x_bar = random.random()
+<span style="color:#75715e"># random intial values</span>
+sigma_Q <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>random<span style="color:#f92672">.</span>random()
+b <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span><span style="color:#f92672">*</span> random<span style="color:#f92672">.</span>random()
+c <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span><span style="color:#f92672">*</span> random<span style="color:#f92672">.</span>random()
+x_bar <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>random()
 
 
-# randodm initial Q
-def Qmu(X1):
-    return P_mu(x_bar, X1, sigma_Q )
-def Qsigma(X2):
-    return 2.0/(X2**3.0)*1/(sp.gamma(c)*b) * (1.0/X2**2/b)**(c-1) * np.exp(-1.0/X2**2/b)
+<span style="color:#75715e"># randodm initial Q</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Qmu</span>(X1):
+    <span style="color:#66d9ef">return</span> P_mu(x_bar, X1, sigma_Q )
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Qsigma</span>(X2):
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2.0</span><span style="color:#f92672">/</span>(X2<span style="color:#f92672">**</span><span style="color:#ae81ff">3.0</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(sp<span style="color:#f92672">.</span>gamma(c)<span style="color:#f92672">*</span>b) <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1.0</span><span style="color:#f92672">/</span>X2<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">/</span>b)<span style="color:#f92672">**</span>(c<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span><span style="color:#f92672">/</span>X2<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">/</span>b)
 
-# will be integrated
-def argument(X2):
-    return Qsigma(X2) * 1/ X2**2
+<span style="color:#75715e"># will be integrated</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">argument</span>(X2):
+    <span style="color:#66d9ef">return</span> Qsigma(X2) <span style="color:#f92672">*</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span> X2<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
 
-update = 0
-while update &lt; 15:
+update <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">while</span> update <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">15</span>:
 
-    plt.figure()
-    x1 = np.arange(0.001, 3.0, 0.01)
-    x2 = np.arange(0.001, 3.0, 0.01)
-    X1, X2 = np.meshgrid(x1, x2)
-    P = 1/(2*np.pi*X2**2)**(N/2.0)* np.exp(-( N*(X1 - 1.0)**2+S)/(2*X2**2))
-    plt.contour(X1,X2,P)
+    plt<span style="color:#f92672">.</span>figure()
+    x1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0.001</span>, <span style="color:#ae81ff">3.0</span>, <span style="color:#ae81ff">0.01</span>)
+    x2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0.001</span>, <span style="color:#ae81ff">3.0</span>, <span style="color:#ae81ff">0.01</span>)
+    X1, X2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x1, x2)
+    P <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span>X2<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">**</span>(N<span style="color:#f92672">/</span><span style="color:#ae81ff">2.0</span>)<span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>( N<span style="color:#f92672">*</span>(X1 <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.0</span>)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span>S)<span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))
+    plt<span style="color:#f92672">.</span>contour(X1,X2,P)
 
 
-    Q = Qmu(X1) * Qsigma(X2)
-    plt.contour(X1,X2, Q ,linestyles = 'dotted',colors='k')
-    plt.axis([0,2,0,1.2])
-    plt.xlabel('$\mu$')
-    plt.ylabel('$\sigma$')
+    Q <span style="color:#f92672">=</span> Qmu(X1) <span style="color:#f92672">*</span> Qsigma(X2)
+    plt<span style="color:#f92672">.</span>contour(X1,X2, Q ,linestyles <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;dotted&#39;</span>,colors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;k&#39;</span>)
+    plt<span style="color:#f92672">.</span>axis([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1.2</span>])
+    plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$\mu$&#39;</span>)
+    plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;$\sigma$&#39;</span>)
 
-    if update % 2 == 0:
-        x_bar = 1.0
-        beta_bar = integrate.quad( argument, 0.001,3.0)[0]
-        sigma_Q = np.sqrt(1/(N*beta_bar))
+    <span style="color:#66d9ef">if</span> update <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        x_bar <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
+        beta_bar <span style="color:#f92672">=</span> integrate<span style="color:#f92672">.</span>quad( argument, <span style="color:#ae81ff">0.001</span>,<span style="color:#ae81ff">3.0</span>)[<span style="color:#ae81ff">0</span>]
+        sigma_Q <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(N<span style="color:#f92672">*</span>beta_bar))
 
-    else:
-        beta_bar = integrate.quad( argument, 0.001,3.0)[0]
-        sigma_Q = np.sqrt(1/(N*beta_bar))
-        b = 2.0/(N*sigma_Q**2 + S)
-        c = N/2.0
+    <span style="color:#66d9ef">else</span>:
+        beta_bar <span style="color:#f92672">=</span> integrate<span style="color:#f92672">.</span>quad( argument, <span style="color:#ae81ff">0.001</span>,<span style="color:#ae81ff">3.0</span>)[<span style="color:#ae81ff">0</span>]
+        sigma_Q <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(N<span style="color:#f92672">*</span>beta_bar))
+        b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.0</span><span style="color:#f92672">/</span>(N<span style="color:#f92672">*</span>sigma_Q<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> S)
+        c <span style="color:#f92672">=</span> N<span style="color:#f92672">/</span><span style="color:#ae81ff">2.0</span>
 
-    update += 1
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_4_0.png" alt="png" /></p>
-
-<p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_4_1.png" alt="png" /></p>
-
-<p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_4_2.png" alt="png" /></p>
-
-<p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_4_3.png" alt="png" /></p>
-
-<p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_4_4.png" alt="png" /></p>
-
-<p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_4_5.png" alt="png" /></p>
-
-<p><br></p>
-
+    update <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_4_0.png" alt="png"></p>
+<p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_4_1.png" alt="png"></p>
+<p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_4_2.png" alt="png"></p>
+<p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_4_3.png" alt="png"></p>
+<p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_4_4.png" alt="png"></p>
+<p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_4_5.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <h2 id="effectiveness-and-weakness-of-variational-method-as-a-tool-of-the-optimization">Effectiveness and weakness of variational method as a tool of the optimization.</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>From the random initial $Q(\mu, \sigma)$(the dotted line in the figures), it approximately approaches to the target distribution. Theoretically, the peak of $Q_{\sigma}(\sigma)$ should be at $\sigma = 0.50$, and the peak of $P(\mu, \sigma)$ should be at $(\mu,\sigma) = (1.0, 0.45)$. In other words, even the peak of $Q(\sigma)$ is deviated from the peak of the target density in principle. Besides, $Q(\mu, \sigma)$, the approximate density is more compact than the target density. When you want to use the disposal density obtained from this variational principle, you should keep them in mind.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Then, is it a bad approximation? Variational method is good. Really good. In the above plots and in only few turns, it reaches very good approximate solution. MCMC approximation can&rsquo;t be fast like it. In some image optimization, variational inference shows really amazing efficiency and precision. Why the approximation of the example was not good is, just simple. The assumption was not right. The target density is not separable. Variational method needs strong assumptions to provide exact form of equations. With some incorrect assumptions, it still furnishes great and fast approximation, but often not so exact. Thus, I would use this powerful tool to get the great disposal functions, and might continue the process with other method such as Markov chain Monte Carlo method.</p>
-
-<p><br></p>
-
-<pre><code class="language-python">x = np.arange(0.1, 2.0, 0.01)
-plt.plot(x,Qsigma(x))
-1/(2*np.pi*X2**2)**(N/2.0)* np.exp(-( N*(X1 - 1.0)**2+S)/(2*X2**2))
-plt.plot(x,55/(2*np.pi*x**2)**(N/2.0)* np.exp(-S/(2*x**2)))
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_5_1.png" alt="png" /></p>
-
-<pre><code class="language-python">x = np.arange(0.4, 0.48, 0.001)
-plt.plot(x,Qsigma(x))
-plt.plot(x,55/(2*np.pi*x**2)**(N/2.0)* np.exp(-S/(2*x**2)))
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_6_1.png" alt="png" /></p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">0.01</span>)
+plt<span style="color:#f92672">.</span>plot(x,Qsigma(x))
+<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span>X2<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">**</span>(N<span style="color:#f92672">/</span><span style="color:#ae81ff">2.0</span>)<span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>( N<span style="color:#f92672">*</span>(X1 <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.0</span>)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span>S)<span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))
+plt<span style="color:#f92672">.</span>plot(x,<span style="color:#ae81ff">55</span><span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span>x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">**</span>(N<span style="color:#f92672">/</span><span style="color:#ae81ff">2.0</span>)<span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>S<span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)))
+</code></pre></div><p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_5_1.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0.48</span>, <span style="color:#ae81ff">0.001</span>)
+plt<span style="color:#f92672">.</span>plot(x,Qsigma(x))
+plt<span style="color:#f92672">.</span>plot(x,<span style="color:#ae81ff">55</span><span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span>x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">**</span>(N<span style="color:#f92672">/</span><span style="color:#ae81ff">2.0</span>)<span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>S<span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)))
+</code></pre></div><p><img src="//physhik.com/images/postimages/Marginalization-VarMethod_files/Marginalization-VarMethod_6_1.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <h2 id="mean-field-approximation">Mean field approximation</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>This variational method is useful to induce the mean field approximation of Ising model. Easily evaluated. In the near future, I would handle Ising model. When I was a little kid, I wondered how the magnet is made. The Ising model resolves the mystery and very useful to study Hopfield net and Boltzmann machine.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="mathematica">Mathematica</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>As I mentioned above, I used Mathematica to debug my Python code. Some of you are not familiar to it, so I want to introduce about it to you.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Mathematica is rather unique in that it provides the mathematical symbolic and algebraic computing. It is often very convenient and quick in scientific researches. For example, consider a following example.</p>
+<!-- raw HTML omitted -->
+<p>def g(x):
+return x**2</p>
+<p>print f(x) * g(x)</p>
+<pre><code>
+&lt;br&gt;
 
-<p><br></p>
+The answer is $x^3$, but many computer programs are null at this. You must put the values of the argument, $x$ or newly define the function returns $x^3$. Mathematica does this procedure with no effort, intuitively.
 
-<pre><code class="language-python">def f(x):
-    return x
+&lt;br&gt;
 
-def g(x):
-    return x**2
+For the other example, when you want to draw a plot of any continuous function in Python, you should set the (discrete but tiny gapped) lists or arrays. To me, it is quite inconvenient. In Mathematica, set the range of $x$ for your function, that's all for the plot.  
 
-print f(x) * g(x)
+&lt;br&gt;
+
+### Then why do I  barely use it in machine learning?
+
+&lt;br&gt;
+
+Sometimes, this kind of settings blur the key points of the programming. That's the same as why I do not use completed libraries in this blog. The methods which is supported in those libraries includes many _*args_ and _**kwargs_, and complex _Classes_. It disturbs you when you want to fully understand how it works and when you face some bugs or troubles while using it. It might take time to resolve the troubles as much as ones program it from nothing. Of course, you can code most of what you code in other programs, but it is not efficient.
+
+&lt;br&gt;
+
+In sum,
+
+- Mathematica is super convenient for simple plotting of your 1-D, 2-D, 3-D graphs.
+
+- Awesome algebraic calculations will save time.
+
+- Best at checking or testing your ideas in beginning level.  
+
+&lt;br&gt;
+
+[^1]: Feynman is one of my favorite physicists, with Einstein, Dirac. He was a great teacher as well. He had very broad range of interest on the world, so was influential even to data science. Apparently, he was one of the first scientists conceived the possibility of the quantum computer.
+[^2]: I won't prove the inequality. That is equivalent to the proof of the Gibbs' inequality in [the book](https://inference.org.uk/mackay/itila/book.html) even though it looks totally different. See [the proof](www-f1.ijs.si/~ramsak/bi.pdf) using  Baker-Cambell-Hausdorff theorem and convexity of exponential function. Free energy in statistical mechanics is an exponential function.)
+[^3]: Rather than using the statistical probability library, I defined the distributions. It is much clear to understand how the approximation by variational method works. However, I made a trivial typo mistake in parameter of the $\Gamma(x,b,c)$ function, and it took many hours to find my mistake. At first, I thought the above equation (5) was mistaken, and re-calculated the equations of variations over and over. Definitely the error was in $Q_{\sigma}(\sigma)$, so I compared the numerical values of the distribution with what I obtained by using Mathematica. The gap was big, but I doubted if Python numerics work properly. Very stupid, ain't I? That kind of numerical mistakes never present the error message, so very fatal.
 </code></pre>
-
-<p><br></p>
-
-<p>The answer is $x^3$, but many computer programs are null at this. You must put the values of the argument, $x$ or newly define the function returns $x^3$. Mathematica does this procedure with no effort, intuitively.</p>
-
-<p><br></p>
-
-<p>For the other example, when you want to draw a plot of any continuous function in Python, you should set the (discrete but tiny gapped) lists or arrays. To me, it is quite inconvenient. In Mathematica, set the range of $x$ for your function, that&rsquo;s all for the plot.</p>
-
-<p><br></p>
-
-<h3 id="then-why-do-i-barely-use-it-in-machine-learning">Then why do I  barely use it in machine learning?</h3>
-
-<p><br></p>
-
-<p>Sometimes, this kind of settings blur the key points of the programming. That&rsquo;s the same as why I do not use completed libraries in this blog. The methods which is supported in those libraries includes many <em>*args</em> and <em>**kwargs</em>, and complex <em>Classes</em>. It disturbs you when you want to fully understand how it works and when you face some bugs or troubles while using it. It might take time to resolve the troubles as much as ones program it from nothing. Of course, you can code most of what you code in other programs, but it is not efficient.</p>
-
-<p><br></p>
-
-<p>In sum,</p>
-
-<ul>
-<li><p>Mathematica is super convenient for simple plotting of your 1-D, 2-D, 3-D graphs.</p></li>
-
-<li><p>Awesome algebraic calculations will save time.</p></li>
-
-<li><p>Best at checking or testing your ideas in beginning level.</p></li>
-</ul>
-
-<p><br></p>
-<div class="footnotes">
-
-<hr />
-
-<ol>
-<li id="fn:1">Feynman is one of my favorite physicists, with Einstein, Dirac. He was a great teacher as well. He had very broad range of interest on the world, so was influential even to data science. Apparently, he was one of the first scientists conceived the possibility of the quantum computer.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-<li id="fn:2">I won&rsquo;t prove the inequality. That is equivalent to the proof of the Gibbs&rsquo; inequality in <a href="https://inference.org.uk/mackay/itila/book.html">the book</a> even though it looks totally different. See <a href="www-f1.ijs.si/~ramsak/bi.pdf">the proof</a> using  Baker-Cambell-Hausdorff theorem and convexity of exponential function. Free energy in statistical mechanics is an exponential function.)
- <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
-<li id="fn:3">Rather than using the statistical probability library, I defined the distributions. It is much clear to understand how the approximation by variational method works. However, I made a trivial typo mistake in parameter of the $\Gamma(x,b,c)$ function, and it took many hours to find my mistake. At first, I thought the above equation (5) was mistaken, and re-calculated the equations of variations over and over. Definitely the error was in $Q_{\sigma}(\sigma)$, so I compared the numerical values of the distribution with what I obtained by using Mathematica. The gap was big, but I doubted if Python numerics work properly. Very stupid, ain&rsquo;t I? That kind of numerical mistakes never present the error message, so very fatal.
- <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
-</ol>
-</div>
-
               
             </div>
           </div>
@@ -673,7 +576,7 @@ print f(x) * g(x)
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Namshik Kim. All Rights Reserved
+    &copy; 2020 Namshik Kim. All Rights Reserved
   </span>
 </footer>
 
@@ -799,8 +702,7 @@ print f(x) * g(x)
                   Nov 11, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Update 
-I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+              <div class="media-content hide-xs font-merryweather">Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&rsquo;t be posted).</div>
             </div>
             <div style="clear:both;"></div>
@@ -835,8 +737,7 @@ I myself found some errors due to the version change of Python libraries, so I u
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Open source 
-The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+              <div class="media-content hide-xs font-merryweather">Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -853,10 +754,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
-Deep learning and classifications. 
-The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
-
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
             </div>
             <div style="clear:both;"></div>
@@ -874,9 +772,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Prologue 
-Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
-
+              <div class="media-content hide-xs font-merryweather">Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
             </div>
             <div style="clear:both;"></div>
@@ -895,7 +791,6 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
-
 AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
             </div>
             <div style="clear:both;"></div>
@@ -931,7 +826,6 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
-
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
             </div>
             <div style="clear:both;"></div>
@@ -967,9 +861,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

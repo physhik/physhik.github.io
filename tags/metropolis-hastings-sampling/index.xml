@@ -6,22 +6,14 @@
     <description>Recent content in Metropolis-Hastings sampling on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Sep 2017 23:30:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/tags/metropolis-hastings-sampling/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 09 Sep 2017 23:30:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/metropolis-hastings-sampling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ising Model</title>
       <link>//physhik.com/2017/09/ising-model/</link>
       <pubDate>Sat, 09 Sep 2017 23:30:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/09/ising-model/</guid>
-      <description>Why Ising model : 3 reasons for relevance 
- Studying Ising model can be useful to understand phase transition of various systems.  
- Hopfield network or Boltzmann machine to the neural network is just a generalized form of Ising model.  
- Ising model is also useful as a statistical model in its own right.  
-Ising model $\boldsymbol{x}$ is the state of an Ising model with $N$ spins be a vector in which each component $\boldsymbol x_n$ takes values $-1$ or $+1$.</description>
+      <description>Why Ising model : 3 reasons for relevance  Studying Ising model can be useful to understand phase transition of various systems.   Hopfield network or Boltzmann machine to the neural network is just a generalized form of Ising model.   Ising model is also useful as a statistical model in its own right.  Ising model $\boldsymbol{x}$ is the state of an Ising model with $N$ spins be a vector in which each component $\boldsymbol x_n$ takes values $-1$ or $+1$.</description>
     </item>
     
     <item>
@@ -31,9 +23,7 @@ Ising model $\boldsymbol{x}$ is the state of an Ising model with $N$ spins be a 
       
       <guid>//physhik.com/2017/08/mcmc-5-hamiltonian-monte-carlo-method/</guid>
       <description>Yay! Finally something more directly from physics to data science. We will also have a chance to see how Metropolis-Hastings algorithm works!
-
 The Hamiltonian Monte Carlo method is a kind of Metropolis-Hastings method. One of the weak points of Monte Carlo sampling comes up with random walks. Hamiltonian Monte Carlo method (HMC) is an approach to reducing the randomizing in algorithm of the sampling.
-
 The original name was hybrid Monte Carlo method.</description>
     </item>
     
@@ -43,9 +33,8 @@ The original name was hybrid Monte Carlo method.</description>
       <pubDate>Mon, 21 Aug 2017 02:10:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/08/mcmc-2-exact-monte-carlo-method/</guid>
-      <description>Exact Markov chain Monte Carlo sampling 
-I don&amp;rsquo;t like the naming. The word exact could mislead us to understand the concept. Anyway I used the word in the title because it was the title of the chapter of the book &amp;ldquo;Information Theory, Inference, and Learning Algorithms&amp;rdquo; by David Mackay, which I studied to learn the theory.
-The different names of it are perfect simulation and coupling from the past.</description>
+      <description>Exact Markov chain Monte Carlo sampling I don&amp;rsquo;t like the naming. The word exact could mislead us to understand the concept. Anyway I used the word in the title because it was the title of the chapter of the book &amp;ldquo;Information Theory, Inference, and Learning Algorithms&amp;rdquo; by David Mackay, which I studied to learn the theory.
+The different names of it are perfect simulation and coupling from the past. Maybe these are better names.</description>
     </item>
     
     <item>
@@ -54,12 +43,9 @@ The different names of it are perfect simulation and coupling from the past.</de
       <pubDate>Sun, 20 Aug 2017 14:10:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/08/mcmc-1-monte-carlo-method-and-metropolis-hastings-sampling/</guid>
-      <description>Monte Carlo method 
-Monte Carlo method is useful in Bayesian data modeling because maximizing posterior probability is often very difficult and fitting a Gaussian becomes hard.
-
+      <description>Monte Carlo method Monte Carlo method is useful in Bayesian data modeling because maximizing posterior probability is often very difficult and fitting a Gaussian becomes hard.
 Monte Carlo method becomes valuable in that we want to generate samples in some situation, and also want to estimate some expectation values of various functions.
-
-What we deal with in this post is only small part of Monte Carlo method.</description>
+What we deal with in this post is only small part of Monte Carlo method. It is going to be good if I have a chance to introduce about all sooner in this blog, but if not, see one of the repositories from my Github</description>
     </item>
     
   </channel>

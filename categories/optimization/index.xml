@@ -6,21 +6,15 @@
     <description>Recent content in optimization on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Aug 2017 01:10:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/categories/optimization/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 28 Aug 2017 01:10:00 -0700</lastBuildDate><atom:link href="//physhik.com/categories/optimization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Variational Method for Optimization</title>
       <link>//physhik.com/2017/08/variational-method-for-optimization/</link>
       <pubDate>Mon, 28 Aug 2017 01:10:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/08/variational-method-for-optimization/</guid>
-      <description>I announce over and over that the chronicle ordering of the post are irrelevant for beginners&amp;rsquo; favor. There are many blanks I skipped. I would fill the holes later.
-
-Variational method 
-During my physics coursework and researches, I used this method countlessly. I even had a book of the name. It is quite simple, but also as big topic as being a book. Simply put, it is a technique to find equations and solutions (sometimes approximate solutions) by extremizing functionals which is mainly just integrals of fields, and treat the functions in the integral, as parameters.</description>
+      <description>I announce over and over that the chronicle ordering of the post are irrelevant for beginners&#39; favor. There are many blanks I skipped. I would fill the holes later.
+Variational method During my physics coursework and researches, I used this method countlessly. I even had a book of the name. It is quite simple, but also as big topic as being a book. Simply put, it is a technique to find equations and solutions (sometimes approximate solutions) by extremizing functionals which is mainly just integrals of fields, and treat the functions in the integral, as parameters.</description>
     </item>
     
   </channel>

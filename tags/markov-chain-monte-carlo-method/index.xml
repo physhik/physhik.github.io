@@ -6,27 +6,22 @@
     <description>Recent content in Markov chain Monte Carlo method on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Sep 2017 17:30:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/tags/markov-chain-monte-carlo-method/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 05 Sep 2017 17:30:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/markov-chain-monte-carlo-method/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MCMC (7) : Slice Sampling</title>
       <link>//physhik.com/2017/09/mcmc-7-slice-sampling/</link>
       <pubDate>Tue, 05 Sep 2017 17:30:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/09/mcmc-7-slice-sampling/</guid>
-      <description>Slice sampling algorithm 
-A single transition $(x,u) \rightarrow (x&amp;rsquo;,u&amp;rsquo;)$ of a one-dimensional slice sampling algorithm has the following steps.
-
+      <description>Slice sampling algorithm A single transition $(x,u) \rightarrow (x&#39;,u&#39;)$ of a one-dimensional slice sampling algorithm has the following steps.
 (1). evaluate $P^* (x)$
-(2). draw a vertical coordinate $u&amp;rsquo; \sim$ Uniform$(0,P^* (x))$
+(2). draw a vertical coordinate $u&#39; \sim$ Uniform$(0,P^* (x))$
 (3). create a horizontal interval $(x_l, x_r)$ enclosing $x$
-&amp;nbsp;&amp;nbsp;&amp;nbsp; 3a. draw $r \sim$ Uniform$(0,1)$
-&amp;nbsp;&amp;nbsp;&amp;nbsp; 3b. $x_l := x-rw$
-&amp;nbsp;&amp;nbsp;&amp;nbsp; 3c. $x_r := x+(1-r)w$
-&amp;nbsp;&amp;nbsp;&amp;nbsp; 3d. while $(P^* (x_l) &amp;gt; u&amp;rsquo;)$ ${x_l := x-rw}$</description>
+ 3a. draw $r \sim$ Uniform$(0,1)$
+ 3b. $x_l := x-rw$
+ 3c. $x_r := x+(1-r)w$
+ 3d. while $(P^* (x_l) &amp;gt; u&#39;)$ ${x_l := x-rw}$
+ 3e. while $(P^* (x_r) &amp;gt; u&#39;)$ ${x_r:= x+w}$</description>
     </item>
     
     <item>
@@ -35,11 +30,8 @@ A single transition $(x,u) \rightarrow (x&amp;rsquo;,u&amp;rsquo;)$ of a one-dim
       <pubDate>Fri, 01 Sep 2017 22:30:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/</guid>
-      <description>Efficient Monte Carlo sampling 
-This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
-
-Gibbs sampling 
-In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.</description>
+      <description>Efficient Monte Carlo sampling This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
+Gibbs sampling In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.</description>
     </item>
     
     <item>
@@ -49,9 +41,7 @@ In advance of studying over relaxation, we study Gibbs sampling. In the general 
       
       <guid>//physhik.com/2017/08/mcmc-5-hamiltonian-monte-carlo-method/</guid>
       <description>Yay! Finally something more directly from physics to data science. We will also have a chance to see how Metropolis-Hastings algorithm works!
-
 The Hamiltonian Monte Carlo method is a kind of Metropolis-Hastings method. One of the weak points of Monte Carlo sampling comes up with random walks. Hamiltonian Monte Carlo method (HMC) is an approach to reducing the randomizing in algorithm of the sampling.
-
 The original name was hybrid Monte Carlo method.</description>
     </item>
     
@@ -62,7 +52,6 @@ The original name was hybrid Monte Carlo method.</description>
       
       <guid>//physhik.com/2017/08/mcmc-4-rejection-sampling/</guid>
       <description>In advance, I will proceed in the extension of the previous post. I will use the same target distribution function and the similar Gaussian disposal distribution. Even Python script will be better understood if you&amp;rsquo;ve already read the previous post about importance sampling.
-
 The rejection sampling could be the most familiar Monte Carlo sampling. When need to introduce Monte Carlo method to somebody, it is very intuitive and effective to give an example of computing the area of the circle (or anything) by using random samples.</description>
     </item>
     
@@ -73,7 +62,6 @@ The rejection sampling could be the most familiar Monte Carlo sampling. When nee
       
       <guid>//physhik.com/2017/08/mcmc-3-importance-sampling/</guid>
       <description>Importance sampling is the first sampling method I faced when I studied Monte Carlo method. Nevertheless, I haven&amp;rsquo;t seen many examples for the importance sampling. Maybe it is because the importance sampling is not effective for high dimensional systems. The weak point of the importance sampling is that the performance of it is determined by how well we choose the disposal distribution close to the target distribution.
-
 Here, I will present a simple example of the importance sampling.</description>
     </item>
     
@@ -83,9 +71,8 @@ Here, I will present a simple example of the importance sampling.</description>
       <pubDate>Mon, 21 Aug 2017 02:10:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/08/mcmc-2-exact-monte-carlo-method/</guid>
-      <description>Exact Markov chain Monte Carlo sampling 
-I don&amp;rsquo;t like the naming. The word exact could mislead us to understand the concept. Anyway I used the word in the title because it was the title of the chapter of the book &amp;ldquo;Information Theory, Inference, and Learning Algorithms&amp;rdquo; by David Mackay, which I studied to learn the theory.
-The different names of it are perfect simulation and coupling from the past.</description>
+      <description>Exact Markov chain Monte Carlo sampling I don&amp;rsquo;t like the naming. The word exact could mislead us to understand the concept. Anyway I used the word in the title because it was the title of the chapter of the book &amp;ldquo;Information Theory, Inference, and Learning Algorithms&amp;rdquo; by David Mackay, which I studied to learn the theory.
+The different names of it are perfect simulation and coupling from the past. Maybe these are better names.</description>
     </item>
     
     <item>
@@ -94,12 +81,9 @@ The different names of it are perfect simulation and coupling from the past.</de
       <pubDate>Sun, 20 Aug 2017 14:10:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/08/mcmc-1-monte-carlo-method-and-metropolis-hastings-sampling/</guid>
-      <description>Monte Carlo method 
-Monte Carlo method is useful in Bayesian data modeling because maximizing posterior probability is often very difficult and fitting a Gaussian becomes hard.
-
+      <description>Monte Carlo method Monte Carlo method is useful in Bayesian data modeling because maximizing posterior probability is often very difficult and fitting a Gaussian becomes hard.
 Monte Carlo method becomes valuable in that we want to generate samples in some situation, and also want to estimate some expectation values of various functions.
-
-What we deal with in this post is only small part of Monte Carlo method.</description>
+What we deal with in this post is only small part of Monte Carlo method. It is going to be good if I have a chance to introduce about all sooner in this blog, but if not, see one of the repositories from my Github</description>
     </item>
     
   </channel>

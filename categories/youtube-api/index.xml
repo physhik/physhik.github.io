@@ -6,11 +6,7 @@
     <description>Recent content in Youtube API on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Feb 2019 02:00:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/categories/youtube-api/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 27 Feb 2019 02:00:00 -0700</lastBuildDate><atom:link href="//physhik.com/categories/youtube-api/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Youtube Data API on GCP</title>
       <link>//physhik.com/2019/02/youtube-data-api-on-gcp/</link>
@@ -18,7 +14,6 @@
       
       <guid>//physhik.com/2019/02/youtube-data-api-on-gcp/</guid>
       <description>To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
-
 AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</description>
     </item>
     

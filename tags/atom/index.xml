@@ -6,21 +6,15 @@
     <description>Recent content in atom on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Sep 2017 16:50:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/tags/atom/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 09 Sep 2017 16:50:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/atom/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Atom</title>
       <link>//physhik.com/2017/09/atom/</link>
       <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/09/atom/</guid>
-      <description>Atom 
-Git and Github have become one of the essential part of programmers. I just mechanically commit just after I finish a code or change some setting, and it saved me so many times. It also provides great environment for teamwork and management of the projects. This Jekyll blog is also built upon the Github service.
-
-Atom is the text editor developed by Github. And this is great.</description>
+      <description>Atom Git and Github have become one of the essential part of programmers. I just mechanically commit just after I finish a code or change some setting, and it saved me so many times. It also provides great environment for teamwork and management of the projects. This Jekyll blog is also built upon the Github service.
+Atom is the text editor developed by Github. And this is great. When I made up my mind to transit to data science.</description>
     </item>
     
   </channel>

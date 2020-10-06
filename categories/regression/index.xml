@@ -6,19 +6,15 @@
     <description>Recent content in regression on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Sep 2017 13:30:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/categories/regression/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 10 Sep 2017 13:30:00 -0700</lastBuildDate><atom:link href="//physhik.com/categories/regression/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Neural Network (3) : Hopfield Net</title>
       <link>//physhik.com/2017/09/neural-network-3-hopfield-net/</link>
       <pubDate>Sun, 10 Sep 2017 13:30:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/09/neural-network-3-hopfield-net/</guid>
-      <description>Binary Hopfield net using Hebbian learning 
-We want to study Hopfield net from the simple case. Hopfield net is a fully connected feedback network. A feedback network is a network that is not a feedforward network, and in a feedforward network, all the connections are directed. All the connections in our example will be bi-directed. This symmetric property of the weight is important property of the Hopfield net.</description>
+      <description>Binary Hopfield net using Hebbian learning We want to study Hopfield net from the simple case. Hopfield net is a fully connected feedback network. A feedback network is a network that is not a feedforward network, and in a feedforward network, all the connections are directed. All the connections in our example will be bi-directed. This symmetric property of the weight is important property of the Hopfield net.
+Hopfield net can act as associative memories, and they can be used to solve optimization problems.</description>
     </item>
     
     <item>
@@ -27,10 +23,9 @@ We want to study Hopfield net from the simple case. Hopfield net is a fully conn
       <pubDate>Wed, 06 Sep 2017 16:30:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</guid>
-      <description>Single neuron still has a lot to say 
-In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
-
-In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.</description>
+      <description>Single neuron still has a lot to say In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
+In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.
+Objective function and its contour plot.</description>
     </item>
     
     <item>
@@ -39,9 +34,7 @@ In the post of the first neural network tutorial, I said I would leave you to fi
       <pubDate>Wed, 30 Aug 2017 19:30:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</guid>
-      <description>Single neuron is amazing 
-One of the lessons I had during physics program is that we should start to understand small thing deeply however complicated the system which you want to know is. Not just it is easier but also it helps a lot to understand the more complex ones.
-
+      <description>Single neuron is amazing One of the lessons I had during physics program is that we should start to understand small thing deeply however complicated the system which you want to know is. Not just it is easier but also it helps a lot to understand the more complex ones.
 Neural network is often compared to black magic. We do not understand why and how exactly so effective it is, but it makes great estimations in some specific matters.</description>
     </item>
     

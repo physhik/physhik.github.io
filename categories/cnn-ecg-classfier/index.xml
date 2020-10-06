@@ -6,19 +6,14 @@
     <description>Recent content in CNN, ECG classfier on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Nov 2019 01:00:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/categories/cnn-ecg-classfier/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 06 Nov 2019 01:00:00 -0700</lastBuildDate><atom:link href="//physhik.com/categories/cnn-ecg-classfier/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Machine Learns from Cardiologist (4)</title>
       <link>//physhik.com/2019/11/machine-learns-from-cardiologist-4/</link>
       <pubDate>Wed, 06 Nov 2019 01:00:00 -0700</pubDate>
       
       <guid>//physhik.com/2019/11/machine-learns-from-cardiologist-4/</guid>
-      <description>Update 
-I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+      <description>Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&amp;rsquo;t be posted).</description>
     </item>
     
@@ -41,8 +36,7 @@ I myself found some errors due to the version change of Python libraries, so I u
       
       <guid>//physhik.com/_draft/parasite/</guid>
       <description>밴쿠버에서 살면서 한국 영화를 극장에서 보긴 힘들다. 집에서부터 운전을 한시간은 해야 하고, 자전거로는 두시간 이상이 걸릴 거리에 한인타운 극장이 거의 유일한 곳이다. 기생충은 깐느 영화제에서 큰 상을 받았고 그 덕에 괜찮은 배급사와 북미 계약을 맺었다. 적지 않은 밴쿠버의 극장에서 상영 중이고, 이 영화 취향도 아닐 아내를 졸라 즐겨 찾는 멀티 플렉스 극장을 찾았다.
-  Plot (spiler) from wiki 
-Kim Ki-taek lives with his wife Chung-sook, son Ki-woo, and daughter Ki-jeong in a shabby semi-basement apartment.</description>
+Kim Ki-taek lives with his wife Chung-sook, son Ki-woo, and daughter Ki-jeong in a shabby semi-basement apartment. The family struggle to survive, working any low-paying gigs available.</description>
     </item>
     
     <item>
@@ -51,8 +45,7 @@ Kim Ki-taek lives with his wife Chung-sook, son Ki-woo, and daughter Ki-jeong in
       <pubDate>Fri, 29 Mar 2019 01:00:00 -0700</pubDate>
       
       <guid>//physhik.com/2019/03/machine-learns-from-cardiologist-3/</guid>
-      <description>Open source 
-The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</description>
+      <description>Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</description>
     </item>
     
     <item>
@@ -61,10 +54,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
       <pubDate>Wed, 20 Mar 2019 19:00:00 -0700</pubDate>
       
       <guid>//physhik.com/2019/03/machine-learns-from-cardiologist-2/</guid>
-      <description>Understand literatures and the result-analysis 
-Deep learning and classifications. 
-The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
-
+      <description>Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</description>
     </item>
     
@@ -74,9 +64,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
       <pubDate>Sun, 17 Mar 2019 20:00:00 -0700</pubDate>
       
       <guid>//physhik.com/2019/03/macnine-learns-from-cardiologist-1/</guid>
-      <description>Prologue 
-Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
-
+      <description>Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</description>
     </item>
     

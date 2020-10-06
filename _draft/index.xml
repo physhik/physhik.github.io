@@ -6,11 +6,7 @@
     <description>Recent content in _drafts on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Oct 2019 01:00:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/_draft/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 31 Oct 2019 01:00:00 -0700</lastBuildDate><atom:link href="//physhik.com/_draft/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fielding Independent Pitching Revisited</title>
       <link>//physhik.com/_draft/2019-10-31-sabermetrics/</link>
@@ -30,8 +26,7 @@
       
       <guid>//physhik.com/_draft/parasite/</guid>
       <description>밴쿠버에서 살면서 한국 영화를 극장에서 보긴 힘들다. 집에서부터 운전을 한시간은 해야 하고, 자전거로는 두시간 이상이 걸릴 거리에 한인타운 극장이 거의 유일한 곳이다. 기생충은 깐느 영화제에서 큰 상을 받았고 그 덕에 괜찮은 배급사와 북미 계약을 맺었다. 적지 않은 밴쿠버의 극장에서 상영 중이고, 이 영화 취향도 아닐 아내를 졸라 즐겨 찾는 멀티 플렉스 극장을 찾았다.
-  Plot (spiler) from wiki 
-Kim Ki-taek lives with his wife Chung-sook, son Ki-woo, and daughter Ki-jeong in a shabby semi-basement apartment.</description>
+Kim Ki-taek lives with his wife Chung-sook, son Ki-woo, and daughter Ki-jeong in a shabby semi-basement apartment. The family struggle to survive, working any low-paying gigs available.</description>
     </item>
     
     <item>
@@ -41,9 +36,7 @@ Kim Ki-taek lives with his wife Chung-sook, son Ki-woo, and daughter Ki-jeong in
       
       <guid>//physhik.com/_draft/2017-08-18-dynamicprogramming/</guid>
       <description>Algorithm
-
 This is mainly a Python-implementation of the book, Cracking the coding interview, which includes examples and chosen exercises. Since I have studied algorithm of programming with Python and the Problem Solving with Algorithms and Data Structures using Python, I would review about them, too.
-
 Actually, I started to solve the exercises of the chapter 8 (dynamic programming) because I thought I have a hole that Problem Solving with Algorithms and Data Structures using Python does not contain it.</description>
     </item>
     
@@ -64,10 +57,8 @@ Hashability makes an object usable as a dictionary key and a set member, because
       
       <guid>//physhik.com/_draft/2017-08-16-networkx_practice2/</guid>
       <description>Let us start from the same graph, G of the previous posting.
-
-import networkx as nx import matplotlib.pyplot as plt %matplotlib inline  
-** DiGraph
-I=nx.DiGraph(G)  I.nodes(data=True)  [(0, {}), (1, {}), (2, {}), (3, {}), (4, {}), (5, {}), (6, {}), (7, {}), (8, {}), (9, {}), (10, {}), (11, {}), (&#39;m&#39;, {}), (&#39;p&#39;, {}), (&#39;s&#39;, {}), (&#39;a&#39;, {}), (&#39;spam&#39;, {})]  G.nodes(data=True)  [(0, {}), (1, {}), (2, {}), (3, {}), (4, {}), (5, {}), (6, {}), (7, {}), (8, {}), (9, {}), (10, {}), (11, {}), (&#39;m&#39;, {}), (&#39;p&#39;, {}), (&#39;spam&#39;, {}), (&#39;s&#39;, {}), (&#39;a&#39;, {})]  G.</description>
+import networkx as nx import matplotlib.pyplot as plt %matplotlib inline ** DiGraph
+I=nx.DiGraph(G) I.nodes(data=True) [(0, {}), (1, {}), (2, {}), (3, {}), (4, {}), (5, {}), (6, {}), (7, {}), (8, {}), (9, {}), (10, {}), (11, {}), (&#39;m&#39;, {}), (&#39;p&#39;, {}), (&#39;s&#39;, {}), (&#39;a&#39;, {}), (&#39;spam&#39;, {})]  G.nodes(data=True) [(0, {}), (1, {}), (2, {}), (3, {}), (4, {}), (5, {}), (6, {}), (7, {}), (8, {}), (9, {}), (10, {}), (11, {}), (&#39;m&#39;, {}), (&#39;p&#39;, {}), (&#39;spam&#39;, {}), (&#39;s&#39;, {}), (&#39;a&#39;, {})]  G.</description>
     </item>
     
     <item>
@@ -77,12 +68,9 @@ I=nx.DiGraph(G)  I.nodes(data=True)  [(0, {}), (1, {}), (2, {}), (3, {}), (4, {}
       
       <guid>//physhik.com/_draft/2017-08-16-networkx_practice/</guid>
       <description>While studying deep learning, to understand graph and networks is necessary.
-
 I try to follow the tutorial and references from the Github of networkx. The homepage of networkx is designed to have better interface, but some codes are not updated. I also added up some comments for better understanding.
-
-import networkx as nx import matplotlib.pyplot as plt %matplotlib inline  
-Node 
-Initiate empty graph</description>
+import networkx as nx import matplotlib.pyplot as plt %matplotlib inline Node Initiate empty graph
+G = nx.Graph() Can see the nodes as following</description>
     </item>
     
     <item>
@@ -95,7 +83,6 @@ Initiate empty graph</description>
 이번엔 블로그를 만들어 봤는데요. 적절한 한국어로 된 설명이 드물거나 찾기 힘든 것 같아서 포스팅 해봅니다.
 특히 jekyll 언어를 충분히 공부하지 않은 상태에서 특정 테마를 다운받아서 사용할 경우에 경험할 수 있는 시행착오를 범하지 않도록 하는 방향입니다.
 영어로 된 게시물들은 구글링으로 쉽게 얻을 수 있습니다.
-
 이 포스팅 또한 jekyll 홈페이지와 Sechter의 블로그의 내용의 번역이 주가 될 예정이니 더 자세한 내용을 원하시면 해당 링크로 들어가서 확인하시기 바랍니다.</description>
     </item>
     

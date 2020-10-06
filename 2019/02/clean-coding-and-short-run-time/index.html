@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
 <meta name="description" content="Today I want to discuss purely about coding itself. I wish this post is helpful for someone want to transit his career from a pure researcher to a programmer. I have been a researcher rather than a programmer. I would just want to execute something to see the result I wanted to see. If the run time is too long or my computer has no enough memory to run the code, it was a sign of new purchase to me.">
@@ -301,66 +301,35 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><br></p>
-
+              <!-- raw HTML omitted -->
 <p>Today I want to discuss purely about coding itself. I wish this post is helpful for someone want to transit his career from a pure researcher to a programmer. I have been a researcher rather than a programmer. I would just want to execute something to see the result I wanted to see. If the run time is too long or my computer has no enough memory to run the code, it was a sign of new purchase to me. From industrial experience, I become to regard the better way of coding as important.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="clean-code">Clean Code</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>The book, <strong>Clean Code</strong>, by Robert C. Martin, was good and you can find its summaries by chapters on many online blogs if you do not have time to read the whole book.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>There are many useful advices in the book, and statement inpired me most was that codes should be easily readable. I used to overlook this and thought if other coworker get confused then I can explain the detail in person.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>The 2nd important statement is, also not to make a mistake caused by the first lesson, that you should remove unnecesary lines to explain the detail. Those contents should be understood as possible by smart namings and the coding itself.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>The by-product from keeping the cleanly coding rules is that you will be able to find what the good codes are. In the era of open sources,  to find the good resources for your new projects become a principal key to learn fast and effective. Do not waste your time to understand bad codes (when there are many other replacement codes out there).</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="python-and-low-level-programming-ideas">Python and low-level programming ideas</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Python is a popular programming language in machine learning and many machine learning scientists who do not have a base in computer science major, easily overlook the importance of the computer memory management. If you want to expand your view in machine learning and to give you more chances to challenge other interesting possibilities in IT industry,  spare your time on understanding why C/C++, such old programming languages are still popular and people who are good at those gains respect. Such ideas can be applied to higher-level programming languages and data structures/management, and reduces memory usages.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="make-it-faster">Make it faster</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Python is a great language and easy to learn for novice, but also known to be slow processing. Actually it is not always true any more. If you are a intermediate Python programmer, concern to use PyPy, Cython or else. They reduces the processing time of Python dramatically to the level of C/C++ by imitating them.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Trust only half of what I&rsquo;d talk from now on. I can be wrong since I never be deeply into it. However, don&rsquo;t be scared to use PyPy/Cython. Using it is much easier.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Before talking about Cython and PyPy, let us scan the difference between a compiler and an interpreter. The compiled language such as C/C++ run the program after compiling. Then, after compiling, can run just an excecution file, which is made to be easily read by CPU. Interpreted languages such as Python/Ruby do not have the step between run and compile. Interpreter also has a step to transfer the codes to bytecode line by line during runtime. Then running time is increasing. However, interpreted language takes an advantange of interactive scripting.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Cython&rsquo;s main idea is compiling Python script and taking the benefit of compiled executable machine codes. For PyPy, it is a bit more complicated. Above all, read the <a href="https://bitbucket.org/brownan/pypy-tutorial/src/cbd43582d96947c4150109a21c7b2e828a92b64f/tutorial.rst?at=default&amp;fileviewer=file-view-default">document</a>.</p>
-
-<p><br></p>
-
-<h3 id="pypy-s-process">PyPy&rsquo;s process</h3>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<h3 id="pypys-process">PyPy&rsquo;s process</h3>
+<!-- raw HTML omitted -->
 <ol>
 <li>Making interpreter with Python(more exactly RPython, subprogramming language of Python) itself</li>
 <li>Translating the Python code into RPython code.</li>
@@ -368,95 +337,55 @@ if (!doNotTrack) {
 <li>Checking the performance of the process</li>
 <li>Optimize the process by repeat</li>
 </ol>
-
 <p>4, 5 are confusing. You can find more detail from the above document link. The interpreter made of RPython has a loop inside, and it checks the lentgh of the program and ends the loop if the length and turns of the loop are balanced.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h3 id="jit-interpreter">JIT interpreter</h3>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>JIT detects which part of the codes should be interpreted first, and then reduce the time by intepreting the detected part. Thus, it is proper to use in intepreted languages.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h3 id="running-pypy">Running PyPy</h3>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>If you are a Mac user, you can install it on command line using brew.</p>
-
 <pre><code>$ brew install pypy
-</code></pre>
-
-<p>and then can run the PyPy by</p>
-
+</code></pre><p>and then can run the PyPy by</p>
 <pre><code>$ pypy YOUR_PYTHON_SCRIPT_FILE.py
-</code></pre>
-
-<p>Then it interprets and executes it line by line without making compiled file. Then when you repeat the executions, it is slower than separating compiling and executing. (You can find how to do it from the above link, and you should make a proper loop targeting in the RPython code.)</p>
-
-<p><br></p>
-
+</code></pre><p>Then it interprets and executes it line by line without making compiled file. Then when you repeat the executions, it is slower than separating compiling and executing. (You can find how to do it from the above link, and you should make a proper loop targeting in the RPython code.)</p>
+<!-- raw HTML omitted -->
 <h3 id="restrictions">Restrictions</h3>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>PyPy and Cython are not an ultimate tool for all the kinds of Python script. Some Python libraries are not supported by PyPy interpreting. Check out the <a href="//packages.pypy.org">link</a></p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h3 id="running-cython">Running Cython</h3>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>This case is more straighforward then PyPy&rsquo;s. Let us think a simple code including a defined function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># target.pyx</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>():
+    <span style="color:#66d9ef">for</span> loop 
+        <span style="color:#66d9ef">for</span> loop
+</code></pre></div><p>And then, make a setup.py file</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#setup.py</span>
 
-<pre><code class="language-python"># target.pyx
-def f():
-    for loop 
-        for loop
-</code></pre>
-
-<p>And then, make a setup.py file</p>
-
-<pre><code class="language-python">#setup.py
-
-from distutils.core import setup
-from Cython.Build import cythonize
+<span style="color:#f92672">from</span> distutils.core <span style="color:#f92672">import</span> setup
+<span style="color:#f92672">from</span> Cython.Build <span style="color:#f92672">import</span> cythonize
 
 setup(
-  name = 'target app', # target.so will be produced by building
-  ext_modules = cythonize(&quot;target.pyx&quot;), the target file to be compiled
+  name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;target app&#39;</span>, <span style="color:#75715e"># target.so will be produced by building</span>
+  ext_modules <span style="color:#f92672">=</span> cythonize(<span style="color:#e6db74">&#34;target.pyx&#34;</span>), the target file to be compiled
 )
-</code></pre>
-
-<p>Now</p>
-
+</code></pre></div><p>Now</p>
 <pre><code>$ python setup.py build_ext --inplace
-</code></pre>
-
-<p>You will see target.so file in the directory. This is a shared object and can it is dynamically linked at run time. The shared objects are not included into the executable component but are tied to the execution.</p>
-
-<p><br></p>
-
+</code></pre><p>You will see target.so file in the directory. This is a shared object and can it is dynamically linked at run time. The shared objects are not included into the executable component but are tied to the execution.</p>
+<!-- raw HTML omitted -->
 <p>Now import the target.so file to excute the function f insde target.pyx.</p>
-
-<pre><code class="language-python"># ctest.py
-import target 
-if __main__== '__main__':
-    target.f
-</code></pre>
-
-<p>and run this in the command line. Try this while remove target.pyx file. ctest.py file uses so file, so it should run.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># ctest.py</span>
+<span style="color:#f92672">import</span> target 
+<span style="color:#66d9ef">if</span> __main__<span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    target<span style="color:#f92672">.</span>f
+</code></pre></div><p>and run this in the command line. Try this while remove target.pyx file. ctest.py file uses so file, so it should run.</p>
 <pre><code>$ rm -f target.pyx
 
 $ python ctest.py
-</code></pre>
-
-<p>Cython and PyPy will show the decades to hundreds times shorter run time than Python. PyPy is faster than C in some area.</p>
+</code></pre><p>Cython and PyPy will show the decades to hundreds times shorter run time than Python. PyPy is faster than C in some area.</p>
 
               
             </div>
@@ -539,7 +468,7 @@ $ python ctest.py
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Namshik Kim. All Rights Reserved
+    &copy; 2020 Namshik Kim. All Rights Reserved
   </span>
 </footer>
 
@@ -665,8 +594,7 @@ $ python ctest.py
                   Nov 11, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Update 
-I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+              <div class="media-content hide-xs font-merryweather">Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&rsquo;t be posted).</div>
             </div>
             <div style="clear:both;"></div>
@@ -701,8 +629,7 @@ I myself found some errors due to the version change of Python libraries, so I u
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Open source 
-The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+              <div class="media-content hide-xs font-merryweather">Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -719,10 +646,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
-Deep learning and classifications. 
-The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
-
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
             </div>
             <div style="clear:both;"></div>
@@ -740,9 +664,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Prologue 
-Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
-
+              <div class="media-content hide-xs font-merryweather">Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
             </div>
             <div style="clear:both;"></div>
@@ -761,7 +683,6 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
-
 AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
             </div>
             <div style="clear:both;"></div>
@@ -797,7 +718,6 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
-
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
             </div>
             <div style="clear:both;"></div>
@@ -833,9 +753,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

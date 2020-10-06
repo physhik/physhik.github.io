@@ -6,20 +6,14 @@
     <description>Recent content in soft K-means on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Aug 2017 13:40:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/tags/soft-k-means/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 31 Aug 2017 13:40:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/soft-k-means/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Clustering (2) : Soft K-mean</title>
       <link>//physhik.com/2017/08/clustering-2-soft-k-mean/</link>
       <pubDate>Thu, 31 Aug 2017 13:40:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/08/clustering-2-soft-k-mean/</guid>
-      <description>Hard K-means and responsibilities 
-If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the hard K-means algorithm in the previous post.
-
+      <description>Hard K-means and responsibilities If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the hard K-means algorithm in the previous post.
 In the previous post, we defined assignment. The equivalent representation of this assignment of points to clusters is given by responsibilities, $r^{(n)}_k$. In the assignment step, we set $r^{(n)}_k$ to one if mean k is the closest mean to datapoint $ {\textbf x}^{(n)}$; otherwise, $r^{(n)}_k$ is zero.</description>
     </item>
     

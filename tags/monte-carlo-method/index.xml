@@ -6,22 +6,14 @@
     <description>Recent content in Monte Carlo method on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Sep 2017 23:30:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/tags/monte-carlo-method/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 09 Sep 2017 23:30:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/monte-carlo-method/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ising Model</title>
       <link>//physhik.com/2017/09/ising-model/</link>
       <pubDate>Sat, 09 Sep 2017 23:30:00 -0700</pubDate>
       
       <guid>//physhik.com/2017/09/ising-model/</guid>
-      <description>Why Ising model : 3 reasons for relevance 
- Studying Ising model can be useful to understand phase transition of various systems.  
- Hopfield network or Boltzmann machine to the neural network is just a generalized form of Ising model.  
- Ising model is also useful as a statistical model in its own right.  
-Ising model $\boldsymbol{x}$ is the state of an Ising model with $N$ spins be a vector in which each component $\boldsymbol x_n$ takes values $-1$ or $+1$.</description>
+      <description>Why Ising model : 3 reasons for relevance  Studying Ising model can be useful to understand phase transition of various systems.   Hopfield network or Boltzmann machine to the neural network is just a generalized form of Ising model.   Ising model is also useful as a statistical model in its own right.  Ising model $\boldsymbol{x}$ is the state of an Ising model with $N$ spins be a vector in which each component $\boldsymbol x_n$ takes values $-1$ or $+1$.</description>
     </item>
     
   </channel>

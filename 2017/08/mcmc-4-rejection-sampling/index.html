@@ -5,16 +5,14 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
 <meta name="description" content="In advance, I will proceed in the extension of the previous post. I will use the same target distribution function and the similar Gaussian disposal distribution. Even Python script will be better understood if you&rsquo;ve already read the previous post about importance sampling.
-
 The rejection sampling could be the most familiar Monte Carlo sampling. When need to introduce Monte Carlo method to somebody, it is very intuitive and effective to give an example of computing the area of the circle (or anything) by using random samples.">
 
 
 <meta property="og:description" content="In advance, I will proceed in the extension of the previous post. I will use the same target distribution function and the similar Gaussian disposal distribution. Even Python script will be better understood if you&rsquo;ve already read the previous post about importance sampling.
-
 The rejection sampling could be the most familiar Monte Carlo sampling. When need to introduce Monte Carlo method to somebody, it is very intuitive and effective to give an example of computing the area of the circle (or anything) by using random samples.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MCMC (4) : Rejection Sampling">
@@ -23,10 +21,8 @@ The rejection sampling could be the most familiar Monte Carlo sampling. When nee
 <meta property="twitter:url" content="//physhik.com/2017/08/mcmc-4-rejection-sampling/">
 <meta property="og:site_name" content="Physics to Data Science">
 <meta property="og:description" content="In advance, I will proceed in the extension of the previous post. I will use the same target distribution function and the similar Gaussian disposal distribution. Even Python script will be better understood if you&rsquo;ve already read the previous post about importance sampling.
-
 The rejection sampling could be the most familiar Monte Carlo sampling. When need to introduce Monte Carlo method to somebody, it is very intuitive and effective to give an example of computing the area of the circle (or anything) by using random samples.">
 <meta name="twitter:description" content="In advance, I will proceed in the extension of the previous post. I will use the same target distribution function and the similar Gaussian disposal distribution. Even Python script will be better understood if you&rsquo;ve already read the previous post about importance sampling.
-
 The rejection sampling could be the most familiar Monte Carlo sampling. When need to introduce Monte Carlo method to somebody, it is very intuitive and effective to give an example of computing the area of the circle (or anything) by using random samples.">
 <meta property="og:locale" content="en-us">
 
@@ -313,240 +309,191 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><br></p>
-
+              <!-- raw HTML omitted -->
 <p>In advance, I will proceed in the extension of <a href="//physhik.com/2017/08/mcmc-3-importance-sampling/">the previous post</a>. I will use the same target distribution function and the similar Gaussian disposal distribution. Even Python script will be better understood if you&rsquo;ve already read <a href="//physhik.com/2017/08/mcmc-3-importance-sampling/">the previous post</a> about <em>importance sampling</em>.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>The rejection sampling could be the most familiar Monte Carlo sampling. When need to introduce Monte Carlo method to somebody, it is very intuitive and effective to give an example of computing the area of the circle (or anything) by using random samples. Haha, maybe I had to post about the rejection sampling first before Metropolis-Hastings or importance sampling.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Anyway, that computing area skill is kind of simplified rejection sampling. See the next figure.</p>
-
-<p><br></p>
-
-<p><img src="//physhik.com/images/RejectSamplingMC.png" alt="boxpng" /></p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p><img src="//physhik.com/images/RejectSamplingMC.png" alt="boxpng"></p>
+<!-- raw HTML omitted -->
 <p>Randomly make samples in the box, and if it is above the plot, reject the samples. Red dots are rejected. Then, the area under the plot is</p>
-
 <p><strong>(number of blue dots)/ (number of red dots + number of blue dots) * (Area of box)</strong></p>
-
 <p>Next Python example is finding a target distribution by using similar approach.</p>
-
-<pre><code class="language-python">import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-import scipy.stats as stats
-%matplotlib inline
-%precision 8
-
-
-plt.style.use('ggplot')
-</code></pre>
-
-<pre><code class="language-python">def P_star(x):
-    return np.exp(0.4*(x-0.4)**2-0.08*x**4)
-
-def Q_star(x):
-    return 2.5*np.exp(-x**2/4.0)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> scipy.stats <span style="color:#f92672">as</span> stats
+<span style="color:#f92672">%</span>matplotlib inline
+<span style="color:#f92672">%</span>precision <span style="color:#ae81ff">8</span>
 
 
-x = np.linspace(-5, 5)
+plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#39;ggplot&#39;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">P_star</span>(x):
+    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">0.4</span><span style="color:#f92672">*</span>(x<span style="color:#f92672">-</span><span style="color:#ae81ff">0.4</span>)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">-</span><span style="color:#ae81ff">0.08</span><span style="color:#f92672">*</span>x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>)
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Q_star</span>(x):
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2.5</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">4.0</span>)
+
+
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>)
 
 
 
-plt.figure(figsize=(12,4))
-plt.plot(x, P_star(x), label='P*')
-plt.plot(x, Q_star(x), label='Q*')
-plt.plot(x, 4*Q_star(x), label ='cQ*')
-plt.legend(loc ='best')
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/ultimateRejectionSampling_files/ultimateRejectionSampling_1_1.png" alt="png" /></p>
-
-<p><br></p>
-
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">4</span>))
+plt<span style="color:#f92672">.</span>plot(x, P_star(x), label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;P*&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(x, Q_star(x), label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Q*&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(x, <span style="color:#ae81ff">4</span><span style="color:#f92672">*</span>Q_star(x), label <span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cQ*&#39;</span>)
+plt<span style="color:#f92672">.</span>legend(loc <span style="color:#f92672">=</span><span style="color:#e6db74">&#39;best&#39;</span>)
+</code></pre></div><p><img src="//physhik.com/images/postimages/ultimateRejectionSampling_files/ultimateRejectionSampling_1_1.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>$P^* (x)$ and $Q^* (x)$ are same as <a href="//physhik.com/2017/08/mcmc-3-importance-sampling/">the previous post</a>. However, we will multiply $c = 4$ with $Q^* (x)$ to cover the target distribution in the whole range. Why? The $cQ^* (x)$ plays the same role the box did in the previous colorful figure. This will become clear in the following examples.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>)
 
-<p><br></p>
+max <span style="color:#f92672">=</span> P_star(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.75233</span>)
 
-<pre><code class="language-python">x = np.linspace(-5, 5)
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">4</span>))
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">121</span>)
+plt<span style="color:#f92672">.</span>plot(x, P_star(x))
+plt<span style="color:#f92672">.</span>axhline(max, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;grey&#39;</span>)
 
-max = P_star(-1.75233)
+x_arrow <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span>
 
-plt.figure(figsize=(12,4))
-plt.subplot(121)
-plt.plot(x, P_star(x))
-plt.axhline(max, color='grey')
+plt<span style="color:#f92672">.</span>arrow(x_arrow,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,P_star(x_arrow)<span style="color:#f92672">-</span><span style="color:#ae81ff">0.1</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,
+          head_width<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, head_length<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>, fc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>, ec<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
 
-x_arrow = -1.0
+plt<span style="color:#f92672">.</span>arrow(x_arrow,max,<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span>(max<span style="color:#f92672">-</span>P_star(x_arrow)<span style="color:#f92672">-</span><span style="color:#ae81ff">0.1</span>), linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,
+          head_width<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>, head_length<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>, fc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, ec<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
 
-plt.arrow(x_arrow,0,0,P_star(x_arrow)-0.1, linewidth=1,
-          head_width=0.2, head_length=0.1, fc='g', ec='g')
+plt<span style="color:#f92672">.</span>text(x_arrow<span style="color:#f92672">+.</span><span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Reject&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>)
+plt<span style="color:#f92672">.</span>text(x_arrow<span style="color:#f92672">+.</span><span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#e6db74">&#39;Accept&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>)
 
-plt.arrow(x_arrow,max,0,-(max-P_star(x_arrow)-0.1), linewidth=1,
-          head_width=0.3, head_length=0.1, fc='r', ec='r')
+plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">4</span>])
 
-plt.text(x_arrow+.25, 2, 'Reject', fontsize=16)
-plt.text(x_arrow+.25, 0.5, 'Accept', fontsize=16)
-
-plt.axis([-5,5,0,4])
-
-plt.title('Rejection sampling concepts', fontsize=20)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Rejection sampling concepts&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
 
 
-plt.subplot(122)
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">122</span>)
 
-n = 100000
-
-
-x_samples = np.random.uniform(-5, 5, n)
+n <span style="color:#f92672">=</span> <span style="color:#ae81ff">100000</span>
 
 
-independent_samples = np.random.uniform(0, max, n)
+x_samples <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>, n)
 
 
-v = x_samples[independent_samples &lt; P_star(x_samples)]
+independent_samples <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, max, n)
+
+
+v <span style="color:#f92672">=</span> x_samples[independent_samples <span style="color:#f92672">&lt;</span> P_star(x_samples)]
 
 
 
-plt.plot(x, P_star(x), linewidth=2)
+plt<span style="color:#f92672">.</span>plot(x, P_star(x), linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
 
 
 
 
-factor = 7.85218 # Integrated value of P_star(x) from -5 to 5.
+factor <span style="color:#f92672">=</span> <span style="color:#ae81ff">7.85218</span> <span style="color:#75715e"># Integrated value of P_star(x) from -5 to 5.</span>
 
-hist, bin_edges = np.histogram(v, bins=100, normed=True)
+hist, bin_edges <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>histogram(v, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, normed<span style="color:#f92672">=</span>True)
 
-bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2.
+bin_centers <span style="color:#f92672">=</span> (bin_edges[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> bin_edges[<span style="color:#ae81ff">1</span>:]) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.</span>
 
-plt.step(bin_centers, factor*hist, linewidth=2)
+plt<span style="color:#f92672">.</span>step(bin_centers, factor<span style="color:#f92672">*</span>hist, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
 
 
 
-plt.axis([-5,5,0,4])
+plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">4</span>])
 
-plt.title('Histogram of accepted samples', fontsize=20);
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/ultimateRejectionSampling_files/ultimateRejectionSampling_3_0.png" alt="png" /></p>
-
-<p><br></p>
-
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Histogram of accepted samples&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>);
+</code></pre></div><p><img src="//physhik.com/images/postimages/ultimateRejectionSampling_files/ultimateRejectionSampling_3_0.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>Here, the grey line gives the size of the box as the above red/blue figures had. We randomly draw samples below the grey line (or from the square), and accept only if the sample is under the plot.</p>
-
-<pre><code class="language-python">v = x_samples[independent_samples &lt; P_star(x_samples)]
-</code></pre>
-
-<p>This line is the part of the accept and the reject. It is exactly the same as how we calculated the integrated area of the plot.</p>
-
-<p><br></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">v <span style="color:#f92672">=</span> x_samples[independent_samples <span style="color:#f92672">&lt;</span> P_star(x_samples)]
+</code></pre></div><p>This line is the part of the accept and the reject. It is exactly the same as how we calculated the integrated area of the plot.</p>
+<!-- raw HTML omitted -->
 <p>The right figure is just a histogram from the accepted samples under the target distribution. It represents the target distribution up to constant, and I rescaled it to fit the distribution, $P^* (x)$.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>This is a special case of an <em>rejection sampling method</em>.  The independent box sampler, which drew the sample below the grey line, is not performing very well. In other words, too many samples are rejected. If we choose the <em>disposal distribution sampler</em>, $cQ^* (x)$, close to the target distribution, $P^* (x)$, the performance dramatically improves.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="general-rejection-sampling">General rejection sampling.</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>In the following example, I would not choose that kind of better distribution. To be honest, it is worse sampler. However, by choosing a Gaussian disposal distribution, we can understand the <em>rejection sampling</em>.</p>
-
-<p><br></p>
-
-<pre><code class="language-python">x = np.linspace(-5, 5)
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>)
 
 
 
-plt.figure(figsize=(12,4))
-plt.subplot(121)
-plt.plot(x, P_star(x))
-plt.plot(x, 4*Q_star(x))
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">4</span>))
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">121</span>)
+plt<span style="color:#f92672">.</span>plot(x, P_star(x))
+plt<span style="color:#f92672">.</span>plot(x, <span style="color:#ae81ff">4</span><span style="color:#f92672">*</span>Q_star(x))
 
 
-x_arrow = -1.0
+x_arrow <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span>
 
-plt.arrow(x_arrow,0,0,P_star(x_arrow)-0.1, linewidth=1,
-          head_width=0.2, head_length=0.1, fc='g', ec='g')
+plt<span style="color:#f92672">.</span>arrow(x_arrow,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,P_star(x_arrow)<span style="color:#f92672">-</span><span style="color:#ae81ff">0.1</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,
+          head_width<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, head_length<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>, fc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>, ec<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
 
-plt.arrow(x_arrow,4*Q_star(-1),0,-(4*Q_star(-1)-P_star(x_arrow)-0.1), linewidth=1,
-          head_width=0.3, head_length=0.1, fc='r', ec='r')
+plt<span style="color:#f92672">.</span>arrow(x_arrow,<span style="color:#ae81ff">4</span><span style="color:#f92672">*</span>Q_star(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>),<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span>(<span style="color:#ae81ff">4</span><span style="color:#f92672">*</span>Q_star(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">-</span>P_star(x_arrow)<span style="color:#f92672">-</span><span style="color:#ae81ff">0.1</span>), linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,
+          head_width<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>, head_length<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>, fc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, ec<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
 
-plt.text(x_arrow+.25, 6, 'Reject', fontsize=16)
-plt.text(x_arrow+.25, 0.5, 'Accept', fontsize=16)
+plt<span style="color:#f92672">.</span>text(x_arrow<span style="color:#f92672">+.</span><span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;Reject&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>)
+plt<span style="color:#f92672">.</span>text(x_arrow<span style="color:#f92672">+.</span><span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#e6db74">&#39;Accept&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>)
 
-plt.axis([-5,5,0,10])
+plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10</span>])
 
-plt.title('Rejection sampling concepts', fontsize=20)
-
-
-plt.subplot(122)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Rejection sampling concepts&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
 
 
-def cQ_samples(N):
-    sample = []
-    x = np.random.uniform(-5,5,N)
-    for i in range(N):
-        if np.random.uniform(0,10) &lt;= 4.0*Q_star(x[i]) :
-            sample = sample +[x[i]]
-    return len(sample), sample
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">122</span>)
 
 
-def accept_samples(N):
-    s = cQ_samples(N)[1]
-    sample = []
-    for i in range(len(s)):
-        if np.random.uniform(0,4.0*Q_star(s[i])) &lt;= P_star(s[i]) :
-            sample = sample +[s[i]]
-    return len(sample), sample
-
-plt.plot(x, P_star(x), linewidth=2)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cQ_samples</span>(N):
+    sample <span style="color:#f92672">=</span> []
+    x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">5</span>,N)
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N):
+        <span style="color:#66d9ef">if</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10</span>) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">4.0</span><span style="color:#f92672">*</span>Q_star(x[i]) :
+            sample <span style="color:#f92672">=</span> sample <span style="color:#f92672">+</span>[x[i]]
+    <span style="color:#66d9ef">return</span> len(sample), sample
 
 
-N = 100000
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">accept_samples</span>(N):
+    s <span style="color:#f92672">=</span> cQ_samples(N)[<span style="color:#ae81ff">1</span>]
+    sample <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(s)):
+        <span style="color:#66d9ef">if</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">4.0</span><span style="color:#f92672">*</span>Q_star(s[i])) <span style="color:#f92672">&lt;=</span> P_star(s[i]) :
+            sample <span style="color:#f92672">=</span> sample <span style="color:#f92672">+</span>[s[i]]
+    <span style="color:#66d9ef">return</span> len(sample), sample
 
-factor = 7.85218 # Integrated value of P_star(x) from -5 to 5.
-
-hist, bin_edges = np.histogram(accept_samples(N)[1], bins=100, normed=True)
-
-bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2.0
-
-plt.step(bin_centers, factor*hist, linewidth=2)
+plt<span style="color:#f92672">.</span>plot(x, P_star(x), linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
 
 
+N <span style="color:#f92672">=</span> <span style="color:#ae81ff">100000</span>
 
-plt.axis([-5,5,0,10])
+factor <span style="color:#f92672">=</span> <span style="color:#ae81ff">7.85218</span> <span style="color:#75715e"># Integrated value of P_star(x) from -5 to 5.</span>
 
-plt.title('Histogram of accepted samples', fontsize=20);
-</code></pre>
+hist, bin_edges <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>histogram(accept_samples(N)[<span style="color:#ae81ff">1</span>], bins<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, normed<span style="color:#f92672">=</span>True)
 
-<p><img src="//physhik.com/images/postimages/ultimateRejectionSampling_files/ultimateRejectionSampling_4_0.png" alt="png" /></p>
+bin_centers <span style="color:#f92672">=</span> (bin_edges[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> bin_edges[<span style="color:#ae81ff">1</span>:]) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.0</span>
 
-<p><br></p>
+plt<span style="color:#f92672">.</span>step(bin_centers, factor<span style="color:#f92672">*</span>hist, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
 
+
+
+plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10</span>])
+
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Histogram of accepted samples&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>);
+</code></pre></div><p><img src="//physhik.com/images/postimages/ultimateRejectionSampling_files/ultimateRejectionSampling_4_0.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>Do you see how different the script is from the previous trivial case? In the above Python script, we draw samples under $cQ^* (x)$ first, and then among the selected samples, we re-draw the samples under the target distribution, $P^* (x)$.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Why do I make my problem more complicated? As I mentioned, we should try to choose better $cQ^* (x)$. Gaussian distribution usually has higher peak than other distribution, so it becomes so bad here to cover the elephant-shaped target distribution. I chose it because it is the most famous probability distribution many people knows. However, you can choose the better one for yourselves.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>In the realistic and practical problem, we usually face the situation where we need to choose the disposal distribution because sometimes we do know only little about the target density. Then, we need to use some physical intuition to choose the kind of disposal distribution and to choose the constant $c$.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>This mechanism of a rejection sampling act as fatal flaw in higher dimensional systems. If it is N multi-dimensional problem to solve, the constant will be $c^N = \displaystyle \prod_{i = 1}^N c_i$. For example, all the $c_i$ are identically 1.2, which is not so bad, it becomes bigger than 6 in 10 multi-dimensional system.</p>
 
               
@@ -630,7 +577,7 @@ plt.title('Histogram of accepted samples', fontsize=20);
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Namshik Kim. All Rights Reserved
+    &copy; 2020 Namshik Kim. All Rights Reserved
   </span>
 </footer>
 
@@ -756,8 +703,7 @@ plt.title('Histogram of accepted samples', fontsize=20);
                   Nov 11, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Update 
-I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+              <div class="media-content hide-xs font-merryweather">Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&rsquo;t be posted).</div>
             </div>
             <div style="clear:both;"></div>
@@ -792,8 +738,7 @@ I myself found some errors due to the version change of Python libraries, so I u
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Open source 
-The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+              <div class="media-content hide-xs font-merryweather">Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -810,10 +755,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
-Deep learning and classifications. 
-The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
-
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
             </div>
             <div style="clear:both;"></div>
@@ -831,9 +773,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Prologue 
-Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
-
+              <div class="media-content hide-xs font-merryweather">Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
             </div>
             <div style="clear:both;"></div>
@@ -852,7 +792,6 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
-
 AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
             </div>
             <div style="clear:both;"></div>
@@ -888,7 +827,6 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
-
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
             </div>
             <div style="clear:both;"></div>
@@ -924,9 +862,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

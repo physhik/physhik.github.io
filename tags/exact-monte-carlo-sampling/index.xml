@@ -6,11 +6,7 @@
     <description>Recent content in exact Monte Carlo sampling on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Aug 2017 02:10:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/tags/exact-monte-carlo-sampling/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 22 Aug 2017 02:10:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/exact-monte-carlo-sampling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MCMC (3) : Importance Sampling</title>
       <link>//physhik.com/2017/08/mcmc-3-importance-sampling/</link>
@@ -18,7 +14,6 @@
       
       <guid>//physhik.com/2017/08/mcmc-3-importance-sampling/</guid>
       <description>Importance sampling is the first sampling method I faced when I studied Monte Carlo method. Nevertheless, I haven&amp;rsquo;t seen many examples for the importance sampling. Maybe it is because the importance sampling is not effective for high dimensional systems. The weak point of the importance sampling is that the performance of it is determined by how well we choose the disposal distribution close to the target distribution.
-
 Here, I will present a simple example of the importance sampling.</description>
     </item>
     

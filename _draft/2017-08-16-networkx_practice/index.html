@@ -5,25 +5,19 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
 <meta name="description" content="While studying deep learning, to understand graph and networks is necessary.
-
 I try to follow the tutorial and references from the Github of networkx. The homepage of networkx is designed to have better interface, but some codes are not updated. I also added up some comments for better understanding.
-
-import networkx as nx import matplotlib.pyplot as plt %matplotlib inline  
-Node 
-Initiate empty graph">
+import networkx as nx import matplotlib.pyplot as plt %matplotlib inline Node Initiate empty graph
+G = nx.Graph() Can see the nodes as following">
 
 
 <meta property="og:description" content="While studying deep learning, to understand graph and networks is necessary.
-
 I try to follow the tutorial and references from the Github of networkx. The homepage of networkx is designed to have better interface, but some codes are not updated. I also added up some comments for better understanding.
-
-import networkx as nx import matplotlib.pyplot as plt %matplotlib inline  
-Node 
-Initiate empty graph">
+import networkx as nx import matplotlib.pyplot as plt %matplotlib inline Node Initiate empty graph
+G = nx.Graph() Can see the nodes as following">
 <meta property="og:type" content="article">
 <meta property="og:title" content="networkx (1)">
 <meta name="twitter:title" content="networkx (1)">
@@ -31,19 +25,13 @@ Initiate empty graph">
 <meta property="twitter:url" content="//physhik.com/_draft/2017-08-16-networkx_practice/">
 <meta property="og:site_name" content="Physics to Data Science">
 <meta property="og:description" content="While studying deep learning, to understand graph and networks is necessary.
-
 I try to follow the tutorial and references from the Github of networkx. The homepage of networkx is designed to have better interface, but some codes are not updated. I also added up some comments for better understanding.
-
-import networkx as nx import matplotlib.pyplot as plt %matplotlib inline  
-Node 
-Initiate empty graph">
+import networkx as nx import matplotlib.pyplot as plt %matplotlib inline Node Initiate empty graph
+G = nx.Graph() Can see the nodes as following">
 <meta name="twitter:description" content="While studying deep learning, to understand graph and networks is necessary.
-
 I try to follow the tutorial and references from the Github of networkx. The homepage of networkx is designed to have better interface, but some codes are not updated. I also added up some comments for better understanding.
-
-import networkx as nx import matplotlib.pyplot as plt %matplotlib inline  
-Node 
-Initiate empty graph">
+import networkx as nx import matplotlib.pyplot as plt %matplotlib inline Node Initiate empty graph
+G = nx.Graph() Can see the nodes as following">
 <meta property="og:locale" content="en-us">
 
   
@@ -306,73 +294,37 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><br></p>
-
+              <!-- raw HTML omitted -->
 <p>While studying deep learning, to understand graph and networks is necessary.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>I try to follow the tutorial and references from <a href="https://github.com/networkx/networkx">the Github of networkx</a>. <a href="//networkx.github.io">The homepage of networkx</a> is designed to have better interface, but some codes are not updated. I also added up some comments for better understanding.</p>
-
-<p><br></p>
-
-<pre><code class="language-python">import networkx as nx
-import matplotlib.pyplot as plt
-%matplotlib inline  
-</code></pre>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> networkx <span style="color:#f92672">as</span> nx
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">%</span>matplotlib inline  
+</code></pre></div><!-- raw HTML omitted -->
 <h2 id="node">Node</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Initiate empty graph</p>
-
-<p><br></p>
-
-<pre><code class="language-python">G = nx.Graph()
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>Graph()
+</code></pre></div><p>Can see the nodes as following</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[]
 </code></pre>
-
-<p>Can see the nodes as following</p>
-
-<pre><code class="language-python">G.nodes(data=True)
-</code></pre>
-
-<pre><code>[]
-</code></pre>
-
 <p>Add a node</p>
-
-<pre><code class="language-python">G.add_node(1)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>add_node(<span style="color:#ae81ff">1</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[(1, {})]
 </code></pre>
-
-<pre><code class="language-python">G.nodes(data=True)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>add_nodes_from([<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>])
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[(1, {}), (2, {}), (3, {})]
 </code></pre>
-
-<pre><code>[(1, {})]
-</code></pre>
-
-<pre><code class="language-python">G.add_nodes_from([2,3])
-</code></pre>
-
-<pre><code class="language-python">G.nodes(data=True)
-</code></pre>
-
-<pre><code>[(1, {}), (2, {}), (3, {})]
-</code></pre>
-
 <p>Add 10 nodes at once from 0 to 9</p>
-
-<pre><code class="language-python">H=nx.path_graph(10)
-</code></pre>
-
-<pre><code class="language-python">H.nodes(data=True)
-</code></pre>
-
-<pre><code>[(0, {}),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">H<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>path_graph(<span style="color:#ae81ff">10</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">H<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[(0, {}),
  (1, {}),
  (2, {}),
  (3, {}),
@@ -383,16 +335,10 @@ import matplotlib.pyplot as plt
  (8, {}),
  (9, {})]
 </code></pre>
-
 <p>H is already nodes. If you want to add nodes from H,</p>
-
-<pre><code class="language-python">G.add_nodes_from(H)
-</code></pre>
-
-<pre><code class="language-python">G.nodes(data=True)
-</code></pre>
-
-<pre><code>[(0, {}),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>add_nodes_from(H)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[(0, {}),
  (1, {}),
  (2, {}),
  (3, {}),
@@ -403,22 +349,13 @@ import matplotlib.pyplot as plt
  (8, {}),
  (9, {})]
 </code></pre>
-
-<pre><code class="language-python">G
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G
+</code></pre></div><pre><code>&lt;networkx.classes.graph.Graph at 0x106742c50&gt;
 </code></pre>
-
-<pre><code>&lt;networkx.classes.graph.Graph at 0x106742c50&gt;
-</code></pre>
-
 <p>If you just add nodes H to G,</p>
-
-<pre><code class="language-python">G.add_node(H)
-</code></pre>
-
-<pre><code class="language-python">G.nodes(data=True)
-</code></pre>
-
-<pre><code>[(0, {}),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>add_node(H)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[(0, {}),
  (1, {}),
  (2, {}),
  (3, {}),
@@ -430,14 +367,9 @@ import matplotlib.pyplot as plt
  (9, {}),
  (&lt;networkx.classes.graph.Graph at 0x106742ed0&gt;, {})]
 </code></pre>
-
-<pre><code class="language-python">G.add_nodes_from(H)
-</code></pre>
-
-<pre><code class="language-python">G.nodes(data=True)
-</code></pre>
-
-<pre><code>[(0, {}),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>add_nodes_from(H)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[(0, {}),
  (1, {}),
  (2, {}),
  (3, {}),
@@ -449,20 +381,12 @@ import matplotlib.pyplot as plt
  (9, {}),
  (&lt;networkx.classes.graph.Graph at 0x106742ed0&gt;, {})]
 </code></pre>
-
-<pre><code class="language-python">H
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">H
+</code></pre></div><pre><code>&lt;networkx.classes.graph.Graph at 0x106742ed0&gt;
 </code></pre>
-
-<pre><code>&lt;networkx.classes.graph.Graph at 0x106742ed0&gt;
-</code></pre>
-
-<pre><code class="language-python">G.add_node(H)
-</code></pre>
-
-<pre><code class="language-python">G.nodes(data=True)
-</code></pre>
-
-<pre><code>[(0, {}),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>add_node(H)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[(0, {}),
  (1, {}),
  (2, {}),
  (3, {}),
@@ -474,14 +398,9 @@ import matplotlib.pyplot as plt
  (9, {}),
  (&lt;networkx.classes.graph.Graph at 0x106742ed0&gt;, {})]
 </code></pre>
-
-<pre><code class="language-python">G.add_node(10)
-</code></pre>
-
-<pre><code class="language-python">G.nodes(data=True)
-</code></pre>
-
-<pre><code>[(0, {}),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>add_node(<span style="color:#ae81ff">10</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[(0, {}),
  (1, {}),
  (2, {}),
  (3, {}),
@@ -494,22 +413,13 @@ import matplotlib.pyplot as plt
  (10, {}),
  (&lt;networkx.classes.graph.Graph at 0x106742ed0&gt;, {})]
 </code></pre>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h1 id="edge">Edge</h1>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Add an edge to the graph, which is with nodes already</p>
-
-<pre><code class="language-python">G.add_edge(1,2)
-</code></pre>
-
-<pre><code class="language-python">G.nodes(data=True)
-</code></pre>
-
-<pre><code>[(0, {}),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>add_edge(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[(0, {}),
  (1, {}),
  (2, {}),
  (3, {}),
@@ -522,36 +432,22 @@ import matplotlib.pyplot as plt
  (10, {}),
  (&lt;networkx.classes.graph.Graph at 0x106742ed0&gt;, {})]
 </code></pre>
-
-<pre><code class="language-python">G.edges(data=True)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>edges(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[(1, 2, {})]
 </code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">e<span style="color:#f92672">=</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>)
 
-<pre><code>[(1, 2, {})]
+G<span style="color:#f92672">.</span>add_edge(<span style="color:#f92672">*</span>e) <span style="color:#75715e"># unpack edge tuple*</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>edges(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[(1, 2, {}), (2, 3, {})]
 </code></pre>
-
-<pre><code class="language-python">e=(2,3)
-
-G.add_edge(*e) # unpack edge tuple*
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>add_edges_from([(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>),(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>)])
+G<span style="color:#f92672">.</span>edges(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[(1, 2, {}), (1, 3, {}), (2, 3, {})]
 </code></pre>
-
-<pre><code class="language-python">G.edges(data=True)
-</code></pre>
-
-<pre><code>[(1, 2, {}), (2, 3, {})]
-</code></pre>
-
-<pre><code class="language-python">G.add_edges_from([(1,2),(1,3)])
-G.edges(data=True)
-</code></pre>
-
-<pre><code>[(1, 2, {}), (1, 3, {}), (2, 3, {})]
-</code></pre>
-
-<pre><code class="language-python">G.add_edges_from(H.edges())
-G.edges(data=True)
-</code></pre>
-
-<pre><code>[(0, 1, {}),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>add_edges_from(H<span style="color:#f92672">.</span>edges())
+G<span style="color:#f92672">.</span>edges(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[(0, 1, {}),
  (1, 2, {}),
  (1, 3, {}),
  (2, 3, {}),
@@ -562,17 +458,11 @@ G.edges(data=True)
  (7, 8, {}),
  (8, 9, {})]
 </code></pre>
-
-<pre><code class="language-python">H.edges()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">H<span style="color:#f92672">.</span>edges()
+</code></pre></div><pre><code>[(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)]
 </code></pre>
-
-<pre><code>[(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)]
-</code></pre>
-
-<pre><code class="language-python">G.edges()
-</code></pre>
-
-<pre><code>[(0, 1),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>edges()
+</code></pre></div><pre><code>[(0, 1),
  (1, 2),
  (1, 3),
  (2, 3),
@@ -583,17 +473,11 @@ G.edges(data=True)
  (7, 8),
  (8, 9)]
 </code></pre>
-
-<pre><code class="language-python">H.nodes()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">H<span style="color:#f92672">.</span>nodes()
+</code></pre></div><pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 </code></pre>
-
-<pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-</code></pre>
-
-<pre><code class="language-python">G.nodes()
-</code></pre>
-
-<pre><code>[0,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes()
+</code></pre></div><pre><code>[0,
  1,
  2,
  3,
@@ -606,20 +490,12 @@ G.edges(data=True)
  10,
  &lt;networkx.classes.graph.Graph at 0x106742ed0&gt;]
 </code></pre>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>If you just add an edge including a new node(11), the node is also added automatically</p>
-
-<p><br></p>
-
-<pre><code class="language-python">G.add_edge(10,11)
-</code></pre>
-
-<pre><code class="language-python">G.edges()
-</code></pre>
-
-<pre><code>[(0, 1),
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>add_edge(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">11</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>edges()
+</code></pre></div><pre><code>[(0, 1),
  (1, 2),
  (1, 3),
  (2, 3),
@@ -631,11 +507,8 @@ G.edges(data=True)
  (8, 9),
  (10, 11)]
 </code></pre>
-
-<pre><code class="language-python">G.nodes()
-</code></pre>
-
-<pre><code>[0,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes()
+</code></pre></div><pre><code>[0,
  1,
  2,
  3,
@@ -649,26 +522,15 @@ G.edges(data=True)
  11,
  &lt;networkx.classes.graph.Graph at 0x106742ed0&gt;]
 </code></pre>
-
-<pre><code class="language-python">nx.draw(G)
-plt.show
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networks_practice_45_1.png" alt="png" /></p>
-
-<p><br></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nx<span style="color:#f92672">.</span>draw(G)
+plt<span style="color:#f92672">.</span>show
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networks_practice_45_1.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>Do you see it? The lone node is the node H added to G. The separate two nodes and 1 edge is (10, 11). The triagle is made of (1,2), (2,3), (1,3) edges and 3 nodes. The positions can be chosen, but here random.</p>
-
-<p><br></p>
-
-<pre><code class="language-python">G.remove_node(H)
-</code></pre>
-
-<pre><code class="language-python">G.nodes(data=True)
-</code></pre>
-
-<pre><code>[(0, {}),
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>remove_node(H)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span>True)
+</code></pre></div><pre><code>[(0, {}),
  (1, {}),
  (2, {}),
  (3, {}),
@@ -681,41 +543,23 @@ plt.show
  (10, {}),
  (11, {})]
 </code></pre>
-
-<pre><code class="language-python">nx.draw(G)
-plt.show
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networks_practice_49_1.png" alt="png" /></p>
-
-<pre><code class="language-python">nx.draw(H)
-plt.show()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networks_practice_50_0.png" alt="png" /></p>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_116_0.png" alt="png" /></p>
-
-<p><br></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nx<span style="color:#f92672">.</span>draw(G)
+plt<span style="color:#f92672">.</span>show
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networks_practice_49_1.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nx<span style="color:#f92672">.</span>draw(H)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networks_practice_50_0.png" alt="png"></p>
+<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_116_0.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>Turned out H is already connected nodes by edges.</p>
-
-<p><br></p>
-
-<pre><code class="language-python">G.add_node(&quot;spam&quot;)       # adds node &quot;spam&quot;
-G.add_nodes_from(&quot;spam&quot;) # adds 4 nodes: 's', 'p', 'a', 'm'
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>add_node(<span style="color:#e6db74">&#34;spam&#34;</span>)       <span style="color:#75715e"># adds node &#34;spam&#34;</span>
+G<span style="color:#f92672">.</span>add_nodes_from(<span style="color:#e6db74">&#34;spam&#34;</span>) <span style="color:#75715e"># adds 4 nodes: &#39;s&#39;, &#39;p&#39;, &#39;a&#39;, &#39;m&#39;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes()
+</code></pre></div><pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 'm', 'p', 'spam', 's', 'a']
 </code></pre>
-
-<pre><code class="language-python">G.nodes()
-</code></pre>
-
-<pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 'm', 'p', 'spam', 's', 'a']
-</code></pre>
-
-<pre><code class="language-python">G.edges()
-</code></pre>
-
-<pre><code>[(0, 1),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>edges()
+</code></pre></div><pre><code>[(0, 1),
  (1, 2),
  (1, 3),
  (2, 3),
@@ -727,25 +571,19 @@ G.add_nodes_from(&quot;spam&quot;) # adds 4 nodes: 's', 'p', 'a', 'm'
  (8, 9),
  (10, 11)]
 </code></pre>
-
-<pre><code class="language-python">G.neighbors(3)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>neighbors(<span style="color:#ae81ff">3</span>)
+</code></pre></div><pre><code>[1, 2, 4]
 </code></pre>
-
-<pre><code>[1, 2, 4]
-</code></pre>
-
-<p><br></p>
-
-<p>Graph-tool is also a popular graph library, but I would keep studying graphs using networkx. Graph-tool uses C++ in the background, so very fast. Networkx is easy to understand and works really well with few data set<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>. Maybe if we want to use the libraries for big data machine learning, at last need to use a graph-tool, but pedagogically a networkx could be a good choice.</p>
-<div class="footnotes">
-
-<hr />
-
+<!-- raw HTML omitted -->
+<p>Graph-tool is also a popular graph library, but I would keep studying graphs using networkx. Graph-tool uses C++ in the background, so very fast. Networkx is easy to understand and works really well with few data set<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. Maybe if we want to use the libraries for big data machine learning, at last need to use a graph-tool, but pedagogically a networkx could be a good choice.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:1">See <a href="https://www.quora.com/What-is-the-best-Python-graph-library">the comparison of networkx and graph-tool, answered at Quora</a>
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>See <a href="https://www.quora.com/What-is-the-best-Python-graph-library">the comparison of networkx and graph-tool, answered at Quora</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
-</div>
+</section>
 
               
             </div>
@@ -828,7 +666,7 @@ G.add_nodes_from(&quot;spam&quot;) # adds 4 nodes: 's', 'p', 'a', 'm'
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Namshik Kim. All Rights Reserved
+    &copy; 2020 Namshik Kim. All Rights Reserved
   </span>
 </footer>
 
@@ -954,8 +792,7 @@ G.add_nodes_from(&quot;spam&quot;) # adds 4 nodes: 's', 'p', 'a', 'm'
                   Nov 11, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Update 
-I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+              <div class="media-content hide-xs font-merryweather">Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&rsquo;t be posted).</div>
             </div>
             <div style="clear:both;"></div>
@@ -990,8 +827,7 @@ I myself found some errors due to the version change of Python libraries, so I u
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Open source 
-The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+              <div class="media-content hide-xs font-merryweather">Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -1008,10 +844,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
-Deep learning and classifications. 
-The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
-
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1029,9 +862,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Prologue 
-Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
-
+              <div class="media-content hide-xs font-merryweather">Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1050,7 +881,6 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
-
 AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1086,7 +916,6 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
-
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1122,9 +951,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

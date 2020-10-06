@@ -5,33 +5,29 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
-<meta name="description" content="Single neuron still has a lot to say 
-In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
+<meta name="description" content="Single neuron still has a lot to say In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
+In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.
+Objective function and its contour plot.">
 
-In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.">
 
-
-<meta property="og:description" content="Single neuron still has a lot to say 
-In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
-
-In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.">
+<meta property="og:description" content="Single neuron still has a lot to say In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
+In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.
+Objective function and its contour plot.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Neural Network (2) : Inference Using Perceptron and MCMC">
 <meta name="twitter:title" content="Neural Network (2) : Inference Using Perceptron and MCMC">
 <meta property="og:url" content="//physhik.com/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/">
 <meta property="twitter:url" content="//physhik.com/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/">
 <meta property="og:site_name" content="Physics to Data Science">
-<meta property="og:description" content="Single neuron still has a lot to say 
-In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
-
-In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.">
-<meta name="twitter:description" content="Single neuron still has a lot to say 
-In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
-
-In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.">
+<meta property="og:description" content="Single neuron still has a lot to say In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
+In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.
+Objective function and its contour plot.">
+<meta name="twitter:description" content="Single neuron still has a lot to say In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
+In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.
+Objective function and its contour plot.">
 <meta property="og:locale" content="en-us">
 
   
@@ -329,372 +325,275 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><br></p>
-
+              <!-- raw HTML omitted -->
 <h2 id="single-neuron-still-has-a-lot-to-say">Single neuron still has a lot to say</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>In <a href="//physhik.com/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/">the post of the first neural network tutorial</a>, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>In <a href="//physhik.com/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/">the post of the first neural network tutorial</a>, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h3 id="objective-function-and-its-contour-plot">Objective function and its contour plot.</h3>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> random
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<p><br></p>
+<span style="color:#f92672">import</span> scipy.stats <span style="color:#f92672">as</span> st
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> scipy.special <span style="color:#f92672">as</span> sp
+<span style="color:#f92672">import</span> scipy.integrate <span style="color:#f92672">as</span> integrate
+<span style="color:#f92672">%</span>precision <span style="color:#ae81ff">12</span>
+<span style="color:#f92672">from</span> __future__ <span style="color:#f92672">import</span> division
 
-<pre><code class="language-python">import random
-import numpy as np
+<span style="color:#f92672">%</span>matplotlib inline
+plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#39;ggplot&#39;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sigmoid</span>(a):
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>a))
 
-import scipy.stats as st
-import matplotlib.pyplot as plt
-import scipy.special as sp
-import scipy.integrate as integrate
-%precision 12
-from __future__ import division
-
-%matplotlib inline
-plt.style.use('ggplot')
-</code></pre>
-
-<pre><code class="language-python">def sigmoid(a):
-    return 1/(1+np.exp(-a))
-
-</code></pre>
-
-<pre><code class="language-python"># initial x(2d vector) and target pair in 10*10 box
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># initial x(2d vector) and target pair in 10*10 box</span>
 
 
-def weight():
-    return np.array([np.random.uniform(-1,1), np.random.uniform(-1,1), np.random.uniform(-1,1)])
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">weight</span>():
+    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>array([np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>), np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>), np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)])
 
-</code></pre>
-
-<pre><code class="language-python">def linreg(x):
-    return -w[0]/w[2]-x*w[1]/w[2]
-</code></pre>
-
-<p><br></p>
-
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">linreg</span>(x):
+    <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>w[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">/</span>w[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">-</span>x<span style="color:#f92672">*</span>w[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">/</span>w[<span style="color:#ae81ff">2</span>]
+</code></pre></div><!-- raw HTML omitted -->
 <p>Here, I change the initial data points a bit. Make them asymmetric to see asymmetric result of the objective function.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">initial_values2</span>(N): <span style="color:#75715e"># N x 4 matrix</span>
+    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>array([(<span style="color:#ae81ff">1</span>, np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">5</span>), np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10</span>),np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>binomial(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.5</span>) ) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N)])
 
-<p><br></p>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">weight</span>():
+    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>array([np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>), np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>), np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)])
 
-<pre><code class="language-python">def initial_values2(N): # N x 4 matrix
-    return np.array([(1, np.random.uniform(0,5), np.random.uniform(0,10),np.random.binomial(1, 0.5) ) for i in range(N)])
+N <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+w <span style="color:#f92672">=</span> weight()
+I <span style="color:#f92672">=</span> initial_values2(N)
+x <span style="color:#f92672">=</span> I[:,:<span style="color:#ae81ff">3</span>]
+t <span style="color:#f92672">=</span> I[:,<span style="color:#ae81ff">3</span>]
 
-def weight():
-    return np.array([np.random.uniform(-1,1), np.random.uniform(-1,1), np.random.uniform(-1,1)])
-
-N = 100
-w = weight()
-I = initial_values2(N)
-x = I[:,:3]
-t = I[:,3]
-
-for i in range(N):
-    if x[:,2][i]&gt;-0.5*x[:,1][i] + 6:
-        t[i]=1
-    else:
-        t[i]=0
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N):
+    <span style="color:#66d9ef">if</span> x[:,<span style="color:#ae81ff">2</span>][i]<span style="color:#f92672">&gt;-</span><span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>x[:,<span style="color:#ae81ff">1</span>][i] <span style="color:#f92672">+</span> <span style="color:#ae81ff">6</span>:
+        t[i]<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">else</span>:
+        t[i]<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
 
 
-</code></pre>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> x[:,<span style="color:#ae81ff">1</span>:]
+w1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">5.0</span>, <span style="color:#ae81ff">5.0</span>, <span style="color:#ae81ff">200</span>)
+w2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">5.0</span>, <span style="color:#ae81ff">5.0</span>, <span style="color:#ae81ff">200</span>)
+Z <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros((<span style="color:#ae81ff">200</span>,<span style="color:#ae81ff">200</span>))
 
-<pre><code class="language-python">X = x[:,1:]
-w1 = np.linspace(-5.0, 5.0, 200)
-w2 = np.linspace(-5.0, 5.0, 200)
-Z = np.zeros((200,200))
-
-W1, W2 = np.meshgrid(w1, w2)
-for i in range(200):
-    for j in range(200):
-        w = np.array((W1[i,j],W2[i,j]))
-        Z[i,j] = np.dot( t, np.log(sigmoid(np.dot(X, w)))) + np.dot((1-t), np.log(1-sigmoid(np.dot(X, w))))
+W1, W2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(w1, w2)
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">200</span>):
+    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">200</span>):
+        w <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array((W1[i,j],W2[i,j]))
+        Z[i,j] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>dot( t, np<span style="color:#f92672">.</span>log(sigmoid(np<span style="color:#f92672">.</span>dot(X, w)))) <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>dot((<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>t), np<span style="color:#f92672">.</span>log(<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>sigmoid(np<span style="color:#f92672">.</span>dot(X, w))))
 
 
-plt.contour(W1,W2,Z, 200)
-plt.colorbar()
+plt<span style="color:#f92672">.</span>contour(W1,W2,Z, <span style="color:#ae81ff">200</span>)
+plt<span style="color:#f92672">.</span>colorbar()
 
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/perceptronInference_files/perceptronInference_11_2.png" alt="png" /></p>
-
-<p><br></p>
-
+</code></pre></div><p><img src="//physhik.com/images/postimages/perceptronInference_files/perceptronInference_11_2.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>I assumed $w_0 = 0 $ for simplicity, and the center of the contour corresponds to the most probable $(w_1, w_2)$ obtained by supervised learning in <a href="//physhik.com/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/">the previous post</a>.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h3 id="inference-from-10-data-points">Inference from 10 data points</h3>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>In advance, when you do this kind of matrix multiplications, be familiar to checking the shapes of the matrices in order to check the matrices are well-matched or to decide if you need to transpose some of them.</p>
-
-<p><br></p>
-
-<pre><code class="language-python">np.shape(w), np.shape(x), np.shape((t-sigmoid(np.dot(x, w))))
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>shape(w), np<span style="color:#f92672">.</span>shape(x), np<span style="color:#f92672">.</span>shape((t<span style="color:#f92672">-</span>sigmoid(np<span style="color:#f92672">.</span>dot(x, w))))
+</code></pre></div><pre><code>((3,), (100, 3), (100,))
 </code></pre>
-
-<pre><code>((3,), (100, 3), (100,))
-</code></pre>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Let us choose 10 data points among $ 10 \times 10 $ box, generated by the following method.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">initial_values</span>(N): <span style="color:#75715e"># N x 4 matrix</span>
+    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>array([(<span style="color:#ae81ff">1</span>, np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10</span>), np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10</span>),np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>binomial(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.5</span>) ) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N)])
 
-<p><br></p>
+N <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+I <span style="color:#f92672">=</span> initial_values2(N)
+x <span style="color:#f92672">=</span> I[:,:<span style="color:#ae81ff">3</span>]
+t <span style="color:#f92672">=</span> I[:,<span style="color:#ae81ff">3</span>]
 
-<pre><code class="language-python">def initial_values(N): # N x 4 matrix
-    return np.array([(1, np.random.uniform(0,10), np.random.uniform(0,10),np.random.binomial(1, 0.5) ) for i in range(N)])
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N):
+    <span style="color:#66d9ef">if</span> x[:,<span style="color:#ae81ff">2</span>][i]<span style="color:#f92672">&gt;-</span><span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>x[:,<span style="color:#ae81ff">1</span>][i] <span style="color:#f92672">+</span> <span style="color:#ae81ff">6</span>:
+        t[i]<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">else</span>:
+        t[i]<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
 
-N = 100
-I = initial_values2(N)
-x = I[:,:3]
-t = I[:,3]
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>)
+Y <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>X <span style="color:#f92672">+</span> <span style="color:#ae81ff">6</span>
+plt<span style="color:#f92672">.</span>plot(X,Y,color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+N <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
 
-for i in range(N):
-    if x[:,2][i]&gt;-0.5*x[:,1][i] + 6:
-        t[i]=1
-    else:
-        t[i]=0
+eta <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>
+alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>
+turn <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+turns <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+wlist<span style="color:#f92672">=</span>[w]
+<span style="color:#66d9ef">while</span> turn <span style="color:#f92672">&lt;</span> turns:
+    a <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>dot(x[:<span style="color:#ae81ff">10</span>], w)
+    y <span style="color:#f92672">=</span> sigmoid(a)
+    e <span style="color:#f92672">=</span> t[:<span style="color:#ae81ff">10</span>] <span style="color:#f92672">-</span> y
+    g <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>dot(np<span style="color:#f92672">.</span>transpose(x[:<span style="color:#ae81ff">10</span>]), e) <span style="color:#75715e"># sum , batch</span>
 
-</code></pre>
+    w <span style="color:#f92672">=</span> w <span style="color:#f92672">-</span> eta <span style="color:#f92672">*</span> ( g <span style="color:#f92672">+</span> alpha <span style="color:#f92672">*</span> w )
+    wlist <span style="color:#f92672">+=</span> [w]
+    turn <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+uplist <span style="color:#f92672">=</span> []
+downlist <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N):
+    <span style="color:#66d9ef">if</span> t[i]<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>:
+        uplist <span style="color:#f92672">=</span> uplist <span style="color:#f92672">+</span>[x[:<span style="color:#ae81ff">10</span>][i]]
 
-<pre><code class="language-python">X = np.linspace(0.01, 10, 100)
-Y = -0.5*X + 6
-plt.plot(X,Y,color='r')
-N = 10
+    <span style="color:#66d9ef">else</span>:
+        downlist <span style="color:#f92672">=</span> downlist <span style="color:#f92672">+</span>[x[:<span style="color:#ae81ff">10</span>][i]]
+uplist <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(uplist)
+downlist <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(downlist)
 
-eta = 0.01
-alpha = 0.01
-turn = 1
-turns = 1000
-wlist=[w]
-while turn &lt; turns:
-    a = np.dot(x[:10], w)
-    y = sigmoid(a)
-    e = t[:10] - y
-    g = -np.dot(np.transpose(x[:10]), e) # sum , batch
-
-    w = w - eta * ( g + alpha * w )
-    wlist += [w]
-    turn += 1
-uplist = []
-downlist = []
-for i in range(N):
-    if t[i]==1:
-        uplist = uplist +[x[:10][i]]
-
-    else:
-        downlist = downlist +[x[:10][i]]
-uplist = np.array(uplist)
-downlist = np.array(downlist)
-
-plt.plot(uplist[:,1], uplist[:,2],'x')
-plt.plot(downlist[:,1], downlist[:,2],'o')
-X = np.linspace(0.01, 10, 100)
-Y = linreg(X)
-plt.plot(X,Y,color = 'b')
-plt.axis([0,10,0,10])
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/perceptronInference_files/perceptronInference_16_1.png" alt="png" /></p>
-
-<p><br></p>
-
-<p>Note that I intentionally set features 0 if the points are below the linear line (red line of the above plot), y = <sup>1</sup>&frasl;<sub>2</sub> x + 6, and else feature 1. Previously when we use 100 data points, the supervised learning yielded us quite precise line plot. However, if we use only 10 data, the estimated line plots (blue line of the above plot) are not so good to make inference for the next target point of estimation.</p>
-
-<p><br></p>
-
+plt<span style="color:#f92672">.</span>plot(uplist[:,<span style="color:#ae81ff">1</span>], uplist[:,<span style="color:#ae81ff">2</span>],<span style="color:#e6db74">&#39;x&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(downlist[:,<span style="color:#ae81ff">1</span>], downlist[:,<span style="color:#ae81ff">2</span>],<span style="color:#e6db74">&#39;o&#39;</span>)
+X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>)
+Y <span style="color:#f92672">=</span> linreg(X)
+plt<span style="color:#f92672">.</span>plot(X,Y,color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;b&#39;</span>)
+plt<span style="color:#f92672">.</span>axis([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10</span>])
+</code></pre></div><p><img src="//physhik.com/images/postimages/perceptronInference_files/perceptronInference_16_1.png" alt="png"></p>
+<!-- raw HTML omitted -->
+<p>Note that I intentionally set features 0 if the points are below the linear line (red line of the above plot), y = 1/2 x + 6, and else feature 1. Previously when we use 100 data points, the supervised learning yielded us quite precise line plot. However, if we use only 10 data, the estimated line plots (blue line of the above plot) are not so good to make inference for the next target point of estimation.</p>
+<!-- raw HTML omitted -->
 <p>The Bayesian prediction of the next $t^{(N+1)}$ is nothing but an expectation value of
 $y(\boldsymbol{x}^{(N+1)}| \boldsymbol{w})$. The expectation value as an integration in the probability distribution can be found by Markov chain Monte Carlo sampling.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Of course, the target probability distribution for the sampling is improbable. That has been discussed much in this blog. It is one of defects of Monte Carlo sampling and we also studied more efficient Monte Carlo sampling to handle this problem. Here, we will use the algorithm similar to Hamiltonian Monte Carlo method, called <em>Langevin Monte Carlo method</em>. The difference from the leapfrog algorithm is that we have one more loop to obtain the momentum after $T$ in the leapfrog algorithm. You can review it in <a href="//physhik.com/2017/08/mcmc-5-hamiltonian-monte-carlo-method/">the post of the Hamiltonian Monte Carlo sampling</a>.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> x[:<span style="color:#ae81ff">10</span>]
+t<span style="color:#f92672">=</span> t[:<span style="color:#ae81ff">10</span>]
 
-<p><br></p>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">M</span>(w, p, alpha):
+    <span style="color:#66d9ef">return</span>  <span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>dot(t, np<span style="color:#f92672">.</span>log(sigmoid(np<span style="color:#f92672">.</span>dot(x, w)))) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>dot((<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>t), np<span style="color:#f92672">.</span>log(<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>sigmoid(np<span style="color:#f92672">.</span>dot(x, w)))) <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>alpha<span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>dot(w,w)
 
-<pre><code class="language-python">x = x[:10]
-t= t[:10]
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">H</span>(w, p, alpha):
+    <span style="color:#66d9ef">return</span> M(w, p, alpha)<span style="color:#f92672">+</span>np<span style="color:#f92672">.</span>dot(p,p)
 
-def M(w, p, alpha):
-    return  -np.dot(t, np.log(sigmoid(np.dot(x, w)))) - np.dot((1-t), np.log(1-sigmoid(np.dot(x, w)))) + 0.5*alpha* np.dot(w,w)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gradDescent</span>(w, alpha):
+    <span style="color:#66d9ef">return</span> alpha<span style="color:#f92672">*</span>w <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>dot((t<span style="color:#f92672">-</span>sigmoid(np<span style="color:#f92672">.</span>dot(x, w))),x)
 
-def H(w, p, alpha):
-    return M(w, p, alpha)+np.dot(p,p)
-
-def gradDescent(w, alpha):
-    return alpha*w - np.dot((t-sigmoid(np.dot(x, w))),x)
-
-alpha = 0.01
+alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>
 
 
-# initial point
-w0 = np.array([-10, 2,3])
+<span style="color:#75715e"># initial point</span>
+w0 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>])
 
-Listw = [w0]
+Listw <span style="color:#f92672">=</span> [w0]
 
-# number of samples
-N = 40000
+<span style="color:#75715e"># number of samples</span>
+N <span style="color:#f92672">=</span> <span style="color:#ae81ff">40000</span>
 
-eta = 0.01
-epsilon = np.sqrt(2*eta)
+eta <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>
+epsilon <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>eta)
 
 
 
-for i in range(N):
-    p0 = np.random.normal(0,1,3)
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N):
+    p0 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>)
 
-    ph = p0 - epsilon* gradDescent(w0, alpha)/2.0
-    wn = w0 + epsilon* ph
-    pn = ph - epsilon* gradDescent(wn, alpha)/2.0
-
-
-    a = H(wn, pn, alpha)/H(w0, p0, alpha)
-
-    if a &gt;=1:
-        Listw = Listw +[wn]
-        w0,p0 = wn, pn
-    else:
-        if random.random() &lt; a:
-            Listw = Listw + [wn]
-            w0,p0 = wn, pn
+    ph <span style="color:#f92672">=</span> p0 <span style="color:#f92672">-</span> epsilon<span style="color:#f92672">*</span> gradDescent(w0, alpha)<span style="color:#f92672">/</span><span style="color:#ae81ff">2.0</span>
+    wn <span style="color:#f92672">=</span> w0 <span style="color:#f92672">+</span> epsilon<span style="color:#f92672">*</span> ph
+    pn <span style="color:#f92672">=</span> ph <span style="color:#f92672">-</span> epsilon<span style="color:#f92672">*</span> gradDescent(wn, alpha)<span style="color:#f92672">/</span><span style="color:#ae81ff">2.0</span>
 
 
+    a <span style="color:#f92672">=</span> H(wn, pn, alpha)<span style="color:#f92672">/</span>H(w0, p0, alpha)
 
-Listw = np.array(Listw)
+    <span style="color:#66d9ef">if</span> a <span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">1</span>:
+        Listw <span style="color:#f92672">=</span> Listw <span style="color:#f92672">+</span>[wn]
+        w0,p0 <span style="color:#f92672">=</span> wn, pn
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#66d9ef">if</span> random<span style="color:#f92672">.</span>random() <span style="color:#f92672">&lt;</span> a:
+            Listw <span style="color:#f92672">=</span> Listw <span style="color:#f92672">+</span> [wn]
+            w0,p0 <span style="color:#f92672">=</span> wn, pn
+
+
+
+Listw <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(Listw)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">len(Listw)
+</code></pre></div><pre><code>38689
 </code></pre>
-
-<pre><code class="language-python">len(Listw)
-</code></pre>
-
-<pre><code>38689
-</code></pre>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>The Markov chain converges after 10000 iterations.</p>
-
-<p><br></p>
-
-<pre><code class="language-python">plt.plot(Listw[10000:][:,1], Listw[10000:][:,2], '.')
-plt.plot(1.256838,   2.530788, 'o', color='b')
-plt.axis([-1,6,-2,7])
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/perceptronInference_files/perceptronInference_19_1.png" alt="png" /></p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>plot(Listw[<span style="color:#ae81ff">10000</span>:][:,<span style="color:#ae81ff">1</span>], Listw[<span style="color:#ae81ff">10000</span>:][:,<span style="color:#ae81ff">2</span>], <span style="color:#e6db74">&#39;.&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(<span style="color:#ae81ff">1.256838</span>,   <span style="color:#ae81ff">2.530788</span>, <span style="color:#e6db74">&#39;o&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>)
+plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">6</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">7</span>])
+</code></pre></div><p><img src="//physhik.com/images/postimages/perceptronInference_files/perceptronInference_19_1.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>Blue dot is the estimated $(w_1, w_2)$ in $\boldsymbol{w}$-space.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>We randomly draw 25 samples from the Markov chain Monte Carlo samples.</p>
-
-<p><br></p>
-
-<pre><code class="language-python">selected_w = np.array([Listw[10000:][1000*i] for i in range(25)])
-</code></pre>
-
-<pre><code class="language-python">X = np.linspace(0.01, 10, 100)
-Y = linreg(X)
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">selected_w <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([Listw[<span style="color:#ae81ff">10000</span>:][<span style="color:#ae81ff">1000</span><span style="color:#f92672">*</span>i] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">25</span>)])
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>)
+Y <span style="color:#f92672">=</span> linreg(X)
 
 
-for i in range(25):
-    plt.plot(X, -(selected_w[:,0][i]+selected_w[:,1][i]*X)/selected_w[:,2][i])
-plt.plot(X,Y, linewidth=3, color='b')
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">25</span>):
+    plt<span style="color:#f92672">.</span>plot(X, <span style="color:#f92672">-</span>(selected_w[:,<span style="color:#ae81ff">0</span>][i]<span style="color:#f92672">+</span>selected_w[:,<span style="color:#ae81ff">1</span>][i]<span style="color:#f92672">*</span>X)<span style="color:#f92672">/</span>selected_w[:,<span style="color:#ae81ff">2</span>][i])
+plt<span style="color:#f92672">.</span>plot(X,Y, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>)
 
-X = np.linspace(0.01, 10, 100)
-
-
-Y = -0.5*X + 6
-plt.plot(X,Y,linewidth=3,color='r')
+X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>)
 
 
-plt.show()
-</code></pre>
+Y <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>X <span style="color:#f92672">+</span> <span style="color:#ae81ff">6</span>
+plt<span style="color:#f92672">.</span>plot(X,Y,linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>,color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
 
-<p><img src="//physhik.com/images/postimages/perceptronInference_files/perceptronInference_21_0.png" alt="png" /></p>
 
-<p><br></p>
-
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/perceptronInference_files/perceptronInference_21_0.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>The blue line is the estimated line from $\boldsymbol{w}$, and the red line is the function given to draw the samples, i.e. the exact solution. Both are in the range of the inference estimation.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">XX, YY <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(X, X)
+Z <span style="color:#f92672">=</span> sigmoid(<span style="color:#f92672">-</span>w[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">-</span>w[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">*</span>XX<span style="color:#f92672">-</span>w[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">*</span>YY)
+plt<span style="color:#f92672">.</span>contour(XX, YY, Z)
+plt<span style="color:#f92672">.</span>colorbar()
 
-<p><br></p>
-
-<pre><code class="language-python">XX, YY = np.meshgrid(X, X)
-Z = sigmoid(-w[0]-w[1]*XX-w[2]*YY)
-plt.contour(XX, YY, Z)
-plt.colorbar()
-
-plt.plot(uplist[:,1], uplist[:,2],'x')
-plt.plot(downlist[:,1], downlist[:,2],'o')
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/perceptronInference_files/perceptronInference_22_1.png" alt="png" /></p>
-
-<p><br></p>
-
+plt<span style="color:#f92672">.</span>plot(uplist[:,<span style="color:#ae81ff">1</span>], uplist[:,<span style="color:#ae81ff">2</span>],<span style="color:#e6db74">&#39;x&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(downlist[:,<span style="color:#ae81ff">1</span>], downlist[:,<span style="color:#ae81ff">2</span>],<span style="color:#e6db74">&#39;o&#39;</span>)
+</code></pre></div><p><img src="//physhik.com/images/postimages/perceptronInference_files/perceptronInference_22_1.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>This is the probability contour function for $P(t=1,~\boldsymbol{w}, \boldsymbol{x})$, obtained from the expectation value of $y = 1/(\exp(-\boldsymbol{w} \cdot \boldsymbol{x}))$. The estimation for the given data is good, but not at all good for predictions. Already wrong from the exact solution.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">XX, YY <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(X, X)
+Z <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">25</span>):
+    w <span style="color:#f92672">=</span> selected_w[i]
+    Z<span style="color:#f92672">.</span>append(sigmoid(<span style="color:#f92672">-</span>w[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">-</span>w[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">*</span>XX<span style="color:#f92672">-</span>w[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">*</span>YY))
 
-<p><br></p>
-
-<pre><code class="language-python">XX, YY = np.meshgrid(X, X)
-Z = []
-for i in range(25):
-    w = selected_w[i]
-    Z.append(sigmoid(-w[0]-w[1]*XX-w[2]*YY))
-
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Z <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(Z)
+np<span style="color:#f92672">.</span>shape(Z)
+</code></pre></div><pre><code>(25, 100, 100)
 </code></pre>
-
-<pre><code class="language-python">Z = np.array(Z)
-np.shape(Z)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>shape(sum(Z))
+</code></pre></div><pre><code>(100, 100)
 </code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ZZZ <span style="color:#f92672">=</span> sum(Z)<span style="color:#f92672">/</span><span style="color:#ae81ff">30</span>
+plt<span style="color:#f92672">.</span>contour(XX, YY, ZZ, <span style="color:#ae81ff">10</span>)
+X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>)
+Y <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>X <span style="color:#f92672">+</span> <span style="color:#ae81ff">6</span>
+plt<span style="color:#f92672">.</span>plot(X,Y,color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
+plt<span style="color:#f92672">.</span>colorbar()
+plt<span style="color:#f92672">.</span>plot(uplist[:,<span style="color:#ae81ff">1</span>], uplist[:,<span style="color:#ae81ff">2</span>],<span style="color:#e6db74">&#39;x&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(downlist[:,<span style="color:#ae81ff">1</span>], downlist[:,<span style="color:#ae81ff">2</span>],<span style="color:#e6db74">&#39;o&#39;</span>)
 
-<pre><code>(25, 100, 100)
-</code></pre>
-
-<pre><code class="language-python">np.shape(sum(Z))
-</code></pre>
-
-<pre><code>(100, 100)
-</code></pre>
-
-<pre><code class="language-python">ZZZ = sum(Z)/30
-plt.contour(XX, YY, ZZ, 10)
-X = np.linspace(0.01, 10, 100)
-Y = -0.5*X + 6
-plt.plot(X,Y,color='r', linewidth=3)
-plt.colorbar()
-plt.plot(uplist[:,1], uplist[:,2],'x')
-plt.plot(downlist[:,1], downlist[:,2],'o')
-
-X = np.linspace(0.01, 10, 100)
-Y = linreg(X)
-plt.plot(X, Y, linewidth=3, color = 'b')
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/perceptronInference_files/perceptronInference_26_1.png" alt="png" /></p>
-
-<p><br></p>
-
+X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>)
+Y <span style="color:#f92672">=</span> linreg(X)
+plt<span style="color:#f92672">.</span>plot(X, Y, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;b&#39;</span>)
+</code></pre></div><p><img src="//physhik.com/images/postimages/perceptronInference_files/perceptronInference_26_1.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>This is obtained by taking the average of 25 $y$&rsquo;s from the Monte Carlo samples. Again, the blue line is the estimated line from $\boldsymbol{w}$, and the red line is the function given to draw the samples, i.e. the exact solution. Bayesian predictions become moderate because we do not have enough data. If we use enough many data, the predictions will become more tight.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>This is an example of Bayesian 1-neuron network, and if you construct the multiple neurons network, it is the Bayesian network.</p>
-
-<p><br></p>
+<!-- raw HTML omitted -->
 
               
             </div>
@@ -789,7 +688,7 @@ plt.plot(X, Y, linewidth=3, color = 'b')
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Namshik Kim. All Rights Reserved
+    &copy; 2020 Namshik Kim. All Rights Reserved
   </span>
 </footer>
 
@@ -915,8 +814,7 @@ plt.plot(X, Y, linewidth=3, color = 'b')
                   Nov 11, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Update 
-I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+              <div class="media-content hide-xs font-merryweather">Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&rsquo;t be posted).</div>
             </div>
             <div style="clear:both;"></div>
@@ -951,8 +849,7 @@ I myself found some errors due to the version change of Python libraries, so I u
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Open source 
-The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+              <div class="media-content hide-xs font-merryweather">Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -969,10 +866,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
-Deep learning and classifications. 
-The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
-
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
             </div>
             <div style="clear:both;"></div>
@@ -990,9 +884,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Prologue 
-Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
-
+              <div class="media-content hide-xs font-merryweather">Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1011,7 +903,6 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
-
 AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1047,7 +938,6 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
-
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1083,9 +973,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

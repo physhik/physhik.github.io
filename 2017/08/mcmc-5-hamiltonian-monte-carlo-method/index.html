@@ -5,20 +5,16 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
 <meta name="description" content="Yay! Finally something more directly from physics to data science. We will also have a chance to see how Metropolis-Hastings algorithm works!
-
 The Hamiltonian Monte Carlo method is a kind of Metropolis-Hastings method. One of the weak points of Monte Carlo sampling comes up with random walks. Hamiltonian Monte Carlo method (HMC) is an approach to reducing the randomizing in algorithm of the sampling.
-
 The original name was hybrid Monte Carlo method.">
 
 
 <meta property="og:description" content="Yay! Finally something more directly from physics to data science. We will also have a chance to see how Metropolis-Hastings algorithm works!
-
 The Hamiltonian Monte Carlo method is a kind of Metropolis-Hastings method. One of the weak points of Monte Carlo sampling comes up with random walks. Hamiltonian Monte Carlo method (HMC) is an approach to reducing the randomizing in algorithm of the sampling.
-
 The original name was hybrid Monte Carlo method.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MCMC (5) : Hamiltonian Monte Carlo Method">
@@ -27,14 +23,10 @@ The original name was hybrid Monte Carlo method.">
 <meta property="twitter:url" content="//physhik.com/2017/08/mcmc-5-hamiltonian-monte-carlo-method/">
 <meta property="og:site_name" content="Physics to Data Science">
 <meta property="og:description" content="Yay! Finally something more directly from physics to data science. We will also have a chance to see how Metropolis-Hastings algorithm works!
-
 The Hamiltonian Monte Carlo method is a kind of Metropolis-Hastings method. One of the weak points of Monte Carlo sampling comes up with random walks. Hamiltonian Monte Carlo method (HMC) is an approach to reducing the randomizing in algorithm of the sampling.
-
 The original name was hybrid Monte Carlo method.">
 <meta name="twitter:description" content="Yay! Finally something more directly from physics to data science. We will also have a chance to see how Metropolis-Hastings algorithm works!
-
 The Hamiltonian Monte Carlo method is a kind of Metropolis-Hastings method. One of the weak points of Monte Carlo sampling comes up with random walks. Hamiltonian Monte Carlo method (HMC) is an approach to reducing the randomizing in algorithm of the sampling.
-
 The original name was hybrid Monte Carlo method.">
 <meta property="og:locale" content="en-us">
 
@@ -327,286 +319,200 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><br></p>
-
+              <!-- raw HTML omitted -->
 <p>Yay! Finally something more directly from physics to data science. We will also have a chance to see how Metropolis-Hastings algorithm works!</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>The Hamiltonian Monte Carlo method is a kind of Metropolis-Hastings method. One of the weak points of Monte Carlo sampling comes up with random walks. Hamiltonian Monte Carlo method (HMC) is an approach to reducing the randomizing in algorithm of the sampling.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>The original name was hybrid Monte Carlo method. I prefer calling it <em>Hamiltonian Monte Carlo method</em>!. Sounds cooler and reminds me physics! Hamiltonian mechanics is one of the coolest topics you can learn in mechanics class. I would not have introduced about the real amazing part of the Hamiltonian mechanics, but I still strongly recommend you to look into it from other references. Graduate level of mechanics books must have the part.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>We will approach the idea from Metropolis-Hastings method with very narrow target density.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="metropolis-hastings-method-review">Metropolis-Hastings method review</h2>
-
-<p><br></p>
-
-<p>In Metropolis-Hastings sampling, we use a proposal density $Q (\boldsymbol{x}, \boldsymbol{x&rsquo;})$, which is a probability to transit from $\boldsymbol{x}$ to $\boldsymbol{x&rsquo;}$. $\boldsymbol{x&rsquo;}$ is the probable next position.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<p>In Metropolis-Hastings sampling, we use a proposal density $Q (\boldsymbol{x}, \boldsymbol{x'})$, which is a probability to transit from $\boldsymbol{x}$ to $\boldsymbol{x'}$. $\boldsymbol{x'}$ is the probable next position.</p>
+<!-- raw HTML omitted -->
 <ul>
 <li>If the proposal distribution is symmetric under the switch of position vectors, the proposal distribution becomes irrelevant at the procedures. What matters is relative proportion of $P^* (\boldsymbol{x})$.</li>
 </ul>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <ul>
-<li>If $P^* (\boldsymbol{x&rsquo;}) / P^* (\boldsymbol{x})$ is bigger than 1, just draw the $\boldsymbol{x&rsquo;}$ to the sample. If $\boldsymbol{x} = x^{(n)}$, we set $\boldsymbol{x&rsquo;} = x^{(n+1)}$.</li>
+<li>If $P^* (\boldsymbol{x'}) / P^* (\boldsymbol{x})$ is bigger than 1, just draw the $\boldsymbol{x'}$ to the sample. If $\boldsymbol{x} = x^{(n)}$, we set $\boldsymbol{x'} = x^{(n+1)}$.</li>
 </ul>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <ul>
-<li>If $P^* (\boldsymbol{x&rsquo;}) / P^* (\boldsymbol{x})$ is smaller than 1, draw the $\boldsymbol{x&rsquo;}$ to the sample with the probability, $P^* (\boldsymbol{x&rsquo;}) / P^* (\boldsymbol{x})$.</li>
+<li>If $P^* (\boldsymbol{x'}) / P^* (\boldsymbol{x})$ is smaller than 1, draw the $\boldsymbol{x'}$ to the sample with the probability, $P^* (\boldsymbol{x'}) / P^* (\boldsymbol{x})$.</li>
 </ul>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Intuitively, if we keep doing this procedure, we will obtain the sample of $P(\boldsymbol{x})$ up to some proportional constant.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> random
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 
-<p><br></p>
+<span style="color:#f92672">%</span>matplotlib inline
+plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#39;ggplot&#39;</span>)
 
-<p><br></p>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">P_star</span>(X1,X2):
+    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>(<span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X1<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">249.75</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X2<span style="color:#f92672">+</span><span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">*</span>X2))
 
-<pre><code class="language-python">import numpy as np
-import random
-import matplotlib.pyplot as plt
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#75715e"># initial point</span>
 
-%matplotlib inline
-plt.style.use('ggplot')
+x0, y0 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>])
 
-</code></pre>
+Listx , Listy <span style="color:#f92672">=</span> [x0], [y0]
 
-<pre><code class="language-python">def P_star(X1,X2):
-    return np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2))
-
-</code></pre>
-
-<pre><code class="language-python">
-# initial point
-
-x0, y0 = np.array([-1,1])
-
-Listx , Listy = [x0], [y0]
-
-# number of sample
-N = 100
+<span style="color:#75715e"># number of sample</span>
+N <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
 
 
-for i in range(N):
-    xn, yn = random.uniform(-1,1),random.uniform(-1,1)
-    a = P_star(xn,yn)/P_star(x0,y0)
-    if a &gt;=1:
-        Listx.append(xn)
-        Listy.append(yn)
-        x0,y0 = xn, yn
-    else:
-        if random.random()&lt;a:
-            Listx.append(xn)
-            Listy.append(yn)
-            x0,y0 = xn, yn
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N):
+    xn, yn <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>uniform(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>),random<span style="color:#f92672">.</span>uniform(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)
+    a <span style="color:#f92672">=</span> P_star(xn,yn)<span style="color:#f92672">/</span>P_star(x0,y0)
+    <span style="color:#66d9ef">if</span> a <span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">1</span>:
+        Listx<span style="color:#f92672">.</span>append(xn)
+        Listy<span style="color:#f92672">.</span>append(yn)
+        x0,y0 <span style="color:#f92672">=</span> xn, yn
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#66d9ef">if</span> random<span style="color:#f92672">.</span>random()<span style="color:#f92672">&lt;</span>a:
+            Listx<span style="color:#f92672">.</span>append(xn)
+            Listy<span style="color:#f92672">.</span>append(yn)
+            x0,y0 <span style="color:#f92672">=</span> xn, yn
 
 
-</code></pre>
-
-<p><br></p>
-
+</code></pre></div><!-- raw HTML omitted -->
 <p>You will see we define the proportion of the target densities.</p>
-
-<p><br></p>
-
-<pre><code class="language-python">a = P_star(xn,yn)/P_star(x0,y0)
-</code></pre>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#f92672">=</span> P_star(xn,yn)<span style="color:#f92672">/</span>P_star(x0,y0)
+</code></pre></div><!-- raw HTML omitted -->
 <p>And then accept with the above conditions. I did not make a script for rejection respectively. Not needed.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># the rate of the sample</span>
 
-<p><br></p>
-
-<pre><code class="language-python"># the rate of the sample
-
-len(Listx)/100.0
+len(Listx)<span style="color:#f92672">/</span><span style="color:#ae81ff">100.0</span>
+</code></pre></div><pre><code>0.14
 </code></pre>
-
-<pre><code>0.14
-</code></pre>
-
-<pre><code class="language-python">plt.plot(Listx, Listy,'o')
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/HMC_files/HMC_5_1.png" alt="png" /></p>
-
-<p><br></p>
-
-<pre><code class="language-python">plt.figure()
-plt.plot(Listx, Listy,'o-', alpha=0.4)
-x = np.arange(-1, 1, 0.01)
-y = np.arange(-1, 1, 0.01)
-X, Y = np.meshgrid(x, y)
-plt.contour(X,Y,P_star(X,Y))
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/HMC_files/HMC_6_1.png" alt="png" /></p>
-
-<p><br></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>plot(Listx, Listy,<span style="color:#e6db74">&#39;o&#39;</span>)
+</code></pre></div><p><img src="//physhik.com/images/postimages/HMC_files/HMC_5_1.png" alt="png"></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure()
+plt<span style="color:#f92672">.</span>plot(Listx, Listy,<span style="color:#e6db74">&#39;o-&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.4</span>)
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.01</span>)
+y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.01</span>)
+X, Y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x, y)
+plt<span style="color:#f92672">.</span>contour(X,Y,P_star(X,Y))
+</code></pre></div><p><img src="//physhik.com/images/postimages/HMC_files/HMC_6_1.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>When the target density is narrow-shaped like the figure, the random samples get out of the zone more probably, and the Metropolis-Hastings sampler performs very poorly. In the above example, only 14 % of samples are selected.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h2 id="hamiltonian-monte-carlo-method">Hamiltonian Monte Carlo Method</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>In statistical physics, the probability distribution of particles is</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>$$
 P^* (x) = \exp (- E(x))
 $$</p>
+<!-- raw HTML omitted -->
+<p>Earlier, I wrote that Hamiltonian Monte Carlo method reduces the randomness. How do we diminish it? We suggest the direction the sample move toward, by the leapfrog algorithm. The leapfrog algorithm chooses the direction by learning the gradient of the energy.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<!-- raw HTML omitted -->
+<p>In the above 2 dimensional contour plot, the center of the ellipse is more probable. It is very much similar to a map of mountain. Imagine that you stand at the edge of the mountain<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, and want to conquer the top of the mountain as soon as possible. The sample run by leapfrog algorithm is in the similar situation. It has the conserved dynamical energy for each turn<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>, kinetic energy plus potential energy. It feels the slope of the mountain and tends to go along where the slope is steeper.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">P_Hamiltonian</span>(X1,X2,p1,p2):
+    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>(<span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X1<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">249.75</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X2<span style="color:#f92672">+</span><span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">*</span>X2)<span style="color:#f92672">-</span>p1<span style="color:#f92672">*</span>p1<span style="color:#f92672">/</span><span style="color:#ae81ff">2.0</span><span style="color:#f92672">-</span>p2<span style="color:#f92672">*</span>p2<span style="color:#f92672">/</span><span style="color:#ae81ff">2.0</span>)
 
-<p><br></p>
-
-<p>Earlier, I wrote that Hamiltonian Monte Carlo method reduces the randomness. How do we diminish it? We suggest the direction the sample move toward, by the leapfrog algorithm. The leapfrog algorithm chooses the direction by learning the gradient of the energy.<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
-
-<p><br></p>
-
-<p>In the above 2 dimensional contour plot, the center of the ellipse is more probable. It is very much similar to a map of mountain. Imagine that you stand at the edge of the mountain<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>, and want to conquer the top of the mountain as soon as possible. The sample run by leapfrog algorithm is in the similar situation. It has the conserved dynamical energy for each turn<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup>, kinetic energy plus potential energy. It feels the slope of the mountain and tends to go along where the slope is steeper.</p>
-
-<p><br></p>
-
-<pre><code class="language-python">def P_Hamiltonian(X1,X2,p1,p2):
-    return np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)-p1*p1/2.0-p2*p2/2.0)
-
-def gradE(x):
-    return np.array([500.50*x[0]-2*249.75*x[1],-2*249.75*x[0]+500.50*x[1]])
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gradE</span>(x):
+    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">500.50</span><span style="color:#f92672">*</span>x[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">249.75</span><span style="color:#f92672">*</span>x[<span style="color:#ae81ff">1</span>],<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">249.75</span><span style="color:#f92672">*</span>x[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">500.50</span><span style="color:#f92672">*</span>x[<span style="color:#ae81ff">1</span>]])
 
 
 
 
-# initial point
-x0 = np.array([-1,1])
+<span style="color:#75715e"># initial point</span>
+x0 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>])
 
-Listx = [x0]
+Listx <span style="color:#f92672">=</span> [x0]
 
-# number of samples
-N = 100
-T = 100
-epsilon = 0.056
-
-
-
-for i in range(N):
-    p0 = np.random.normal(0,1,2)
-
-    for t in range(T):
-        ph = p0 - epsilon* gradE(x0)/2.0
-        xn = x0 + epsilon* ph
-        pn = ph - epsilon* gradE(xn)/2
-
-
-    a = P_Hamiltonian(xn[0],xn[1],pn[0],pn[1])/P_Hamiltonian(x0[0],x0[1],p0[0],p0[1])
-
-    if a &gt;=1:
-        Listx.append(xn)
-        x0,p0 = xn, pn
-    else:
-        if random.random() &lt; a:
-            Listx.append(xn)
-            x0,p0 = xn, pn
+<span style="color:#75715e"># number of samples</span>
+N <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+T <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+epsilon <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.056</span>
 
 
 
-</code></pre>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N):
+    p0 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>)
 
-<p><br></p>
+    <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> range(T):
+        ph <span style="color:#f92672">=</span> p0 <span style="color:#f92672">-</span> epsilon<span style="color:#f92672">*</span> gradE(x0)<span style="color:#f92672">/</span><span style="color:#ae81ff">2.0</span>
+        xn <span style="color:#f92672">=</span> x0 <span style="color:#f92672">+</span> epsilon<span style="color:#f92672">*</span> ph
+        pn <span style="color:#f92672">=</span> ph <span style="color:#f92672">-</span> epsilon<span style="color:#f92672">*</span> gradE(xn)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>
 
-<pre><code class="language-python">for t in range(T):
-    ph = p0 - epsilon* gradE(x0)/2.0
-    xn = x0 + epsilon* ph
-    pn = ph - epsilon* gradE(xn)/2
-</code></pre>
 
-<p>This <em>for loop</em> is where the leapfrog algorithm works, and it is nothing but finite displacement of the momentum and positions in the continuous phase space consists of the position and the momentum vectors, $(\boldsymbol{x}, \boldsymbol{p})$ under the rule of the dynamics.</p>
+    a <span style="color:#f92672">=</span> P_Hamiltonian(xn[<span style="color:#ae81ff">0</span>],xn[<span style="color:#ae81ff">1</span>],pn[<span style="color:#ae81ff">0</span>],pn[<span style="color:#ae81ff">1</span>])<span style="color:#f92672">/</span>P_Hamiltonian(x0[<span style="color:#ae81ff">0</span>],x0[<span style="color:#ae81ff">1</span>],p0[<span style="color:#ae81ff">0</span>],p0[<span style="color:#ae81ff">1</span>])
 
-<p><br></p>
+    <span style="color:#66d9ef">if</span> a <span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">1</span>:
+        Listx<span style="color:#f92672">.</span>append(xn)
+        x0,p0 <span style="color:#f92672">=</span> xn, pn
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#66d9ef">if</span> random<span style="color:#f92672">.</span>random() <span style="color:#f92672">&lt;</span> a:
+            Listx<span style="color:#f92672">.</span>append(xn)
+            x0,p0 <span style="color:#f92672">=</span> xn, pn
 
+
+
+</code></pre></div><!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> range(T):
+    ph <span style="color:#f92672">=</span> p0 <span style="color:#f92672">-</span> epsilon<span style="color:#f92672">*</span> gradE(x0)<span style="color:#f92672">/</span><span style="color:#ae81ff">2.0</span>
+    xn <span style="color:#f92672">=</span> x0 <span style="color:#f92672">+</span> epsilon<span style="color:#f92672">*</span> ph
+    pn <span style="color:#f92672">=</span> ph <span style="color:#f92672">-</span> epsilon<span style="color:#f92672">*</span> gradE(xn)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>
+</code></pre></div><p>This <em>for loop</em> is where the leapfrog algorithm works, and it is nothing but finite displacement of the momentum and positions in the continuous phase space consists of the position and the momentum vectors, $(\boldsymbol{x}, \boldsymbol{p})$ under the rule of the dynamics.</p>
+<!-- raw HTML omitted -->
 <p>To understand how samples move in the dynamic system, we solve the equation of motion, Hamiltonian equation.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>$$
 \dot{\boldsymbol{x}} = \boldsymbol{p}
 $$</p>
-
 <p>$$
 \dot{\boldsymbol{p}} = - { \partial E(\boldsymbol{x}) \over \partial \boldsymbol{x}}
 $$</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># the rate of sample</span>
 
-<p><br></p>
-
-<pre><code class="language-python"># the rate of sample
-
-len(Listx)/100.0
+len(Listx)<span style="color:#f92672">/</span><span style="color:#ae81ff">100.0</span>
+</code></pre></div><pre><code>0.61
 </code></pre>
-
-<pre><code>0.61
-</code></pre>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Now 61 % of samples are accepted.</p>
-
-<p><br></p>
-
-<pre><code class="language-python">x11=[Listx[i][0] for i in range(len(Listx))]
-x22=[Listx[i][1] for i in range(len(Listx))]
-</code></pre>
-
-<pre><code class="language-python">plt.figure()
-plt.plot(x11,x22,'-',alpha=0.4)
-plt.scatter(x11,x22,c='red', s=30)
-x1 = np.arange(-1, 1, 0.01)
-x2 = np.arange(-1, 1, 0.01)
-X1, X2 = np.meshgrid(x1, x2)
-plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)))
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/HMC_files/HMC_11_1.png" alt="png" /></p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x11<span style="color:#f92672">=</span>[Listx[i][<span style="color:#ae81ff">0</span>] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(Listx))]
+x22<span style="color:#f92672">=</span>[Listx[i][<span style="color:#ae81ff">1</span>] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(Listx))]
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure()
+plt<span style="color:#f92672">.</span>plot(x11,x22,<span style="color:#e6db74">&#39;-&#39;</span>,alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.4</span>)
+plt<span style="color:#f92672">.</span>scatter(x11,x22,c<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>)
+x1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.01</span>)
+x2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.01</span>)
+X1, X2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x1, x2)
+plt<span style="color:#f92672">.</span>contour(X1,X2,np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>(<span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X1<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">249.75</span><span style="color:#f92672">*</span>X1<span style="color:#f92672">*</span>X2<span style="color:#f92672">+</span><span style="color:#ae81ff">250.25</span><span style="color:#f92672">*</span>X2<span style="color:#f92672">*</span>X2)))
+</code></pre></div><p><img src="//physhik.com/images/postimages/HMC_files/HMC_11_1.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>See how the Markov chain is sailing, started at $(-1, ~1)$. It goes toward the center quickly, but passed the center because it was too fast, and gradually converges inside the target distribution density in few turns. The size (or length) of steps are controlled by the parameter, epsilon and T. If epsilon is too big, the differentiation won&rsquo;t work approximately. If it is too tiny, it will take too much time to make a convergent Markov chain over the target density. In other words, the chain of sample will move too slowly by tiny steps.</p>
-
-<p><br></p>
-
-<p><br></p>
-<div class="footnotes">
-
-<hr />
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:1">More exactly, it is a potential energy.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-<li id="fn:2">The initial momentum to run the leapfrog algorithm is given randomly by the normal distribution $\mathcal{N}(0,1)$ in both dimensions, in the example.
- <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
-<li id="fn:3">For more intuitive explanation, I gave an example of a mountain. Nevertheless, a pit in the ground could be better comparison, and then roll the ball in it. The ball would not dig in the deepest hole at once. It would roll back a few times and gradually converges to the hole. Don&rsquo;t get confused the total dynamical energy, potential plus kinetic energy of the sample is not conserved. For each turn, the initial momentum is given randomly by the normal distribution $\mathcal{N}(0,1)$ in both dimensions, in the example.
- <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>More exactly, it is a potential energy. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>The initial momentum to run the leapfrog algorithm is given randomly by the normal distribution $\mathcal{N}(0,1)$ in both dimensions, in the example. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>For more intuitive explanation, I gave an example of a mountain. Nevertheless, a pit in the ground could be better comparison, and then roll the ball in it. The ball would not dig in the deepest hole at once. It would roll back a few times and gradually converges to the hole. Don&rsquo;t get confused the total dynamical energy, potential plus kinetic energy of the sample is not conserved. For each turn, the initial momentum is given randomly by the normal distribution $\mathcal{N}(0,1)$ in both dimensions, in the example. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
-</div>
+</section>
 
               
             </div>
@@ -695,7 +601,7 @@ plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)))
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Namshik Kim. All Rights Reserved
+    &copy; 2020 Namshik Kim. All Rights Reserved
   </span>
 </footer>
 
@@ -821,8 +727,7 @@ plt.contour(X1,X2,np.exp(-(250.25*X1*X1-2*249.75*X1*X2+250.25*X2*X2)))
                   Nov 11, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Update 
-I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+              <div class="media-content hide-xs font-merryweather">Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&rsquo;t be posted).</div>
             </div>
             <div style="clear:both;"></div>
@@ -857,8 +762,7 @@ I myself found some errors due to the version change of Python libraries, so I u
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Open source 
-The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+              <div class="media-content hide-xs font-merryweather">Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -875,10 +779,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
-Deep learning and classifications. 
-The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
-
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
             </div>
             <div style="clear:both;"></div>
@@ -896,9 +797,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Prologue 
-Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
-
+              <div class="media-content hide-xs font-merryweather">Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
             </div>
             <div style="clear:both;"></div>
@@ -917,7 +816,6 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
-
 AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
             </div>
             <div style="clear:both;"></div>
@@ -953,7 +851,6 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
-
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
             </div>
             <div style="clear:both;"></div>
@@ -989,9 +886,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

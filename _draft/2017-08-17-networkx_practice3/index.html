@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
 <meta name="description" content="hash hashable from glossary An object is hashable if it has a hash value which never changes during its lifetime (it needs a hash() method), and can be compared to other objects (it needs an eq() or cmp() method). Hashable objects which compare equal must have the same hash value.
@@ -286,104 +286,58 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<h2 id="hash">hash</h2>
-
-<h3 id="hashable-from-glossary-https-networkx-readthedocs-io-en-stable-reference-glossary-html">hashable from <a href="https://networkx.readthedocs.io/en/stable/reference/glossary.html">glossary</a></h3>
-
+              <h2 id="hash">hash</h2>
+<h3 id="hashable-from-glossaryhttpsnetworkxreadthedocsioenstablereferenceglossaryhtml">hashable from <a href="https://networkx.readthedocs.io/en/stable/reference/glossary.html">glossary</a></h3>
 <p>An object is hashable if it has a hash value which never changes during its lifetime (it needs a <strong>hash</strong>() method), and can be compared to other objects (it needs an <strong>eq</strong>() or <strong>cmp</strong>() method). Hashable objects which compare equal must have the same hash value.</p>
-
 <p>Hashability makes an object usable as a dictionary key and a set member, because these data structures use the hash value internally.</p>
-
 <p>All of Python’s immutable built-in objects are hashable, while no mutable containers (such as lists or dictionaries) are. Objects which are instances of user-defined classes are hashable by default; they all compare unequal, and their hash value is their id().</p>
-
-<p><br></p>
-
-<pre><code class="language-python">import networkx as nx
-import matplotlib.pyplot as plt
-%matplotlib inline  
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> networkx <span style="color:#f92672">as</span> nx
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">%</span>matplotlib inline  
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a<span style="color:#f92672">=</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>)
+a<span style="color:#f92672">.</span>__hash__()
+</code></pre></div><pre><code>2528502973977326415
 </code></pre>
-
-<pre><code class="language-python">a=(1,2,3)
-a.__hash__()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a<span style="color:#f92672">=</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>)
+a<span style="color:#f92672">.</span>__hash__()
+</code></pre></div><pre><code>3713081631934410656
 </code></pre>
-
-<pre><code>2528502973977326415
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">b<span style="color:#f92672">=</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>)
+b<span style="color:#f92672">.</span>__hash__()
+</code></pre></div><pre><code>3713081631934410656
 </code></pre>
-
-<pre><code class="language-python">a=(1,2)
-a.__hash__()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">id(a)<span style="color:#f92672">==</span>id(b)
+</code></pre></div><pre><code>False
 </code></pre>
-
-<pre><code>3713081631934410656
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">c<span style="color:#f92672">=</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>)
+c<span style="color:#f92672">.</span>__hash__()
+</code></pre></div><pre><code>3713082714463740756
 </code></pre>
-
-<pre><code class="language-python">b=(1,2)
-b.__hash__()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G[<span style="color:#ae81ff">1</span>], G<span style="color:#f92672">.</span>neighbors(<span style="color:#ae81ff">1</span>), G[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>]
+</code></pre></div><pre><code>({0: {}, 2: {}, 3: {}}, [0, 2, 3], {})
 </code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">2</span>][<span style="color:#e6db74">&#39;color&#39;</span>]<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>
 
-<pre><code>3713081631934410656
+G[<span style="color:#ae81ff">1</span>]
+</code></pre></div><pre><code>{0: {}, 2: {'color': 'blue'}, 3: {}}
 </code></pre>
-
-<pre><code class="language-python">id(a)==id(b)
-</code></pre>
-
-<pre><code>False
-</code></pre>
-
-<pre><code class="language-python">c=(2,3)
-c.__hash__()
-</code></pre>
-
-<pre><code>3713082714463740756
-</code></pre>
-
-<pre><code class="language-python">
-</code></pre>
-
-<pre><code class="language-python">G[1], G.neighbors(1), G[1][0]
-</code></pre>
-
-<pre><code>({0: {}, 2: {}, 3: {}}, [0, 2, 3], {})
-</code></pre>
-
-<pre><code class="language-python">G[1][2]['color']='blue'
-
-G[1]
-</code></pre>
-
-<pre><code>{0: {}, 2: {'color': 'blue'}, 3: {}}
-</code></pre>
-
 <p>can set the attributes of an edge</p>
-
-<pre><code class="language-python">FG = nx.Graph()
-FG.add_weighted_edges_from([(1,2,0.125),(1,3,0.75),(2,4,1.2),(3,4,0.375)])
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">FG <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>Graph()
+FG<span style="color:#f92672">.</span>add_weighted_edges_from([(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">0.125</span>),(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">0.75</span>),(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">1.2</span>),(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">0.375</span>)])
+</code></pre></div><p>set the attribute(weight)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">FG<span style="color:#f92672">.</span>edges(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;True&#39;</span>)
+</code></pre></div><pre><code>[(1, 2, None), (1, 3, None), (2, 4, None), (3, 4, None)]
 </code></pre>
-
-<p>set the attribute(weight)</p>
-
-<pre><code class="language-python">FG.edges(data='True')
-</code></pre>
-
-<pre><code>[(1, 2, None), (1, 3, None), (2, 4, None), (3, 4, None)]
-</code></pre>
-
 <p>so the weights are not recorded in data.</p>
-
-<pre><code class="language-python">FG[1]
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">FG[<span style="color:#ae81ff">1</span>]
+</code></pre></div><pre><code>{2: {'weight': 0.125}, 3: {'weight': 0.75}}
 </code></pre>
-
-<pre><code>{2: {'weight': 0.125}, 3: {'weight': 0.75}}
-</code></pre>
-
-<pre><code class="language-python">for n, nbrs in FG.adjacency_iter():
-    print n, nbrs
-    print 'items:', nbrs.items()
-</code></pre>
-
-<pre><code>1 {2: {'weight': 0.125}, 3: {'weight': 0.75}}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> n, nbrs <span style="color:#f92672">in</span> FG<span style="color:#f92672">.</span>adjacency_iter():
+    <span style="color:#66d9ef">print</span> n, nbrs
+    <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#39;items:&#39;</span>, nbrs<span style="color:#f92672">.</span>items()
+</code></pre></div><pre><code>1 {2: {'weight': 0.125}, 3: {'weight': 0.75}}
 items: [(2, {'weight': 0.125}), (3, {'weight': 0.75})]
 2 {1: {'weight': 0.125}, 4: {'weight': 1.2}}
 items: [(1, {'weight': 0.125}), (4, {'weight': 1.2})]
@@ -392,186 +346,114 @@ items: [(1, {'weight': 0.75}), (4, {'weight': 0.375})]
 4 {2: {'weight': 1.2}, 3: {'weight': 0.375}}
 items: [(2, {'weight': 1.2}), (3, {'weight': 0.375})]
 </code></pre>
-
 <p>so n are the nodes and nbrs are the edge and weights.</p>
-
-<pre><code class="language-python">for n, nbrs in FG.adjacency_iter():
-    for nbr, eattr in nbrs.items():
-        data = eattr['weight']
-        if data &lt; 0.5 :
-            print '%d, %d, %3f' % (n, nbr, data)
-</code></pre>
-
-<pre><code>1, 2, 0.125000
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> n, nbrs <span style="color:#f92672">in</span> FG<span style="color:#f92672">.</span>adjacency_iter():
+    <span style="color:#66d9ef">for</span> nbr, eattr <span style="color:#f92672">in</span> nbrs<span style="color:#f92672">.</span>items():
+        data <span style="color:#f92672">=</span> eattr[<span style="color:#e6db74">&#39;weight&#39;</span>]
+        <span style="color:#66d9ef">if</span> data <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.5</span> :
+            <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">, </span><span style="color:#e6db74">%d</span><span style="color:#e6db74">, </span><span style="color:#e6db74">%3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> (n, nbr, data)
+</code></pre></div><pre><code>1, 2, 0.125000
 2, 1, 0.125000
 3, 4, 0.375000
 4, 3, 0.375000
 </code></pre>
-
-<pre><code class="language-python">for (u,v,d) in FG.edges(data='weight'):
-    if d &lt; 0.5:
-        print('(%d, %d, %.3f)'%(u,v,d))
-</code></pre>
-
-<pre><code>(1, 2, 0.125)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> (u,v,d) <span style="color:#f92672">in</span> FG<span style="color:#f92672">.</span>edges(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;weight&#39;</span>):
+    <span style="color:#66d9ef">if</span> d <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.5</span>:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;(</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">, </span><span style="color:#e6db74">%d</span><span style="color:#e6db74">, </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">)&#39;</span><span style="color:#f92672">%</span>(u,v,d))
+</code></pre></div><pre><code>(1, 2, 0.125)
 (3, 4, 0.375)
 </code></pre>
-
-<pre><code class="language-python">G.graph
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>graph
+</code></pre></div><pre><code>{}
 </code></pre>
-
-<pre><code>{}
-</code></pre>
-
 <p>Set the attritube</p>
-
-<pre><code class="language-python">G.graph['day'] = 'Monday'
-G.graph
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>graph[<span style="color:#e6db74">&#39;day&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Monday&#39;</span>
+G<span style="color:#f92672">.</span>graph
+</code></pre></div><pre><code>{'day': 'Monday'}
 </code></pre>
-
-<pre><code>{'day': 'Monday'}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">N <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>Graph(day<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Friday&#39;</span>)
+N<span style="color:#f92672">.</span>graph
+</code></pre></div><pre><code>{'day': 'Friday'}
 </code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">N<span style="color:#f92672">.</span>add_node(<span style="color:#ae81ff">1</span>, time<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;5pm&#39;</span>)
 
-<pre><code class="language-python">N = nx.Graph(day='Friday')
-N.graph
+N<span style="color:#f92672">.</span>add_nodes_from((<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>), time<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;2pm&#39;</span>)
+N<span style="color:#f92672">.</span>node[<span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;room&#39;</span>]<span style="color:#f92672">=</span><span style="color:#ae81ff">203</span>
+
+N<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;True&#39;</span>)
+</code></pre></div><pre><code>[(1, {'room': 203, 'time': '5pm'}), (2, {'time': '2pm'}), (3, {'time': '2pm'})]
 </code></pre>
-
-<pre><code>{'day': 'Friday'}
-</code></pre>
-
-<pre><code class="language-python">N.add_node(1, time='5pm')
-
-N.add_nodes_from((2,3), time='2pm')
-N.node[1]['room']=203
-
-N.nodes(data='True')
-</code></pre>
-
-<pre><code>[(1, {'room': 203, 'time': '5pm'}), (2, {'time': '2pm'}), (3, {'time': '2pm'})]
-</code></pre>
-
-<pre><code class="language-python">N.add_edge(1,2, weight = 3.0)
-N.add_edges_from([(3,4),(4,5)], color='red')
-N.add_edges_from([(1,2,{'color':'blue'}), (2,3,{'weight':8})])
-</code></pre>
-
-<pre><code class="language-python">N[1], N[4]
-</code></pre>
-
-<pre><code>({2: {'color': 'blue', 'weight': 3.0}},
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">N<span style="color:#f92672">.</span>add_edge(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>, weight <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.0</span>)
+N<span style="color:#f92672">.</span>add_edges_from([(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>),(<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>)], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>)
+N<span style="color:#f92672">.</span>add_edges_from([(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;blue&#39;</span>}), (<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,{<span style="color:#e6db74">&#39;weight&#39;</span>:<span style="color:#ae81ff">8</span>})])
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">N[<span style="color:#ae81ff">1</span>], N[<span style="color:#ae81ff">4</span>]
+</code></pre></div><pre><code>({2: {'color': 'blue', 'weight': 3.0}},
  {3: {'color': 'red'}, 5: {'color': 'red'}})
 </code></pre>
-
 <p>Direct graphs</p>
-
-<pre><code class="language-python">DG = nx.DiGraph()
-DG.add_weighted_edges_from(((1,2,0.5), (3,1,0.8),(2,3,0.6),(3,4,0.5)))
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">DG <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>DiGraph()
+DG<span style="color:#f92672">.</span>add_weighted_edges_from(((<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">0.5</span>), (<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0.8</span>),(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">0.6</span>),(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">0.5</span>)))
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">DG<span style="color:#f92672">.</span>out_degree(<span style="color:#ae81ff">1</span>,weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;weight&#39;</span>)
+</code></pre></div><pre><code>0.5
 </code></pre>
-
-<pre><code class="language-python">DG.out_degree(1,weight='weight')
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">DG<span style="color:#f92672">.</span>degree(<span style="color:#ae81ff">1</span>,weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;weight&#39;</span>)
+</code></pre></div><pre><code>1.3
 </code></pre>
-
-<pre><code>0.5
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">DG<span style="color:#f92672">.</span>in_degree(<span style="color:#ae81ff">1</span>,weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;weight&#39;</span>)
+</code></pre></div><pre><code>0.8
 </code></pre>
-
-<pre><code class="language-python">DG.degree(1,weight='weight')
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">DG<span style="color:#f92672">.</span>degree(<span style="color:#ae81ff">2</span>, weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;weight&#39;</span>)
+</code></pre></div><pre><code>1.1
 </code></pre>
-
-<pre><code>1.3
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">DG<span style="color:#f92672">.</span>successors(<span style="color:#ae81ff">1</span>), DG<span style="color:#f92672">.</span>neighbors(<span style="color:#ae81ff">1</span>)
+</code></pre></div><pre><code>([2], [2])
 </code></pre>
-
-<pre><code class="language-python">DG.in_degree(1,weight='weight')
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">DG<span style="color:#f92672">.</span>degree(weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;weight&#39;</span>)
+</code></pre></div><pre><code>{1: 1.3, 2: 1.1, 3: 1.9, 4: 0.5}
 </code></pre>
-
-<pre><code>0.8
-</code></pre>
-
-<pre><code class="language-python">DG.degree(2, weight='weight')
-</code></pre>
-
-<pre><code>1.1
-</code></pre>
-
-<pre><code class="language-python">DG.successors(1), DG.neighbors(1)
-</code></pre>
-
-<pre><code>([2], [2])
-</code></pre>
-
-<pre><code class="language-python">DG.degree(weight='weight')
-</code></pre>
-
-<pre><code>{1: 1.3, 2: 1.1, 3: 1.9, 4: 0.5}
-</code></pre>
-
 <p>Neighbor of node 1 doesn&rsquo;t contain 3?</p>
-
-<pre><code class="language-python">nx.draw(DG)
-plt.show()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_116_0.png" alt="png" /></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nx<span style="color:#f92672">.</span>draw(DG)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_116_0.png" alt="png"></p>
 <p>Direct Graph is one way.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">UDG <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>Graph(DG)
 
-<pre><code class="language-python">UDG = nx.Graph(DG)
-
-nx.draw(UDG)
-plt.show()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_118_0.png" alt="png" /></p>
-
+nx<span style="color:#f92672">.</span>draw(UDG)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_118_0.png" alt="png"></p>
 <p>This converts Direct graph to undirected graph.</p>
-
-<pre><code class="language-python">MG=nx.MultiGraph()
-MG.add_weighted_edges_from([(1,2,.5), (1,2,.75), (2,3,.6),(1,4,1.2),(3,4,2.1)])
-MG.degree(weight='weight')
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">MG<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>MultiGraph()
+MG<span style="color:#f92672">.</span>add_weighted_edges_from([(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>), (<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#f92672">.</span><span style="color:#ae81ff">75</span>), (<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#f92672">.</span><span style="color:#ae81ff">6</span>),(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">1.2</span>),(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">2.1</span>)])
+MG<span style="color:#f92672">.</span>degree(weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;weight&#39;</span>)
+</code></pre></div><pre><code>{1: 2.45, 2: 1.85, 3: 2.7, 4: 3.3}
 </code></pre>
-
-<pre><code>{1: 2.45, 2: 1.85, 3: 2.7, 4: 3.3}
-</code></pre>
-
-<pre><code class="language-python">MG[1],MG[2],MG[3]
-</code></pre>
-
-<pre><code>({2: {0: {'weight': 0.5}, 1: {'weight': 0.75}}, 4: {0: {'weight': 1.2}}},
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">MG[<span style="color:#ae81ff">1</span>],MG[<span style="color:#ae81ff">2</span>],MG[<span style="color:#ae81ff">3</span>]
+</code></pre></div><pre><code>({2: {0: {'weight': 0.5}, 1: {'weight': 0.75}}, 4: {0: {'weight': 1.2}}},
  {1: {0: {'weight': 0.5}, 1: {'weight': 0.75}}, 3: {0: {'weight': 0.6}}},
  {2: {0: {'weight': 0.6}}, 4: {0: {'weight': 2.1}}})
 </code></pre>
-
-<pre><code class="language-python">MG[1][2]
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">MG[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">2</span>]
+</code></pre></div><pre><code>{0: {'weight': 0.5}, 1: {'weight': 0.75}}
 </code></pre>
-
-<pre><code>{0: {'weight': 0.5}, 1: {'weight': 0.75}}
-</code></pre>
-
-<pre><code class="language-python">GG=nx.Graph()
-for n,nbrs in MG.adjacency_iter():
-    for nbr,edict in nbrs.items():
-        minvalue=min([d['weight'] for d in edict.values()])
-        GG.add_edge(n,nbr, weight = minvalue)
-</code></pre>
-
-<pre><code class="language-python">GG[1],GG[2],GG[3]
-</code></pre>
-
-<pre><code>({2: {'weight': 0.5}, 4: {'weight': 1.2}},
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">GG<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>Graph()
+<span style="color:#66d9ef">for</span> n,nbrs <span style="color:#f92672">in</span> MG<span style="color:#f92672">.</span>adjacency_iter():
+    <span style="color:#66d9ef">for</span> nbr,edict <span style="color:#f92672">in</span> nbrs<span style="color:#f92672">.</span>items():
+        minvalue<span style="color:#f92672">=</span>min([d[<span style="color:#e6db74">&#39;weight&#39;</span>] <span style="color:#66d9ef">for</span> d <span style="color:#f92672">in</span> edict<span style="color:#f92672">.</span>values()])
+        GG<span style="color:#f92672">.</span>add_edge(n,nbr, weight <span style="color:#f92672">=</span> minvalue)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">GG[<span style="color:#ae81ff">1</span>],GG[<span style="color:#ae81ff">2</span>],GG[<span style="color:#ae81ff">3</span>]
+</code></pre></div><pre><code>({2: {'weight': 0.5}, 4: {'weight': 1.2}},
  {1: {'weight': 0.5}, 3: {'weight': 0.6}},
  {2: {'weight': 0.6}, 4: {'weight': 2.1}})
 </code></pre>
-
-<pre><code class="language-python">GG=nx.Graph()
-for n,nbrs in MG.adjacency_iter():
-    print 'MG',n,nbrs
-    for nbr,edict in nbrs.items():
-        print nbr,edict
-        minvalue=min([d['weight'] for d in edict.values()])
-        print 'min',n, nbr, minvalue
-        GG.add_edge(n,nbr, weight = minvalue)
-</code></pre>
-
-<pre><code>MG 1 {2: {0: {'weight': 0.5}, 1: {'weight': 0.75}}, 4: {0: {'weight': 1.2}}}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">GG<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>Graph()
+<span style="color:#66d9ef">for</span> n,nbrs <span style="color:#f92672">in</span> MG<span style="color:#f92672">.</span>adjacency_iter():
+    <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#39;MG&#39;</span>,n,nbrs
+    <span style="color:#66d9ef">for</span> nbr,edict <span style="color:#f92672">in</span> nbrs<span style="color:#f92672">.</span>items():
+        <span style="color:#66d9ef">print</span> nbr,edict
+        minvalue<span style="color:#f92672">=</span>min([d[<span style="color:#e6db74">&#39;weight&#39;</span>] <span style="color:#66d9ef">for</span> d <span style="color:#f92672">in</span> edict<span style="color:#f92672">.</span>values()])
+        <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#39;min&#39;</span>,n, nbr, minvalue
+        GG<span style="color:#f92672">.</span>add_edge(n,nbr, weight <span style="color:#f92672">=</span> minvalue)
+</code></pre></div><pre><code>MG 1 {2: {0: {'weight': 0.5}, 1: {'weight': 0.75}}, 4: {0: {'weight': 1.2}}}
 2 {0: {'weight': 0.5}, 1: {'weight': 0.75}}
 min 1 2 0.5
 4 {0: {'weight': 1.2}}
@@ -592,23 +474,14 @@ min 4 1 1.2
 3 {0: {'weight': 2.1}}
 min 4 3 2.1
 </code></pre>
-
-<pre><code class="language-python">nx.shortest_path(GG,1,3)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nx<span style="color:#f92672">.</span>shortest_path(GG,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>)
+</code></pre></div><pre><code>[1, 2, 3]
 </code></pre>
-
-<pre><code>[1, 2, 3]
-</code></pre>
-
-<pre><code class="language-python">nx.draw(GG)
-plt.show()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_127_0.png" alt="png" /></p>
-
-<pre><code class="language-python">G.nodes(data='True')
-</code></pre>
-
-<pre><code>[(0, {}),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nx<span style="color:#f92672">.</span>draw(GG)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_127_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;True&#39;</span>)
+</code></pre></div><pre><code>[(0, {}),
  (1, {}),
  (2, {'time': '2pm'}),
  (3, {'time': '2pm'}),
@@ -626,22 +499,14 @@ plt.show()
  ('s', {}),
  ('a', {})]
 </code></pre>
-
-<pre><code class="language-python">SG=nx.subgraph(G,(0,1,2,3,'spam')) # (0,1,2,3,'spam'), the set is an example of the nbunch
-</code></pre>
-
-<pre><code class="language-python">nx.draw(SG)
-plt.show()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_130_0.png" alt="png" /></p>
-
-<pre><code class="language-python">SG2=nx.subgraph(G,(4,5,'p'))
-U=nx.union(SG,SG2)
-U.nodes(data='True')
-</code></pre>
-
-<pre><code>[(0, {}),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">SG<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>subgraph(G,(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#e6db74">&#39;spam&#39;</span>)) <span style="color:#75715e"># (0,1,2,3,&#39;spam&#39;), the set is an example of the nbunch</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nx<span style="color:#f92672">.</span>draw(SG)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_130_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">SG2<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>subgraph(G,(<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#e6db74">&#39;p&#39;</span>))
+U<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>union(SG,SG2)
+U<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;True&#39;</span>)
+</code></pre></div><pre><code>[(0, {}),
  (1, {}),
  (2, {'time': '2pm'}),
  (3, {'time': '2pm'}),
@@ -650,11 +515,8 @@ U.nodes(data='True')
  ('spam', {}),
  ('p', {})]
 </code></pre>
-
-<pre><code class="language-python">U=nx.union(N,G)
-</code></pre>
-
-<pre><code>-------------------
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">U<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>union(N,G)
+</code></pre></div><pre><code>-------------------
 
 NetworkXErrorTraceback (most recent call last)
 
@@ -672,21 +534,15 @@ NetworkXErrorTraceback (most recent call last)
 
 NetworkXError: ('The node sets of G and H are not disjoint.', 'Use appropriate rename=(Gprefix,Hprefix)or use disjoint_union(G,H).')
 </code></pre>
-
-<pre><code class="language-python">N.nodes(data='True')
-</code></pre>
-
-<pre><code>[(1, {'room': 203, 'time': '5pm'}),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">N<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;True&#39;</span>)
+</code></pre></div><pre><code>[(1, {'room': 203, 'time': '5pm'}),
  (2, {'time': '2pm'}),
  (3, {'time': '2pm'}),
  (4, {}),
  (5, {})]
 </code></pre>
-
-<pre><code class="language-python">G.nodes(data='True')
-</code></pre>
-
-<pre><code>[(0, {}),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;True&#39;</span>)
+</code></pre></div><pre><code>[(0, {}),
  (1, {}),
  (2, {'time': '2pm'}),
  (3, {'time': '2pm'}),
@@ -704,12 +560,9 @@ NetworkXError: ('The node sets of G and H are not disjoint.', 'Use appropriate r
  ('s', {}),
  ('a', {})]
 </code></pre>
-
-<pre><code class="language-python">U=nx.disjoint_union(N,G)
-U.nodes(data='True')
-</code></pre>
-
-<pre><code>[(0, {'room': 203, 'time': '5pm'}),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">U<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>disjoint_union(N,G)
+U<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;True&#39;</span>)
+</code></pre></div><pre><code>[(0, {'room': 203, 'time': '5pm'}),
  (1, {'time': '2pm'}),
  (2, {'time': '2pm'}),
  (3, {}),
@@ -732,30 +585,18 @@ U.nodes(data='True')
  (20, {}),
  (21, {})]
 </code></pre>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>The nodes seem newly set?</p>
-
-<p><br></p>
-
-<pre><code class="language-python">U['spam'], U[1]
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">U[<span style="color:#e6db74">&#39;spam&#39;</span>], U[<span style="color:#ae81ff">1</span>]
+</code></pre></div><pre><code>({}, {0: {}, 2: {'color': 'blue'}, 3: {}})
 </code></pre>
-
-<pre><code>({}, {0: {}, 2: {'color': 'blue'}, 3: {}})
-</code></pre>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>The union graph still has the node, &lsquo;spam&rsquo; and two nodes(1) with different data. It is consistent with definition of union as well.</p>
-
-<p><br></p>
-
-<pre><code class="language-python">C=nx.cartesian_product(G,N)
-C.nodes(data='True')
-</code></pre>
-
-<pre><code>[((7, 3), {'time': (None, '2pm')}),
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">C<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>cartesian_product(G,N)
+C<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;True&#39;</span>)
+</code></pre></div><pre><code>[((7, 3), {'time': (None, '2pm')}),
  ((1, 3), {'time': (None, '2pm')}),
  (('s', 3), {'time': (None, '2pm')}),
  ((9, 1), {'room': (None, 203), 'time': (None, '5pm')}),
@@ -841,33 +682,23 @@ C.nodes(data='True')
  (('p', 3), {'time': (None, '2pm')}),
  ((8, 4), {})]
 </code></pre>
-
-<pre><code class="language-python">N2 = nx.Graph()
-N2.add_node('a')
-N2.add_node('b',{'beta':'test'})
-N2.add_edge('a','b',{'height':'172,0'})
-C2=nx.cartesian_product(N,N2)
-print C2.nodes(data='True')
-nx.draw(C2)
-plt.show()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">N2 <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>Graph()
+N2<span style="color:#f92672">.</span>add_node(<span style="color:#e6db74">&#39;a&#39;</span>)
+N2<span style="color:#f92672">.</span>add_node(<span style="color:#e6db74">&#39;b&#39;</span>,{<span style="color:#e6db74">&#39;beta&#39;</span>:<span style="color:#e6db74">&#39;test&#39;</span>})
+N2<span style="color:#f92672">.</span>add_edge(<span style="color:#e6db74">&#39;a&#39;</span>,<span style="color:#e6db74">&#39;b&#39;</span>,{<span style="color:#e6db74">&#39;height&#39;</span>:<span style="color:#e6db74">&#39;172,0&#39;</span>})
+C2<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>cartesian_product(N,N2)
+<span style="color:#66d9ef">print</span> C2<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;True&#39;</span>)
+nx<span style="color:#f92672">.</span>draw(C2)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>[((1, 'b'), {'beta': (None, 'test'), 'room': (203, None), 'time': ('5pm', None)}), ((3, 'b'), {'beta': (None, 'test'), 'time': ('2pm', None)}), ((3, 'a'), {'time': ('2pm', None)}), ((2, 'a'), {'time': ('2pm', None)}), ((2, 'b'), {'beta': (None, 'test'), 'time': ('2pm', None)}), ((4, 'b'), {'beta': (None, 'test')}), ((1, 'a'), {'room': (203, None), 'time': ('5pm', None)}), ((5, 'b'), {'beta': (None, 'test')}), ((5, 'a'), {}), ((4, 'a'), {})]
 </code></pre>
-
-<pre><code>[((1, 'b'), {'beta': (None, 'test'), 'room': (203, None), 'time': ('5pm', None)}), ((3, 'b'), {'beta': (None, 'test'), 'time': ('2pm', None)}), ((3, 'a'), {'time': ('2pm', None)}), ((2, 'a'), {'time': ('2pm', None)}), ((2, 'b'), {'beta': (None, 'test'), 'time': ('2pm', None)}), ((4, 'b'), {'beta': (None, 'test')}), ((1, 'a'), {'room': (203, None), 'time': ('5pm', None)}), ((5, 'b'), {'beta': (None, 'test')}), ((5, 'a'), {}), ((4, 'a'), {})]
+<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_140_1.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">C2[(<span style="color:#ae81ff">1</span>,<span style="color:#e6db74">&#39;b&#39;</span>)]
+</code></pre></div><pre><code>{(1, 'a'): {'height': '172,0'}, (2, 'b'): {'color': 'blue', 'weight': 3.0}}
 </code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_140_1.png" alt="png" /></p>
-
-<pre><code class="language-python">C2[(1,'b')]
-</code></pre>
-
-<pre><code>{(1, 'a'): {'height': '172,0'}, (2, 'b'): {'color': 'blue', 'weight': 3.0}}
-</code></pre>
-
-<pre><code class="language-python">CO=nx.compose(N,N2)           
-CO.nodes(data='True')
-</code></pre>
-
-<pre><code>[('a', {}),
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">CO<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>compose(N,N2)           
+CO<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;True&#39;</span>)
+</code></pre></div><pre><code>[('a', {}),
  (1, {'room': 203, 'time': '5pm'}),
  (2, {'time': '2pm'}),
  ('b', {'beta': 'test'}),
@@ -875,30 +706,21 @@ CO.nodes(data='True')
  (5, {}),
  (3, {'time': '2pm'})]
 </code></pre>
-
-<pre><code class="language-python">CR=nx.create_empty_copy(N)
-CR.nodes(data='True')
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">CR<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>create_empty_copy(N)
+CR<span style="color:#f92672">.</span>nodes(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;True&#39;</span>)
+</code></pre></div><pre><code>[(1, {}), (2, {}), (3, {}), (4, {}), (5, {})]
 </code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">petersen<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>petersen_graph()
+<span style="color:#f92672">from</span> networkx.drawing.nx_agraph <span style="color:#f92672">import</span> graphviz_layout
 
-<pre><code>[(1, {}), (2, {}), (3, {}), (4, {}), (5, {})]
-</code></pre>
+pos<span style="color:#f92672">=</span>graphviz_layout(petersen, prog<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;twopi&#39;</span>)
 
-<pre><code class="language-python">petersen=nx.petersen_graph()
-from networkx.drawing.nx_agraph import graphviz_layout
-
-pos=graphviz_layout(petersen, prog='twopi')
-
-nx.draw(petersen, pos)
-plt.axis('equal')
-plt.show()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_144_0.png" alt="png" /></p>
-
-<pre><code class="language-python">petersen.edges()
-</code></pre>
-
-<pre><code>[(0, 1),
+nx<span style="color:#f92672">.</span>draw(petersen, pos)
+plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;equal&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_144_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">petersen<span style="color:#f92672">.</span>edges()
+</code></pre></div><pre><code>[(0, 1),
  (0, 4),
  (0, 5),
  (1, 2),
@@ -914,75 +736,54 @@ plt.show()
  (6, 9),
  (7, 9)]
 </code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">tutte<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>tutte_graph()
+<span style="color:#f92672">from</span> networkx.drawing.nx_agraph <span style="color:#f92672">import</span> graphviz_layout
 
-<pre><code class="language-python">tutte=nx.tutte_graph()
-from networkx.drawing.nx_agraph import graphviz_layout
+pos<span style="color:#f92672">=</span>graphviz_layout(tutte, prog<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;twopi&#39;</span>)
 
-pos=graphviz_layout(tutte, prog='twopi')
-
-nx.draw(tutte, pos)
-plt.axis('equal')
-plt.show()
+nx<span style="color:#f92672">.</span>draw(tutte, pos)
+plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;equal&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_146_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">maze<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>sedgewick_maze_graph()
+nx<span style="color:#f92672">.</span>draw(maze)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_147_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">tet<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>tetrahedral_graph()
+nx<span style="color:#f92672">.</span>draw(tet)
+plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;equal&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_148_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">range(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>)
+</code></pre></div><pre><code>[3, 4]
 </code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">K_6<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>complete_graph(<span style="color:#ae81ff">6</span>)
+<span style="color:#f92672">from</span> networkx.drawing.nx_agraph <span style="color:#f92672">import</span> graphviz_layout
 
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_146_0.png" alt="png" /></p>
+pos<span style="color:#f92672">=</span>graphviz_layout(K_6, prog<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;twopi&#39;</span>)
 
-<pre><code class="language-python">maze=nx.sedgewick_maze_graph()
-nx.draw(maze)
-plt.show()
-</code></pre>
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">131</span>)
+nx<span style="color:#f92672">.</span>draw(K_6, pos)
+plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;equal&#39;</span>)
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">132</span>)
+nx<span style="color:#f92672">.</span>draw(K_6, pos, with_labels <span style="color:#f92672">=</span>True, font_weight <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;bold&#39;</span>)
+plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;equal&#39;</span>)
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">133</span>)
+nx<span style="color:#f92672">.</span>draw_shell(K_6, nlist<span style="color:#f92672">=</span>[range(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">6</span>), range(<span style="color:#ae81ff">3</span>)], with_labels <span style="color:#f92672">=</span>True, font_weight <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;bold&#39;</span> )
+plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;equal&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_150_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nx<span style="color:#f92672">.</span>draw_shell(petersen, nlist<span style="color:#f92672">=</span>[range(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>), range(<span style="color:#ae81ff">5</span>)], with_labels<span style="color:#f92672">=</span>True, font_weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bold&#39;</span>)
+plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;equal&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_151_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 3 to 5 connections</span>
+K_3_5<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>complete_bipartite_graph(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>)
+<span style="color:#66d9ef">print</span> K_3_5<span style="color:#f92672">.</span>edges()
+nx<span style="color:#f92672">.</span>draw_shell(K_3_5,nlist<span style="color:#f92672">=</span>[range(<span style="color:#ae81ff">3</span>),range(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">8</span>)], with_labels<span style="color:#f92672">=</span>True, font_weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bold&#39;</span>)
+plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;equal&#39;</span>)
 
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_147_0.png" alt="png" /></p>
-
-<pre><code class="language-python">tet=nx.tetrahedral_graph()
-nx.draw(tet)
-plt.axis('equal')
-plt.show()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_148_0.png" alt="png" /></p>
-
-<pre><code class="language-python">range(3,5)
-</code></pre>
-
-<pre><code>[3, 4]
-</code></pre>
-
-<pre><code class="language-python">K_6=nx.complete_graph(6)
-from networkx.drawing.nx_agraph import graphviz_layout
-
-pos=graphviz_layout(K_6, prog='twopi')
-
-plt.subplot(131)
-nx.draw(K_6, pos)
-plt.axis('equal')
-plt.subplot(132)
-nx.draw(K_6, pos, with_labels =True, font_weight = 'bold')
-plt.axis('equal')
-plt.subplot(133)
-nx.draw_shell(K_6, nlist=[range(3,6), range(3)], with_labels =True, font_weight = 'bold' )
-plt.axis('equal')
-plt.show()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_150_0.png" alt="png" /></p>
-
-<pre><code class="language-python">nx.draw_shell(petersen, nlist=[range(5, 10), range(5)], with_labels=True, font_weight='bold')
-plt.axis('equal')
-plt.show()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_151_0.png" alt="png" /></p>
-
-<pre><code class="language-python"># 3 to 5 connections
-K_3_5=nx.complete_bipartite_graph(3,5)
-print K_3_5.edges()
-nx.draw_shell(K_3_5,nlist=[range(3),range(3,8)], with_labels=True, font_weight='bold')
-plt.axis('equal')
-
-</code></pre>
-
-<pre><code>[(0, 3), (0, 4), (0, 5), (0, 6), (0, 7), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (2, 3), (2, 4), (2, 5), (2, 6), (2, 7)]
+</code></pre></div><pre><code>[(0, 3), (0, 4), (0, 5), (0, 6), (0, 7), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (2, 3), (2, 4), (2, 5), (2, 6), (2, 7)]
 
 
 
@@ -990,64 +791,36 @@ plt.axis('equal')
 
 (-1.0, 1.5, -1.5, 1.5)
 </code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_152_2.png" alt="png" /></p>
-
-<pre><code class="language-python">barbell=nx.barbell_graph(10,10)
-nx.draw(barbell)
-plt.draw()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_153_0.png" alt="png" /></p>
-
-<pre><code class="language-python">lollipop=nx.lollipop_graph(10,4)
-nx.draw(lollipop)
-plt.draw()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_154_0.png" alt="png" /></p>
-
-<p><br></p>
-
+<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_152_2.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">barbell<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>barbell_graph(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>)
+nx<span style="color:#f92672">.</span>draw(barbell)
+plt<span style="color:#f92672">.</span>draw()
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_153_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">lollipop<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>lollipop_graph(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">4</span>)
+nx<span style="color:#f92672">.</span>draw(lollipop)
+plt<span style="color:#f92672">.</span>draw()
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_154_0.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <h2 id="analyzing-graph">Analyzing graph</h2>
-
-<p><br></p>
-
-<pre><code class="language-python">cc=nx.connected_components(G)
-G.nodes()
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cc<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>connected_components(G)
+G<span style="color:#f92672">.</span>nodes()
+</code></pre></div><pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 'm', 'p', 'spam', 's', 'a']
 </code></pre>
-
-<pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 'm', 'p', 'spam', 's', 'a']
-</code></pre>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>cc is a generator. Generators simplifies creation of iterators. A generator is a function that produces a sequence of results instead of a single value.</p>
-
-<p><br></p>
-
-<pre><code class="language-python">cc.next()
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cc<span style="color:#f92672">.</span>next()
+</code></pre></div><pre><code>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 </code></pre>
-
-<pre><code>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cc<span style="color:#f92672">.</span>next()
+</code></pre></div><pre><code>{10, 11}
 </code></pre>
-
-<pre><code class="language-python">cc.next()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cc<span style="color:#f92672">.</span>next()
+</code></pre></div><pre><code>{'m'}
 </code></pre>
-
-<pre><code>{10, 11}
-</code></pre>
-
-<pre><code class="language-python">cc.next()
-</code></pre>
-
-<pre><code>{'m'}
-</code></pre>
-
-<pre><code class="language-python">nx.degree(G)
-</code></pre>
-
-<pre><code>{0: 1,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nx<span style="color:#f92672">.</span>degree(G)
+</code></pre></div><pre><code>{0: 1,
  1: 3,
  2: 2,
  3: 3,
@@ -1065,11 +838,8 @@ G.nodes()
  's': 0,
  'spam': 0}
 </code></pre>
-
-<pre><code class="language-python">dict(nx.degree(G))
-</code></pre>
-
-<pre><code>{0: 1,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">dict(nx<span style="color:#f92672">.</span>degree(G))
+</code></pre></div><pre><code>{0: 1,
  1: 3,
  2: 2,
  3: 3,
@@ -1087,17 +857,11 @@ G.nodes()
  's': 0,
  'spam': 0}
 </code></pre>
-
-<pre><code class="language-python">sorted(nx.degree(G).values())
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sorted(nx<span style="color:#f92672">.</span>degree(G)<span style="color:#f92672">.</span>values())
+</code></pre></div><pre><code>[0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3]
 </code></pre>
-
-<pre><code>[0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3]
-</code></pre>
-
-<pre><code class="language-python">nx.clustering(G)
-</code></pre>
-
-<pre><code>{0: 0.0,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nx<span style="color:#f92672">.</span>clustering(G)
+</code></pre></div><pre><code>{0: 0.0,
  1: 0.3333333333333333,
  2: 1.0,
  3: 0.3333333333333333,
@@ -1115,11 +879,8 @@ G.nodes()
  's': 0.0,
  'spam': 0.0}
 </code></pre>
-
-<pre><code class="language-python">nx.clustering(lollipop)
-</code></pre>
-
-<pre><code>{0: 1.0,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nx<span style="color:#f92672">.</span>clustering(lollipop)
+</code></pre></div><pre><code>{0: 1.0,
  1: 1.0,
  2: 1.0,
  3: 1.0,
@@ -1134,21 +895,15 @@ G.nodes()
  12: 0.0,
  13: 0.0}
 </code></pre>
-
-<pre><code class="language-python">G = nx.dodecahedral_graph()
-shells = [[2, 3, 4, 5, 6], [8, 1, 0, 19, 18, 17, 16, 15, 14, 7], [9, 10, 11, 12, 13]]
-nx.draw_shell(G, nlist=shells,with_labels=True, font_weight='bold')
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_166_0.png" alt="png" /></p>
-
-<pre><code class="language-python">from networkx.drawing.nx_pydot import write_dot
-pos = nx.nx_agraph.graphviz_layout(G)
-nx.draw(G, pos=pos)
-plt.show()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_167_0.png" alt="png" /></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>dodecahedral_graph()
+shells <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>], [<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">19</span>, <span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">7</span>], [<span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">13</span>]]
+nx<span style="color:#f92672">.</span>draw_shell(G, nlist<span style="color:#f92672">=</span>shells,with_labels<span style="color:#f92672">=</span>True, font_weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bold&#39;</span>)
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_166_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> networkx.drawing.nx_pydot <span style="color:#f92672">import</span> write_dot
+pos <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>nx_agraph<span style="color:#f92672">.</span>graphviz_layout(G)
+nx<span style="color:#f92672">.</span>draw(G, pos<span style="color:#f92672">=</span>pos)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/networks_practice_files/networkx_tutorial_167_0.png" alt="png"></p>
 
               
             </div>
@@ -1231,7 +986,7 @@ plt.show()
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Namshik Kim. All Rights Reserved
+    &copy; 2020 Namshik Kim. All Rights Reserved
   </span>
 </footer>
 
@@ -1357,8 +1112,7 @@ plt.show()
                   Nov 11, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Update 
-I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+              <div class="media-content hide-xs font-merryweather">Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&rsquo;t be posted).</div>
             </div>
             <div style="clear:both;"></div>
@@ -1393,8 +1147,7 @@ I myself found some errors due to the version change of Python libraries, so I u
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Open source 
-The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+              <div class="media-content hide-xs font-merryweather">Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -1411,10 +1164,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
-Deep learning and classifications. 
-The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
-
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1432,9 +1182,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Prologue 
-Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
-
+              <div class="media-content hide-xs font-merryweather">Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1453,7 +1201,6 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
-
 AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1489,7 +1236,6 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
-
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
             </div>
             <div style="clear:both;"></div>
@@ -1525,9 +1271,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

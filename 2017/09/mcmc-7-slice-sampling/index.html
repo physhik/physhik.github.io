@@ -5,57 +5,53 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
-<meta name="description" content="Slice sampling algorithm 
-A single transition $(x,u) \rightarrow (x&rsquo;,u&rsquo;)$ of a one-dimensional slice sampling algorithm has the following steps.
-
+<meta name="description" content="Slice sampling algorithm A single transition $(x,u) \rightarrow (x&#39;,u&#39;)$ of a one-dimensional slice sampling algorithm has the following steps.
 (1). evaluate $P^* (x)$
-(2). draw a vertical coordinate $u&rsquo; \sim$ Uniform$(0,P^* (x))$
+(2). draw a vertical coordinate $u&#39; \sim$ Uniform$(0,P^* (x))$
 (3). create a horizontal interval $(x_l, x_r)$ enclosing $x$
-&nbsp;&nbsp;&nbsp; 3a. draw $r \sim$ Uniform$(0,1)$
-&nbsp;&nbsp;&nbsp; 3b. $x_l := x-rw$
-&nbsp;&nbsp;&nbsp; 3c. $x_r := x&#43;(1-r)w$
-&nbsp;&nbsp;&nbsp; 3d. while $(P^* (x_l) &gt; u&rsquo;)$ ${x_l := x-rw}$">
+ 3a. draw $r \sim$ Uniform$(0,1)$
+ 3b. $x_l := x-rw$
+ 3c. $x_r := x&#43;(1-r)w$
+ 3d. while $(P^* (x_l) &gt; u&#39;)$ ${x_l := x-rw}$
+ 3e. while $(P^* (x_r) &gt; u&#39;)$ ${x_r:= x&#43;w}$">
 
 
-<meta property="og:description" content="Slice sampling algorithm 
-A single transition $(x,u) \rightarrow (x&rsquo;,u&rsquo;)$ of a one-dimensional slice sampling algorithm has the following steps.
-
+<meta property="og:description" content="Slice sampling algorithm A single transition $(x,u) \rightarrow (x&#39;,u&#39;)$ of a one-dimensional slice sampling algorithm has the following steps.
 (1). evaluate $P^* (x)$
-(2). draw a vertical coordinate $u&rsquo; \sim$ Uniform$(0,P^* (x))$
+(2). draw a vertical coordinate $u&#39; \sim$ Uniform$(0,P^* (x))$
 (3). create a horizontal interval $(x_l, x_r)$ enclosing $x$
-&nbsp;&nbsp;&nbsp; 3a. draw $r \sim$ Uniform$(0,1)$
-&nbsp;&nbsp;&nbsp; 3b. $x_l := x-rw$
-&nbsp;&nbsp;&nbsp; 3c. $x_r := x&#43;(1-r)w$
-&nbsp;&nbsp;&nbsp; 3d. while $(P^* (x_l) &gt; u&rsquo;)$ ${x_l := x-rw}$">
+ 3a. draw $r \sim$ Uniform$(0,1)$
+ 3b. $x_l := x-rw$
+ 3c. $x_r := x&#43;(1-r)w$
+ 3d. while $(P^* (x_l) &gt; u&#39;)$ ${x_l := x-rw}$
+ 3e. while $(P^* (x_r) &gt; u&#39;)$ ${x_r:= x&#43;w}$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MCMC (7) : Slice Sampling">
 <meta name="twitter:title" content="MCMC (7) : Slice Sampling">
 <meta property="og:url" content="//physhik.com/2017/09/mcmc-7-slice-sampling/">
 <meta property="twitter:url" content="//physhik.com/2017/09/mcmc-7-slice-sampling/">
 <meta property="og:site_name" content="Physics to Data Science">
-<meta property="og:description" content="Slice sampling algorithm 
-A single transition $(x,u) \rightarrow (x&rsquo;,u&rsquo;)$ of a one-dimensional slice sampling algorithm has the following steps.
-
+<meta property="og:description" content="Slice sampling algorithm A single transition $(x,u) \rightarrow (x&#39;,u&#39;)$ of a one-dimensional slice sampling algorithm has the following steps.
 (1). evaluate $P^* (x)$
-(2). draw a vertical coordinate $u&rsquo; \sim$ Uniform$(0,P^* (x))$
+(2). draw a vertical coordinate $u&#39; \sim$ Uniform$(0,P^* (x))$
 (3). create a horizontal interval $(x_l, x_r)$ enclosing $x$
-&nbsp;&nbsp;&nbsp; 3a. draw $r \sim$ Uniform$(0,1)$
-&nbsp;&nbsp;&nbsp; 3b. $x_l := x-rw$
-&nbsp;&nbsp;&nbsp; 3c. $x_r := x&#43;(1-r)w$
-&nbsp;&nbsp;&nbsp; 3d. while $(P^* (x_l) &gt; u&rsquo;)$ ${x_l := x-rw}$">
-<meta name="twitter:description" content="Slice sampling algorithm 
-A single transition $(x,u) \rightarrow (x&rsquo;,u&rsquo;)$ of a one-dimensional slice sampling algorithm has the following steps.
-
+ 3a. draw $r \sim$ Uniform$(0,1)$
+ 3b. $x_l := x-rw$
+ 3c. $x_r := x&#43;(1-r)w$
+ 3d. while $(P^* (x_l) &gt; u&#39;)$ ${x_l := x-rw}$
+ 3e. while $(P^* (x_r) &gt; u&#39;)$ ${x_r:= x&#43;w}$">
+<meta name="twitter:description" content="Slice sampling algorithm A single transition $(x,u) \rightarrow (x&#39;,u&#39;)$ of a one-dimensional slice sampling algorithm has the following steps.
 (1). evaluate $P^* (x)$
-(2). draw a vertical coordinate $u&rsquo; \sim$ Uniform$(0,P^* (x))$
+(2). draw a vertical coordinate $u&#39; \sim$ Uniform$(0,P^* (x))$
 (3). create a horizontal interval $(x_l, x_r)$ enclosing $x$
-&nbsp;&nbsp;&nbsp; 3a. draw $r \sim$ Uniform$(0,1)$
-&nbsp;&nbsp;&nbsp; 3b. $x_l := x-rw$
-&nbsp;&nbsp;&nbsp; 3c. $x_r := x&#43;(1-r)w$
-&nbsp;&nbsp;&nbsp; 3d. while $(P^* (x_l) &gt; u&rsquo;)$ ${x_l := x-rw}$">
+ 3a. draw $r \sim$ Uniform$(0,1)$
+ 3b. $x_l := x-rw$
+ 3c. $x_r := x&#43;(1-r)w$
+ 3d. while $(P^* (x_l) &gt; u&#39;)$ ${x_l := x-rw}$
+ 3e. while $(P^* (x_r) &gt; u&#39;)$ ${x_r:= x&#43;w}$">
 <meta property="og:locale" content="en-us">
 
   
@@ -341,275 +337,183 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><br></p>
-
+              <!-- raw HTML omitted -->
 <h2 id="slice-sampling-algorithm">Slice sampling algorithm</h2>
-
-<p><br></p>
-
-<p>A single transition $(x,u) \rightarrow (x&rsquo;,u&rsquo;)$ of a one-dimensional slice sampling
+<!-- raw HTML omitted -->
+<p>A single transition $(x,u) \rightarrow (x',u')$ of a one-dimensional slice sampling
 algorithm has the following steps.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>(1). evaluate $P^* (x)$</p>
-
-<p>(2). draw a vertical coordinate $u&rsquo; \sim$ Uniform$(0,P^* (x))$</p>
-
+<p>(2). draw a vertical coordinate $u' \sim$ Uniform$(0,P^* (x))$</p>
 <p>(3). create a horizontal interval $(x_l, x_r)$ enclosing $x$</p>
-
-<p>&nbsp;&nbsp;&nbsp;  3a. draw $r \sim$ Uniform$(0,1)$</p>
-
-<p>&nbsp;&nbsp;&nbsp;  3b. $x_l := x-rw$</p>
-
-<p>&nbsp;&nbsp;&nbsp;  3c. $x_r := x+(1-r)w$</p>
-
-<p>&nbsp;&nbsp;&nbsp;  3d. while $(P^* (x_l) &gt; u&rsquo;)$ ${x_l := x-rw}$</p>
-
-<p>&nbsp;&nbsp;&nbsp;  3e. while $(P^* (x_r) &gt; u&rsquo;)$ ${x_r:= x+w}$</p>
-
+<p>     3a. draw $r \sim$ Uniform$(0,1)$</p>
+<p>     3b. $x_l := x-rw$</p>
+<p>     3c. $x_r := x+(1-r)w$</p>
+<p>     3d. while $(P^* (x_l) &gt; u')$ ${x_l := x-rw}$</p>
+<p>     3e. while $(P^* (x_r) &gt; u')$ ${x_r:= x+w}$</p>
 <p>(4). loop {</p>
-
-<p>(5). &nbsp;&nbsp;&nbsp;    draw $x&rsquo; \sim$ Uniform$(x_l,x_r)$</p>
-
-<p>(6). &nbsp;&nbsp;&nbsp;   evaluate $P^*(x&rsquo;)$</p>
-
-<p>(7). &nbsp;&nbsp;&nbsp;   if $P^*(x&rsquo;) &gt;u&rsquo;$ break out of loop 4-9</p>
-
-<p>(8). &nbsp;&nbsp;&nbsp;   else modify the interval $(x_l,x_r)$</p>
-
-<p>&nbsp;&nbsp;&nbsp;  8a.   &nbsp;&nbsp;&nbsp;  if $(x&rsquo; &gt; x){x_r:=x&rsquo;}$</p>
-
-<p>&nbsp;&nbsp;&nbsp;  8b.   &nbsp;&nbsp;&nbsp;  else ${x_l:=x&rsquo;}$</p>
-
+<p>(5).        draw $x' \sim$ Uniform$(x_l,x_r)$</p>
+<p>(6).       evaluate $P^*(x')$</p>
+<p>(7).       if $P^*(x') &gt;u'$ break out of loop 4-9</p>
+<p>(8).       else modify the interval $(x_l,x_r)$</p>
+<p>     8a.        if $(x' &gt; x){x_r:=x'}$</p>
+<p>     8b.        else ${x_l:=x'}$</p>
 <p>(9). }</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>I find the following exercise is quite simple and very good to understand how the slice sampling algorithm works. This is the exercise 29.10 of <a href="https://inference.phy.cam.ac.uk/mackay/itila/book.html">the book</a> <em>Information Theory, Inference, and Learning Algorithms</em> of <em>David Mackay</em>.</p>
-
-<p><br></p>
-
-<h2 id="exercise-29-10">Exercise 29.10</h2>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<h2 id="exercise-2910">Exercise 29.10</h2>
+<!-- raw HTML omitted -->
 <h3 id="question">Question</h3>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Investigate the properties of slice sampling applied to the
 density function $P^* (x)$.</p>
-
 <p>$$
 P^* (x)= \{
 \begin{array}{cc}
-10 ~~~~~~as ~0\leq x&lt;1\\<br />
-~~0 ~~~~~~as ~1\leq x \leq 11<br />
+10 ~~~~~~as ~0\leq x&lt;1\\\<br>
+~~0 ~~~~~~as ~1\leq x \leq 11\<br>
 \end{array}
 $$</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>$x$ is a real variable between 0.0 and 11.0.
 How long does it take typically for slice sampling to get from an $x$ in
 the peak region $x  \in (0,~ 1)$ to an $x$ in the tail region $x \in (1,~11)$, and vice
 versa? Confirm that the probabilities of these transitions do yield an
 asymptotic probability density that is correct.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <h3 id="solution">Solution</h3>
-
-<p><br></p>
-
-<pre><code class="language-python">import numpy as np
-import matplotlib.pyplot as plt
-import random
-import timeit
-</code></pre>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> random
+<span style="color:#f92672">import</span> timeit
+</code></pre></div><!-- raw HTML omitted -->
 <p>Let us see how the target probability distribution looks like.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># probability density</span>
 
-<p><br></p>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Prob</span>(x):
+    <span style="color:#66d9ef">if</span> x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">elif</span> x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span>:
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">10</span>
+    <span style="color:#66d9ef">elif</span> x <span style="color:#f92672">&lt;</span><span style="color:#ae81ff">11</span> :
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">else</span> :
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># probability density plot</span>
 
-<pre><code class="language-python"># probability density
-
-def Prob(x):
-    if x &lt; 0:
-        return 0
-    elif x &lt; 1:
-        return 10
-    elif x &lt;11 :
-        return 1
-    else :
-        return 0
-</code></pre>
-
-<pre><code class="language-python"># probability density plot
-
-x = np.arange(-2.0, 13.0, 0.1)
-P=[Prob(t) for t in x]
-y = np.array(P)
-plt.plot(x, y)
-plt.show()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/sliceSampling_files/sliceSampling_2_0.png" alt="png" /></p>
-
-<p><br></p>
-
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">13.0</span>, <span style="color:#ae81ff">0.1</span>)
+P<span style="color:#f92672">=</span>[Prob(t) <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> x]
+y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(P)
+plt<span style="color:#f92672">.</span>plot(x, y)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/sliceSampling_files/sliceSampling_2_0.png" alt="png"></p>
+<!-- raw HTML omitted -->
 <p>Give the initial sample between $x_0 = 0$ and $1$, and decide the size of the step. It should be not too big nor too small. I chose it 0.5.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+x0 <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>random()
 
-<p><br></p>
-
-<pre><code class="language-python">
-x0 = random.random()
-
-# decide the size of the step. Not too small, not too big.
-w = 0.5
-</code></pre>
-
-<p><br></p>
-
+<span style="color:#75715e"># decide the size of the step. Not too small, not too big.</span>
+w <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</code></pre></div><!-- raw HTML omitted -->
 <p>The following is the main part of the slice sampling. Compare with the above algorithm.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">r <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>random()
+u <span style="color:#f92672">=</span> Prob(x0)<span style="color:#f92672">*</span>random<span style="color:#f92672">.</span>random()
 
-<p><br></p>
+xl <span style="color:#f92672">=</span> x0 <span style="color:#f92672">-</span> r <span style="color:#f92672">*</span> w
 
-<pre><code class="language-python">r = random.random()
-u = Prob(x0)*random.random()
-
-xl = x0 - r * w
-
-while Prob(xl) &gt; u:
-    xl = xl - w
+<span style="color:#66d9ef">while</span> Prob(xl) <span style="color:#f92672">&gt;</span> u:
+    xl <span style="color:#f92672">=</span> xl <span style="color:#f92672">-</span> w
 
 
-xr = x0 + (1-r)*w
+xr <span style="color:#f92672">=</span> x0 <span style="color:#f92672">+</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>r)<span style="color:#f92672">*</span>w
 
-while Prob(xr) &gt; u:
-    xr = xr + w
-</code></pre>
-
-<p><br></p>
-
+<span style="color:#66d9ef">while</span> Prob(xr) <span style="color:#f92672">&gt;</span> u:
+    xr <span style="color:#f92672">=</span> xr <span style="color:#f92672">+</span> w
+</code></pre></div><!-- raw HTML omitted -->
 <p>Put them together for the step of the process.</p>
-
-<p><br></p>
-
-<pre><code class="language-python">def process(x0, w):
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">process</span>(x0, w):
 
 
-    # decide the size of the step. Not too small, not too big.
-    w = 0.5
+    <span style="color:#75715e"># decide the size of the step. Not too small, not too big.</span>
+    w <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
 
-    u = Prob(x0)*random.random()
+    u <span style="color:#f92672">=</span> Prob(x0)<span style="color:#f92672">*</span>random<span style="color:#f92672">.</span>random()
 
-    cond = True
-    r = random.random()
-    xl = x0-r*w
-    xr = x0 + (1-r)*w
+    cond <span style="color:#f92672">=</span> True
+    r <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>random()
+    xl <span style="color:#f92672">=</span> x0<span style="color:#f92672">-</span>r<span style="color:#f92672">*</span>w
+    xr <span style="color:#f92672">=</span> x0 <span style="color:#f92672">+</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>r)<span style="color:#f92672">*</span>w
 
-    while cond:
-        while Prob(xl) &gt; u:
-            xl = xl - w
+    <span style="color:#66d9ef">while</span> cond:
+        <span style="color:#66d9ef">while</span> Prob(xl) <span style="color:#f92672">&gt;</span> u:
+            xl <span style="color:#f92672">=</span> xl <span style="color:#f92672">-</span> w
 
-        while Prob(xr) &gt; u:
-            xr = xr + w
+        <span style="color:#66d9ef">while</span> Prob(xr) <span style="color:#f92672">&gt;</span> u:
+            xr <span style="color:#f92672">=</span> xr <span style="color:#f92672">+</span> w
 
-        x1= random.uniform(xl,xr)
+        x1<span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>uniform(xl,xr)
 
-        if Prob(x1) &gt; u :
-            cond = False
-        else :
-            if x1&gt;x0:
-                xr = x1
-            else:
-                xl=x1
-    return x1
+        <span style="color:#66d9ef">if</span> Prob(x1) <span style="color:#f92672">&gt;</span> u :
+            cond <span style="color:#f92672">=</span> False
+        <span style="color:#66d9ef">else</span> :
+            <span style="color:#66d9ef">if</span> x1<span style="color:#f92672">&gt;</span>x0:
+                xr <span style="color:#f92672">=</span> x1
+            <span style="color:#66d9ef">else</span>:
+                xl<span style="color:#f92672">=</span>x1
+    <span style="color:#66d9ef">return</span> x1
 
-</code></pre>
-
-<p><br></p>
-
+</code></pre></div><!-- raw HTML omitted -->
 <p>Use the process method, I want to find the number of turns the sample comes out from the range, (0,1) to out of the range.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">numofturns</span>(x0, w):
+    turn <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">while</span> x0 <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span>:
+        turn <span style="color:#f92672">=</span> turn <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+        x0 <span style="color:#f92672">=</span> process(x0, <span style="color:#ae81ff">0.5</span>)
 
-<p><br></p>
+    <span style="color:#66d9ef">return</span> turn
 
-<pre><code class="language-python">def numofturns(x0, w):
-    turn = 0
-    while x0 &lt; 1:
-        turn = turn + 1
-        x0 = process(x0, 0.5)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">list <span style="color:#f92672">=</span>[]
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10000</span>):
+    list <span style="color:#f92672">=</span> list<span style="color:#f92672">+</span> [numofturns(random<span style="color:#f92672">.</span>random(),<span style="color:#ae81ff">0.5</span>)]
 
-    return turn
-
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>plot(list)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/sliceSampling_files/sliceSampling_15_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>average(list)
+</code></pre></div><pre><code>10.9325
 </code></pre>
-
-<pre><code class="language-python">list =[]
-for i in range(10000):
-    list = list+ [numofturns(random.random(),0.5)]
-
-</code></pre>
-
-<pre><code class="language-python">plt.plot(list)
-plt.show()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/sliceSampling_files/sliceSampling_15_0.png" alt="png" /></p>
-
-<pre><code class="language-python">np.average(list)
-</code></pre>
-
-<pre><code>10.9325
-</code></pre>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>It takes around 11 truns.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>Then, how about opposite? From out of the range to inside of the range, (0,1).</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">numofturns2</span>(x0, w):
+    turn <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">while</span> x0 <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
+        turn <span style="color:#f92672">=</span> turn <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+        x0 <span style="color:#f92672">=</span> process(x0, <span style="color:#ae81ff">0.5</span>)
 
-<p><br></p>
+    <span style="color:#66d9ef">return</span> turn
 
-<pre><code class="language-python">def numofturns2(x0, w):
-    turn = 0
-    while x0 &gt; 1:
-        turn = turn + 1
-        x0 = process(x0, 0.5)
-
-    return turn
-
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">list2 <span style="color:#f92672">=</span>[]
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10000</span>):
+    list2 <span style="color:#f92672">=</span> list2 <span style="color:#f92672">+</span> [numofturns2(random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">11</span>),<span style="color:#ae81ff">0.5</span>)]
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>plot(list2)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="//physhik.com/images/postimages/sliceSampling_files/sliceSampling_19_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>average(list2)
+</code></pre></div><pre><code>11.1015
 </code></pre>
-
-<pre><code class="language-python">list2 =[]
-for i in range(10000):
-    list2 = list2 + [numofturns2(random.uniform(1,11),0.5)]
-</code></pre>
-
-<pre><code class="language-python">plt.plot(list2)
-plt.show()
-</code></pre>
-
-<p><img src="//physhik.com/images/postimages/sliceSampling_files/sliceSampling_19_0.png" alt="png" /></p>
-
-<pre><code class="language-python">np.average(list2)
-</code></pre>
-
-<pre><code>11.1015
-</code></pre>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>It takes about 11 turns as well. The difference is about 1.5 percentages. When you calculate the areas of the plot below (0,1 ), and out of the range. They match. It supports our analysis that it takes the same time for the samples to go in or out of the range, (0,1).</p>
-
-<p><br></p>
+<!-- raw HTML omitted -->
 
               
             </div>
@@ -692,7 +596,7 @@ plt.show()
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Namshik Kim. All Rights Reserved
+    &copy; 2020 Namshik Kim. All Rights Reserved
   </span>
 </footer>
 
@@ -818,8 +722,7 @@ plt.show()
                   Nov 11, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Update 
-I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
+              <div class="media-content hide-xs font-merryweather">Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&rsquo;t be posted).</div>
             </div>
             <div style="clear:both;"></div>
@@ -854,8 +757,7 @@ I myself found some errors due to the version change of Python libraries, so I u
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Open source 
-The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand.</div>
+              <div class="media-content hide-xs font-merryweather">Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -872,10 +774,7 @@ The codes can be found at my Github repo. If you are familar to the models alrea
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis 
-Deep learning and classifications. 
-The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
-
+              <div class="media-content hide-xs font-merryweather">Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</div>
             </div>
             <div style="clear:both;"></div>
@@ -893,9 +792,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
                   Mar 3, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">Prologue 
-Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
-
+              <div class="media-content hide-xs font-merryweather">Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</div>
             </div>
             <div style="clear:both;"></div>
@@ -914,7 +811,6 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">To architect low cost and well-performing server, many companies use cloud service such as Amazon AWS, Google clound platform (GCP). I have used AWS EC2 with GPU and S3 storage for my deep learning research at Soundcorset.
-
 AWS and GCP opened many cloud platform services, and to build the data pipeline and to manage the data effectively, need to learn the command line tool and API. In this post, I will discuss the Google Youtube data API because recently I studied.</div>
             </div>
             <div style="clear:both;"></div>
@@ -950,7 +846,6 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
-
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</div>
             </div>
             <div style="clear:both;"></div>
@@ -986,9 +881,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

@@ -6,11 +6,7 @@
     <description>Recent content in DCGAN on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Dec 2017 14:00:00 -0700</lastBuildDate>
-    
-	<atom:link href="//physhik.com/tags/dcgan/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 06 Dec 2017 14:00:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/dcgan/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction to GAN </title>
       <link>//physhik.com/2017/12/introduction-to-gan/</link>
@@ -18,9 +14,7 @@
       
       <guid>//physhik.com/2017/12/introduction-to-gan/</guid>
       <description>I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
-
-Revolution in deep learning 
-As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</description>
+Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</description>
     </item>
     
   </channel>
