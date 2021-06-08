@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>maximum likelihood on Physics to Data Science</title>
-    <link>//physhik.com/tags/maximum-likelihood/</link>
+    <link>https://physhik.github.io/tags/maximum-likelihood/</link>
     <description>Recent content in maximum likelihood on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Sep 2017 12:30:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/maximum-likelihood/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Sep 2017 12:30:00 -0700</lastBuildDate><atom:link href="https://physhik.github.io/tags/maximum-likelihood/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bayesian Inference Examples</title>
-      <link>//physhik.com/2017/09/bayesian-inference-examples/</link>
+      <link>https://physhik.github.io/2017/09/bayesian-inference-examples/</link>
       <pubDate>Sun, 03 Sep 2017 12:30:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/bayesian-inference-examples/</guid>
+      <guid>https://physhik.github.io/2017/09/bayesian-inference-examples/</guid>
       <description>I assume that the readers know the Bayes&#39; rule already. If you are not familiar to it, read any kind of textbook about probability, data science, and machine learning. I recommend the book, which I learned Bayes&#39; rule. Bayesians say that you cannot do inference without making assumptions. Thus, Bayesians also use probabilities to describe inferences. The author in the chapter 2 introduces some rules of probability theory and introduces more about assumptions in inference in the chapter 3.</description>
     </item>
     
     <item>
       <title>Clustering (2) : Soft K-mean</title>
-      <link>//physhik.com/2017/08/clustering-2-soft-k-mean/</link>
+      <link>https://physhik.github.io/2017/08/clustering-2-soft-k-mean/</link>
       <pubDate>Thu, 31 Aug 2017 13:40:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/clustering-2-soft-k-mean/</guid>
+      <guid>https://physhik.github.io/2017/08/clustering-2-soft-k-mean/</guid>
       <description>Hard K-means and responsibilities If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the hard K-means algorithm in the previous post.
 In the previous post, we defined assignment. The equivalent representation of this assignment of points to clusters is given by responsibilities, $r^{(n)}_k$. In the assignment step, we set $r^{(n)}_k$ to one if mean k is the closest mean to datapoint $ {\textbf x}^{(n)}$; otherwise, $r^{(n)}_k$ is zero.</description>
     </item>

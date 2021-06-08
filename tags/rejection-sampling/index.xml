@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>rejection sampling on Physics to Data Science</title>
-    <link>//physhik.com/tags/rejection-sampling/</link>
+    <link>https://physhik.github.io/tags/rejection-sampling/</link>
     <description>Recent content in rejection sampling on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Aug 2017 02:10:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/rejection-sampling/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Aug 2017 02:10:00 -0700</lastBuildDate><atom:link href="https://physhik.github.io/tags/rejection-sampling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MCMC (4) : Rejection Sampling</title>
-      <link>//physhik.com/2017/08/mcmc-4-rejection-sampling/</link>
+      <link>https://physhik.github.io/2017/08/mcmc-4-rejection-sampling/</link>
       <pubDate>Thu, 24 Aug 2017 02:10:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/mcmc-4-rejection-sampling/</guid>
+      <guid>https://physhik.github.io/2017/08/mcmc-4-rejection-sampling/</guid>
       <description>In advance, I will proceed in the extension of the previous post. I will use the same target distribution function and the similar Gaussian disposal distribution. Even Python script will be better understood if you&amp;rsquo;ve already read the previous post about importance sampling.
 The rejection sampling could be the most familiar Monte Carlo sampling. When need to introduce Monte Carlo method to somebody, it is very intuitive and effective to give an example of computing the area of the circle (or anything) by using random samples.</description>
     </item>

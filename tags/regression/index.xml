@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>regression on Physics to Data Science</title>
-    <link>//physhik.com/tags/regression/</link>
+    <link>https://physhik.github.io/tags/regression/</link>
     <description>Recent content in regression on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Oct 2019 01:00:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/regression/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Oct 2019 01:00:00 -0700</lastBuildDate><atom:link href="https://physhik.github.io/tags/regression/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fielding Independent Pitching Revisited</title>
-      <link>//physhik.com/_draft/2019-10-31-sabermetrics/</link>
+      <link>https://physhik.github.io/_draft/2019-10-31-sabermetrics/</link>
       <pubDate>Thu, 31 Oct 2019 01:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/_draft/2019-10-31-sabermetrics/</guid>
+      <guid>https://physhik.github.io/_draft/2019-10-31-sabermetrics/</guid>
       <description>많은 사람들은 세이버메트릭션들을 숫자에 미쳐 경기를 즐기는 것을 오히려 망치는 사람들이라고 생각하는 것 같다. 실제로 야구의 인기는 줄어들고 있지 않은가
 하지만 그건 구단의 최대한의 이득을 고려하는 운영방식에서의 변화 때문이지. 세이버메트릭스의 책임으로 돌리긴 어렵다
 사실 세이버메트릭스는 내가 야구를 보는 관점을 넓혀줬고 오히려 더 재밌게 즐길 수 있게, 그리고 더 많은 시간을 써서 야구에 대해서 생각하게 해주었다.
@@ -21,30 +21,30 @@
     
     <item>
       <title>Parasite by Bong</title>
-      <link>//physhik.com/_draft/parasite/</link>
+      <link>https://physhik.github.io/_draft/parasite/</link>
       <pubDate>Thu, 31 Oct 2019 01:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/_draft/parasite/</guid>
+      <guid>https://physhik.github.io/_draft/parasite/</guid>
       <description>밴쿠버에서 살면서 한국 영화를 극장에서 보긴 힘들다. 집에서부터 운전을 한시간은 해야 하고, 자전거로는 두시간 이상이 걸릴 거리에 한인타운 극장이 거의 유일한 곳이다. 기생충은 깐느 영화제에서 큰 상을 받았고 그 덕에 괜찮은 배급사와 북미 계약을 맺었다. 적지 않은 밴쿠버의 극장에서 상영 중이고, 이 영화 취향도 아닐 아내를 졸라 즐겨 찾는 멀티 플렉스 극장을 찾았다.
 Kim Ki-taek lives with his wife Chung-sook, son Ki-woo, and daughter Ki-jeong in a shabby semi-basement apartment. The family struggle to survive, working any low-paying gigs available.</description>
     </item>
     
     <item>
       <title>Neural Network (3) : Hopfield Net</title>
-      <link>//physhik.com/2017/09/neural-network-3-hopfield-net/</link>
+      <link>https://physhik.github.io/2017/09/neural-network-3-hopfield-net/</link>
       <pubDate>Sun, 10 Sep 2017 13:30:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/neural-network-3-hopfield-net/</guid>
+      <guid>https://physhik.github.io/2017/09/neural-network-3-hopfield-net/</guid>
       <description>Binary Hopfield net using Hebbian learning We want to study Hopfield net from the simple case. Hopfield net is a fully connected feedback network. A feedback network is a network that is not a feedforward network, and in a feedforward network, all the connections are directed. All the connections in our example will be bi-directed. This symmetric property of the weight is important property of the Hopfield net.
 Hopfield net can act as associative memories, and they can be used to solve optimization problems.</description>
     </item>
     
     <item>
       <title>Neural Network (2) : Inference Using Perceptron and MCMC</title>
-      <link>//physhik.com/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</link>
+      <link>https://physhik.github.io/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</link>
       <pubDate>Wed, 06 Sep 2017 16:30:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</guid>
+      <guid>https://physhik.github.io/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</guid>
       <description>Single neuron still has a lot to say In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
 In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.
 Objective function and its contour plot.</description>
@@ -52,10 +52,10 @@ Objective function and its contour plot.</description>
     
     <item>
       <title>Neural Network (1): Perceptron and Stochastic Gradient Descent</title>
-      <link>//physhik.com/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</link>
+      <link>https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</link>
       <pubDate>Wed, 30 Aug 2017 19:30:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</guid>
+      <guid>https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</guid>
       <description>Single neuron is amazing One of the lessons I had during physics program is that we should start to understand small thing deeply however complicated the system which you want to know is. Not just it is easier but also it helps a lot to understand the more complex ones.
 Neural network is often compared to black magic. We do not understand why and how exactly so effective it is, but it makes great estimations in some specific matters.</description>
     </item>

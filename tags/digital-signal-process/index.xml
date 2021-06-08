@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>digital signal process on Physics to Data Science</title>
-    <link>//physhik.com/tags/digital-signal-process/</link>
+    <link>https://physhik.github.io/tags/digital-signal-process/</link>
     <description>Recent content in digital signal process on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Feb 2018 23:00:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/digital-signal-process/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Feb 2018 23:00:00 -0700</lastBuildDate><atom:link href="https://physhik.github.io/tags/digital-signal-process/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rough Review of WaveGAN</title>
-      <link>//physhik.com/2018/02/rough-review-of-wavegan/</link>
+      <link>https://physhik.github.io/2018/02/rough-review-of-wavegan/</link>
       <pubDate>Fri, 23 Feb 2018 23:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/2018/02/rough-review-of-wavegan/</guid>
+      <guid>https://physhik.github.io/2018/02/rough-review-of-wavegan/</guid>
       <description>Around a week ago, on ArXiv, an interesting research paper appeared, which is about the music style transfer using GAN, which is also my main topic for recent few months. Around a week ago, on arXiv, an interesting research paper appeared, which can be applied to the music style transfer using GAN, which is also my main topic for recent few months. There are already many researches on the style transfer of the images, and one of my main projects now is making the style transfer in music.</description>
     </item>
     

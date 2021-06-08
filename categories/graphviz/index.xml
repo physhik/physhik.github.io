@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>graphviz on Physics to Data Science</title>
-    <link>//physhik.com/categories/graphviz/</link>
+    <link>https://physhik.github.io/categories/graphviz/</link>
     <description>Recent content in graphviz on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Sep 2017 16:20:00 -0700</lastBuildDate><atom:link href="//physhik.com/categories/graphviz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Sep 2017 16:20:00 -0700</lastBuildDate><atom:link href="https://physhik.github.io/categories/graphviz/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Graphviz</title>
-      <link>//physhik.com/2017/09/graphviz/</link>
+      <link>https://physhik.github.io/2017/09/graphviz/</link>
       <pubDate>Fri, 15 Sep 2017 16:20:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/graphviz/</guid>
+      <guid>https://physhik.github.io/2017/09/graphviz/</guid>
       <description>Bike algorithm I like riding a bike. Because my knee are not healthy now, I cannot ride a bike much. However, even little riding makes me feel good. Today it occurs to me if I am addicted at riding a bike. During riding a bike, I was thinking about the algorithm commands me. Silly me thought it is funny.
 Thus, I tried to make a flowchart of the algorithm. Tried to use some online service to draw it.</description>
     </item>

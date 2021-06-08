@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ML on Physics to Data Science</title>
-    <link>//physhik.com/categories/ml/</link>
+    <link>https://physhik.github.io/categories/ml/</link>
     <description>Recent content in ML on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Nov 2019 01:00:00 -0700</lastBuildDate><atom:link href="//physhik.com/categories/ml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Nov 2019 01:00:00 -0700</lastBuildDate><atom:link href="https://physhik.github.io/categories/ml/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Machine Learns from Cardiologist (4)</title>
-      <link>//physhik.com/2019/11/machine-learns-from-cardiologist-4/</link>
+      <link>https://physhik.github.io/2019/11/machine-learns-from-cardiologist-4/</link>
       <pubDate>Wed, 06 Nov 2019 01:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/2019/11/machine-learns-from-cardiologist-4/</guid>
+      <guid>https://physhik.github.io/2019/11/machine-learns-from-cardiologist-4/</guid>
       <description>Update I had two emails about my ECG classifier Github repo from graduate students after I opened the source code. Please use the issue page of the repo if you have any question or an error of the code.
 I myself found some errors due to the version change of Python libraries, so I updated the codes. In the near future, I would update the Python codes suitable for upgraded libraries (won&amp;rsquo;t be posted).</description>
     </item>
     
     <item>
       <title>Fielding Independent Pitching Revisited</title>
-      <link>//physhik.com/_draft/2019-10-31-sabermetrics/</link>
+      <link>https://physhik.github.io/_draft/2019-10-31-sabermetrics/</link>
       <pubDate>Thu, 31 Oct 2019 01:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/_draft/2019-10-31-sabermetrics/</guid>
+      <guid>https://physhik.github.io/_draft/2019-10-31-sabermetrics/</guid>
       <description>많은 사람들은 세이버메트릭션들을 숫자에 미쳐 경기를 즐기는 것을 오히려 망치는 사람들이라고 생각하는 것 같다. 실제로 야구의 인기는 줄어들고 있지 않은가
 하지만 그건 구단의 최대한의 이득을 고려하는 운영방식에서의 변화 때문이지. 세이버메트릭스의 책임으로 돌리긴 어렵다
 사실 세이버메트릭스는 내가 야구를 보는 관점을 넓혀줬고 오히려 더 재밌게 즐길 수 있게, 그리고 더 많은 시간을 써서 야구에 대해서 생각하게 해주었다.
@@ -31,145 +31,145 @@ I myself found some errors due to the version change of Python libraries, so I u
     
     <item>
       <title>Parasite by Bong</title>
-      <link>//physhik.com/_draft/parasite/</link>
+      <link>https://physhik.github.io/_draft/parasite/</link>
       <pubDate>Thu, 31 Oct 2019 01:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/_draft/parasite/</guid>
+      <guid>https://physhik.github.io/_draft/parasite/</guid>
       <description>밴쿠버에서 살면서 한국 영화를 극장에서 보긴 힘들다. 집에서부터 운전을 한시간은 해야 하고, 자전거로는 두시간 이상이 걸릴 거리에 한인타운 극장이 거의 유일한 곳이다. 기생충은 깐느 영화제에서 큰 상을 받았고 그 덕에 괜찮은 배급사와 북미 계약을 맺었다. 적지 않은 밴쿠버의 극장에서 상영 중이고, 이 영화 취향도 아닐 아내를 졸라 즐겨 찾는 멀티 플렉스 극장을 찾았다.
 Kim Ki-taek lives with his wife Chung-sook, son Ki-woo, and daughter Ki-jeong in a shabby semi-basement apartment. The family struggle to survive, working any low-paying gigs available.</description>
     </item>
     
     <item>
       <title>Machine Learns from Cardiologist (3)</title>
-      <link>//physhik.com/2019/03/machine-learns-from-cardiologist-3/</link>
+      <link>https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/</link>
       <pubDate>Fri, 29 Mar 2019 01:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/2019/03/machine-learns-from-cardiologist-3/</guid>
+      <guid>https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/</guid>
       <description>Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.</description>
     </item>
     
     <item>
       <title>Machine Learns from Cardiologist (2)</title>
-      <link>//physhik.com/2019/03/machine-learns-from-cardiologist-2/</link>
+      <link>https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/</link>
       <pubDate>Wed, 20 Mar 2019 19:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/2019/03/machine-learns-from-cardiologist-2/</guid>
+      <guid>https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/</guid>
       <description>Understand literatures and the result-analysis Deep learning and classifications. The pattern recognition using deep convolutional neural network is indisputably good. It shows in various complicated image recognitions or even sound recognition. It is obvious it is going to be so good at least as the similar level of human being.
 What matters is if we have enough data, and how we can preprocess the data properly for machine to learn effectively.</description>
     </item>
     
     <item>
       <title>Macnine Learns from Cardiologist (1)</title>
-      <link>//physhik.com/2019/03/macnine-learns-from-cardiologist-1/</link>
+      <link>https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/</link>
       <pubDate>Sun, 17 Mar 2019 20:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/2019/03/macnine-learns-from-cardiologist-1/</guid>
+      <guid>https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/</guid>
       <description>Prologue Recenly the interest on wearing device is increasing, and the convolutional neural network (CNN) supervised learning must be one strong tool to analyse the signal of the body and predict the heart disease of our body.
 When I scanned a few reseach papers, the 1 dimensional signal and the regular pattern of the heart beat reminds me of musical signals I researched in that it requires a signal process and neural network, and it has much potential to bring healthier life to humar races1, so I want to present the introductory post.</description>
     </item>
     
     <item>
       <title>Revisited Variational Inference</title>
-      <link>//physhik.com/2018/02/revisited-variational-inference/</link>
+      <link>https://physhik.github.io/2018/02/revisited-variational-inference/</link>
       <pubDate>Sat, 24 Feb 2018 23:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/2018/02/revisited-variational-inference/</guid>
+      <guid>https://physhik.github.io/2018/02/revisited-variational-inference/</guid>
       <description>A few days ago, I was asked what the variational method is, and I found my previous post, Variational Method for Optimization, barely explain some basic of variational method. Thus, I would do it in this post.
 Data concerned in machine learning are ruled by physics of informations. It sounds quite abstract, so I will present an example of dynamic mechanics. Let us consider a ball thrown with velocity v=($v_x$, $v_y$) at x = (x, y), and under the vertical gravity with constant g.</description>
     </item>
     
     <item>
       <title>Rough Review of WaveGAN</title>
-      <link>//physhik.com/2018/02/rough-review-of-wavegan/</link>
+      <link>https://physhik.github.io/2018/02/rough-review-of-wavegan/</link>
       <pubDate>Fri, 23 Feb 2018 23:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/2018/02/rough-review-of-wavegan/</guid>
+      <guid>https://physhik.github.io/2018/02/rough-review-of-wavegan/</guid>
       <description>Around a week ago, on ArXiv, an interesting research paper appeared, which is about the music style transfer using GAN, which is also my main topic for recent few months. Around a week ago, on arXiv, an interesting research paper appeared, which can be applied to the music style transfer using GAN, which is also my main topic for recent few months. There are already many researches on the style transfer of the images, and one of my main projects now is making the style transfer in music.</description>
     </item>
     
     <item>
       <title>Introduction to GAN </title>
-      <link>//physhik.com/2017/12/introduction-to-gan/</link>
+      <link>https://physhik.github.io/2017/12/introduction-to-gan/</link>
       <pubDate>Wed, 06 Dec 2017 14:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/12/introduction-to-gan/</guid>
+      <guid>https://physhik.github.io/2017/12/introduction-to-gan/</guid>
       <description>I want to introduce some GAN model I have studied after I started working for the digital signal process. I will skip technical detail of the introduction. My goal is to provide a minimal background information.
 Revolution in deep learning As we have seen at the post of VAE, generative model can be useful in machine learning. Not only one can classify the data but also can generate new data we do not have.</description>
     </item>
     
     <item>
       <title>How to Test Progressive Growing of GAN from the Github Source</title>
-      <link>//physhik.com/2017/12/how-to-test-progressive-growing-of-gan-from-the-github-source/</link>
+      <link>https://physhik.github.io/2017/12/how-to-test-progressive-growing-of-gan-from-the-github-source/</link>
       <pubDate>Sat, 02 Dec 2017 23:50:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/12/how-to-test-progressive-growing-of-gan-from-the-github-source/</guid>
+      <guid>https://physhik.github.io/2017/12/how-to-test-progressive-growing-of-gan-from-the-github-source/</guid>
       <description>NVIDIA research team published a paper, Progressive Growing of GANs for Improved Quality, Stability, and Variation, and the source code on Github a month ago.
 I went through some trials and errors to run the codes properly, so I want to make it easier to you. Why I think this post will be helpful is the Github page is not supporting to post issues to ask and answer for inquiries.</description>
     </item>
     
     <item>
       <title>Learning to Learn by Gradient Descent by Gradient Descent</title>
-      <link>//physhik.com/2017/09/learning-to-learn-by-gradient-descent-by-gradient-descent/</link>
+      <link>https://physhik.github.io/2017/09/learning-to-learn-by-gradient-descent-by-gradient-descent/</link>
       <pubDate>Thu, 28 Sep 2017 23:50:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/learning-to-learn-by-gradient-descent-by-gradient-descent/</guid>
+      <guid>https://physhik.github.io/2017/09/learning-to-learn-by-gradient-descent-by-gradient-descent/</guid>
       <description>I had a trip to Quebec city for 4 days. Behind the lingering from the travel, I prepared for the meetup this week. I could not join it because of birthday dinner with my girlfriend. However, I studied the original paper seriously, and the topic involves some interesting ideas, so I want to introduce about it.
 Long short term memory (LSTM) To understand the paper, precedently, need to understand LSTM. I recommend chapter 10 of the deeplearning book.</description>
     </item>
     
     <item>
       <title>Variational Autoencoder</title>
-      <link>//physhik.com/2017/09/variational-autoencoder/</link>
+      <link>https://physhik.github.io/2017/09/variational-autoencoder/</link>
       <pubDate>Wed, 20 Sep 2017 23:50:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/variational-autoencoder/</guid>
+      <guid>https://physhik.github.io/2017/09/variational-autoencoder/</guid>
       <description>Mark who I met in machine learning study meetup had recommended me to study a research paper about discrete variational autoencoder. I have read today. As so does variational inference, it includes many mathematical equations, but what the author wants to tell was very straightforward. Two previous posts, Variational Method, Independent Component Analysis, are relevant to the following discussion.
 Autoencoder To understand the paper, above all, we need to know what the autoencoder is and what variational autoencoder is.</description>
     </item>
     
     <item>
       <title>Neural Network (5) : Very Simple Boltzmann Machine</title>
-      <link>//physhik.com/2017/09/neural-network-5-very-simple-boltzmann-machine/</link>
+      <link>https://physhik.github.io/2017/09/neural-network-5-very-simple-boltzmann-machine/</link>
       <pubDate>Mon, 18 Sep 2017 23:50:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/neural-network-5-very-simple-boltzmann-machine/</guid>
+      <guid>https://physhik.github.io/2017/09/neural-network-5-very-simple-boltzmann-machine/</guid>
       <description>Stochastic Hopfield net Boltzmann machine is nothing but stochastic Hopfield net1. If you did not yet read the post of the Hopfield net in the blog, just go read it. I assume the readers are familiar to it, and directly use many results we had in the post. The magic of deep learning which we have discussed a couple of times works here, too. Such as $\epsilon$-greedy off-policy algorithm2, the stochastic character of the binary units allows the machine occasionally increase its energy to escape from poor local minima.</description>
     </item>
     
     <item>
       <title>Neural Network (4) : Deep Reinforcement Learning, Q-learning</title>
-      <link>//physhik.com/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</link>
+      <link>https://physhik.github.io/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</link>
       <pubDate>Thu, 14 Sep 2017 23:30:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</guid>
+      <guid>https://physhik.github.io/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</guid>
       <description>Judgement Day It is the first time I did not post for 4 days. I was too busy to prepare for the meetup this week. The day before yesterday meetup topic was the reinforcement learning as I mentioned at previous post. It is not a long research paper, but includes 143 references. Ah, not my favorite. This A Brief Survey of Deep Reinforcement Learning did not explain the detail of what I am interested in.</description>
     </item>
     
     <item>
       <title>Neural Network (3) : Hopfield Net</title>
-      <link>//physhik.com/2017/09/neural-network-3-hopfield-net/</link>
+      <link>https://physhik.github.io/2017/09/neural-network-3-hopfield-net/</link>
       <pubDate>Sun, 10 Sep 2017 13:30:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/neural-network-3-hopfield-net/</guid>
+      <guid>https://physhik.github.io/2017/09/neural-network-3-hopfield-net/</guid>
       <description>Binary Hopfield net using Hebbian learning We want to study Hopfield net from the simple case. Hopfield net is a fully connected feedback network. A feedback network is a network that is not a feedforward network, and in a feedforward network, all the connections are directed. All the connections in our example will be bi-directed. This symmetric property of the weight is important property of the Hopfield net.
 Hopfield net can act as associative memories, and they can be used to solve optimization problems.</description>
     </item>
     
     <item>
       <title>Ising Model</title>
-      <link>//physhik.com/2017/09/ising-model/</link>
+      <link>https://physhik.github.io/2017/09/ising-model/</link>
       <pubDate>Sat, 09 Sep 2017 23:30:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/ising-model/</guid>
+      <guid>https://physhik.github.io/2017/09/ising-model/</guid>
       <description>Why Ising model : 3 reasons for relevance  Studying Ising model can be useful to understand phase transition of various systems.   Hopfield network or Boltzmann machine to the neural network is just a generalized form of Ising model.   Ising model is also useful as a statistical model in its own right.  Ising model $\boldsymbol{x}$ is the state of an Ising model with $N$ spins be a vector in which each component $\boldsymbol x_n$ takes values $-1$ or $+1$.</description>
     </item>
     
     <item>
       <title>Neural Network (2) : Inference Using Perceptron and MCMC</title>
-      <link>//physhik.com/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</link>
+      <link>https://physhik.github.io/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</link>
       <pubDate>Wed, 06 Sep 2017 16:30:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</guid>
+      <guid>https://physhik.github.io/2017/09/neural-network-2-inference-using-perceptron-and-mcmc/</guid>
       <description>Single neuron still has a lot to say In the post of the first neural network tutorial, we studied a perceptron as a simple supervised learning machine. The perceptron is an amazing structure to understanding inference.
 In the post of the first neural network tutorial, I said I would leave you to find the objective function and and draw the plot of it. I just introduce here.
 Objective function and its contour plot.</description>
@@ -177,10 +177,10 @@ Objective function and its contour plot.</description>
     
     <item>
       <title>MCMC (7) : Slice Sampling</title>
-      <link>//physhik.com/2017/09/mcmc-7-slice-sampling/</link>
+      <link>https://physhik.github.io/2017/09/mcmc-7-slice-sampling/</link>
       <pubDate>Tue, 05 Sep 2017 17:30:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/mcmc-7-slice-sampling/</guid>
+      <guid>https://physhik.github.io/2017/09/mcmc-7-slice-sampling/</guid>
       <description>Slice sampling algorithm A single transition $(x,u) \rightarrow (x&#39;,u&#39;)$ of a one-dimensional slice sampling algorithm has the following steps.
 (1). evaluate $P^* (x)$
 (2). draw a vertical coordinate $u&#39; \sim$ Uniform$(0,P^* (x))$
@@ -194,49 +194,49 @@ Objective function and its contour plot.</description>
     
     <item>
       <title>Bayesian Inference Examples</title>
-      <link>//physhik.com/2017/09/bayesian-inference-examples/</link>
+      <link>https://physhik.github.io/2017/09/bayesian-inference-examples/</link>
       <pubDate>Sun, 03 Sep 2017 12:30:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/bayesian-inference-examples/</guid>
+      <guid>https://physhik.github.io/2017/09/bayesian-inference-examples/</guid>
       <description>I assume that the readers know the Bayes&#39; rule already. If you are not familiar to it, read any kind of textbook about probability, data science, and machine learning. I recommend the book, which I learned Bayes&#39; rule. Bayesians say that you cannot do inference without making assumptions. Thus, Bayesians also use probabilities to describe inferences. The author in the chapter 2 introduces some rules of probability theory and introduces more about assumptions in inference in the chapter 3.</description>
     </item>
     
     <item>
       <title>MCMC (6): Gibbs Sampling and Overrelaxation</title>
-      <link>//physhik.com/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/</link>
+      <link>https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/</link>
       <pubDate>Fri, 01 Sep 2017 22:30:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/</guid>
+      <guid>https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/</guid>
       <description>Efficient Monte Carlo sampling This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
 Gibbs sampling In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.</description>
     </item>
     
     <item>
       <title>Clustering (2) : Soft K-mean</title>
-      <link>//physhik.com/2017/08/clustering-2-soft-k-mean/</link>
+      <link>https://physhik.github.io/2017/08/clustering-2-soft-k-mean/</link>
       <pubDate>Thu, 31 Aug 2017 13:40:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/clustering-2-soft-k-mean/</guid>
+      <guid>https://physhik.github.io/2017/08/clustering-2-soft-k-mean/</guid>
       <description>Hard K-means and responsibilities If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the hard K-means algorithm in the previous post.
 In the previous post, we defined assignment. The equivalent representation of this assignment of points to clusters is given by responsibilities, $r^{(n)}_k$. In the assignment step, we set $r^{(n)}_k$ to one if mean k is the closest mean to datapoint $ {\textbf x}^{(n)}$; otherwise, $r^{(n)}_k$ is zero.</description>
     </item>
     
     <item>
       <title>Neural Network (1): Perceptron and Stochastic Gradient Descent</title>
-      <link>//physhik.com/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</link>
+      <link>https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</link>
       <pubDate>Wed, 30 Aug 2017 19:30:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</guid>
+      <guid>https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/</guid>
       <description>Single neuron is amazing One of the lessons I had during physics program is that we should start to understand small thing deeply however complicated the system which you want to know is. Not just it is easier but also it helps a lot to understand the more complex ones.
 Neural network is often compared to black magic. We do not understand why and how exactly so effective it is, but it makes great estimations in some specific matters.</description>
     </item>
     
     <item>
       <title>Independent Component Analysis and Covariant Learning</title>
-      <link>//physhik.com/2017/08/independent-component-analysis-and-covariant-learning/</link>
+      <link>https://physhik.github.io/2017/08/independent-component-analysis-and-covariant-learning/</link>
       <pubDate>Tue, 29 Aug 2017 10:30:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/independent-component-analysis-and-covariant-learning/</guid>
+      <guid>https://physhik.github.io/2017/08/independent-component-analysis-and-covariant-learning/</guid>
       <description>Generative model Generative model is a model for generating all variables including outputs. I will give a very simple example with strong assumptions.
 Data $\boldsymbol{x^{(n)} } $ are generated by an unknown matrix, $\boldsymbol{G}$.
 $$ \boldsymbol{x} = \boldsymbol{G}~\boldsymbol{s} $$
@@ -246,20 +246,20 @@ The goal is to find the source variable $\boldsymbol{s}$.
     
     <item>
       <title>Variational Method for Optimization</title>
-      <link>//physhik.com/2017/08/variational-method-for-optimization/</link>
+      <link>https://physhik.github.io/2017/08/variational-method-for-optimization/</link>
       <pubDate>Mon, 28 Aug 2017 01:10:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/variational-method-for-optimization/</guid>
+      <guid>https://physhik.github.io/2017/08/variational-method-for-optimization/</guid>
       <description>I announce over and over that the chronicle ordering of the post are irrelevant for beginners&#39; favor. There are many blanks I skipped. I would fill the holes later.
 Variational method During my physics coursework and researches, I used this method countlessly. I even had a book of the name. It is quite simple, but also as big topic as being a book. Simply put, it is a technique to find equations and solutions (sometimes approximate solutions) by extremizing functionals which is mainly just integrals of fields, and treat the functions in the integral, as parameters.</description>
     </item>
     
     <item>
       <title>MCMC (5) : Hamiltonian Monte Carlo Method</title>
-      <link>//physhik.com/2017/08/mcmc-5-hamiltonian-monte-carlo-method/</link>
+      <link>https://physhik.github.io/2017/08/mcmc-5-hamiltonian-monte-carlo-method/</link>
       <pubDate>Fri, 25 Aug 2017 19:10:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/mcmc-5-hamiltonian-monte-carlo-method/</guid>
+      <guid>https://physhik.github.io/2017/08/mcmc-5-hamiltonian-monte-carlo-method/</guid>
       <description>Yay! Finally something more directly from physics to data science. We will also have a chance to see how Metropolis-Hastings algorithm works!
 The Hamiltonian Monte Carlo method is a kind of Metropolis-Hastings method. One of the weak points of Monte Carlo sampling comes up with random walks. Hamiltonian Monte Carlo method (HMC) is an approach to reducing the randomizing in algorithm of the sampling.
 The original name was hybrid Monte Carlo method.</description>
@@ -267,40 +267,40 @@ The original name was hybrid Monte Carlo method.</description>
     
     <item>
       <title>MCMC (4) : Rejection Sampling</title>
-      <link>//physhik.com/2017/08/mcmc-4-rejection-sampling/</link>
+      <link>https://physhik.github.io/2017/08/mcmc-4-rejection-sampling/</link>
       <pubDate>Thu, 24 Aug 2017 02:10:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/mcmc-4-rejection-sampling/</guid>
+      <guid>https://physhik.github.io/2017/08/mcmc-4-rejection-sampling/</guid>
       <description>In advance, I will proceed in the extension of the previous post. I will use the same target distribution function and the similar Gaussian disposal distribution. Even Python script will be better understood if you&amp;rsquo;ve already read the previous post about importance sampling.
 The rejection sampling could be the most familiar Monte Carlo sampling. When need to introduce Monte Carlo method to somebody, it is very intuitive and effective to give an example of computing the area of the circle (or anything) by using random samples.</description>
     </item>
     
     <item>
       <title>MCMC (3) : Importance Sampling</title>
-      <link>//physhik.com/2017/08/mcmc-3-importance-sampling/</link>
+      <link>https://physhik.github.io/2017/08/mcmc-3-importance-sampling/</link>
       <pubDate>Tue, 22 Aug 2017 02:10:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/mcmc-3-importance-sampling/</guid>
+      <guid>https://physhik.github.io/2017/08/mcmc-3-importance-sampling/</guid>
       <description>Importance sampling is the first sampling method I faced when I studied Monte Carlo method. Nevertheless, I haven&amp;rsquo;t seen many examples for the importance sampling. Maybe it is because the importance sampling is not effective for high dimensional systems. The weak point of the importance sampling is that the performance of it is determined by how well we choose the disposal distribution close to the target distribution.
 Here, I will present a simple example of the importance sampling.</description>
     </item>
     
     <item>
       <title>MCMC (2) : Exact Monte Carlo Method</title>
-      <link>//physhik.com/2017/08/mcmc-2-exact-monte-carlo-method/</link>
+      <link>https://physhik.github.io/2017/08/mcmc-2-exact-monte-carlo-method/</link>
       <pubDate>Mon, 21 Aug 2017 02:10:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/mcmc-2-exact-monte-carlo-method/</guid>
+      <guid>https://physhik.github.io/2017/08/mcmc-2-exact-monte-carlo-method/</guid>
       <description>Exact Markov chain Monte Carlo sampling I don&amp;rsquo;t like the naming. The word exact could mislead us to understand the concept. Anyway I used the word in the title because it was the title of the chapter of the book &amp;ldquo;Information Theory, Inference, and Learning Algorithms&amp;rdquo; by David Mackay, which I studied to learn the theory.
 The different names of it are perfect simulation and coupling from the past. Maybe these are better names.</description>
     </item>
     
     <item>
       <title>MCMC (1) : Monte Carlo Method and Metropolis-Hastings Sampling</title>
-      <link>//physhik.com/2017/08/mcmc-1-monte-carlo-method-and-metropolis-hastings-sampling/</link>
+      <link>https://physhik.github.io/2017/08/mcmc-1-monte-carlo-method-and-metropolis-hastings-sampling/</link>
       <pubDate>Sun, 20 Aug 2017 14:10:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/mcmc-1-monte-carlo-method-and-metropolis-hastings-sampling/</guid>
+      <guid>https://physhik.github.io/2017/08/mcmc-1-monte-carlo-method-and-metropolis-hastings-sampling/</guid>
       <description>Monte Carlo method Monte Carlo method is useful in Bayesian data modeling because maximizing posterior probability is often very difficult and fitting a Gaussian becomes hard.
 Monte Carlo method becomes valuable in that we want to generate samples in some situation, and also want to estimate some expectation values of various functions.
 What we deal with in this post is only small part of Monte Carlo method. It is going to be good if I have a chance to introduce about all sooner in this blog, but if not, see one of the repositories from my Github</description>
@@ -308,20 +308,20 @@ What we deal with in this post is only small part of Monte Carlo method. It is g
     
     <item>
       <title>Clustering (1), Hard K-means and its Failure</title>
-      <link>//physhik.com/2017/08/clustering-1-hard-k-means-and-its-failure/</link>
+      <link>https://physhik.github.io/2017/08/clustering-1-hard-k-means-and-its-failure/</link>
       <pubDate>Tue, 15 Aug 2017 03:40:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/clustering-1-hard-k-means-and-its-failure/</guid>
+      <guid>https://physhik.github.io/2017/08/clustering-1-hard-k-means-and-its-failure/</guid>
       <description>As I mentioned at the previous posting, one of the purposes of this blog is to supplement the Github of my data science study. I will gradually post and present all the iPython notebooks or Mathematica notebooks.
 I felt there&amp;rsquo;s no good Python tutorial for spectral clustering (at least from my search). Who can&amp;rsquo;t use scikit-learn among who is serious about machine learning. It was not difficult to find the theory of spectral clustering as well.</description>
     </item>
     
     <item>
       <title>Welcome to Jekyll!</title>
-      <link>//physhik.com/2017/08/welcome-to-jekyll/</link>
+      <link>https://physhik.github.io/2017/08/welcome-to-jekyll/</link>
       <pubDate>Sun, 13 Aug 2017 18:40:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/welcome-to-jekyll/</guid>
+      <guid>https://physhik.github.io/2017/08/welcome-to-jekyll/</guid>
       <description>You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.
 To add new posts, simply add a file in the _posts directory that follows the convention YYYY-MM-DD-name-of-post.</description>
     </item>

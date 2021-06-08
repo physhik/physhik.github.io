@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>sabermetics on Physics to Data Science</title>
-    <link>//physhik.com/tags/sabermetics/</link>
+    <link>https://physhik.github.io/tags/sabermetics/</link>
     <description>Recent content in sabermetics on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Oct 2019 01:00:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/sabermetics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Oct 2019 01:00:00 -0700</lastBuildDate><atom:link href="https://physhik.github.io/tags/sabermetics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fielding Independent Pitching Revisited</title>
-      <link>//physhik.com/_draft/2019-10-31-sabermetrics/</link>
+      <link>https://physhik.github.io/_draft/2019-10-31-sabermetrics/</link>
       <pubDate>Thu, 31 Oct 2019 01:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/_draft/2019-10-31-sabermetrics/</guid>
+      <guid>https://physhik.github.io/_draft/2019-10-31-sabermetrics/</guid>
       <description>많은 사람들은 세이버메트릭션들을 숫자에 미쳐 경기를 즐기는 것을 오히려 망치는 사람들이라고 생각하는 것 같다. 실제로 야구의 인기는 줄어들고 있지 않은가
 하지만 그건 구단의 최대한의 이득을 고려하는 운영방식에서의 변화 때문이지. 세이버메트릭스의 책임으로 돌리긴 어렵다
 사실 세이버메트릭스는 내가 야구를 보는 관점을 넓혀줬고 오히려 더 재밌게 즐길 수 있게, 그리고 더 많은 시간을 써서 야구에 대해서 생각하게 해주었다.
@@ -21,10 +21,10 @@
     
     <item>
       <title>Parasite by Bong</title>
-      <link>//physhik.com/_draft/parasite/</link>
+      <link>https://physhik.github.io/_draft/parasite/</link>
       <pubDate>Thu, 31 Oct 2019 01:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/_draft/parasite/</guid>
+      <guid>https://physhik.github.io/_draft/parasite/</guid>
       <description>밴쿠버에서 살면서 한국 영화를 극장에서 보긴 힘들다. 집에서부터 운전을 한시간은 해야 하고, 자전거로는 두시간 이상이 걸릴 거리에 한인타운 극장이 거의 유일한 곳이다. 기생충은 깐느 영화제에서 큰 상을 받았고 그 덕에 괜찮은 배급사와 북미 계약을 맺었다. 적지 않은 밴쿠버의 극장에서 상영 중이고, 이 영화 취향도 아닐 아내를 졸라 즐겨 찾는 멀티 플렉스 극장을 찾았다.
 Kim Ki-taek lives with his wife Chung-sook, son Ki-woo, and daughter Ki-jeong in a shabby semi-basement apartment. The family struggle to survive, working any low-paying gigs available.</description>
     </item>

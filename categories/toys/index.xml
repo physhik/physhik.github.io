@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>toys on Physics to Data Science</title>
-    <link>//physhik.com/categories/toys/</link>
+    <link>https://physhik.github.io/categories/toys/</link>
     <description>Recent content in toys on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Feb 2019 16:00:00 -0700</lastBuildDate><atom:link href="//physhik.com/categories/toys/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Feb 2019 16:00:00 -0700</lastBuildDate><atom:link href="https://physhik.github.io/categories/toys/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Clean Coding and Short Run Time</title>
-      <link>//physhik.com/2019/02/clean-coding-and-short-run-time/</link>
+      <link>https://physhik.github.io/2019/02/clean-coding-and-short-run-time/</link>
       <pubDate>Mon, 25 Feb 2019 16:00:00 -0700</pubDate>
       
-      <guid>//physhik.com/2019/02/clean-coding-and-short-run-time/</guid>
+      <guid>https://physhik.github.io/2019/02/clean-coding-and-short-run-time/</guid>
       <description>Today I want to discuss purely about coding itself. I wish this post is helpful for someone want to transit his career from a pure researcher to a programmer. I have been a researcher rather than a programmer. I would just want to execute something to see the result I wanted to see. If the run time is too long or my computer has no enough memory to run the code, it was a sign of new purchase to me.</description>
     </item>
     
     <item>
       <title>Graphviz</title>
-      <link>//physhik.com/2017/09/graphviz/</link>
+      <link>https://physhik.github.io/2017/09/graphviz/</link>
       <pubDate>Fri, 15 Sep 2017 16:20:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/graphviz/</guid>
+      <guid>https://physhik.github.io/2017/09/graphviz/</guid>
       <description>Bike algorithm I like riding a bike. Because my knee are not healthy now, I cannot ride a bike much. However, even little riding makes me feel good. Today it occurs to me if I am addicted at riding a bike. During riding a bike, I was thinking about the algorithm commands me. Silly me thought it is funny.
 Thus, I tried to make a flowchart of the algorithm. Tried to use some online service to draw it.</description>
     </item>
     
     <item>
       <title>Atom</title>
-      <link>//physhik.com/2017/09/atom/</link>
+      <link>https://physhik.github.io/2017/09/atom/</link>
       <pubDate>Sat, 09 Sep 2017 16:50:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/atom/</guid>
+      <guid>https://physhik.github.io/2017/09/atom/</guid>
       <description>Atom Git and Github have become one of the essential part of programmers. I just mechanically commit just after I finish a code or change some setting, and it saved me so many times. It also provides great environment for teamwork and management of the projects. This Jekyll blog is also built upon the Github service.
 Atom is the text editor developed by Github. And this is great. When I made up my mind to transit to data science.</description>
     </item>

@@ -17,8 +17,8 @@ In the previous post, we defined assignment. The equivalent representation of th
 <meta property="og:type" content="article">
 <meta property="og:title" content="Clustering (2) : Soft K-mean">
 <meta name="twitter:title" content="Clustering (2) : Soft K-mean">
-<meta property="og:url" content="//physhik.com/2017/08/clustering-2-soft-k-mean/">
-<meta property="twitter:url" content="//physhik.com/2017/08/clustering-2-soft-k-mean/">
+<meta property="og:url" content="https://physhik.github.io/2017/08/clustering-2-soft-k-mean/">
+<meta property="twitter:url" content="https://physhik.github.io/2017/08/clustering-2-soft-k-mean/">
 <meta property="og:site_name" content="Physics to Data Science">
 <meta property="og:description" content="Hard K-means and responsibilities If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the hard K-means algorithm in the previous post.
 In the previous post, we defined assignment. The equivalent representation of this assignment of points to clusters is given by responsibilities, $r^{(n)}_k$. In the assignment step, we set $r^{(n)}_k$ to one if mean k is the closest mean to datapoint $ {\textbf x}^{(n)}$; otherwise, $r^{(n)}_k$ is zero.">
@@ -73,8 +73,8 @@ In the previous post, we defined assignment. The equivalent representation of th
 
 
 
-  <meta property="og:image" content="//physhik.com/images/postimages/enhancedSoftKmean_files/enhancedSoftKmean_0_2.png">
-  <meta property="twitter:image" content="//physhik.com/images/postimages/enhancedSoftKmean_files/enhancedSoftKmean_0_2.png">
+  <meta property="og:image" content="https://physhik.github.io/images/postimages/enhancedSoftKmean_files/enhancedSoftKmean_0_2.png">
+  <meta property="twitter:image" content="https://physhik.github.io/images/postimages/enhancedSoftKmean_files/enhancedSoftKmean_0_2.png">
 
 
 
@@ -86,12 +86,12 @@ In the previous post, we defined assignment. The equivalent representation of th
 
     <title>Clustering (2) : Soft K-mean</title>
 
-    <link rel="icon" href="//physhik.com/favicon.ico">
+    <link rel="icon" href="https://physhik.github.io/favicon.ico">
     
 
     
 
-    <link rel="canonical" href="//physhik.com/2017/08/clustering-2-soft-k-mean/">
+    <link rel="canonical" href="https://physhik.github.io/2017/08/clustering-2-soft-k-mean/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -99,7 +99,7 @@ In the previous post, we defined assignment. The equivalent representation of th
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="//physhik.com/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    <link rel="stylesheet" href="https://physhik.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
 
@@ -126,17 +126,17 @@ if (!doNotTrack) {
       <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="//physhik.com/">Physics to Data Science</a>
+    <a class="header-title-link" href="https://physhik.github.io/">Physics to Data Science</a>
   </div>
   
     
       <a class="header-right-picture "
-         href="//physhik.com/#about">
+         href="https://physhik.github.io/#about">
     
     
     
       
-        <img class="header-picture" src="//physhik.com/images/avatar.jpg" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
       
     
     </a>
@@ -175,8 +175,8 @@ if (!doNotTrack) {
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <a href="//physhik.com/#about">
-          <img class="sidebar-profile-picture" src="//physhik.com/images/avatar.jpg" alt="Author&#39;s picture" />
+        <a href="https://physhik.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Namshik Kim</h4>
         
@@ -188,7 +188,7 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="//physhik.com/">
+      <a class="sidebar-button-link " href="https://physhik.github.io/">
     
       <i class="sidebar-button-icon fa fa-lg fa-home"></i>
       
@@ -198,7 +198,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="//physhik.com/categories">
+      <a class="sidebar-button-link " href="https://physhik.github.io/categories">
     
       <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
       
@@ -208,7 +208,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="//physhik.com/tags">
+      <a class="sidebar-button-link " href="https://physhik.github.io/tags">
     
       <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
       
@@ -218,7 +218,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="//physhik.com/archives">
+      <a class="sidebar-button-link " href="https://physhik.github.io/archives">
     
       <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
       
@@ -228,7 +228,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="//physhik.com/about/index.html">
+      <a class="sidebar-button-link " href="https://physhik.github.io/about/index.html">
     
       <i class="sidebar-button-icon fa fa-lg fa-question"></i>
       
@@ -318,11 +318,11 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="//physhik.com/categories/ml">ML</a>, 
+      <a class="category-link" href="https://physhik.github.io/categories/ml">ML</a>, 
     
-      <a class="category-link" href="//physhik.com/categories/unsupervised-machine-learning">unsupervised machine learning</a>, 
+      <a class="category-link" href="https://physhik.github.io/categories/unsupervised-machine-learning">unsupervised machine learning</a>, 
     
-      <a class="category-link" href="//physhik.com/categories/clustering">clustering</a>
+      <a class="category-link" href="https://physhik.github.io/categories/clustering">clustering</a>
     
   
 
@@ -335,7 +335,7 @@ if (!doNotTrack) {
               <!-- raw HTML omitted -->
 <h2 id="hard-k-means-and-responsibilities">Hard K-means and responsibilities</h2>
 <!-- raw HTML omitted -->
-<p>If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the <em>hard K-means algorithm</em> in <a href="//physhik.com/2017/08/clustering-1-hard-k-means-and-its-failure/">the previous post</a>.</p>
+<p>If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the <em>hard K-means algorithm</em> in <a href="https://physhik.github.io/2017/08/clustering-1-hard-k-means-and-its-failure/">the previous post</a>.</p>
 <!-- raw HTML omitted -->
 <p>In the previous post, we defined assignment. The equivalent representation of this assignment of points to clusters is given by responsibilities, $r^{(n)}_k$. In the assignment step, we set $r^{(n)}_k$ to one if mean k is the closest mean to datapoint $ {\textbf x}^{(n)}$; otherwise, $r^{(n)}_k$ is zero.</p>
 <!-- raw HTML omitted -->
@@ -491,8 +491,8 @@ ax<span style="color:#f92672">.</span>scatter([x <span style="color:#66d9ef">for
 
 plt<span style="color:#f92672">.</span>show()
 
-</code></pre></div><p><img src="//physhik.com/images/postimages/softKmeans_files/softKmeans_0_0.png" alt="png"></p>
-<p><img src="//physhik.com/images/postimages/softKmeans_files/softKmeans_0_2.png" alt="png"></p>
+</code></pre></div><p><img src="https://physhik.github.io/images/postimages/softKmeans_files/softKmeans_0_0.png" alt="png"></p>
+<p><img src="https://physhik.github.io/images/postimages/softKmeans_files/softKmeans_0_2.png" alt="png"></p>
 <!-- raw HTML omitted -->
 <p>The radius of the circle equals to $\beta$. When the size of the circle is similar to the size of the cluster, the figure looks good. Note that the 4 circles are split to two group. Two circles for each group are almost overlapped. The colors determined by assignments are not looking good, but the circles show the this machine knows $K = 2$, not 4.</p>
 <!-- raw HTML omitted -->
@@ -715,13 +715,13 @@ ax<span style="color:#f92672">.</span>scatter([x <span style="color:#66d9ef">for
 plt<span style="color:#f92672">.</span>show()
 
 
-</code></pre></div><p><img src="//physhik.com/images/postimages/enhancedSoftKmean_files/enhancedSoftKmean_0_2.png" alt="png"></p>
+</code></pre></div><p><img src="https://physhik.github.io/images/postimages/enhancedSoftKmean_files/enhancedSoftKmean_0_2.png" alt="png"></p>
 <!-- raw HTML omitted -->
 <p>See the number of colors and circles. Still you can see one yellow point. If you print the size of the 4 circles, you will get two very small radii.</p>
 <!-- raw HTML omitted -->
 <h3 id="cutoff-and-regularization">Cutoff and regularization</h3>
 <!-- raw HTML omitted -->
-<p>Another important thing is that <em>while loop</em> checks if the any of $\sigma$ is too tiny, smaller than cutoff. Without it, the algorithm ends up with overfitting. This is a good example of the <em>regularization</em> which we studied at <a href="//physhik.com/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/">the perceptron post</a>.</p>
+<p>Another important thing is that <em>while loop</em> checks if the any of $\sigma$ is too tiny, smaller than cutoff. Without it, the algorithm ends up with overfitting. This is a good example of the <em>regularization</em> which we studied at <a href="https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/">the perceptron post</a>.</p>
 <!-- raw HTML omitted -->
 <h3 id="more-enhanced-soft-k-means-algorithm-spectral-clustering">More enhanced soft K-means algorithm (spectral clustering)</h3>
 <!-- raw HTML omitted -->
@@ -810,7 +810,7 @@ plt<span style="color:#f92672">.</span>ylim([<span style="color:#f92672">-</span
 
 plt<span style="color:#f92672">.</span>show()
 </code></pre></div><!-- raw HTML omitted -->
-<p><img src="//physhik.com/images/postimages/enhancedSoftKmean_files/enhancedSoftKmean_0_4.png" alt="png"></p>
+<p><img src="https://physhik.github.io/images/postimages/enhancedSoftKmean_files/enhancedSoftKmean_0_4.png" alt="png"></p>
 <!-- raw HTML omitted -->
 <h2 id="simulated-annealing">Simulated annealing</h2>
 <!-- raw HTML omitted -->
@@ -828,19 +828,19 @@ plt<span style="color:#f92672">.</span>show()
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/clustering/">clustering</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/clustering/">clustering</a>
 
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/maximum-likelihood/">maximum likelihood</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/maximum-likelihood/">maximum likelihood</a>
 
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/mixture-of-gaussian/">mixture of Gaussian</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/mixture-of-gaussian/">mixture of Gaussian</a>
 
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/simulated-annealing/">simulated annealing</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/simulated-annealing/">simulated annealing</a>
 
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/hard-k-means/">hard K-means</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/hard-k-means/">hard K-means</a>
 
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/soft-k-means/">soft K-means</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/soft-k-means/">soft K-means</a>
 
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/regularization/">regularization</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/regularization/">regularization</a>
 
                   </div>
                 
@@ -853,7 +853,7 @@ plt<span style="color:#f92672">.</span>show()
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="//physhik.com/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/" data-tooltip="MCMC (6): Gibbs Sampling and Overrelaxation">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/" data-tooltip="MCMC (6): Gibbs Sampling and Overrelaxation">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -861,7 +861,7 @@ plt<span style="color:#f92672">.</span>show()
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="//physhik.com/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/" data-tooltip="Neural Network (1): Perceptron and Stochastic Gradient Descent">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/" data-tooltip="Neural Network (1): Perceptron and Stochastic Gradient Descent">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -921,7 +921,7 @@ plt<span style="color:#f92672">.</span>show()
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="//physhik.com/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/" data-tooltip="MCMC (6): Gibbs Sampling and Overrelaxation">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/" data-tooltip="MCMC (6): Gibbs Sampling and Overrelaxation">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -929,7 +929,7 @@ plt<span style="color:#f92672">.</span>show()
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="//physhik.com/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/" data-tooltip="Neural Network (1): Perceptron and Stochastic Gradient Descent">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/neural-network-1-perceptron-and-stochastic-gradient-descent/" data-tooltip="Neural Network (1): Perceptron and Stochastic Gradient Descent">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -981,7 +981,7 @@ plt<span style="color:#f92672">.</span>show()
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//physhik.com/images/avatar.jpg" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Namshik Kim</h4>
     
@@ -1026,7 +1026,7 @@ plt<span style="color:#f92672">.</span>show()
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2019/11/machine-learns-from-cardiologist-4/">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/11/machine-learns-from-cardiologist-4/">
                 <h3 class="media-heading">Machine Learns from Cardiologist (4)</h3>
               </a>
               <span class="media-meta">
@@ -1044,7 +1044,7 @@ I myself found some errors due to the version change of Python libraries, so I u
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2019/10/new-blog-theme/">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/10/new-blog-theme/">
                 <h3 class="media-heading">New Blog Theme</h3>
               </a>
               <span class="media-meta">
@@ -1061,7 +1061,7 @@ I myself found some errors due to the version change of Python libraries, so I u
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2019/03/machine-learns-from-cardiologist-3/">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/">
                 <h3 class="media-heading">Machine Learns from Cardiologist (3)</h3>
               </a>
               <span class="media-meta">
@@ -1078,7 +1078,7 @@ I myself found some errors due to the version change of Python libraries, so I u
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2019/03/machine-learns-from-cardiologist-2/">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/">
                 <h3 class="media-heading">Machine Learns from Cardiologist (2)</h3>
               </a>
               <span class="media-meta">
@@ -1096,7 +1096,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2019/03/macnine-learns-from-cardiologist-1/">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/">
                 <h3 class="media-heading">Macnine Learns from Cardiologist (1)</h3>
               </a>
               <span class="media-meta">
@@ -1114,7 +1114,7 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2019/02/youtube-data-api-on-gcp/">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/02/youtube-data-api-on-gcp/">
                 <h3 class="media-heading">Youtube Data API on GCP</h3>
               </a>
               <span class="media-meta">
@@ -1132,7 +1132,7 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2019/02/clean-coding-and-short-run-time/">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/02/clean-coding-and-short-run-time/">
                 <h3 class="media-heading">Clean Coding and Short Run Time</h3>
               </a>
               <span class="media-meta">
@@ -1149,7 +1149,7 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2018/02/revisited-variational-inference/">
+              <a class="link-unstyled" href="https://physhik.github.io/2018/02/revisited-variational-inference/">
                 <h3 class="media-heading">Revisited Variational Inference</h3>
               </a>
               <span class="media-meta">
@@ -1167,7 +1167,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2018/02/rough-review-of-wavegan/">
+              <a class="link-unstyled" href="https://physhik.github.io/2018/02/rough-review-of-wavegan/">
                 <h3 class="media-heading">Rough Review of WaveGAN</h3>
               </a>
               <span class="media-meta">
@@ -1184,7 +1184,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2017/12/introduction-to-gan/">
+              <a class="link-unstyled" href="https://physhik.github.io/2017/12/introduction-to-gan/">
                 <h3 class="media-heading">Introduction to GAN </h3>
               </a>
               <span class="media-meta">
@@ -1214,7 +1214,7 @@ Revolution in deep learning As we have seen at the post of VAE, generative model
     
   
     
-    <div id="cover" style="background-image:url('//physhik.com/images/cover.jpg');"></div>
+    <div id="cover" style="background-image:url('https://physhik.github.io/images/cover.jpg');"></div>
   
 
 
@@ -1226,7 +1226,7 @@ Revolution in deep learning As we have seen at the post of VAE, generative model
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="//physhik.com/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+<script src="https://physhik.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
 <script lang="javascript">
@@ -1261,7 +1261,7 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = '\/\/physhik.com\/2017\/08\/clustering-2-soft-k-mean\/';
+          this.page.url = 'https:\/\/physhik.github.io\/2017\/08\/clustering-2-soft-k-mean\/';
           
             this.page.identifier = '\/2017\/08\/clustering-2-soft-k-mean\/'
           

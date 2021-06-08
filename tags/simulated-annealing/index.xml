@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>simulated annealing on Physics to Data Science</title>
-    <link>//physhik.com/tags/simulated-annealing/</link>
+    <link>https://physhik.github.io/tags/simulated-annealing/</link>
     <description>Recent content in simulated annealing on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Sep 2017 23:50:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/simulated-annealing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Sep 2017 23:50:00 -0700</lastBuildDate><atom:link href="https://physhik.github.io/tags/simulated-annealing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Neural Network (5) : Very Simple Boltzmann Machine</title>
-      <link>//physhik.com/2017/09/neural-network-5-very-simple-boltzmann-machine/</link>
+      <link>https://physhik.github.io/2017/09/neural-network-5-very-simple-boltzmann-machine/</link>
       <pubDate>Mon, 18 Sep 2017 23:50:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/neural-network-5-very-simple-boltzmann-machine/</guid>
+      <guid>https://physhik.github.io/2017/09/neural-network-5-very-simple-boltzmann-machine/</guid>
       <description>Stochastic Hopfield net Boltzmann machine is nothing but stochastic Hopfield net1. If you did not yet read the post of the Hopfield net in the blog, just go read it. I assume the readers are familiar to it, and directly use many results we had in the post. The magic of deep learning which we have discussed a couple of times works here, too. Such as $\epsilon$-greedy off-policy algorithm2, the stochastic character of the binary units allows the machine occasionally increase its energy to escape from poor local minima.</description>
     </item>
     
     <item>
       <title>Neural Network (4) : Deep Reinforcement Learning, Q-learning</title>
-      <link>//physhik.com/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</link>
+      <link>https://physhik.github.io/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</link>
       <pubDate>Thu, 14 Sep 2017 23:30:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</guid>
+      <guid>https://physhik.github.io/2017/09/neural-network-4-deep-reinforcement-learning-q-learning/</guid>
       <description>Judgement Day It is the first time I did not post for 4 days. I was too busy to prepare for the meetup this week. The day before yesterday meetup topic was the reinforcement learning as I mentioned at previous post. It is not a long research paper, but includes 143 references. Ah, not my favorite. This A Brief Survey of Deep Reinforcement Learning did not explain the detail of what I am interested in.</description>
     </item>
     
     <item>
       <title>Clustering (2) : Soft K-mean</title>
-      <link>//physhik.com/2017/08/clustering-2-soft-k-mean/</link>
+      <link>https://physhik.github.io/2017/08/clustering-2-soft-k-mean/</link>
       <pubDate>Thu, 31 Aug 2017 13:40:00 -0700</pubDate>
       
-      <guid>//physhik.com/2017/08/clustering-2-soft-k-mean/</guid>
+      <guid>https://physhik.github.io/2017/08/clustering-2-soft-k-mean/</guid>
       <description>Hard K-means and responsibilities If you did not read the first part of the clustering series. Please go check it out. I use the same data points and this post starts from troubleshooting the hard K-means algorithm in the previous post.
 In the previous post, we defined assignment. The equivalent representation of this assignment of points to clusters is given by responsibilities, $r^{(n)}_k$. In the assignment step, we set $r^{(n)}_k$ to one if mean k is the closest mean to datapoint $ {\textbf x}^{(n)}$; otherwise, $r^{(n)}_k$ is zero.</description>
     </item>

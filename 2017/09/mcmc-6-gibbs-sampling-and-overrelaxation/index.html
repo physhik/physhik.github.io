@@ -17,8 +17,8 @@ Gibbs sampling In advance of studying over relaxation, we study Gibbs sampling. 
 <meta property="og:type" content="article">
 <meta property="og:title" content="MCMC (6): Gibbs Sampling and Overrelaxation">
 <meta name="twitter:title" content="MCMC (6): Gibbs Sampling and Overrelaxation">
-<meta property="og:url" content="//physhik.com/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/">
-<meta property="twitter:url" content="//physhik.com/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/">
+<meta property="og:url" content="https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/">
+<meta property="twitter:url" content="https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/">
 <meta property="og:site_name" content="Physics to Data Science">
 <meta property="og:description" content="Efficient Monte Carlo sampling This post is on the extension of the post about Hamiltonian Monte Carlo method. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.
 Gibbs sampling In advance of studying over relaxation, we study Gibbs sampling. In the general case of a system with K variables, a single iteration involves sampling one parameter at a time.">
@@ -75,8 +75,8 @@ Gibbs sampling In advance of studying over relaxation, we study Gibbs sampling. 
 
 
 
-  <meta property="og:image" content="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_2_0.png">
-  <meta property="twitter:image" content="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_2_0.png">
+  <meta property="og:image" content="https://physhik.github.io/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_2_0.png">
+  <meta property="twitter:image" content="https://physhik.github.io/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_2_0.png">
 
 
 
@@ -88,12 +88,12 @@ Gibbs sampling In advance of studying over relaxation, we study Gibbs sampling. 
 
     <title>MCMC (6): Gibbs Sampling and Overrelaxation</title>
 
-    <link rel="icon" href="//physhik.com/favicon.ico">
+    <link rel="icon" href="https://physhik.github.io/favicon.ico">
     
 
     
 
-    <link rel="canonical" href="//physhik.com/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/">
+    <link rel="canonical" href="https://physhik.github.io/2017/09/mcmc-6-gibbs-sampling-and-overrelaxation/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -101,7 +101,7 @@ Gibbs sampling In advance of studying over relaxation, we study Gibbs sampling. 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="//physhik.com/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    <link rel="stylesheet" href="https://physhik.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
 
@@ -128,17 +128,17 @@ if (!doNotTrack) {
       <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="//physhik.com/">Physics to Data Science</a>
+    <a class="header-title-link" href="https://physhik.github.io/">Physics to Data Science</a>
   </div>
   
     
       <a class="header-right-picture "
-         href="//physhik.com/#about">
+         href="https://physhik.github.io/#about">
     
     
     
       
-        <img class="header-picture" src="//physhik.com/images/avatar.jpg" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
       
     
     </a>
@@ -177,8 +177,8 @@ if (!doNotTrack) {
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <a href="//physhik.com/#about">
-          <img class="sidebar-profile-picture" src="//physhik.com/images/avatar.jpg" alt="Author&#39;s picture" />
+        <a href="https://physhik.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Namshik Kim</h4>
         
@@ -190,7 +190,7 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="//physhik.com/">
+      <a class="sidebar-button-link " href="https://physhik.github.io/">
     
       <i class="sidebar-button-icon fa fa-lg fa-home"></i>
       
@@ -200,7 +200,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="//physhik.com/categories">
+      <a class="sidebar-button-link " href="https://physhik.github.io/categories">
     
       <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
       
@@ -210,7 +210,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="//physhik.com/tags">
+      <a class="sidebar-button-link " href="https://physhik.github.io/tags">
     
       <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
       
@@ -220,7 +220,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="//physhik.com/archives">
+      <a class="sidebar-button-link " href="https://physhik.github.io/archives">
     
       <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
       
@@ -230,7 +230,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="//physhik.com/about/index.html">
+      <a class="sidebar-button-link " href="https://physhik.github.io/about/index.html">
     
       <i class="sidebar-button-icon fa fa-lg fa-question"></i>
       
@@ -320,11 +320,11 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="//physhik.com/categories/ml">ML</a>, 
+      <a class="category-link" href="https://physhik.github.io/categories/ml">ML</a>, 
     
-      <a class="category-link" href="//physhik.com/categories/markov-chain-monte-carlo-method">Markov chain Monte Carlo method</a>, 
+      <a class="category-link" href="https://physhik.github.io/categories/markov-chain-monte-carlo-method">Markov chain Monte Carlo method</a>, 
     
-      <a class="category-link" href="//physhik.com/categories/gibbs-sampling">Gibbs sampling</a>
+      <a class="category-link" href="https://physhik.github.io/categories/gibbs-sampling">Gibbs sampling</a>
     
   
 
@@ -337,7 +337,7 @@ if (!doNotTrack) {
               <!-- raw HTML omitted -->
 <h2 id="efficient-monte-carlo-sampling">Efficient Monte Carlo sampling</h2>
 <!-- raw HTML omitted -->
-<p>This post is on the extension of <a href="//physhik.com/2017/08/mcmc-5-hamiltonian-monte-carlo-method/">the post about Hamiltonian Monte Carlo method</a>. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.</p>
+<p>This post is on the extension of <a href="https://physhik.github.io/2017/08/mcmc-5-hamiltonian-monte-carlo-method/">the post about Hamiltonian Monte Carlo method</a>. Therefore, I assume the readers already read the post. Overrelaxation also reduces the random property of the Monte Carlo sampling, and speeds up the convergence of the Markov chain.</p>
 <!-- raw HTML omitted -->
 <h3 id="gibbs-sampling">Gibbs sampling</h3>
 <!-- raw HTML omitted -->
@@ -406,7 +406,7 @@ plt<span style="color:#f92672">.</span>contour(X1,X2,np<span style="color:#f9267
 plt<span style="color:#f92672">.</span>plot(Listx, Listy,<span style="color:#e6db74">&#39;o-&#39;</span>)
 plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">1.5</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">1.5</span>])
 <span style="color:#66d9ef">pass</span>
-</code></pre></div><p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_2_0.png" alt="png"></p>
+</code></pre></div><p><img src="https://physhik.github.io/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_2_0.png" alt="png"></p>
 <!-- raw HTML omitted -->
 <p>For this simple example, the given target density is $e^{-1.25(x^2+y^2)}$. Therefore, when $y$ is constant, obtained $\mu_x = 0$ and $\sigma_y = \sqrt{2/(1.25)}$.</p>
 <p>By x-y exchange symmetry, $\mu_y = \mu_x$ and $\sigma_y = \sigma_x$.</p>
@@ -454,7 +454,7 @@ plt<span style="color:#f92672">.</span>contour(X1,X2,np<span style="color:#f9267
 plt<span style="color:#f92672">.</span>plot(Listx, Listy)
 plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0.5</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0.5</span>])
 <span style="color:#66d9ef">pass</span>
-</code></pre></div><p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_5_0.png" alt="png"></p>
+</code></pre></div><p><img src="https://physhik.github.io/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_5_0.png" alt="png"></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure()
 x1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.01</span>)
 x2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.01</span>)
@@ -465,7 +465,7 @@ plt<span style="color:#f92672">.</span>contour(X1,X2,np<span style="color:#f9267
 plt<span style="color:#f92672">.</span>plot(Listx[:<span style="color:#ae81ff">50</span>], Listy[:<span style="color:#ae81ff">50</span>])
 plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0</span>])
 <span style="color:#66d9ef">pass</span>
-</code></pre></div><p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_6_0.png" alt="png"></p>
+</code></pre></div><p><img src="https://physhik.github.io/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_6_0.png" alt="png"></p>
 <!-- raw HTML omitted -->
 <p>See that the samples are stuck around the starting point. The Hamiltonian Monte Carlo sampling also had a similar problem. The samples in Hamiltonian Monte Carlo sampling tend to move where the gradient descent is big. In other words, they tend to move along semi-minor axis of the ellipse. The remained randomness makes it move along semi-major axis, but slowly. Even though the accept rate is high, it takes long time to make a convergent Markov chain.</p>
 <!-- raw HTML omitted -->
@@ -509,7 +509,7 @@ plt<span style="color:#f92672">.</span>contour(X1,X2,np<span style="color:#f9267
 plt<span style="color:#f92672">.</span>plot(Listx[:<span style="color:#ae81ff">50</span>], Listy[:<span style="color:#ae81ff">50</span>])
 plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">0</span>])
 <span style="color:#66d9ef">pass</span>
-</code></pre></div><p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_8_0.png" alt="png"></p>
+</code></pre></div><p><img src="https://physhik.github.io/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_8_0.png" alt="png"></p>
 <!-- raw HTML omitted -->
 <h2 id="overrelaxation">Overrelaxation</h2>
 <!-- raw HTML omitted -->
@@ -611,7 +611,7 @@ plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">2</sp
 plt<span style="color:#f92672">.</span>plot(Listx[:<span style="color:#ae81ff">50</span>], Listy[:<span style="color:#ae81ff">50</span>])
 plt<span style="color:#f92672">.</span>axis([<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">3</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">3</span>])
 
-</code></pre></div><p><img src="//physhik.com/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_13_1.png" alt="png"></p>
+</code></pre></div><p><img src="https://physhik.github.io/images/postimages/GibbsOverrelaxation_files/GibbsOverrelaxation_13_1.png" alt="png"></p>
 <!-- raw HTML omitted -->
 <p>There are 200 samples in the left top plot, and only 50 samples in the right top plot. As we know from intuition about the plot, this overrelaxation also reduces the random property and gain the purpose.</p>
 <!-- raw HTML omitted -->
@@ -654,21 +654,21 @@ $$</p>
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/optimization/">optimization</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/optimization/">optimization</a>
 
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/markov-chain-monte-carlo-method/">Markov chain Monte Carlo method</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/markov-chain-monte-carlo-method/">Markov chain Monte Carlo method</a>
 
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/efficient-monte-carlo-sampling/">efficient Monte Carlo sampling</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/efficient-monte-carlo-sampling/">efficient Monte Carlo sampling</a>
 
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/gibbs-sampling/">Gibbs sampling</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/gibbs-sampling/">Gibbs sampling</a>
 
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/over-relaxation/">over relaxation</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/over-relaxation/">over relaxation</a>
 
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/stochastic-gradient-descent/">stochastic gradient descent</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/stochastic-gradient-descent/">stochastic gradient descent</a>
 
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/batch-gradient-descent/">batch gradient descent</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/batch-gradient-descent/">batch gradient descent</a>
 
-  <a class="tag tag--primary tag--small" href="//physhik.com/tags/on-line-learning/">on-line learning</a>
+  <a class="tag tag--primary tag--small" href="https://physhik.github.io/tags/on-line-learning/">on-line learning</a>
 
                   </div>
                 
@@ -681,7 +681,7 @@ $$</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="//physhik.com/2017/09/bayesian-inference-examples/" data-tooltip="Bayesian Inference Examples">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/09/bayesian-inference-examples/" data-tooltip="Bayesian Inference Examples">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -689,7 +689,7 @@ $$</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="//physhik.com/2017/08/clustering-2-soft-k-mean/" data-tooltip="Clustering (2) : Soft K-mean">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/clustering-2-soft-k-mean/" data-tooltip="Clustering (2) : Soft K-mean">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -749,7 +749,7 @@ $$</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="//physhik.com/2017/09/bayesian-inference-examples/" data-tooltip="Bayesian Inference Examples">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/09/bayesian-inference-examples/" data-tooltip="Bayesian Inference Examples">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -757,7 +757,7 @@ $$</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="//physhik.com/2017/08/clustering-2-soft-k-mean/" data-tooltip="Clustering (2) : Soft K-mean">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://physhik.github.io/2017/08/clustering-2-soft-k-mean/" data-tooltip="Clustering (2) : Soft K-mean">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -809,7 +809,7 @@ $$</p>
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//physhik.com/images/avatar.jpg" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://physhik.github.io/images/avatar.jpg" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Namshik Kim</h4>
     
@@ -854,7 +854,7 @@ $$</p>
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2019/11/machine-learns-from-cardiologist-4/">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/11/machine-learns-from-cardiologist-4/">
                 <h3 class="media-heading">Machine Learns from Cardiologist (4)</h3>
               </a>
               <span class="media-meta">
@@ -872,7 +872,7 @@ I myself found some errors due to the version change of Python libraries, so I u
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2019/10/new-blog-theme/">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/10/new-blog-theme/">
                 <h3 class="media-heading">New Blog Theme</h3>
               </a>
               <span class="media-meta">
@@ -889,7 +889,7 @@ I myself found some errors due to the version change of Python libraries, so I u
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2019/03/machine-learns-from-cardiologist-3/">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-3/">
                 <h3 class="media-heading">Machine Learns from Cardiologist (3)</h3>
               </a>
               <span class="media-meta">
@@ -906,7 +906,7 @@ I myself found some errors due to the version change of Python libraries, so I u
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2019/03/machine-learns-from-cardiologist-2/">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/machine-learns-from-cardiologist-2/">
                 <h3 class="media-heading">Machine Learns from Cardiologist (2)</h3>
               </a>
               <span class="media-meta">
@@ -924,7 +924,7 @@ What matters is if we have enough data, and how we can preprocess the data prope
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2019/03/macnine-learns-from-cardiologist-1/">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/03/macnine-learns-from-cardiologist-1/">
                 <h3 class="media-heading">Macnine Learns from Cardiologist (1)</h3>
               </a>
               <span class="media-meta">
@@ -942,7 +942,7 @@ When I scanned a few reseach papers, the 1 dimensional signal and the regular pa
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2019/02/youtube-data-api-on-gcp/">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/02/youtube-data-api-on-gcp/">
                 <h3 class="media-heading">Youtube Data API on GCP</h3>
               </a>
               <span class="media-meta">
@@ -960,7 +960,7 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2019/02/clean-coding-and-short-run-time/">
+              <a class="link-unstyled" href="https://physhik.github.io/2019/02/clean-coding-and-short-run-time/">
                 <h3 class="media-heading">Clean Coding and Short Run Time</h3>
               </a>
               <span class="media-meta">
@@ -977,7 +977,7 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2018/02/revisited-variational-inference/">
+              <a class="link-unstyled" href="https://physhik.github.io/2018/02/revisited-variational-inference/">
                 <h3 class="media-heading">Revisited Variational Inference</h3>
               </a>
               <span class="media-meta">
@@ -995,7 +995,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2018/02/rough-review-of-wavegan/">
+              <a class="link-unstyled" href="https://physhik.github.io/2018/02/rough-review-of-wavegan/">
                 <h3 class="media-heading">Rough Review of WaveGAN</h3>
               </a>
               <span class="media-meta">
@@ -1012,7 +1012,7 @@ Data concerned in machine learning are ruled by physics of informations. It soun
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="//physhik.com/2017/12/introduction-to-gan/">
+              <a class="link-unstyled" href="https://physhik.github.io/2017/12/introduction-to-gan/">
                 <h3 class="media-heading">Introduction to GAN </h3>
               </a>
               <span class="media-meta">
@@ -1042,7 +1042,7 @@ Revolution in deep learning As we have seen at the post of VAE, generative model
     
   
     
-    <div id="cover" style="background-image:url('//physhik.com/images/cover.jpg');"></div>
+    <div id="cover" style="background-image:url('https://physhik.github.io/images/cover.jpg');"></div>
   
 
 
@@ -1054,7 +1054,7 @@ Revolution in deep learning As we have seen at the post of VAE, generative model
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="//physhik.com/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+<script src="https://physhik.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
 <script lang="javascript">
@@ -1089,7 +1089,7 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = '\/\/physhik.com\/2017\/09\/mcmc-6-gibbs-sampling-and-overrelaxation\/';
+          this.page.url = 'https:\/\/physhik.github.io\/2017\/09\/mcmc-6-gibbs-sampling-and-overrelaxation\/';
           
             this.page.identifier = '\/2017\/09\/mcmc-6-gibbs-sampling-and-overrelaxation\/'
           

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>algorithm on Physics to Data Science</title>
-    <link>//physhik.com/tags/algorithm/</link>
+    <link>https://physhik.github.io/tags/algorithm/</link>
     <description>Recent content in algorithm on Physics to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Aug 2017 11:25:00 -0700</lastBuildDate><atom:link href="//physhik.com/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Aug 2017 11:25:00 -0700</lastBuildDate><atom:link href="https://physhik.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Algorithm Study (1) : Dynamic Programming</title>
-      <link>//physhik.com/_draft/2017-08-18-dynamicprogramming/</link>
+      <link>https://physhik.github.io/_draft/2017-08-18-dynamicprogramming/</link>
       <pubDate>Fri, 18 Aug 2017 11:25:00 -0700</pubDate>
       
-      <guid>//physhik.com/_draft/2017-08-18-dynamicprogramming/</guid>
+      <guid>https://physhik.github.io/_draft/2017-08-18-dynamicprogramming/</guid>
       <description>Algorithm
 This is mainly a Python-implementation of the book, Cracking the coding interview, which includes examples and chosen exercises. Since I have studied algorithm of programming with Python and the Problem Solving with Algorithms and Data Structures using Python, I would review about them, too.
 Actually, I started to solve the exercises of the chapter 8 (dynamic programming) because I thought I have a hole that Problem Solving with Algorithms and Data Structures using Python does not contain it.</description>
