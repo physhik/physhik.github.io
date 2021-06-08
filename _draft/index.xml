@@ -95,5 +95,14 @@ G = nx.Graph() Can see the nodes as following</description>
 이 포스팅 또한 jekyll 홈페이지와 Sechter의 블로그의 내용의 번역이 주가 될 예정이니 더 자세한 내용을 원하시면 해당 링크로 들어가서 확인하시기 바랍니다.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://physhik.github.io/_draft/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://physhik.github.io/_draft/about/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

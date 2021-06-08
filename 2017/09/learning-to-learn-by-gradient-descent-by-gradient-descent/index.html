@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.82.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.83.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
 <meta name="description" content="I had a trip to Quebec city for 4 days. Behind the lingering from the travel, I prepared for the meetup this week. I could not join it because of birthday dinner with my girlfriend. However, I studied the original paper seriously, and the topic involves some interesting ideas, so I want to introduce about it.
@@ -360,16 +360,16 @@ if (!doNotTrack) {
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>When I check Keras or Tensorflow LSTM class, they just fully open the forget gate, and do not have option for adjustment. If want to adjust, need to use the subclass of the LSTM class. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>When I check Keras or Tensorflow LSTM class, they just fully open the forget gate, and do not have option for adjustment. If want to adjust, need to use the subclass of the LSTM class.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>Some recent popular optimizers like RMSprop use momentum instead of using the gradient to change the position of the weight particle. See <a href="https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf">the tutorial</a> by Geoffrey Hinton, if you want some detail. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>Some recent popular optimizers like RMSprop use momentum instead of using the gradient to change the position of the weight particle. See <a href="https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf">the tutorial</a> by Geoffrey Hinton, if you want some detail.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3" role="doc-endnote">
-<p>I am suspicious if the L2L optimizer is faster than other optimizers overall. The performance by iteration steps are amazing, but basically need to run two optimizers. I run TensorFlow using my mac, so the efficiency of the LSTM optimizer was bad, and could not test how effective it is. Besides, the performance of L2L optimization depends on the Adam, too. If you use the normal gradient descent to minimize the loss function of the network, LSTM optimizer performs worse than RMSprop. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>I am suspicious if the L2L optimizer is faster than other optimizers overall. The performance by iteration steps are amazing, but basically need to run two optimizers. I run TensorFlow using my mac, so the efficiency of the LSTM optimizer was bad, and could not test how effective it is. Besides, the performance of L2L optimization depends on the Adam, too. If you use the normal gradient descent to minimize the loss function of the network, LSTM optimizer performs worse than RMSprop.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:4" role="doc-endnote">
-<p>The formula and the graph were captured from <a href="https://arxiv.org/abs/1606.04474">the paper</a>. <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>The formula and the graph were captured from <a href="https://arxiv.org/abs/1606.04474">the paper</a>.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>

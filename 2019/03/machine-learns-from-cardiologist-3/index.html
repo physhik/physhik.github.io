@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.82.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.83.1 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Namshik Kim">
 <meta name="keywords" content=", data science, machine learning, neural network">
 <meta name="description" content="Open source The codes can be found at my Github repo. If you are familar to the models already, just see the codes. The codes are made from understanding of the research papers in Nature and the other and the open source. The host and main contributors of the linked repo are the co-authors of the original research papers. The two related research papers are easy to understand. If you do not have much time to read it, see their blog post about this research.">
@@ -375,13 +375,13 @@ if (!doNotTrack) {
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>It is subtle to see the difference of two models in the model figure introduced in this post. However, as looking into the codes, the numbers of dropout and maxpoolings layers, and kernel size of the convolution layers are different in two models. CINC stil had a good accuracy score in the CINC2017 competition. I followed the model of the Stanford research group (original). <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>It is subtle to see the difference of two models in the model figure introduced in this post. However, as looking into the codes, the numbers of dropout and maxpoolings layers, and kernel size of the convolution layers are different in two models. CINC stil had a good accuracy score in the CINC2017 competition. I followed the model of the Stanford research group (original).&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>keras.model.summary presents the output shapes are well-matched without a fllattening layer. The layer after the loop has 1-size input with many filters, (1, the number of filters), and the shape of target label layer is designed to be (1, number of categories of the result) <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>keras.model.summary presents the output shapes are well-matched without a fllattening layer. The layer after the loop has 1-size input with many filters, (1, the number of filters), and the shape of target label layer is designed to be (1, number of categories of the result)&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3" role="doc-endnote">
-<p>I randomly picked 28.4 percentages of noise signals from CINC2017 dataset. The sampling rates of MIT-BIH, CINC2017, irhythm datasets are 360Hz, 300Hz, 200Hz. They should be matched in a trainer, even for recorded noise. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>I randomly picked 28.4 percentages of noise signals from CINC2017 dataset. The sampling rates of MIT-BIH, CINC2017, irhythm datasets are 360Hz, 300Hz, 200Hz. They should be matched in a trainer, even for recorded noise.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>

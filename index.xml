@@ -102,9 +102,7 @@ AWS and GCP opened many cloud platform services, and to build the data pipeline 
       <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://physhik.github.io/about/</guid>
-      <description>Namshik Kim I am a data physicist, interested in deep learning. The posts of the blog demonstrate my interest very well. I still think of myself a physicist because my perspective in data science and deep learning is still very physicist-oriented after I finished PhD program in physics in string theory group in May, 2017.
-Résumé Current Résumé
-Data analysis I do not talk about SQL or other data analysis topics.</description>
+      <description>Namshik Kim I am a data physicist, interested in deep learning. The posts of the blog demonstrate my interest very well. I still think of myself a physicist because my perspective in data science and deep learning is still very physicist-oriented after I finished PhD program in physics in string theory group in May, 2017.</description>
     </item>
     
     <item>
@@ -465,6 +463,15 @@ I found jekyll homepage and Sechter&amp;rsquo;s blog good. I guess you would bar
       <guid>https://physhik.github.io/2017/08/welcome-to-jekyll/</guid>
       <description>You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.
 To add new posts, simply add a file in the _posts directory that follows the convention YYYY-MM-DD-name-of-post.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://physhik.github.io/_draft/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://physhik.github.io/_draft/about/</guid>
+      <description></description>
     </item>
     
   </channel>
